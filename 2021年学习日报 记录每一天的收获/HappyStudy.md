@@ -1,0 +1,28 @@
+# 前言
+
+这里是19级的一个菜狗前端（学习者）在大三上刚开学的关键时期 遇到一位优秀的大四学长 了解到如同Offer收割机一般拿下众多大厂的offer 
+
+他的过人之处从[这个仓库](https://github.com/FangzhouSu/AndroidSecurityPlan/tree/master/%E5%AE%89%E5%8D%93%E5%BA%94%E7%94%A8%E5%AE%89%E5%85%A8%E5%AD%A6%E4%B9%A0%E8%AE%A1%E5%88%92%E4%BB%A5%E5%8F%8A%E5%AE%8C%E6%88%90%E6%83%85%E5%86%B5)就可见一斑！简单学习下~
+
+![请添加图片描述](https://img-blog.csdnimg.cn/62654452a28c40f5be2ad1f032852a22.png?x-oss-process=image/watermark,type_ZHJvaWRzYW5zZmFsbGJhY2s,shadow_50,text_Q1NETiBA5pWy5Luj56CB55qE5bCP5o-Q55C05omL,size_20,color_FFFFFF,t_70,g_se,x_16)
+
+
+- 这是他秋招Offer的现状 真的是Offer收割机啊…
+
+![请添加图片描述](https://img-blog.csdnimg.cn/8c140dbdc50f4028aa09722faf1db0ad.png?x-oss-process=image/watermark,type_ZHJvaWRzYW5zZmFsbGJhY2s,shadow_50,text_Q1NETiBA5pWy5Luj56CB55qE5bCP5o-Q55C05omL,size_9,color_FFFFFF,t_70,g_se,x_16)
+
+
+- 学历其实并不是他成功的原因——
+
+![请添加图片描述](https://img-blog.csdnimg.cn/aa901770d16c4451908c3c04d2b1f66b.png?x-oss-process=image/watermark,type_ZHJvaWRzYW5zZmFsbGJhY2s,shadow_50,text_Q1NETiBA5pWy5Luj56CB55qE5bCP5o-Q55C05omL,size_7,color_FFFFFF,t_70,g_se,x_16)
+
+
+所以 再更努力一些吧！ 从今天开始（真心感谢大佬学长的分享！向学长学习！）
+
+——2021.9.2
+
+
+
+# 2021年学习日报
+
+# 2021.9.2
