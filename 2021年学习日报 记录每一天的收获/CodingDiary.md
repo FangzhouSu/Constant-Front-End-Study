@@ -167,7 +167,7 @@ var twoSum = function(nums, target) {
 
 咳咳 先放松两天咯
 
-主要学习内容——计网的IP部分 知识体系更加清晰了 练习了一下HTML的布局 刷了leetcode02 踩了个JS无法向下取整的坑 这辈子都错不了这块儿了！！！！！！ 
+主要学习内容——计网的IP部分 知识体系更加清晰了另外复习了超级经典的“为啥要三次握手四次挥手捏？” 练习了一下HTML的布局 刷了leetcode02 踩了个JS无法向下取整的坑 这辈子都错不了这块儿了！！！！！！ 
 
 ## 核心基础知识
 
@@ -378,7 +378,7 @@ IP地址的网络地址这部分的作用是：路由控制！
 
 - 1.TCP 建立连接与断开连接的过程
 
-- 2.TCP 泛洪攻击（TCP 建立连接过程中的攻击手段）与防护
+- 2.TCP                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                               泛洪攻击（TCP 建立连接过程中的攻击手段）与防护
 
 
 
@@ -386,7 +386,7 @@ IP地址的网络地址这部分的作用是：路由控制！
 
 ##### TCP 三次握手（连接过程）
 
-![img](https://bytedancecampus1.feishu.cn/space/api/box/stream/download/asynccode/?code=ZmRiNTdjOGUxMmJkNzBlOGE0ZWZjYjRiODI4ZjJmOWRfZ0VPaVNkN0hVRnpTR25BUmtjbVMzeUttZ0hVeFNicTRfVG9rZW46Ym94Y250bWtGOElkVHFlZUN5blJLSWdCelhjXzE2MzA2NzU3NjI6MTYzMDY3OTM2Ml9WNA)
+![在这里插入图片描述](https://img-blog.csdnimg.cn/652b05eb1b614cd38843ff7e5ea03683.png)
 
 **第一次握手**
 
@@ -410,7 +410,7 @@ IP地址的网络地址这部分的作用是：路由控制！
 
 ##### **TCP 四次挥手（断开链接）**
 
-![img](https://bytedancecampus1.feishu.cn/space/api/box/stream/download/asynccode/?code=MWMzYWEwYTdhZGQyNjY1ZmMyNmY3OGNmMmZiYjk3ZDNfVDZUVXVPMlhHVEp1UjNuUlBKRXFPTjB2TWVWUDhtdFBfVG9rZW46Ym94Y25PUXU3NjlwV2xxNW1vRDR6T0tRR2lnXzE2MzA2NzU4MTI6MTYzMDY3OTQxMl9WNA)
+![在这里插入图片描述](https://img-blog.csdnimg.cn/04ddccdaa07a474487eb43ea8f89e3fe.png?x-oss-process=image/watermark,type_ZHJvaWRzYW5zZmFsbGJhY2s,shadow_50,text_Q1NETiBA5pWy5Luj56CB55qE5bCP5o-Q55C05omL,size_20,color_FFFFFF,t_70,g_se,x_16)
 
 **第一次挥手**
 
@@ -442,7 +442,7 @@ A 收到释放请求后，向 B 发送确认应答，此时 A 进入 TIME-WAIT �
 
 导致服务器存在大量的半开连接，这些半连接可以耗尽服务器资源，使被攻击服务器无法再响应正常 TCP 连接，从而达到攻击的目的
 
-![img](https://bytedancecampus1.feishu.cn/space/api/box/stream/download/asynccode/?code=N2Q3MzY1N2YyYzg0ODVmNDZlOTFjOWQwN2M0NGJkMjZfT3BCTkNwYTNNSlpzTXZmVmc3WlFlTVljTEFScW5raWVfVG9rZW46Ym94Y25WMkp2b1c4QzY4VlpEZks1RWR5MzJiXzE2MzA2NzU4NDA6MTYzMDY3OTQ0MF9WNA)
+![在这里插入图片描述](https://img-blog.csdnimg.cn/45fe2a2fafed44dfaa2358de1247a858.png?x-oss-process=image/watermark,type_ZHJvaWRzYW5zZmFsbGJhY2s,shadow_50,text_Q1NETiBA5pWy5Luj56CB55qE5bCP5o-Q55C05omL,size_14,color_FFFFFF,t_70,g_se,x_16)
 
 幸运的是，一种称为 SYN cookie 的有效防御现在已部署在大多数主要的操作系统中：
 
@@ -503,7 +503,7 @@ var addTwoNumbers = function(l1, l2) {
 
   【为什么要用虚拟头结点】使用虚拟头指针的目的在于链表初始化时无可用节点值，而且**链表构造过程需要指针移动，进而会导致头指针丢失，无法返回结果**。
 
-# 2021.9.4展望
+# 2021.9.4
 
 > 9.4要出去玩耍 所以不报太高期望 学到啥简单记录下好了
 
