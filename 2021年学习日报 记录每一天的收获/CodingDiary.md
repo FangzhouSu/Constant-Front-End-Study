@@ -1020,3 +1020,509 @@ var maxProfit = function(prices) {
 
 - 时间复杂度O(n^2^)
 - 空间复杂度：O(1)
+
+
+
+
+
+# 2021.9.8
+
+```js
+//今日主要收获 & 学习时间
+Totally 260min
+1.计网 40min
+/*DNS服务器如何进行域名到IP地址的解析
+了解到了**HTTP的数据包**的传输是由传输层的**协议栈**来做*/
+2.操作系统 40min
+/*1.梳理了一下多线程同步的内容
+	竞争与协作
+    互斥与同步的实现
+    经典同步问题
+2.王道考研
+	OS的运行机制与体系结构
+    中断和异常
+    系统调用*/
+3.前端基础知识 
+3.1 H5 C3 0min
+3.2 JS 120min
+/* 通过刷一道面试题，对题目中运用到的知识点进行了总结和学习
+1.复习了一下展开运算符 ...
+2.复习了一下`array.sort((a, b) => {return a - b;})`的冒泡排序法
+3.复习了一下JS数组转字符串的三种方法（由那道面试题引出来的）、字符串转数组的方法*/
+3.3 JS红宝书
+4.前端开发框架 0min
+/**/
+5.刷题心得 60min
+/*杨辉三角*/
+```
+
+今天晚上上了两节琴课之后效率就降到0了 逛了一晚上b站 推荐算法太恐怖！
+
+今天主要收获是在下午那会儿 通过刷一道面试题，对题目中运用到的知识点进行了总结和学习！做了蛮多笔记也学到不少东西
+
+另外 今天对计网方面收获也很大！
+
+了解了 DNS服务器如何进行域名到IP地址的解析；了解到了**HTTP的数据包**的传输是由传输层的**协议栈**来做！
+
+## 核心基础知识
+
+### 计网
+
+```js
+//小林的图解网络 先刷几遍所需要的知识点 &读图解HTTP TCP等书籍 & 网络抓包实操练习 深入理解
+1.HTTP应用层
+2.用于域名解析的DNS服务器
+3.帮助数据包找到目的地的关键部分——协议栈
+```
+
+#### 1.HTTP应用层
+
+浏览器做的第一步工作就是要对 `URL` 进行解析 从而生成发送给 `Web` 服务器的==请求信息==。
+
+应用层工作完事儿~
+
+HTTP数据包被发送到网络中！
+
+#### 2.DNS服务器进行域名解析的工作流程
+
+两张图 一个流程解释得贼清楚
+
+域名的层级关系类似一个树状结构：
+
+- 根 DNS 服务器
+- 顶级域 DNS 服务器（com）
+- 权威 DNS 服务器（server.com）
+
+![图片](https://mmbiz.qpic.cn/mmbiz_png/J0g14CUwaZdCwxNydn5YuT0s7aLuqWCvN6F6eZ2vAU04o8gh1mJ6l7ovc7wsCvTVMvCFHyHqfsRUKtWYnblsCA/640?wx_fmt=png&tp=webp&wxfrom=5&wx_lazy=1&wx_co=1)
+
+
+
+> 由== == 框起来得就是 在这个流程中的主角们（包括客户端 DNS服务器 ）
+
+1. ==客户端==首先会**发出一个 DNS 请求** 问 www.server.com 的 IP 是啥，并发给==本地 DNS 服务器==（也就是客户端的 TCP/IP 设置中填写的 DNS 服务器地址）
+2. ==本地域名服务器==收到客户端的请求后 
+   - 如果==缓存==里的表格能找到 www.server.com，则它直接返回 IP 地址。
+   - 如果没有，本地 DNS 会去问它的==根域名服务器==：“老大， 能告诉我 www.server.com 的 IP 地址吗？” 根域名服务器是最高层次的，它**不直接用于域名解析**，但能指明一条道路。
+3. ==根 DNS==（服务器） 收到来自==本地 DNS== 的请求后，发现后置是 .com，说：“www.server.com 这个域名归 .com 区域管理”，我给你 .com ==顶级域名服务器==地址给你，你去问问它吧。”
+4. ==本地 DNS== 收到顶级域名服务器的地址后，发起请求问“老二， 你能告诉我 www.server.com  的 IP 地址吗？”
+5. ==顶级域名服务器==说：“我给你负责 www.server.com 区域的==权威 DNS 服务器的地址==，你去问它应该能问到”。（也是负责指路的~）
+6. ==本地 DNS== 于是转向问权威 DNS 服务器：“老三，www.server.com对应的IP是啥呀？” server.com 的==权威 DNS 服务器==，它是域名解析结果的原出处。为啥叫权威呢？就是我的域名我做主。
+7. ==权威 DNS 服务器==查询后将对应的 IP 地址 X.X.X.X 告诉==本地 DNS==。
+8. ==本地 DNS== 再将 IP 地址返回客户端，客户端和目标建立连接。——目标达成！
+
+
+
+至此，我们完成了 DNS 的解析过程。现在总结一下，整个过程我画成了一个图。
+
+![图片](https://mmbiz.qpic.cn/mmbiz_png/J0g14CUwaZdCwxNydn5YuT0s7aLuqWCv5bBPibRf9nk4wIb6J3jP62L6NEmPk3HicMUgf8VatcBicynP6BKLeT6GQ/640?wx_fmt=png&tp=webp&wxfrom=5&wx_lazy=1&wx_co=1)
+
+#### 3.指南好帮手——协议栈
+
+> 这里只是一个总览哈！要有层次感！
+
+通过 DNS 获取到 IP 后，就可以把 HTTP 的传输工作交给操作系统中的**协议栈**。
+
+协议栈的内部分为几个部分，分别承担不同的工作。上下关系是有一定的规则的，上面的部分会向下面的部分委托工作，下面的部分收到委托的工作并执行。
+
+![图片](https://mmbiz.qpic.cn/mmbiz_png/J0g14CUwaZdCwxNydn5YuT0s7aLuqWCvbLic0XNMIJgJ0pDm6K4s39vgGO4enAIT1jzDXfQPYrdiaQe8TMy11Wicw/640?wx_fmt=png&tp=webp&wxfrom=5&wx_lazy=1&wx_co=1)
+
+协议栈的上半部分有两块 分别是——
+
+- 负责收发数据的 TCP 和 UDP 协议，它们两会**接受应用层的委托执行收发数据的操作**。
+- 协议栈的下面一半是用 IP 协议控制网络包收发操作，在互联网上传数据时，数据会被切分成一块块的网络包，而**将网络包发送给对方的操作就是由 IP 负责的**。
+  - 此外 IP 中还包括 `ICMP` 协议和 `ARP` 协议。
+    - `ICMP` 用于==告知==网络包传送过程中==产生的错误以及各种控制信息==。
+    - `ARP` 用于==根据 IP 地址==查询相应的==以太网 MAC 地址==。
+
+IP 下面的网卡驱动程序负责**控制网卡硬件**
+
+而最下面的网卡（物理硬件网卡）则负责完成实际的收发操作，也就是对**网线中的信号**执行发送和接收操作。
+
+
+
+#### 截至今天 我们的数据包经历的过程
+
+1.一个孤单 HTTP 数据包很迷茫！
+
+2.数据包表示：“DNS 老大哥厉害呀，**找到了目的地**了！我还是很迷茫呀，我要发出去，接下来我需要谁的帮助呢?”
+
+3.数据包看了这份指南表示：“原来我需要那么多大佬的协助啊，那我先去找找 TCP 大佬！”
+
+数据包在去传输层的路上哈 第二天继续学习那部分的内容
+
+###  操作系统
+
+```js
+//小林的图解系统 & 学校课程学习 & 王道考研-OS 三者配合 高效学习
+1.梳理了一下多线程同步的内容
+	竞争与协作
+    互斥与同步的实现
+    经典同步问题
+2.王道考研
+	OS的运行机制与体系结构
+    中断和异常
+    系统调用
+```
+
+
+
+## 前端基础
+
+### 基础知识
+
+```js
+//每日学到的知识点 可以写文章 可以记在心里 总结下来！
+1.复习了一下展开运算符 ...
+2.复习了一下`array.sort((a, b) => {return a - b;})`的冒泡排序法
+3.复习了一下JS数组转字符串的三种方法（由那道面试题引出来的）、字符串转数组的方法
+```
+
+#### 1.展开运算符
+
+- 【1】展开一个数组
+
+```js
+console.log(...arr1);//6 6 6
+```
+
+- 【2】连接两个数组
+
+注意这里 […arr1, …arr2] 是一个Object
+
+```js
+let arr = [...arr1, ...arr2];
+console.log(arr);//[6, 6, 6, 8, 8, 8]
+console.log(...arr1, ...arr2)//6 6 6 8 8 8
+console.log(typeof(arr));//Object
+```
+
+- 【3】在函数中使用 可以直接传入一个数组进去
+
+不使用展开运算符的话 数组形式是 [6,6,6]
+
+使用展开运算符 传入形式可以简单地输入一组数字 6,6,6
+
+```js
+function sum(...numbers){
+    return numbers.reduce((preValue, currentValue) => {
+        return preValue + currentValue;//这里顺带着复习下reduce方法 —— 可以用于数组求和等多个
+    })
+}
+console.log(sum(6,6,6));
+```
+
+- 【4】在对象中可以使用展开语法
+
+  - 用途1 *即使把person赋给了person2 person2在更改对象属性地时候也不会影响person*
+
+  ```js
+  let person = {name:'bill', age:21};
+  let person2 = {...person};
+  let person3 = person2;
+  person2.name = 'gates';
+  
+  console.log(person);//{name: "bill", age: 21} 
+  //即使把person赋给了person2 person2在更改对象属性地时候也不会影响person
+  console.log(person2);//{name: "gates", age: 21}
+  console.log(person3);//{name: "gates", age: 21}
+  //只单纯地将person2赋给person3 就会导致对属性地改变一并赋给新的对象实例
+  ```
+
+  - 用途2 给对象扩充属性
+
+  ```js
+  let person = {name:'bill', age:21};
+  let person3 = {...person, name:'oho', hobby:"eating"};
+  
+  console.log(person3)//{name: "oho", age: 21, hobby: "eating"}
+  ```
+
+  
+
+#### 2.`array.sort((a, b) => {return a - b;})`的冒泡排序法
+
+`arr.sort(Comparator<>)`
+对数组中相邻的两个数进行比较
+一轮完了接着二轮 是一个冒泡排序
+
+
+
+`(a, b) -> a - b` 相当于
+
+```js
+function(a,b){
+	return a-b;
+}
+```
+
+相当于Comparator<>  (Java中的内容)
+
+**源码中写作(a, b) => a - b** (等价于  return a - b;)
+
+> `arr.sort(Comparator<>)`
+> 是对数组进行冒泡排序
+> ==如果 a - b < 0 则 **a在前  b在后**、直到有序==
+
+
+
+而这个不光可以用于从小到大/从大到小 排列数组
+
+还可以用于做一些复杂的操作
+
+
+
+今天的面试题中 将一组字符串数组按照 黄、红、蓝 的顺序排列好 就用到了这个~
+
+```js
+var sort = function(str){
+    let arr = str.split('');
+    
+    arr.sort((a, b) => {
+        return getNumByType(a) - getNumByType(b);
+    })//这里已经按照数组的顺序排列好了~
+    
+    return arr.toString();//再转成字符串形式即可
+}
+var getNumByType = function(num){
+    switch(num){
+    	case '黄':
+            return 1;
+        case '红':
+            return 2;
+        default:
+            return 3;
+    }
+}
+let str = ('红黄蓝蓝蓝黄红红黄黄');
+console.log(sort(str));//黄,黄,黄,黄,红,红,红,蓝,蓝,蓝
+```
+
+
+
+#### 3.JS数组转字符串的三种方法
+
+[JS数组转字符串（3种方法）](http://c.biancheng.net/view/5673.html)
+
+- `.toString()` 顾名思义咯~
+- `.join()` 可以指定分隔符奥！
+
+```js
+var a = [1,2,3,4,5];  //定义数组
+var s = a.join("==");  //指定分隔符
+console.log(s);  //返回字符串“1==2==3==4==5”
+```
+
+- `toLocaleString()` 方法与 `toString()` 方法用法基本相同 使用用户所在地区特定的分隔符把生成的字符串连接起来形成一个字符串。
+
+这个方法还可以用来把对象转化为字符串 常与Date对象结合使用
+
+```js
+var d=new Date();
+var n=d.toLocaleString();
+console.log(n);  //将Date对象转换为字符串 
+//格式类似：2021/9/8下午6:27:05
+```
+
+
+
+另外 字符串转化为数组的方法为——
+
+`.split()` 同样可以指定分隔符
+
+
+
+
+
+```
+  //freecodecamp刷题
+```
+
+
+
+
+
+
+
+### JS红宝书
+
+```
+  //经典书籍 目标：反复阅读
+```
+
+
+
+
+
+### JS30练
+
+```
+  //一天一个有趣的原生JS练手demo 边做边总结！
+```
+
+今天没做！ 晚上回来太拉跨了！
+
+## 前端开发框架
+
+### react尚硅谷
+
+```
+  //广受好评的react教程 先快速过一下 再去实操哦！
+```
+
+我最爱的react今天也没学！
+
+### react习题练习
+
+```
+  //先过一遍原理 再去敲代码加深印象（freecodecamp）
+```
+
+
+
+## 面试题
+
+### 每日刷点面试题
+
+```js
+//网上面试题辣么多 一天多看一些 然后同时也要研究一些题的答案！
+```
+
+今天做了一个简单的算法题 用了两种方法
+
+> - 013-【算法】【中等】在一个字符串中有红、黄、蓝三种颜色的球，且个数不相等、顺序不一致，请为该字符串中的内容进行排序。使得排序后得到一个数组，其中球的顺序为:黄、红、蓝。
+>
+> 例如：红蓝蓝黄红黄蓝红红黄红，排序后为：黄黄黄红红红红红蓝蓝蓝。
+
+#### 解题思路及代码：
+
+这里注意一个小细节
+
+==字符串==：形如 `('红黄蓝蓝蓝黄红红黄黄')` ！
+
+##### 字符串数组转数组法
+
+自己想的 有点笨拙的方法 没有技巧 就是用了个前置运算符 把几个数组拼起来了。
+
+```js
+var sort = function(str){
+    let arr = str.split('');
+    let yellow = [];
+    let red = [];
+    let blue = [];
+    for(let x of arr){
+        if(x === "黄"){
+            yellow.push(x);
+        }
+        else if(x === "红"){
+            red.push(x);
+        }
+        else if(x === "蓝"){
+            blue.push(x);
+        }
+        else{
+            alert("your input is uncorrect!");
+        }
+    }
+    let res = [...yellow,...red,...blue];
+    return res.toString();
+}
+let str = ('红黄蓝蓝蓝黄红红黄黄');
+console.log(sort(str));//黄,黄,黄,黄,红,红,红,蓝,蓝,蓝
+```
+
+
+
+##### 利用 `array.sort((a, b) => {return a - b;})`的方法重排列数组
+
+很棒的方法！
+
+工程师推荐的方法 很优雅！
+
+引出来了很多小知识点！可以看今天总结的 《前端基础 - 基础知识》
+
+```js
+var sort = function(str){
+    let arr = str.split('');
+    
+    arr.sort((a, b) => {
+        return getNumByType(a) - getNumByType(b);
+    })//这里已经按照数组的顺序排列好了~
+    
+    return arr.toString();//再转成字符串形式即可
+}
+var getNumByType = function(num){
+    switch(num){
+    	case '黄':
+            return 1;
+        case '红':
+            return 2;
+        default:
+            return 3;
+    }
+}
+let str = ('红黄蓝蓝蓝黄红红黄黄');
+console.log(sort(str));//黄,黄,黄,黄,红,红,红,蓝,蓝,蓝
+```
+
+
+
+
+
+### 力扣
+
+```JS
+//跟着数据结构入门 的每日学习计划 进行刷题 一天2-3题！ 
+//不要忘了温故而知新啊！
+今天只写了一题 太颓废了！
+```
+
+# 118.杨辉三角
+
+给定一个非负整数 *`numRows`，*生成「杨辉三角」的前 *`numRows`* 行。
+
+在「杨辉三角」中，每个数是它左上方和右上方的数的和。
+
+![img](https://pic.leetcode-cn.com/1626927345-DZmfxB-PascalTriangleAnimated2.gif)
+
+**示例 1:**
+
+```
+输入: numRows = 5
+输出: [[1],[1,1],[1,2,1],[1,3,3,1],[1,4,6,4,1]]
+```
+
+**示例 2:**
+
+```
+输入: numRows = 1
+输出: [[1]]
+```
+
+
+
+## 解题思路和代码
+
+### 我的思路
+
+看示例 第一反应 —— 二维数组
+
+第二反应 嗯 来找一下规律 嗯 规律很好找 数学方法搞定
+
+关键就是要**维护一个行数组 然后将其插入答案数组中**
+
+```js
+var generate = function(numRows) {
+    const res = [];
+    for(let i = 0; i < numRows; i++){
+        const row = new Array(i + 1).fill(1);//这里row是一个长度为 i+ 1 值全为1的一维数组 用来记录每行的内容
+        for(let j = 1; j < row.length - 1; j++){//row的长度 = i + 1 (i从0算起！还坑了我一下？！）√ 
+            row[j] = res[i - 1][j] + res[i - 1][j - 1];//这题关键就是想出来：要把一维数组往总的答案里插 （不要创建二维数组）
+        }
+        res.push(row);
+    }
+    return res;
+};
+```
+
+
+
