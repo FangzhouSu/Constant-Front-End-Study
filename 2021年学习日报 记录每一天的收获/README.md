@@ -1,4 +1,4 @@
-# 2021年学习总结
+2021年学习总结
 
 > 后期打算分3-4周 截出来一个当月学习日记 因为全放在一起太多了！
 
@@ -3570,7 +3570,7 @@ const Sleep = function(time){
     }
 }
 GetUp(7.20);//早早起床，开启阳光高效的一天😊！
-Sleep();//
+Sleep(1.00);//😭
 ```
 
 
@@ -3943,4 +3943,343 @@ var canConstruct = function(ransomNote, magazine) {
     return true;
 };
 ```
+
+# 2021.9.15 
+
+
+
+```js
+// 今日主要收获 & 学习时间
+// 学习内容的细则下面分块简单列出了
+Totally min
+1.计网 min
+	/*  */
+2.操作系统 min
+	/*  */
+3.前端基础知识 
+	3.1 JS 30demos 40min
+    	/* demo05 主要是过一下CSS的实现 简单的动画特效很好看~ */
+    3.2 JS红宝书 min
+    	/*  */
+    3.3 JS高级教程 min
+    	/*  */
+    3.4 freecodecamp一个专题练习2+道题 min
+    	/*  */
+4.刷题心得
+	4.1 力扣 20min
+    	/* 很快地搞定了一道242.有效的字母异位词 哈希映射~ */    
+    4.2 总结面经、面试题 30min
+    	/* 从URL字符串中获取 查询字符串参数 蛮有意思地一题 顺带了解了 URLd */
+5.前端开发框架 react学习 min
+	/*  */
+6.Ajax学习
+	/*  */
+7.学校课程内容 120+60+20min
+8.每日总结 min
+```
+
+
+
+```js
+const time = 6.66;
+const GetUp = function(time){
+    if(time < 8.00) {
+        console.log("早早起床，开启阳光高效的一天😊！");
+    }
+    else{
+        console.log("😭")
+    }
+}
+const Sleep = function(time){
+    if(time < 11.30){
+        console.log("早早睡觉，身体健康 心情愉悦😊~");
+    }
+    else{
+        console.log("😭");
+    }
+}
+GetUp(9.00);//😭
+Sleep();//
+```
+
+
+
+## 核心基础知识
+
+### 计网
+
+```js
+//小林的图解网络 先刷几遍所需要的知识点 &读图解HTTP TCP等书籍 & 网络抓包实操练习 深入理解
+//要再看看学习心得这里再开第二轮的学习~
+```
+
+
+
+
+
+
+
+###  操作系统
+
+```js
+//小林的图解系统 & 学校课程学习 & 王道考研-OS 三者配合 高效学习
+```
+
+
+
+## 前端基础
+
+### 基础知识
+
+```js
+//每日学到的知识点 可以写文章 可以记在心里 总结下来！
+1-10 见红宝书——主要是数组的方法与Map集合类型、Set集合类型
+```
+
+#### 1.数组的栈方法
+
+![在这里插入图片描述](https://img-blog.csdnimg.cn/118c90aad04e420ea95dbe5868e2af8a.png?x-oss-process=image/watermark,type_ZHJvaWRzYW5zZmFsbGJhY2s,shadow_50,text_Q1NETiBA5pWy5Luj56CB55qE5bCP5o-Q55C05omL,size_15,color_FFFFFF,t_70,g_se,x_16)
+
+
+
+#### 2.数组的队列方式
+
+就只有 入队列的方法与栈不同 其他方法是一样的
+
+使用shift
+
+插入到队头
+
+
+
+#### 3.数组排序方法 sort
+
+sort 这个sort有个坑 所以一般不直接用 
+
+![在这里插入图片描述](https://img-blog.csdnimg.cn/a4cb8f58a27f482ba15f6124bfaacb7e.png?x-oss-process=image/watermark,type_ZHJvaWRzYW5zZmFsbGJhY2s,shadow_50,text_Q1NETiBA5pWy5Luj56CB55qE5bCP5o-Q55C05omL,size_16,color_FFFFFF,t_70,g_se,x_16)
+
+
+
+#### 4.数组的操作方法-增加元素 单独切一段元素 插入元素 concat slice splice
+
+- `concat()`
+
+![在这里插入图片描述](https://img-blog.csdnimg.cn/ae3411e563ea4818af0be79c79571d76.png?x-oss-process=image/watermark,type_ZHJvaWRzYW5zZmFsbGJhY2s,shadow_50,text_Q1NETiBA5pWy5Luj56CB55qE5bCP5o-Q55C05omL,size_15,color_FFFFFF,t_70,g_se,x_16)
+
+- `slice()`
+
+![请添加图片描述](https://img-blog.csdnimg.cn/72702c8f27664677964f4c08582cb9dd.png?x-oss-process=image/watermark,type_ZHJvaWRzYW5zZmFsbGJhY2s,shadow_50,text_Q1NETiBA5pWy5Luj56CB55qE5bCP5o-Q55C05omL,size_15,color_FFFFFF,t_70,g_se,x_16)
+
+
+
+- `splice()`
+
+![请添加图片描述](https://img-blog.csdnimg.cn/562f8ba16eb742e39d20baafbd23ba49.png?x-oss-process=image/watermark,type_ZHJvaWRzYW5zZmFsbGJhY2s,shadow_50,text_Q1NETiBA5pWy5Luj56CB55qE5bCP5o-Q55C05omL,size_15,color_FFFFFF,t_70,g_se,x_16)
+
+#### 5.搜索数组中元素的位置 indexOf
+
+![在这里插入图片描述](https://img-blog.csdnimg.cn/80a68236760b480dbc2ddd50c896d519.png?x-oss-process=image/watermark,type_ZHJvaWRzYW5zZmFsbGJhY2s,shadow_50,text_Q1NETiBA5pWy5Luj56CB55qE5bCP5o-Q55C05omL,size_15,color_FFFFFF,t_70,g_se,x_16)
+
+
+
+#### 6.迭代方法 - 各种高级操作 filter map forEach
+
+超级好用的几个方法！
+
+- `every()`
+- `some()`
+- `filter()`
+
+![在这里插入图片描述](https://img-blog.csdnimg.cn/ca565154c7664d0a8c01b45a30397477.png?x-oss-process=image/watermark,type_ZHJvaWRzYW5zZmFsbGJhY2s,shadow_50,text_Q1NETiBA5pWy5Luj56CB55qE5bCP5o-Q55C05omL,size_17,color_FFFFFF,t_70,g_se,x_16)
+
+- `map()`
+- `forEach()`
+
+![请添加图片描述](https://img-blog.csdnimg.cn/b16fc430c789416aaeb99134b28a7cd5.png)
+
+#### 7.归并方法 reduce
+
+- `reduce()`
+
+这里的reduce的第一个参数 prev要注意
+
+如果求和时  一般会给其起名为total 用于存储截至此时的和 
+
+![在这里插入图片描述](https://img-blog.csdnimg.cn/0ccc715666954883ad908dff58bff2a7.png?x-oss-process=image/watermark,type_ZHJvaWRzYW5zZmFsbGJhY2s,shadow_50,text_Q1NETiBA5pWy5Luj56CB55qE5bCP5o-Q55C05omL,size_15,color_FFFFFF,t_70,g_se,x_16)
+
+
+
+#### 8.Map集合类型的基本API
+
+明确Map实例的格式 为 键值对 
+
+```js
+const map = new Map([
+    ["key1", "val1"],
+    ["key2", "val2"],
+    ["key3", "val3"]
+])
+```
+
+
+
+- set() 添加键值对
+- get() 获得某个键的值
+- has() 查询是否有这个键
+- `.size()` 获取键值对数量
+- delete() 删除某个键值对
+- clear() 清除映射实例中的所有键值对
+
+举例：
+
+![在这里插入图片描述](https://img-blog.csdnimg.cn/a78321c557bb42b797bd84877bc5fe04.png?x-oss-process=image/watermark,type_ZHJvaWRzYW5zZmFsbGJhY2s,shadow_50,text_Q1NETiBA5pWy5Luj56CB55qE5bCP5o-Q55C05omL,size_18,color_FFFFFF,t_70,g_se,x_16)
+
+另外 与Object只能使用数值、字符串、符号作为键不同
+
+Map可以使用**任何JS数据类型**作为键！！（这也是为啥ES6要创键这个集合类型）
+
+
+
+- 另外注意 Map实例对象2个有趣的特性：
+
+  - 一个key放入多个value —— 覆盖原先的value
+
+  ```js
+  var m = new Map();
+  m.set('Adam', 67);
+  m.set('Adam', 88);
+  m.get('Adam');//88
+  ```
+
+  可以看出 key是不允许重复的！这也符合哈希表特性
+
+  但是重复了也不会出错 自动就覆盖掉了
+
+  - 值重复就没啥事儿（那肯定的嘛）
+
+  ![请添加图片描述](https://img-blog.csdnimg.cn/b7e9d37dcc56444085727559a46704ef.png)
+
+#### 9.迭代Map实例（按照插入顺序）
+
+p191
+
+又看到了 .entries() 迭代器方法！
+
+——可以返回key value
+
+#### 10.Set集合类型的基本API 
+
+跟Map的大多数API 和 行为 都是共有的
+
+也是一组key的集合，但**不存储value**。                  
+
+- 要创建一个`Set`，需要提供一个`Array`作为输入，或者直接创建一个空`Set`：
+
+```js
+var s1 = new Set(); // 空Set
+var s2 = new Set([1, 2, 3]); // 含1, 2, 3
+//其实跟map的初始化方法是一样的 就是初始化内容不同而已
+```
+
+由于key不能重复，所以，在`Set`中，key是无法像Map实例中一样 可以覆盖的！
+
+- `.size`
+- `has()` 判断有没有这个元素
+- `clear()`
+- `add()` 与map的set添加一组键值对不同 set添加个元素就好了
+
+
+
+### `freecodecamp`设计实操练习
+
+```js
+//freecodecamp刷题
+```
+
+
+
+
+
+### JS红宝书
+
+```js
+//经典书籍 目标：反复阅读
+p161-171
+今天学习的数组相关方法在算法题中见到过无数遍！
+// 从今天开始 红宝书下只写一些感悟之类的 具体知识点 全部移到“前端基础”中
+6.2 Array中的——
+	栈方法
+    队列
+    排序方法
+    操作方法
+    搜索元素位置的方法
+    迭代方法
+    归并方法
+6.4 Map
+	基本API
+    迭代Map实例
+6.6 Set
+	与Map基本类似 存储内容不同
+```
+
+
+
+### JS30练
+
+```js
+//一天一个有趣的原生JS练手demo 边做边总结！
+demo05 今天的工作量很小
+主要负责效果展示的：
+	flex
+    transform
+```
+
+https://fangzhousu.github.io/JS-30Demos/05_Flex-Panel-Gallery/index-billSu.html
+
+![在这里插入图片描述](https://img-blog.csdnimg.cn/7f2734bbf6fe4f53aca73b5a3f615408.png)
+
+
+
+## 前端开发框架
+
+### react尚硅谷
+
+```js
+//广受好评的react教程 先快速过一下 再去实操哦！
+p57-59
+继续完成TodoList案例~
+```
+
+
+
+
+
+### react习题练习
+
+```js
+//先过一遍原理 再去敲代码加深印象（freecodecamp）
+```
+
+
+
+## 面试题
+
+### 面试题、面经总结
+
+```js
+//网上面试题、面经辣么多 一天多看一些 然后同时也要研究一些题的答案！
+1.从URL字符串中获取 查询字符串参数
+2.CSS面试题获取
+```
+
+
+
+### 力扣
+
+```js
+//跟着数据结构入门 的每日学习计划 进行刷题 一天1-3题！ 
+// 从今天开始 改变力扣总结的方式——只记录特别有感悟的题目
+242.有效的字母异位词 依旧是用的哈希映射~
+```
+
 
