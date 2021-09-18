@@ -4406,7 +4406,7 @@ Totally 290min
 	4.1 接口请求Ajax/Fetch
     4.2 Node.js 50min
 		/* 又学习了一部分nodejs入门的内容 
-		现在*/
+		*/
 	4.3 （ES6模块学习过后开启）webpack
 5.前端开发框架 
 	5.1 react学习 20min
@@ -4442,7 +4442,7 @@ const Sleep = function(time){
     }
 }
 GetUp(10.00);//😭
-Sleep();//
+Sleep(1.00);//😭
 ```
 
 ## 1.前端基础
@@ -4577,6 +4577,777 @@ Sleep();//
 
 ```js
 //先过一遍原理 再去敲代码加深印象（freecodecamp）
+```
+
+
+
+# 2021.9.18 *JS学习顺序更新 *计网学习内容更新
+
+- 上午时候看JS教程时明显感觉到混乱感 建议先根据当天的红宝书、JS高级确定了要学习的内容 再进行专项学习！(可以多准备一些教程)
+
+
+
+今天主要的感受是——
+
+- 东西学得有点多而杂 这样学没法快速达到行业标准的！请给更多时间学习**前端开发的内容**！注意比例的把控
+- 抠细节太厉害 应该更多去注意更多工程化的内容！
+
+
+
+另外上午效率太差！心爱的JS没咋学 逛了一上午b站！
+
+明天开始定下规矩 逛b站计时 30min娱乐时间最多了！
+
+
+
+```js
+// 今日主要收获 & 学习时间
+// 每个学习内容的细则下面分块列出了
+// 逛b站、看漫画、聊qq/微信 计时 每次30min娱乐时间MAX —— !important
+Totally 480min
+1.前端基础知识 
+// 从早上-中午 拿出一整块时间学习JS 
+// 晚上时间跑步回来的时间也交给JS
+	1.1 菜鸟、阮大、JS现代教程 今日学习内容预习 100min
+    	/* 今天只看了JS现代教程 效率略低 
+    	但是总结了下之后学习的路径 先集中力量看完JS高级教程（尚硅谷）初级教程中不会的也抽空看了！*/
+    1.2 JS红宝书 min 
+    // 每天要看一些 粗略地过一下即可！
+    	/*  */
+    1.3 JS高级教程 min 
+    	/* 每日的重点！ */
+    1.4 JS 30demos min
+    	/*  */
+    // 这之后的内容 后续再推进
+    1.5 freecodecamp一个专题练习2+道题 min
+    1.6 正则表达式
+2.核心基础知识
+//下午由基础知识开启
+	2.1 计网 40min
+		/* 定了一下之后学习的路径
+        开始读文章 主要为 趣谈网络协议！并每日搭配一道面试题 */
+	2.2 操作系统 40min
+		/* 继续看学校PPT第二章的内容 了解下之后要学习的部分 追上课程进度 */
+3.面试刷题
+// 看完基础知识 来刷刷题 总结一下面经
+	3.1 力扣 90min
+    	/* 今天这题有点较真了 好久没做栈的题 正好复习下 用的是数组来达到栈的效果 */    
+    3.2 总结面经、面试题 110min
+    	/* 盒模型的问题有点太纠结了 唉~ */
+4.前端进阶知识学习
+	4.1 接口请求Ajax/Fetch
+    4.2 Node.js 40min
+		/* 上数据库的时候迷迷糊糊学得 越到后面越看不懂啊！ 
+		赶紧把应用做出来然后再二刷这个 这个内容一定会好好学明白的hh*/
+	4.3 （ES6模块学习过后开启）webpack
+5.前端开发框架 
+	5.1 react学习 40min
+    // 反复写todolist案例 写熟练了先停下来去学5.2+4.1
+		/* 回顾了五子棋 我又反悔了 五子棋也要做！ */
+    5.2 freecodecamp刷题练手
+    	/*  */
+6.学校课程内容 min 
+7.每日总结 20min
+	/* 每天都在重塑学习路线啊哈哈哈 */
+```
+
+
+
+```js
+const time = 6.66;
+const GetUp = function(time){
+    if(time < 8.00) {
+        console.log("早早起床，开启阳光高效的一天😊！");
+    }
+    else{
+        console.log("😭")
+    }
+}
+const Sleep = function(time){
+    if(time < 11.30){
+        console.log("早早睡觉，身体健康 心情愉悦😊~");
+    }
+    else{
+        console.log("😭");
+    }
+}
+GetUp(8.00);//😭
+Sleep(12:00);//😭
+```
+
+## 1.前端基础
+
+### ==JS基础知识==
+
+```js
+//每日学到的知识点 可以写文章 可以记在心里 总结下来！
+// JS现代教程 这里内容还蛮难理解的！
+1.利用箭头函数没有自己的this 可以用它来获取外部上下文的对象属性
+2.this 的值是对于整个函数的，代码段和对象字面量对它都没有影响。 格局打开
+3.丢失了对象的作用域（上下文）this就会“丢失”
+4.this丢失的解决方案 出现了熟悉的bind方法
+5.解构赋值 主要是看了下对象解构赋值 然后复习了下其他的
+6.generator
+7.布尔值与数值比较时的隐式转换 true/false与0比较时 会把true隐式转换成1 把false隐式转换成0 
+8.JS规定非0数字是true 0是false
+9.空字符串是false 
+Boolean("") == false;//true
+```
+
+#### 1.[箭头函数没有自己的 “this”](https://zh.javascript.info/object-methods#jian-tou-han-shu-mei-you-zi-ji-de-this)
+
+这里的 `arrow()` 使用的 `this` 来自于外部的 `user.sayHi()` 方法：
+
+```javascript
+let user = {
+  firstName: "Ilya",
+  sayHi() {
+    let arrow = () => alert(this.firstName);
+    arrow();
+  }
+};
+
+user.sayHi(); // Ilya
+```
+
+这是箭头函数的一个特性，当我们并不想要一个独立的 `this`，反而**想从外部上下文中获取**时，它很有用。在后面的 [深入理解箭头函数](https://zh.javascript.info/arrow-functions) 一章中，我们将深入介绍箭头函数。
+
+
+
+#### 2.this是被作为函数调用的，而不是通过点符号被作为方法调用
+
+试一下：
+
+```javascript
+function makeUser() {
+  return {
+    name: "John",
+    ref: this
+  };
+}
+
+let user = makeUser();
+
+alert( user.ref.name ); // Error: Cannot read property 'name' of undefined
+```
+
+这是因为设置 `this` 的规则不考虑对象定义。只有调用那一刻才重要。
+
+这里 `makeUser()` 中的 `this` 的值是 `undefined`，因为它是被作为函数调用的，而不是通过点符号被作为方法调用。
+
+`this` 的值是对于整个函数的，代码段和对象字面量对它都没有影响。
+
+所以 `ref: this` 实际上取的是当前函数的 `this`。
+
+这样就正常了：
+
+```javascript
+function makeUser() {
+  return {
+    name: "John",
+    ref() {
+      return this;
+    }
+  };
+}
+
+let user = makeUser();
+
+alert( user.ref().name ); // John
+```
+
+现在正常了，因为 `user.ref()` 是一个方法。==`this` 的值为点符号 `.` 前的这个对象（实例）==。这个对象实例中有name这个属性！
+
+#### 3.this丢失
+
+一旦方法被传递到与对象分开的某个地方 —— `this` 就丢失。
+
+下面是使用 `setTimeout` 时 `this` 是如何丢失的：
+
+```javascript
+let user = {
+  firstName: "John",
+  sayHi() {
+    alert(`Hello, ${this.firstName}!`);
+  }
+};
+
+setTimeout(user.sayHi, 1000); // Hello, undefined!
+```
+
+正如我们所看到的，输出没有像 `this.firstName` 那样显示 “John”，而显示了 `undefined`！
+
+这是因为 `setTimeout` 获取到了函数 `user.sayHi`，但它和对象分离开了。最后一行可以被重写为：
+
+```javascript
+let f = user.sayHi;
+setTimeout(f, 1000); // 丢失了 user 上下文
+```
+
+
+
+> 浏览器中的 `setTimeout` 方法有些特殊：它为函数调用设定了 `this=window`（对于 Node.js，`this` 则会变为计时器（timer）对象，但在这儿并不重要）。所以对于 `this.firstName`，它其实试图获取的是 `window.firstName`，这个变量并不存在。
+>
+> 在其他类似的情况下 通常 `this` 会变为 `undefined`。
+
+
+
+那么想把一个对象方法传递到别的地方 然后在该位置调用它 
+
+也就是如何确保在正确的上下文中调用它？
+
+#### 4.this丢失的解决方法
+
+##### [解决方案 1：包装器](https://zh.javascript.info/bind#jie-jue-fang-an-1-bao-zhuang-qi)
+
+最简单的解决方案是使用一个包装函数：
+
+```javascript
+let user = {
+  firstName: "John",
+  sayHi() {
+    alert(`Hello, ${this.firstName}!`);
+  }
+};
+
+setTimeout(function() {
+  user.sayHi(); // Hello, John!
+}, 1000);
+```
+
+现在它可以正常工作了，因为它==从外部词法环境中获取到了 `user`==，就可以正常地调用方法了。
+
+相同的功能，但是更简短：
+
+```javascript
+setTimeout(() => user.sayHi(), 1000); // Hello, John!
+```
+
+
+
+但是有个小问题 
+
+在 `setTimeout` 触发之前（有一秒的延迟！）`user` 的值改变了怎么办？那么，突然间，它将调用错误的对象！
+
+```javascript
+let user = {
+  firstName: "John",
+  sayHi() {
+    alert(`Hello, ${this.firstName}!`);
+  }
+};
+
+setTimeout(() => user.sayHi(), 1000);
+
+// ……user 的值在不到 1 秒的时间内发生了改变
+user = {
+  sayHi() { alert("Another user in setTimeout!"); }
+};
+
+// Another user in setTimeout!
+```
+
+下一个解决方案保证了这样的事情不会发生。
+
+##### [解决方案 2：bind](https://zh.javascript.info/bind#jie-jue-fang-an-2-bind)
+
+函数提供了一个内建方法 [bind](https://developer.mozilla.org/zh/docs/Web/JavaScript/Reference/Global_Objects/Function/bind)，它可以绑定 `this`。
+
+基本的语法是：
+
+```javascript
+// 稍后将会有更复杂的语法
+let boundFunc = func.bind(context);
+```
+
+`func.bind(context)` 的结果是一个特殊的类似于函数的“外来对象（exotic object）”，它可以像函数一样被调用，并且透明地（transparently）将调用传递给 `func` 并==设定 `this=context`==。（这不就获取了本来不在作用域中的对象了么！）
+
+换句话说，`boundFunc` 调用就像绑定了 `this` 的 `func`。
+
+举个例子，这里的 `funcUser` 将调用传递给了 `func` 同时 `this=user`：
+
+```javascript
+let user = {
+  firstName: "John"
+};
+
+function func() {
+  alert(this.firstName);
+}
+
+let funcUser = func.bind(user);
+funcUser(); // John
+```
+
+这里的 `func.bind(user)` 作为 `func` 的“绑定的（bound）变体”，绑定了 `this=user`。
+
+所有的参数（arguments）都被“原样”传递给了初始的 `func`，例如：
+
+```javascript
+let user = {
+  firstName: "John"
+};
+
+function func(phrase) {
+  alert(phrase + ', ' + this.firstName);
+}
+
+// 将 this 绑定到 user
+let funcUser = func.bind(user);
+
+funcUser("Hello"); // Hello, John（参数 "Hello" 被传递，并且 this=user）
+```
+
+
+
+#### 5.解构赋值
+
+##### [对象解构](https://zh.javascript.info/destructuring-assignment#dui-xiang-jie-gou)
+
+解构赋值同样适用于对象。
+
+- 【1】基本语法是：
+
+```javascript
+let {var1, var2} = {var1:…, var2:…}
+```
+
+在等号右侧有一个已经存在的对象，我们想把它拆开到变量中。等号左侧包含了对象相应属性的一个“模式（pattern）”。在简单的情况下，等号左侧的就是 `{...}` 中的变量名列表。
+
+举个例子：
+
+```javascript
+let options = {
+  title: "Menu",
+  width: 100,
+  height: 200
+};
+
+let {title, width, height} = options;
+
+alert(title);  // Menu
+alert(width);  // 100
+alert(height); // 200
+```
+
+- 【2】属性 `options.title`、`options.width` 和 `options.height` 值被赋给了对应的变量。变量的顺序并不重要，下面这个代码也奏效：
+
+```javascript
+// 改变 let {...} 中元素的顺序
+let {height, width, title} = { title: "Menu", height: 200, width: 100 }
+```
+
+
+
+- 【3】等号左侧的模式（pattern）可以更加复杂，并且指定了属性和变量之间的映射关系。
+
+如果我们想把一个属性赋值给另一个名字的变量，比如把 `options.width` 属性赋值给变量 `w`，那么我们可以使用冒号来指定：
+
+```javascript
+let options = {
+  title: "Menu",
+  width: 100,
+  height: 200
+};
+
+// { sourceProperty: targetVariable }
+let {width: w, height: h, title} = options;
+
+// width -> w
+// height -> h
+// title -> title
+
+alert(title);  // Menu
+alert(w);      // 100
+alert(h);      // 200
+```
+
+
+
+- 【4】对于可能缺失的属性，我们可以使用 `"="` 设置默认值，如下所示：
+
+```javascript
+let options = {
+  title: "Menu"
+};
+
+let {width = 100, height = 200, title} = options;
+
+alert(title);  // Menu
+alert(width);  // 100
+alert(height); // 200
+```
+
+
+
+- 【5】我们还可以将冒号和等号结合起来：
+
+```javascript
+let options = {
+  title: "Menu"
+};
+
+let {width: w = 100, height: h = 200, title} = options;
+
+alert(title);  // Menu
+alert(w);      // 100
+alert(h);      // 200
+```
+
+- 【6】如果我们有一个具有很多属性的复杂对象，那么我们可以只提取所需的内容：
+
+```javascript
+let options = {
+  title: "Menu",
+  width: 100,
+  height: 200
+};
+
+// 仅提取 title 作为变量
+let { title } = options;
+
+alert(title); // Menu
+```
+
+当时学习react的时候也是这个状态 需要哪个就提取哪个~
+
+##### 解构赋值总结
+
+- 解构赋值可以立即将一个对象或数组映射到多个变量上。
+
+- **解构对象**的<u>完整</u>语法：
+
+  ```javascript
+  let {prop : varName = default, ...rest} = object
+  ```
+
+  这表示属性 `prop` 会被赋值给变量 `varName`，如果没有这个属性的话，就会使用默认值 `default`。
+
+  没有对应映射的对象属性会被复制到 `rest` 对象。
+
+  ==这是最全的一个用法 不写全是ok的！==
+
+- **解构数组**的<u>完整</u>语法：
+
+  ```javascript
+  let [item1 = default, item2, ...rest] = array
+  ```
+
+  数组的第一个元素被赋值给 `item1`，第二个元素被赋值给 `item2`。
+
+  剩下的所有元素被复制到另一个数组 `rest`（展开运算符来凑热闹了）。
+
+- 从嵌套数组/对象中提取数据也是可以的，此时等号左侧必须和等号右侧有相同的结构。
+
+
+
+##### 看几道对象解构例题
+
+- easy
+
+[解构赋值](https://zh.javascript.info/destructuring-assignment#jie-gou-fu-zhi)
+
+我们有一个对象：
+
+```javascript
+let user = {
+  name: "John",
+  years: 30
+};
+```
+
+写一个解构赋值语句使得：
+
+- `name` 属性赋值给变量 `name`。
+- `years` 属性赋值给变量 `age`。
+- `isAdmin` 属性赋值给变量 `isAdmin`（如果属性缺失则取默认值 false）。
+
+下面是赋值完成后的值的情况：
+
+```javascript
+let user = { name: "John", years: 30 };
+
+// 等号左侧是你的代码
+// ... = user
+
+alert( name ); // John
+alert( age ); // 30
+alert( isAdmin ); // false
+```
+
+答：
+
+```javascript
+let user = {
+  name: "John",
+  years: 30
+};
+// 就是最基础的用法
+let {name, years: age, isAdmin = false} = user;
+
+alert( name ); // John
+alert( age ); // 30
+alert( isAdmin ); // false
+```
+
+
+
+- hard
+
+[最高薪资](https://zh.javascript.info/destructuring-assignment#zui-gao-xin-zi)
+
+这儿有一个 `salaries` 对象：
+
+```javascript
+let salaries = {
+  "John": 100,
+  "Pete": 300,
+  "Mary": 250
+};
+```
+
+新建一个函数 `topSalary(salaries)`，返回收入最高的人的姓名。
+
+- 如果 `salaries` 是空的，函数应该返回 `null`。
+- 如果有多个收入最高的人，返回其中任意一个即可。
+
+P.S. 使用 `Object.entries` 和解构语法来遍历键/值对。
+
+> entries()永远嘀神！
+
+答：
+
+```javascript
+function topSalary(salaries) {
+
+  let max = 0;
+  let maxName = null;
+
+  for(let [name, salary] of Object.entries(salaries)) {
+    if (max < salary) {
+      max = salary;
+      maxName = name;
+    }
+  }
+
+  return maxName;
+}
+```
+
+#### 6.generator
+
+Generator 函数是 ES6 提供的一种异步编程解决方案，语法行为与传统函数完全不同。
+
+学习分为[**Generator函数的语法和API**](https://es6.ruanyifeng.com/#docs/generator)  和  **[它的异步编程应用](https://es6.ruanyifeng.com/#docs/generator-async)**
+
+异步编程对 JavaScript 语言是很重要的！因为JavaScript 语言的执行环境是“单线程”的，如果没有异步编程，根本没法用，非卡死不可。
+
+
+
+
+
+#### 7.数值型与布尔型的隐式转换
+
+刷题的时候遇到的一个小点
+
+![在这里插入图片描述](https://img-blog.csdnimg.cn/f968b88841e544e682b368df647237f7.png?x-oss-process=image/watermark,type_ZHJvaWRzYW5zZmFsbGJhY2s,shadow_50,text_Q1NETiBA5pWy5Luj56CB55qE5bCP5o-Q55C05omL,size_12,color_FFFFFF,t_70,g_se,x_16)
+
+引出两个点——
+
+- 隐式转换
+- !0 == true;//true
+
+先来看第一个
+
+true 和false（布尔值）和数值比较， 会做一个隐式转换——
+
+【1】true 隐式转换为1 
+
+【2】false隐式转换为0。
+
+见代码
+
+```js
+1 == true;//true
+//要注意===是全等哦 不会做隐式转换
+1 === true;//false
+```
+
+```js
+0 == false;//true
+```
+
+#### 8.非0是true 0是false
+
+再来看第二个
+
+- !0代表true (因为0代表false)
+
+```js
+!0 == true;//true
+```
+
+
+
+- 非0实数代表false
+
+```js
+!1 == false;//true
+```
+
+
+
+### JS红宝书进度记录
+
+```js
+// 经典书籍 目标：反复阅读 一天读一个小时 求快 莫纠结
+```
+
+
+
+### JS高级-尚硅谷 进度记录
+
+```js
+// 很不错的课程 巩固基础 一天看一小时左右
+```
+
+
+
+### JS30练
+
+```js
+//一天一个有趣的原生JS练手demo 边做边总结！莫纠结细则
+```
+
+
+
+
+
+
+
+
+
+
+
+
+
+## 2.核心基础知识
+
+### 计网
+
+```js
+//小林的图解网络随时翻阅 & 极客时间趣谈网络协议+网上的文章 & 读图解HTTP TCP等书籍 & 网络抓包实操练习  深入理解
+// 每天一道计网面试题
+1.总结了下进阶学习计网的方式——读几本经典书籍、读一些很棒的文章（极客时间、MDN...）、抓包实战
+2.后期先不看书了吧 看看文章 看看极客时间 总结一下知识点 
+3.每天找一道计网面试题 把自己带入面试者的身份 跟面试官白话白话 嗯就这样子
+```
+
+#### 1.进阶学习前瞻
+
+##### 经典书籍
+
+- 图解HTTP
+- 图解TCP/IP
+
+- 网络是怎样连接的 —— 连接网络是咋传输的~比较全面地把访问一个网页地发生地过程讲解了一遍
+
+##### 经典文章
+
+[互联网是如何工作的](https://developer.mozilla.org/zh-CN/docs/Learn/Common_questions/How_does_the_Internet_work#%E4%B8%8B%E4%B8%80%E6%AD%A5)
+
+[How Does the Internet Work?](https://web.stanford.edu/class/msande91si/www-spr04/readings/week1/InternetWhitepaper.htm)
+
+[极客时间 趣谈网络协议](https://time.geekbang.org/column/article/7398)
+
+##### 实战
+
+- Wireshark网络分析就这么简单
+- Wireshark网络分析的艺术
+
+
+
+#### 2.计网面试题
+
+https://github.com/biaochenxuying/blog/blob/master/interview/fe-interview.md#10-https
+
+
+
+###  操作系统
+
+```js
+// 小林的图解系统 & 学校课程学习 & 王道考研-OS 三者配合 高效学习
+// 要看一下学校的ppt了 课程旷了好几节有点听不懂！
+1.学校ppt第2章 进程
+```
+
+
+
+## 3.面试题
+
+### 面试题、面经总结
+
+```js
+//网上面试题、面经辣么多 一天多看一些 然后同时也要研究一些题的答案！
+1.看了看实习生的面经 诶哟好难啊 都不会！（看的字节的）
+2.好好纠结了一波盒模型的内容
+```
+
+[【青训营】做面试题般回顾前端基础知识CSS篇 - 3 标准盒模型中块元素宽度&总宽度的问题](https://juejin.cn/post/7009197678642872350)
+
+
+
+
+
+### 力扣
+
+```js
+//跟着数据结构入门 的每日学习计划 进行刷题 一天1-3题！ 
+// 从今天开始 改变力扣总结的方式——只记录特别有感悟的题目
+20.有效的括号
+这道题 真不戳！
+```
+
+
+
+
+
+
+
+## 4.前端进阶知识学习
+
+### Node.js
+
+```JS
+// 由 Node入门 这份教程入门 完成一个实战案例 简单入门node
+// 然后再学习尚硅谷的node课程
+1.node入门学习进度推进
+```
+
+
+
+
+
+
+
+## 5.前端开发框架
+
+### react尚硅谷
+
+```js
+//广受好评的react教程 先快速过一下 再去实操哦！
+```
+
+
+
+
+
+### react练手
+
+```js
+// 先过一遍原理 再去敲代码加深印象（freecodecamp）
+// 五子棋demo
+1.重启五子棋demo!这回在本地做~
 ```
 
 
