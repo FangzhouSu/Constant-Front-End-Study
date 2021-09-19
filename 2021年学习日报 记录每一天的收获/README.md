@@ -4781,7 +4781,7 @@ setTimeout(user.sayHi, 1000); // Hello, undefined!
 
 ```javascript
 let f = user.sayHi;
-setTimeout(f, 1000); // 丢失了 user 上下文
+setTimeout(f, 1000); // 丢失了 user 上下文 只能输出Hello, undefined!
 ```
 
 
@@ -5380,7 +5380,7 @@ https://github.com/biaochenxuying/blog/blob/master/interview/fe-interview.md#10-
 // 今日主要收获 & 学习时间
 // 每个学习内容的细则下面分块列出了
 // 逛b站、看漫画、聊qq/微信、打游戏 计时 每次30min娱乐时间MAX —— !important
-Totally min
+Totally 300min
 1.前端基础知识 
 // 从早上-中午 拿出一整块时间学习JS 
 // 晚上时间跑步回来的时间也交给JS
@@ -5470,160 +5470,11 @@ Sleep(12:00);//😭
 Boolean("") == false;//true
 ```
 
-#### 1.[箭头函数没有自己的 “this”](https://zh.javascript.info/object-methods#jian-tou-han-shu-mei-you-zi-ji-de-this)
-
-这里的 `arrow()` 使用的 `this` 来自于外部的 `user.sayHi()` 方法：
-
-```javascript
-let user = {
-  firstName: "Ilya",
-  sayHi() {
-    let arrow = () => alert(this.firstName);
-    arrow();
-  }
-};
-
-user.sayHi(); // Ilya
-```
-
-这是箭头函数的一个特性，当我们并不想要一个独立的 `this`，反而**想从外部上下文中获取**时，它很有用。在后面的 [深入理解箭头函数](https://zh.javascript.info/arrow-functions) 一章中，我们将深入介绍箭头函数。
 
 
 
-#### 2.this是被作为函数调用的，而不是通过点符号被作为方法调用
-
-试一下：
-
-```javascript
-function makeUser() {
-  return {
-    name: "John",
-    ref: this
-  };
-}
-
-let user = makeUser();
-
-alert( user.ref.name ); // Error: Cannot read property 'name' of undefined
-```
-
-这是因为设置 `this` 的规则不考虑对象定义。只有调用那一刻才重要。
-
-这里 `makeUser()` 中的 `this` 的值是 `undefined`，因为它是被作为函数调用的，而不是通过点符号被作为方法调用。
-
-`this` 的值是对于整个函数的，代码段和对象字面量对它都没有影响。
-
-所以 `ref: this` 实际上取的是当前函数的 `this`。
-
-这样就正常了：
-
-```javascript
-function makeUser() {
-  return {
-    name: "John",
-    ref() {
-      return this;
-    }
-  };
-}
-
-let user = makeUser();
-
-alert( user.ref().name ); // John
-```
-
-现在正常了，因为 `user.ref()` 是一个方法。==`this` 的值为点符号 `.` 前的这个对象（实例）==。这个对象实例中有name这个属性！
-
-#### 3.this丢失
-
-一旦方法被传递到与对象分开的某个地方 —— `this` 就丢失。
-
-下面是使用 `setTimeout` 时 `this` 是如何丢失的：
-
-```javascript
-let user = {
-  firstName: "John",
-  sayHi() {
-    alert(`Hello, ${this.firstName}!`);
-  }
-};
-
-setTimeout(user.sayHi, 1000); // Hello, undefined!
-```
-
-正如我们所看到的，输出没有像 `this.firstName` 那样显示 “John”，而显示了 `undefined`！
-
-这是因为 `setTimeout` 获取到了函数 `user.sayHi`，但它和对象分离开了。最后一行可以被重写为：
-
-```javascript
-let f = user.sayHi;
-setTimeout(f, 1000); // 丢失了 user 上下文
-```
 
 
-
-> 浏览器中的 `setTimeout` 方法有些特殊：它为函数调用设定了 `this=window`（对于 Node.js，`this` 则会变为计时器（timer）对象，但在这儿并不重要）。所以对于 `this.firstName`，它其实试图获取的是 `window.firstName`，这个变量并不存在。
->
-> 在其他类似的情况下 通常 `this` 会变为 `undefined`。
-
-
-
-那么想把一个对象方法传递到别的地方 然后在该位置调用它 
-
-也就是如何确保在正确的上下文中调用它？
-
-#### 4.this丢失的解决方法
-
-##### [解决方案 1：包装器](https://zh.javascript.info/bind#jie-jue-fang-an-1-bao-zhuang-qi)
-
-最简单的解决方案是使用一个包装函数：
-
-```javascript
-let user = {
-  firstName: "John",
-  sayHi() {
-    alert(`Hello, ${this.firstName}!`);
-  }
-};
-
-setTimeout(function() {
-  user.sayHi(); // Hello, John!
-}, 1000);
-```
-
-现在它可以正常工作了，因为它==从外部词法环境中获取到了 `user`==，就可以正常地调用方法了。
-
-相同的功能，但是更简短：
-
-```javascript
-setTimeout(() => user.sayHi(), 1000); // Hello, John!
-```
-
-
-
-但是有个小问题 
-
-在 `setTimeout` 触发之前（有一秒的延迟！）`user` 的值改变了怎么办？那么，突然间，它将调用错误的对象！
-
-```javascript
-let user = {
-  firstName: "John",
-  sayHi() {
-    alert(`Hello, ${this.firstName}!`);
-  }
-};
-
-setTimeout(() => user.sayHi(), 1000);
-
-// ……user 的值在不到 1 秒的时间内发生了改变
-user = {
-  sayHi() { alert("Another user in setTimeout!"); }
-};
-
-// Another user in setTimeout!
-```
-
-下一个解决方案保证了这样的事情不会发生。
 
 ##### [解决方案 2：bind](https://zh.javascript.info/bind#jie-jue-fang-an-2-bind)
 
