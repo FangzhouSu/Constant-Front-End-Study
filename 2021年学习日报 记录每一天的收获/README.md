@@ -5352,3 +5352,839 @@ https://github.com/biaochenxuying/blog/blob/master/interview/fe-interview.md#10-
 
 
 
+# 2021.9.19 *更新知识总结的方法
+
+又是熟悉的学习笔记版本更新:joy:
+
+- 每周对当周内容分块地进行总结整理 周日进行这个工作 不用分太细 用四级标题把每个知识点列出来 分为
+
+  - 前端基础
+  - 核心基础知识
+  - 面试题/面经感悟与力扣好题
+  - 前端进阶知识
+  - 前端开发框架 这个等学到深入一些再开启哈！
+
+  新建个文件夹存这些内容
+
+
+
+今天早上没起来 一上午没了
+
+下午心血来潮想玩儿会儿巫师3 一下午没了
+
+还好晚上稍微抓住点时间 写了两篇文章 把盒模型算是整清楚勒！也算是有收获的一天！
+
+明天去陪女票玩耍增进下感情哈哈哈 最近太沉迷学习了 都没有顾得上她来着`orz`
+
+```js
+// 今日主要收获 & 学习时间
+// 每个学习内容的细则下面分块列出了
+// 逛b站、看漫画、聊qq/微信、打游戏 计时 每次30min娱乐时间MAX —— !important
+Totally min
+1.前端基础知识 
+// 从早上-中午 拿出一整块时间学习JS 
+// 晚上时间跑步回来的时间也交给JS
+	1.1 菜鸟、阮大、JS现代教程 今日学习内容预习 min
+    	/*  */
+    1.2 JS红宝书 min 
+    // 每天要看一些 粗略地过一下即可！
+    	/*  */
+    1.3 JS高级教程 min 
+    // 每日的重点！
+    	/*  */
+    1.4 JS 30demos min
+    	/*  */
+    // 这之后的内容 后续再推进
+    1.5 freecodecamp一个专题练习2+道题 min
+    1.6 正则表达式
+2.核心基础知识
+//下午由基础知识开启
+	2.1 计网 90min
+		/*  */
+	2.2 操作系统 min
+		/*  */
+3.面试刷题
+// 看完基础知识 来刷刷题 总结一下面经
+	3.1 力扣 min
+    	/*  */    
+    3.2 总结面经、面试题 min
+    	/*  */
+4.前端进阶知识学习
+	4.1 接口请求Ajax/Fetch
+    4.2 Node.js min
+		/*  */
+	4.3 （ES6模块学习过后开启）webpack
+5.前端开发框架 
+	5.1 react学习 min
+    // 反复写todolist案例 写熟练了先停下来去学5.2+4.1
+    // 五子棋案例做明白咯 尝试着改成组件化的形式
+		/*  */
+    5.2 freecodecamp刷题练手
+    	/*  */
+6.学校课程内容 min 
+7.每日总结 30min
+	/* 更新了下知识总结的方法 自认为还不错！
+    另外复习了一下昨天学习的东西*/
+```
+
+
+
+```js
+const time = 6.66;
+const GetUp = function(time){
+    if(time < 8.00) {
+        console.log("早早起床，开启阳光高效的一天😊！");
+    }
+    else{
+        console.log("😭")
+    }
+}
+const Sleep = function(time){
+    if(time < 11.30){
+        console.log("早早睡觉，身体健康 心情愉悦😊~");
+    }
+    else{
+        console.log("😭");
+    }
+}
+GetUp(10.00);//😭
+Sleep(12:00);//😭
+```
+
+## 1.前端基础
+
+### ==JS基础知识==
+
+```js
+//每日学到的知识点 可以写文章 可以记在心里 总结下来！
+// JS现代教程 这里内容还蛮难理解的！
+1.利用箭头函数没有自己的this 可以用它来获取外部上下文的对象属性
+2.this 的值是对于整个函数的，代码段和对象字面量对它都没有影响。 格局打开
+3.丢失了对象的作用域（上下文）this就会“丢失”
+4.this丢失的解决方案 出现了熟悉的bind方法
+5.解构赋值 主要是看了下对象解构赋值 然后复习了下其他的
+6.generator
+7.布尔值与数值比较时的隐式转换 true/false与0比较时 会把true隐式转换成1 把false隐式转换成0 
+8.JS规定非0数字是true 0是false
+9.空字符串是false 
+Boolean("") == false;//true
+```
+
+#### 1.[箭头函数没有自己的 “this”](https://zh.javascript.info/object-methods#jian-tou-han-shu-mei-you-zi-ji-de-this)
+
+这里的 `arrow()` 使用的 `this` 来自于外部的 `user.sayHi()` 方法：
+
+```javascript
+let user = {
+  firstName: "Ilya",
+  sayHi() {
+    let arrow = () => alert(this.firstName);
+    arrow();
+  }
+};
+
+user.sayHi(); // Ilya
+```
+
+这是箭头函数的一个特性，当我们并不想要一个独立的 `this`，反而**想从外部上下文中获取**时，它很有用。在后面的 [深入理解箭头函数](https://zh.javascript.info/arrow-functions) 一章中，我们将深入介绍箭头函数。
+
+
+
+#### 2.this是被作为函数调用的，而不是通过点符号被作为方法调用
+
+试一下：
+
+```javascript
+function makeUser() {
+  return {
+    name: "John",
+    ref: this
+  };
+}
+
+let user = makeUser();
+
+alert( user.ref.name ); // Error: Cannot read property 'name' of undefined
+```
+
+这是因为设置 `this` 的规则不考虑对象定义。只有调用那一刻才重要。
+
+这里 `makeUser()` 中的 `this` 的值是 `undefined`，因为它是被作为函数调用的，而不是通过点符号被作为方法调用。
+
+`this` 的值是对于整个函数的，代码段和对象字面量对它都没有影响。
+
+所以 `ref: this` 实际上取的是当前函数的 `this`。
+
+这样就正常了：
+
+```javascript
+function makeUser() {
+  return {
+    name: "John",
+    ref() {
+      return this;
+    }
+  };
+}
+
+let user = makeUser();
+
+alert( user.ref().name ); // John
+```
+
+现在正常了，因为 `user.ref()` 是一个方法。==`this` 的值为点符号 `.` 前的这个对象（实例）==。这个对象实例中有name这个属性！
+
+#### 3.this丢失
+
+一旦方法被传递到与对象分开的某个地方 —— `this` 就丢失。
+
+下面是使用 `setTimeout` 时 `this` 是如何丢失的：
+
+```javascript
+let user = {
+  firstName: "John",
+  sayHi() {
+    alert(`Hello, ${this.firstName}!`);
+  }
+};
+
+setTimeout(user.sayHi, 1000); // Hello, undefined!
+```
+
+正如我们所看到的，输出没有像 `this.firstName` 那样显示 “John”，而显示了 `undefined`！
+
+这是因为 `setTimeout` 获取到了函数 `user.sayHi`，但它和对象分离开了。最后一行可以被重写为：
+
+```javascript
+let f = user.sayHi;
+setTimeout(f, 1000); // 丢失了 user 上下文
+```
+
+
+
+> 浏览器中的 `setTimeout` 方法有些特殊：它为函数调用设定了 `this=window`（对于 Node.js，`this` 则会变为计时器（timer）对象，但在这儿并不重要）。所以对于 `this.firstName`，它其实试图获取的是 `window.firstName`，这个变量并不存在。
+>
+> 在其他类似的情况下 通常 `this` 会变为 `undefined`。
+
+
+
+那么想把一个对象方法传递到别的地方 然后在该位置调用它 
+
+也就是如何确保在正确的上下文中调用它？
+
+#### 4.this丢失的解决方法
+
+##### [解决方案 1：包装器](https://zh.javascript.info/bind#jie-jue-fang-an-1-bao-zhuang-qi)
+
+最简单的解决方案是使用一个包装函数：
+
+```javascript
+let user = {
+  firstName: "John",
+  sayHi() {
+    alert(`Hello, ${this.firstName}!`);
+  }
+};
+
+setTimeout(function() {
+  user.sayHi(); // Hello, John!
+}, 1000);
+```
+
+现在它可以正常工作了，因为它==从外部词法环境中获取到了 `user`==，就可以正常地调用方法了。
+
+相同的功能，但是更简短：
+
+```javascript
+setTimeout(() => user.sayHi(), 1000); // Hello, John!
+```
+
+
+
+但是有个小问题 
+
+在 `setTimeout` 触发之前（有一秒的延迟！）`user` 的值改变了怎么办？那么，突然间，它将调用错误的对象！
+
+```javascript
+let user = {
+  firstName: "John",
+  sayHi() {
+    alert(`Hello, ${this.firstName}!`);
+  }
+};
+
+setTimeout(() => user.sayHi(), 1000);
+
+// ……user 的值在不到 1 秒的时间内发生了改变
+user = {
+  sayHi() { alert("Another user in setTimeout!"); }
+};
+
+// Another user in setTimeout!
+```
+
+下一个解决方案保证了这样的事情不会发生。
+
+##### [解决方案 2：bind](https://zh.javascript.info/bind#jie-jue-fang-an-2-bind)
+
+函数提供了一个内建方法 [bind](https://developer.mozilla.org/zh/docs/Web/JavaScript/Reference/Global_Objects/Function/bind)，它可以绑定 `this`。
+
+基本的语法是：
+
+```javascript
+// 稍后将会有更复杂的语法
+let boundFunc = func.bind(context);
+```
+
+`func.bind(context)` 的结果是一个特殊的类似于函数的“外来对象（exotic object）”，它可以像函数一样被调用，并且透明地（transparently）将调用传递给 `func` 并==设定 `this=context`==。（这不就获取了本来不在作用域中的对象了么！）
+
+换句话说，`boundFunc` 调用就像绑定了 `this` 的 `func`。
+
+举个例子，这里的 `funcUser` 将调用传递给了 `func` 同时 `this=user`：
+
+```javascript
+let user = {
+  firstName: "John"
+};
+
+function func() {
+  alert(this.firstName);
+}
+
+let funcUser = func.bind(user);
+funcUser(); // John
+```
+
+这里的 `func.bind(user)` 作为 `func` 的“绑定的（bound）变体”，绑定了 `this=user`。
+
+所有的参数（arguments）都被“原样”传递给了初始的 `func`，例如：
+
+```javascript
+let user = {
+  firstName: "John"
+};
+
+function func(phrase) {
+  alert(phrase + ', ' + this.firstName);
+}
+
+// 将 this 绑定到 user
+let funcUser = func.bind(user);
+
+funcUser("Hello"); // Hello, John（参数 "Hello" 被传递，并且 this=user）
+```
+
+
+
+#### 5.解构赋值
+
+##### [对象解构](https://zh.javascript.info/destructuring-assignment#dui-xiang-jie-gou)
+
+解构赋值同样适用于对象。
+
+- 【1】基本语法是：
+
+```javascript
+let {var1, var2} = {var1:…, var2:…}
+```
+
+在等号右侧有一个已经存在的对象，我们想把它拆开到变量中。等号左侧包含了对象相应属性的一个“模式（pattern）”。在简单的情况下，等号左侧的就是 `{...}` 中的变量名列表。
+
+举个例子：
+
+```javascript
+let options = {
+  title: "Menu",
+  width: 100,
+  height: 200
+};
+
+let {title, width, height} = options;
+
+alert(title);  // Menu
+alert(width);  // 100
+alert(height); // 200
+```
+
+- 【2】属性 `options.title`、`options.width` 和 `options.height` 值被赋给了对应的变量。变量的顺序并不重要，下面这个代码也奏效：
+
+```javascript
+// 改变 let {...} 中元素的顺序
+let {height, width, title} = { title: "Menu", height: 200, width: 100 }
+```
+
+
+
+- 【3】等号左侧的模式（pattern）可以更加复杂，并且指定了属性和变量之间的映射关系。
+
+如果我们想把一个属性赋值给另一个名字的变量，比如把 `options.width` 属性赋值给变量 `w`，那么我们可以使用冒号来指定：
+
+```javascript
+let options = {
+  title: "Menu",
+  width: 100,
+  height: 200
+};
+
+// { sourceProperty: targetVariable }
+let {width: w, height: h, title} = options;
+
+// width -> w
+// height -> h
+// title -> title
+
+alert(title);  // Menu
+alert(w);      // 100
+alert(h);      // 200
+```
+
+
+
+- 【4】对于可能缺失的属性，我们可以使用 `"="` 设置默认值，如下所示：
+
+```javascript
+let options = {
+  title: "Menu"
+};
+
+let {width = 100, height = 200, title} = options;
+
+alert(title);  // Menu
+alert(width);  // 100
+alert(height); // 200
+```
+
+
+
+- 【5】我们还可以将冒号和等号结合起来：
+
+```javascript
+let options = {
+  title: "Menu"
+};
+
+let {width: w = 100, height: h = 200, title} = options;
+
+alert(title);  // Menu
+alert(w);      // 100
+alert(h);      // 200
+```
+
+- 【6】如果我们有一个具有很多属性的复杂对象，那么我们可以只提取所需的内容：
+
+```javascript
+let options = {
+  title: "Menu",
+  width: 100,
+  height: 200
+};
+
+// 仅提取 title 作为变量
+let { title } = options;
+
+alert(title); // Menu
+```
+
+当时学习react的时候也是这个状态 需要哪个就提取哪个~
+
+##### 解构赋值总结
+
+- 解构赋值可以立即将一个对象或数组映射到多个变量上。
+
+- **解构对象**的<u>完整</u>语法：
+
+  ```javascript
+  let {prop : varName = default, ...rest} = object
+  ```
+
+  这表示属性 `prop` 会被赋值给变量 `varName`，如果没有这个属性的话，就会使用默认值 `default`。
+
+  没有对应映射的对象属性会被复制到 `rest` 对象。
+
+  ==这是最全的一个用法 不写全是ok的！==
+
+- **解构数组**的<u>完整</u>语法：
+
+  ```javascript
+  let [item1 = default, item2, ...rest] = array
+  ```
+
+  数组的第一个元素被赋值给 `item1`，第二个元素被赋值给 `item2`。
+
+  剩下的所有元素被复制到另一个数组 `rest`（展开运算符来凑热闹了）。
+
+- 从嵌套数组/对象中提取数据也是可以的，此时等号左侧必须和等号右侧有相同的结构。
+
+
+
+##### 看几道对象解构例题
+
+- easy
+
+[解构赋值](https://zh.javascript.info/destructuring-assignment#jie-gou-fu-zhi)
+
+我们有一个对象：
+
+```javascript
+let user = {
+  name: "John",
+  years: 30
+};
+```
+
+写一个解构赋值语句使得：
+
+- `name` 属性赋值给变量 `name`。
+- `years` 属性赋值给变量 `age`。
+- `isAdmin` 属性赋值给变量 `isAdmin`（如果属性缺失则取默认值 false）。
+
+下面是赋值完成后的值的情况：
+
+```javascript
+let user = { name: "John", years: 30 };
+
+// 等号左侧是你的代码
+// ... = user
+
+alert( name ); // John
+alert( age ); // 30
+alert( isAdmin ); // false
+```
+
+答：
+
+```javascript
+let user = {
+  name: "John",
+  years: 30
+};
+// 就是最基础的用法
+let {name, years: age, isAdmin = false} = user;
+
+alert( name ); // John
+alert( age ); // 30
+alert( isAdmin ); // false
+```
+
+
+
+- hard
+
+[最高薪资](https://zh.javascript.info/destructuring-assignment#zui-gao-xin-zi)
+
+这儿有一个 `salaries` 对象：
+
+```javascript
+let salaries = {
+  "John": 100,
+  "Pete": 300,
+  "Mary": 250
+};
+```
+
+新建一个函数 `topSalary(salaries)`，返回收入最高的人的姓名。
+
+- 如果 `salaries` 是空的，函数应该返回 `null`。
+- 如果有多个收入最高的人，返回其中任意一个即可。
+
+P.S. 使用 `Object.entries` 和解构语法来遍历键/值对。
+
+> entries()永远嘀神！
+
+答：
+
+```javascript
+function topSalary(salaries) {
+
+  let max = 0;
+  let maxName = null;
+
+  for(let [name, salary] of Object.entries(salaries)) {
+    if (max < salary) {
+      max = salary;
+      maxName = name;
+    }
+  }
+
+  return maxName;
+}
+```
+
+#### 6.generator
+
+Generator 函数是 ES6 提供的一种异步编程解决方案，语法行为与传统函数完全不同。
+
+学习分为[**Generator函数的语法和API**](https://es6.ruanyifeng.com/#docs/generator)  和  **[它的异步编程应用](https://es6.ruanyifeng.com/#docs/generator-async)**
+
+异步编程对 JavaScript 语言是很重要的！因为JavaScript 语言的执行环境是“单线程”的，如果没有异步编程，根本没法用，非卡死不可。
+
+
+
+
+
+#### 7.数值型与布尔型的隐式转换
+
+刷题的时候遇到的一个小点
+
+![在这里插入图片描述](https://img-blog.csdnimg.cn/f968b88841e544e682b368df647237f7.png?x-oss-process=image/watermark,type_ZHJvaWRzYW5zZmFsbGJhY2s,shadow_50,text_Q1NETiBA5pWy5Luj56CB55qE5bCP5o-Q55C05omL,size_12,color_FFFFFF,t_70,g_se,x_16)
+
+引出两个点——
+
+- 隐式转换
+- !0 == true;//true
+
+先来看第一个
+
+true 和false（布尔值）和数值比较， 会做一个隐式转换——
+
+【1】true 隐式转换为1 
+
+【2】false隐式转换为0。
+
+见代码
+
+```js
+1 == true;//true
+//要注意===是全等哦 不会做隐式转换
+1 === true;//false
+```
+
+```js
+0 == false;//true
+```
+
+#### 8.非0是true 0是false
+
+再来看第二个
+
+- !0代表true (因为0代表false)
+
+```js
+!0 == true;//true
+```
+
+
+
+- 非0实数代表false
+
+```js
+!1 == false;//true
+```
+
+
+
+### JS红宝书进度记录
+
+```js
+// 经典书籍 目标：反复阅读 一天读一个小时 求快 莫纠结
+```
+
+
+
+### JS高级-尚硅谷 进度记录
+
+```js
+// 很不错的课程 巩固基础 一天看一小时左右
+```
+
+
+
+### JS30练
+
+```js
+//一天一个有趣的原生JS练手demo 边做边总结！莫纠结细则
+```
+
+
+
+
+
+
+
+
+
+
+
+
+
+## 2.核心基础知识
+
+### 计网
+
+```js
+//小林的图解网络随时翻阅 & 极客时间趣谈网络协议+网上的文章 & 读图解HTTP TCP等书籍 & 网络抓包实操练习  深入理解
+// 每天一道计网面试题 把自己带入面试者的身份 跟面试官白话白话 嗯就这样子
+1.趣谈网络协议 第一章东西还挺多 主要去搞TCP三次握手的内容了 这部分都没看完 明天继续~
+2.经典的TCP三次握手问题 为啥不是两次握手呢？这个问题真的很纠结！暂时分成了两个点去学习了下 今天读了好多解释 大致确定了两个点——避免
+```
+
+#### 1.趣谈网络协议
+
+看到文章中的内容讲述应用层的数据包通过socket编程发送到传输层 
+
+传输层再利用TCP协议创建TCP连接 进行数据包的传输（这里碰到了经典的TCP问题 停下来了解了下）
+
+TCP协议中有俩端口
+
+- 浏览器监听的
+- 包的最终目的地——服务器监听
+
+<img src="https://static001.geekbang.org/resource/image/64/0c/64fcf0cc5baade70769da2160637d70c.jpg" alt="img" style="zoom:50%;" />
+
+操作系统通过端口来判断它得到的包应该给哪个进程~
+
+传输层封装完毕后 网络包报文会加上传输层的TCP头（如上图 包含了两个端口号 当然还有别的 这里小林的图解网络解析得很清楚）
+
+浏览器把这个数据包交给操作系统得网络层~
+
+到了网络层之后的内容 明天再来看看~
+
+
+
+
+
+
+
+#### 2.计网面试题
+
+##### 小林图解-2.3 为啥是三次握手？不是两次/四次握手呢？
+
+来看看其他角度的答案
+
+> 极客时间中的一个评论
+>
+> > 应用层的包 ->（通过socket编程实现包的传递->） 传输层 支付这种场景 往往使用传输层中的TCP协议 TCP会保证这个包能够到达目的地 如果不能到达就会重新发送 直至到达
+> >
+> > 这个过程就像是一份信你写好了，装进信封，根据收信人的名字（网址）从地址簿（DNS）里面查到了目的地的地址邮编（IP），然后交给邮局（传输层）传输，当然这个过程可能还有些波折。 
+> >
+> > 1.你在信里面说： 亲爱的某某，我们以后写信联系吧（SYN=1发起一个新的连接），我有不能说的秘密跟你讲，但是我不确定收到信的是不是你，如果是你自己就请给我回信，我就跟你分享我的秘密（seq=x）。 
+> >
+> > 2.收信人收到你的信后给你回信： 亲爱的某某某我也想跟你写信（SYN=1发起一个新的连接），我是我自己你可以接着给我写信了（ACK=1确认序列号有效）你可以从不能说的秘密开始接着往下讲（ack=x+1），另外我也有话对你讲（seq=y） 
+> >
+> > 3.你收到信后很高兴，立刻回信： 我们终于联系上了（ACK=1确认序列号有效），我们接着说我的秘密......（seq=x+1），你有什么话跟我说下次写信告诉我（seq=y+1） 这就是TCP三次握手的过程
+>
+> 知乎中的解答
+>
+> > 要注意 TCP的可靠连接是靠**seq（sequence numbers 序列号）**来达成的！——来自知乎
+> >
+> > - 因为没有网络全局时钟，两台机器分别为了确认序列号，证明这个包是新的，而**不是在链路中delay的**（也是小林中内容的第二天点）——来自知乎
+>
+> 谢希仁 版 计算机网络——
+>
+> > “已失效的连接请求报文段” 的产生在这样一种情况下：client 发出的第一个连接请求报文段并没有丢失，而是在某个网络结点长时间的滞留了，以致延误到连接释放以后的某个时间才到达 server。本来这是一个早已失效的报文段。但 server 收到此失效的连接请求报文段后，就误认为是 client 再次发出的一个新的连接请求。于是就向 client 发出确认报文段，同意建立连接。假设不采用 “三次握手”，那么只要 server 发出确认，新的连接就建立了。由于现在 client 并没有发出建立连接的请求，因此不会理睬 server 的确认，也不会向 server 发送数据。但 server 却以为新的运输连接已经建立，并一直等待 client 发来数据。这样，server 的很多资源就白白浪费掉了。采用 “三次握手” 的办法可以防止上述现象发生。例如刚才那种情况，client 不会向 server 的确认发出确认。server 由于收不到确认，就知道 client 并没有要求建立连接。”
+>
+> 具体意思就是——为了防止**已经失效的连接请求报文**段突然又传到了服务端 因而产生错误
+>
+> 而知乎博主 一名阿里工程师认为这个“只能算是表因，并不涉及本质。“ 所以提出了——
+>
+> > 如果你细读[RFC793](https://link.zhihu.com/?target=https%3A//www.ietf.org/rfc/rfc793.txt)，也就是 TCP 的协议 RFC，你就会发现里面就讲到了为什么三次握手是必须的——
+> >
+> > TCP **需要 seq 序列号来做可靠重传或接收**，而避免连接复用时无法分辨出 seq 是延迟或者是旧链接的 seq，因此需要三次握手来约定确定双方的 ISN（初始 seq 序列号）。
+> >
+> > 作者：一位阿里工程师 链接：https://www.zhihu.com/question/24853633/answer/573627478
+
+
+
+##### 我的回答
+
+面试官问你 为啥TCP连接是三次握手 不是两次/四次呢？
+
+> 这个经典问题吧~
+>
+> 之前看过图解网络中的内容
+>
+> 谢希仁的计算机网络 对应这部分的内容
+>
+> 也搜过知乎 看过大佬解读的RFC中的内容
+>
+> 分两个点简单说下吧
+>
+> - 防止**已经失效的连接请求报文段**突然又传到了服务端
+> - TCP是可靠传输的 需要三次握手来约定、确定双方的初始序列号（seq——sequence numbers））
+>
+> 先说下三次握手建立起连接的过程吧 画个简图 
+>
+> 然后说下三次握手相较于两次握手 的性能提升 以及一些关键作用！
+>
+> 第一点：（参考谢希仁的计算机网络-避免失效的连接造成影响 小林的图解网路-避免历史连接）
+>
+> 第二点：三次握手来确定双方的初始序列号 （依靠seq序列号来做可靠重传/接收）
+
+
+
+###  操作系统
+
+```js
+// 小林的图解系统 & 学校课程学习 & 王道考研-OS 三者配合 高效学习
+// 要看一下学校的ppt了 课程旷了好几节有点听不懂！
+1.暂停一天
+```
+
+
+
+## 3.面试题
+
+### 面试题、面经总结
+
+```js
+//网上面试题、面经辣么多 一天多看一些 然后同时也要研究一些题的答案！
+1.写了两篇文章 为了掘金写文章辣个活动 也是拼勒hhh
+```
+
+[由box-sizing属性引出的对盒模型的思考](https://juejin.cn/post/7009640407634198541)
+
+[【青训营】做面试题般回顾前端基础知识CSS篇 - 4 弹性布局与经典面试题CSS实现垂直居中](https://juejin.cn/post/7009662518406676488) 
+
+
+
+### 力扣
+
+```js
+//跟着数据结构入门 的每日学习计划 进行刷题 一天1-3题！ 
+// 从今天开始 改变力扣总结的方式——只记录特别有感悟的题目
+```
+
+
+
+
+
+
+
+## 4.前端进阶知识学习
+
+### Node.js
+
+```JS
+// 由 Node入门 这份教程入门 完成一个实战案例 简单入门node
+// 然后再学习尚硅谷的node课程
+1.node入门学习进度推进
+```
+
+
+
+## 5.前端开发框架
+
+### react尚硅谷
+
+```js
+//广受好评的react教程 先快速过一下 再去实操哦！
+```
+
+
+
+
+
+### react练手
+
+```js
+// 先过一遍原理 再去敲代码加深印象（freecodecamp）
+// 五子棋demo
+```
+
+
+
+# 2021.9.20
+
+今天主要用来整理前三周的学习内容、与女票出去放个假
+
+额外刷道力扣 + 把昨天那道TCP三次握手的题搞了 + 再看点儿极客时间的趣谈网络协议
