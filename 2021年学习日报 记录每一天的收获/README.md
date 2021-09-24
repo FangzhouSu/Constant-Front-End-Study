@@ -3035,7 +3035,15 @@ GML 是第一代标记语言，使文档能明确将标示和内容分开，所�
 【2】引用类型
 
 * Object ----- typeof/instanceof
-* Array（是一种特别的对象） ------ `instanceof` —— `instanceof`专门用于判断对象的类型哦！
+* Array（是一种特别的对象） ------ `instanceof` —— `instanceof`专门用于判断对象实例的类型哦！
+
+```js
+var arr=[6,6,6]
+console.log(arr instanceof Array)// true
+console.log(typeof arr)// object
+```
+
+
 
 * Function ---- `typeof`
   *  `typeof 一个函数 = Function` （输出等于Function）
@@ -6826,9 +6834,9 @@ Totally 320min
     1.2 120-180 JS高级教程 160min 
     // 每日重点！编码 + 知识点记录
     // 近期重点 作用域、闭包、原型链
-		/* 初次接触原型 人有点懵 问题不大！明天继续 一定弄懂它！ */
+		/*  */
     1.3 60-120 freecodecamp JS + 响应式网页设计 30min
-    	/* 刷了一些JS基础的内容~ */
+    	/*  */
     1.4 60-90 JS 30demos 60min
     // 每天完成一个 不要求完全理解 先做一个初步的认知
     // 没有完全了解的/觉得很好的 都要特意标记出来 二刷时候再去好好理解下！
@@ -6877,23 +6885,7 @@ Totally 320min
 ```js
 //每日学到的知识点 可以写文章 可以记在心里 总结下来！
 // 本阶段主要学习JS高级教程（尚硅谷）
-学习了原型 原型链 这里今天没有学太明白 一堆知识点混在脑子里 乱套了！
-先不总结了 明天一定给他弄明白！
-```
-
-- 未初始化的变量
-
-```js
-// 当 JavaScript 中的变量被声明的时候，程序内部会给它一个初始值 undefined
-var a;
-var b;
-var c;
-// 当你对一个值为 undefined 的变量进行运算操作的时候，算出来的结果将会是 NaN，它的意思是 "Not a Number"。
-//  当你用一个值是 undefined 的变量来做字符串拼接操作的时候，它会转换成字符串（string）undefined。
-a = a + 1;
-b = b + 5;
-c = c + " String!";
-console.log(a,b,c);// NaN NaN undefined String!
+原型的内容 没老看明白的 第二天继续
 ```
 
 
@@ -6909,18 +6901,9 @@ console.log(a,b,c);// NaN NaN undefined String!
 demo06
 ```
 
-https://fangzhousu.github.io/JS-30Demos/06_Type-Ahead/index-billSu.html
 
-![在这里插入图片描述](https://img-blog.csdnimg.cn/ef409a262a8f42ba87705284d220b39e.png?x-oss-process=image/watermark,type_ZHJvaWRzYW5zZmFsbGJhY2s,shadow_50,text_Q1NETiBA5pWy5Luj56CB55qE5bCP5o-Q55C05omL,size_20,color_FFFFFF,t_70,g_se,x_16)
 
-好多不会的知识点！
 
-赶紧学吧！
-
-- ajax/**fetch**
-- json
-- 正则表达式
-- `addEventListener('keyup', 回调函数)` `addEventListener('change', 回调函数)`
 
 
 
@@ -7005,6 +6988,404 @@ https://fangzhousu.github.io/JS-30Demos/06_Type-Ahead/index-billSu.html
 
 - 1.在MyQueue的显式原型的新方法中写代码时 stack忘记加this了 
 - 2.peek中想调用MyQueue显式原型的pop方调成stack2的pop了 结果返回了个undefined 顺带着还给stack2存了个undefined 阿巴阿巴
+
+
+
+## 5.前端进阶知识学习
+
+### Node.js
+
+```JS
+// 由 Node入门 这份教程入门 完成一个实战案例 简单入门node
+// 然后再学习尚硅谷的node课程
+```
+
+
+
+# 2021.9.24 *Offer收割机学长的经验~ *建立前端学习仓库
+
+- Offer收割机学长的经验之谈
+
+> 抄Github源码 然后再自己理解
+>
+> 如何优化一些内容 自己疯狂思考
+>
+> 说白了 就是 疯狂抄高级东西 然后理解 自己再发散一下！
+
+```js
+// 今日主要收获 & 学习时间
+// 逛b站、看漫画、聊qq/微信、打游戏 计时 每次30min娱乐时间MAX 饭后可以允许有一次 其他学习时间不要分心哦！
+Totally 440min
+1.前端基础知识 
+// 从早上-中午 拿出一整块时间学习JS 晚上跑完步回来继续看JS JSyyds！！
+	1.1 60-90 阮大JS/ES6 min
+    // 口碑超好的JS&ES6教程 早起直接学习这个！  
+    	/*  */
+    1.2 120-180 JS高级教程 210min 
+    // 每日重点！编码 + 知识点记录
+    // 近期重点 作用域、闭包、原型链
+		/*  */
+    1.3 60-120 freecodecamp JS + 响应式网页设计 60min
+    	/*  */
+    1.4 60-90 JS 30demos 100min
+    // 每天完成一个 不要求完全理解 先做一个初步的认知
+    // 没有完全了解的/觉得很好的 都要特意标记出来 二刷时候再去好好理解下！
+    	/*  */
+    
+    // 这些内容都是要重点掌握的！
+    DOM编程 BOM使用 —— 复习
+    事件代理/委托
+	事件队列(setTimeout/setInterval/Promise)
+	JSON
+    Ajax/Fetch
+	正则表达式
+
+2.核心基础知识
+	2.1 60-90 计网 60min
+		/* 总结了下前天的内容 */
+	2.2 20-30 操作系统 min
+		/*  */
+
+3.前端开发框架 
+	3.1 react学习 min
+    // 反复写todolist案例 写熟练了先停下来去学5.2+4.1
+    // 五子棋案例做明白咯 尝试着改成组件化的形式
+		/*  */
+    
+4.面试刷题
+// 看完基础知识 来刷刷题 总结一下面经
+	4.1 力扣 min
+    	/*  */    
+
+5.前端进阶知识学习
+// 学完JS再学这个辽！
+    Node.js
+	webpack
+
+
+6.学校课程内容 min 
+7.每日总结 10min
+```
+
+
+
+## 1.前端基础
+
+### ==JS基础知识==
+
+```js
+//每日学到的知识点 可以写文章 可以记在心里 总结下来！
+// 本阶段主要学习JS高级教程（尚硅谷）
+复习一下原型的内容 貌似明白一些了！
+0.所有实例对象都有 `__proto__`属性 创建实例对象时自动添加
+每个函数都有`protoytype`属性 它默认指向一个Object空对象   原型对象都有个`constructor`属性 它默认指向函数对象
+  构造函数与原型对象是相互引用的关系
+1.隐式原型和显式原型的关系 p16
+2.通过原型链获取对象内部的属性/方法 p17
+3.原型链——函数、Function、Object之间的关系 p18 20
+4.原型链面试题-属性问题 p21
+5.原型链面试题-p21
+
+6.JS中单引号与双引号的功能相同 
+7./t 是制表符的意思 可以加一个缩进
+8.数组的不同位置的插入移出
+	头插unshift() 
+	尾插push() —— 入栈 入队
+	头出shift() —— 出队
+	尾出pop() —— 出栈
+9.不使用var 直接定义一个变量 隐式声明为全局变量
+全局变量的优缺点 
+
+10.删除数组中索引为index的元素 
+	`slice + ...` （返回值为被切割的数组）
+	/ `splice` （返回值为删除的元素）并删除掉数组中对应的元素
+11.替换数组中的某个/某几个元素 `splice` 
+```
+
+#### 0.函数特别的属性`prototype`
+
+- 每个函数都有个`protoytype`属性 在定义函数时 `function Foo(){}`被自动赋值（默认为{}）也就是 ==默认**指向一个Object空对象**==
+
+- 构造函数与原型对象是相互引用的关系
+  - 构造函数Foo()通过prototype属性找到原型对象Object
+  - 原型对象Object通过constructor属性找到构造函数Foo()
+
+![在这里插入图片描述](https://img-blog.csdnimg.cn/ed78cd2515db4456a7f5184cb739134d.png?x-oss-process=image/watermark,type_ZHJvaWRzYW5zZmFsbGJhY2s,shadow_50,text_Q1NETiBA5pWy5Luj56CB55qE5bCP5o-Q55C05omL,size_16,color_FFFFFF,t_70,g_se,x_16)
+
+
+
+#### 0‘.实例对象特别的属性`__proto__`
+
+实例对象的`__proto__`（隐式原型）就是其构造函数的`prototype`（显式原型）
+
+- 在创建实例对象 `var fn = new Fn()` 时被自动添加 并赋值为构造函数的prototype值
+- 原型对象（默认的那个空Object对象）就是当前实例对象的父对象（见下方1.隐式原型和显式原型的关系 的图）
+
+#### 1.隐式原型&显式原型的关系
+
+见下图
+
+![请添加图片描述](https://img-blog.csdnimg.cn/c1585360f0e745408d78845f6fb21954.png?x-oss-process=image/watermark,type_ZHJvaWRzYW5zZmFsbGJhY2s,shadow_50,text_Q1NETiBA5pWy5Luj56CB55qE5bCP5o-Q55C05omL,size_17,color_FFFFFF,t_70,g_se,x_16)
+
+#### 2.通过原型链获取对象内部的属性/方法
+
+顺着隐式原型属性找就行~
+
+![在这里插入图片描述](https://img-blog.csdnimg.cn/ac15bad11c2c4e64a323d2143f687d47.png)
+
+想要调用实例对象中的方法 顺着原型链寻找就可以了（就是蓝色箭头指出来的路径）
+
+如果原型链上没有方法
+
+```js
+fn.test1();
+fn.test2();
+fn.toString();
+// 以上三个方法都可以顺着原型链找到~
+fn.test3();//TypeError: fn.test3 is not a function
+```
+
+
+
+#### 3.原型链 函数、Function、Object之间的关系（原型对象与实例对象的关系）
+
+所有函数的隐式原型属性 `__proto__` 都是一样的 所以就有了下图这种情况
+
+（Object也是由Function创建的 可以这么写
+
+```js
+var Foo = new Function();// 实际写的时候new会省去
+Object = new Function();
+Function = new Function();
+```
+
+）
+
+![在这里插入图片描述](https://img-blog.csdnimg.cn/7817b937536c4edfb666347d1669272b.png?x-oss-process=image/watermark,type_ZHJvaWRzYW5zZmFsbGJhY2s,shadow_50,text_Q1NETiBA5pWy5Luj56CB55qE5bCP5o-Q55C05omL,size_10,color_FFFFFF,t_70,g_se,x_16)
+
+
+
+#### 4.原型链属性问题 面试题
+
+```js
+function A(){}
+A.prototype.n = 1;
+var b = new A();
+A.prototype = {
+    n: 2,
+    m: 3
+}
+var c = new A();
+
+console.log(b.n, b.m, c.n, c.m)
+```
+
+> 提示：
+>
+> - 顺着原型链来找属性（方法同理）
+> - 函数的prototype属性默认指向一个空对象
+>   - 如果定义了新的prototype 比如上面4-7行 则指向新的空对象
+>
+> - 感觉比较乱的可以画个图
+
+画个图就无比清晰了 如下：
+
+![在这里插入图片描述](https://img-blog.csdnimg.cn/2bb63294996f40769949f7754830cce6.png?x-oss-process=image/watermark,type_ZHJvaWRzYW5zZmFsbGJhY2s,shadow_50,text_Q1NETiBA5pWy5Luj56CB55qE5bCP5o-Q55C05omL,size_18,color_FFFFFF,t_70,g_se,x_16)
+
+答案很清楚了 
+
+b实例对象顺着原型链可以找到n=1 找不到m
+
+c实例对象顺着原型链可以找到n=2 m=3
+
+```js
+// 1, undefined, 2, 3
+```
+
+
+
+
+
+
+
+
+
+#### 5.原型链属性问题（更深入） -面试题
+
+这题明天晚上再研究下~
+
+```js
+function F(){}
+Object.prototype.a = function(){
+    console.log('a()')
+}
+Function.prototype.b = function(){
+    console.log('b()')
+}
+var f = new F()
+f.a()
+f.b()
+F.a()
+F.b()
+```
+
+
+
+#### 6.全局变量的优缺点
+
+来源 [JS中如何定义全局变量](https://www.cnblogs.com/keyi/p/6137259.html)
+
+-  优点
+  - 减少变量的个数
+  - 减少由于实际参数和形式参数的数据传递带来的时间消耗
+- 缺点
+  - 全局变量保存在静态存贮区，程序开始运行时为其分配内存，程序结束释放该内存。与局部变量的动态分配、动态释放相比，生存期比较长，因此过多的全局变量会占用较多的内存单元。
+  - 全局变量破坏了函数的封装性能。函数象一个黑匣子，一般是通过函数参数和返回值进行输入输出，函数内部实现相对独立。但函数中如果使用了全局变量，那么函数体内的语句就可以绕过函数参数和返回值进行存取，这种情况破坏了函数的独立性，使函数对全局变量产生依赖。同时，也降低了该函数的可移植性。
+  - 全局变量使函数的代码可读性降低。由于多个函数都可能使用全局变量，函数执行时全局变量的值可能随时发生变化，对于程序的查错和调试都非常不利。
+
+因此，如果不是万不得已，最好不要使用全局变量。
+
+#### 7.删除数组中索引为index的元素 …配合slice & splice
+
+- 利用展开运算符`…`和slice方法
+
+```js
+array = [0,1,2,3,4]
+const index = 2
+const newArray = [
+    ...array.slice(0,index),
+    ...array.slice(index+1)
+]
+console.log(newArray);// [0, 1, 3, 4]
+```
+
+这种方法在删除多个元素时很好用！
+
+​	删除索引为2 4 6的元素
+
+```js
+array = [0,1,2,3,4,5,6]
+const newArray = [
+    ...array.slice(0,2),
+    ...array.slice(3,4),
+    ...array.slice(5,6)
+]
+console.log(newArray);// [0, 1, 3, 5]
+```
+
+
+
+- 使用splice进行连续地删除 返回值为被删除的那个元素
+
+```js
+array = [0,1,2,3,4]
+// 从索引为2的位置开始 删除两个元素
+array.splice(1,2);
+console.log(array);// [0, 3, 4]
+```
+
+
+
+#### 8.替换数组中的某个元素 splice(index,number,用于替换的内容)
+
+```js
+array = [0,1,2,3,4]
+// 从索引1开始 的两个元素 替换成"bill"
+array.splice(1,2,"bill")
+console.log(array)// [0, "bill", 3, 4]
+```
+
+
+
+
+
+
+
+
+
+### JS30练
+
+```js
+//一天一个有趣的原生JS练手demo 边做边总结！莫纠结细则
+demo07
+```
+
+很有收获！感觉很多算法题也可以用其中的方法快速解决
+
+![在这里插入图片描述](https://img-blog.csdnimg.cn/11b93df5bed84b62a685f299ff8e39a7.png)
+
+- ```js
+  people.some(person => 
+              (new Date()).getFullYear() - person.year
+             );//person代表people中迭代的每个元素
+  ```
+
+  
+
+
+
+## 2.核心基础知识
+
+### 计网
+
+```js
+//小林的图解网络随时翻阅 & 极客时间趣谈网络协议+网上的文章 & 读图解HTTP TCP等书籍 & 网络抓包实操练习  深入理解
+// 每天一道计网面试题 把自己带入面试者的身份 跟面试官白话白话 嗯就这样子
+今天整理了下前天的题 TCP三次握手的优点 发到掘金上
+```
+
+[计网小知识 为啥TCP是三次握手（three-way handshake） 而不是两次/四次呢？](https://juejin.cn/post/7011449882409959432)
+
+
+
+###  操作系统
+
+```js
+// 小林的图解系统 & 学校课程学习 & 王道考研-OS 三者配合 高效学习
+// 要看一下学校的ppt了 课程旷了好几节有点听不懂！
+日常停学
+```
+
+
+
+## 3.前端开发框架
+
+### react尚硅谷
+
+```js
+// 广受好评的react教程 先快速过一下 再去实操哦！
+```
+
+
+
+### react练手
+
+```js
+// 先过一遍原理 再去敲代码加深印象（freecodecamp）
+// 五子棋demo
+```
+
+
+
+
+
+## 4.面试题
+
+### 面试题、面经总结
+
+```js
+//网上面试题、面经辣么多 一天多看一些 然后同时也要研究一些题的答案！
+```
+
+
+
+### 力扣
+
+```js
+//跟着数据结构入门 的每日学习计划 进行刷题 一天1-3题！ 
+// 从今天开始 改变力扣总结的方式——只记录特别有感悟的题目
+
+```
 
 
 
