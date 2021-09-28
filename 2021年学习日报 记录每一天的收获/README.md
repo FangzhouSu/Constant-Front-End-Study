@@ -6393,11 +6393,15 @@ obj2[propName] = value;// 成功设置age属性
 ```js
 var obj = {};
 function fn(){
-    this.xxx = 'fighting!';
+    this.slogan = 'fighting!';    
 }
 fn.call(obj);// 为obj调用fn方法
-console.log(obj.xxx);// fighting!
+console.log(obj.slogan);// fighting!
 ```
+
+其实这个call方法的作用应该是 用于**编写能够在不同对象上使用的方法**
+
+具体内容看9.28的笔记
 
 
 
@@ -6423,7 +6427,7 @@ LIFE(Immediately Invoked Function Expression) 立即调用函数表达式
 ##### 作用
 
 - 隐藏实现（对程序隐藏）
-- 不会污染外部（全局）命名空间（我个人认为在全局函数中可以使用let const来避免污染全局命名空间？）
+- 不会污染外部（全局）命名空间（我个人认为在全局函数中可以使用let const来避免污染全局命名空间）
 
 ```js
 (function(){
@@ -8228,7 +8232,7 @@ Accept-Encoding: gzip, deflate
 // 然后再学习尚硅谷的node课程
 ```
 
-# 2021.9.27 *规划刷题路线
+# 2021.9.27 
 
 已经是近期起得最早的一天了！
 
@@ -8245,7 +8249,7 @@ Accept-Encoding: gzip, deflate
 ```js
 // 今日主要收获 & 学习时间
 // 逛b站、看漫画、聊qq/微信、打游戏 计时 每次30min娱乐时间MAX 饭后可以允许有一次 其他学习时间不要分心哦！
-Totally min
+Totally 360min
 1.前端基础知识 
 // 从早上-中午 拿出一整块时间学习JS 晚上跑完步回来继续看JS JSyyds！！
 	1.1 阮大JS/ES6 min
@@ -8569,7 +8573,7 @@ demo10
 
 可以作为复选框的模板 用就完事了~
 
-然后就是
+进阶功能有些没看懂 回头继续！
 
 ![在这里插入图片描述](https://img-blog.csdnimg.cn/cae45b7c5aff473fa08f7303d9ae2299.png)
 
@@ -8704,5 +8708,386 @@ demo10
 ```JS
 // 由 Node入门 这份教程入门 完成一个实战案例 简单入门node
 // 然后再学习尚硅谷的node课程
+```
+
+
+
+# 2021.9.28 *规划刷题路线
+
+沙河校区半日游 女票国庆回家了 留我一人在成都555
+
+趁着她还没飞走 一起吃顿饭吧 难过.jpg
+
+
+
+既然是出去放松 今天就不按计划走了 
+
+- 写一下文章 总结一下知识点
+
+- 规划一下之后一个月左右的刷题路线 
+
+  - 二叉树 + 排序
+  - 贪心算法+数组
+  - 动态规划+字符串
+
+  > 要做到每个解题方法都能掌握一些套路！
+  >
+  > 比如 看到数组的题 要能想到有几种解题方法 双指针、前缀和、贪心、动态规划 等等 
+  >
+  > 在面试时候要能说一些东西出来！
+
+- react简单学习一下
+
+
+
+```js
+// 今日主要收获 & 学习时间
+// 逛b站、看漫画、聊qq/微信、打游戏 计时 每次30min娱乐时间MAX 饭后可以允许有一次 其他学习时间不要分心哦！
+Totally min
+1.前端基础知识 
+// 从早上-中午 拿出一整块时间学习JS 晚上跑完步回来继续看JS JSyyds！！
+	1.1 阮大JS/ES6 min
+    // 口碑超好的JS&ES6教程 查缺补漏
+    	/*  */
+    1.2 JS高级教程 60min 
+    // 每日重点！编码 + 知识点记录
+    // 近期重点 作用域、闭包、原型链
+		/* 看了下作用域的内容 简单入门原型 */
+    1.3 freecodecamp JS + 响应式网页设计 min
+    	/*  */
+    
+    // 这些内容都是要重点掌握的！
+    DOM编程 BOM使用 —— 复习
+    事件代理/委托
+	事件队列(setTimeout/setInterval/Promise)
+	JSON
+    Ajax/Fetch
+	正则表达式
+
+
+```
+
+
+
+## 1.前端基础
+
+
+
+
+
+### ==前端基础知识==
+
+```js
+//每日学到的知识点 可以写文章 可以记在心里 总结下来！
+// 本阶段主要学习JS高级教程（尚硅谷）刷freecodecamp
+1.复习下执行上下文的三道面试题 不难 理解了全局上下文 函数上下文 变量提升 函数提升 可以快速理解
+2.掘金写文章总结 new操作符干了什么？
+3.","运算符
+```
+
+> 来复习三道面试题！
+
+明天再看！今天没时间搞这个惹
+
+#### 1.执行上下文面试题
+
+- 面试题1
+
+**先执行变量提升 再执行函数提升** —— 变量提升优先级高！(注意 如果在初始化变量中给变量赋初值 效果看起来会像先函数提升 之后变量才被提升一样 其实应该是函数先的！（本例就可以体现这一点）)
+
+【1】变量提升 a为undefined
+
+【2】函数提升 a为函数
+
+```js
+function a() {alert(666)}
+var a;
+console.log(typeof a)// 'function'
+```
+
+**如果在初始化变量中给变量赋初值 a重新变成number类型**
+
+就像下面这题一样
+
+- 面试题2
+
+与上一题搭配使用
+
+【1】变量提升 定义了c变量
+
+【2】函数提升（比变量提升靠后）定义了函数
+
+【3】在函数提升之后 给c再赋值为1
+
+```js
+var c = 1
+function c(c) {
+    console.log(c)
+    var c = 3
+}
+c(2)//
+```
+
+这段代码相当于
+
+```js
+var c;//变量提升
+function c(C){...}
+c = 1;//最终c是Number类型的！
+```
+
+
+
+- 面试题3
+
+这题相当有意思！哈哈
+
+```js
+if (!(b in window)) {
+    // 变量提升 b是在window全局执行上下文中的 
+    // 所以 if中的内容为false 无法给b赋值了！
+	var b = 1;
+}
+console.log(b)// undefined
+```
+
+
+
+
+
+#### 2.new关键字都做了什么？
+
+> 今天来总结下这里 写一篇文章~
+>
+> [JS小知识 new关键字都做了什么？](https://juejin.cn/post/7012887169878458404/)
+
+在没有学习原型之前 我们可以这么给出定义——
+
+- 【1】创建一个类（或者模拟类 比如说构造函数~）的实例对象
+
+  
+
+那么学过原型之后 我们知道 JS中的new关键字还背负着一些使命
+
+这里涉及了原型、this指向、作用域、函数return的知识
+
+举个例子来把内容串起来~
+
+```js
+function Person(name, age){
+    this.name = name;
+    this.age = age;
+}
+Person.prototype.getName = function(){
+    console.log(this);//
+    return this.name;// 通过this调用新创建的对象实例中的属性
+};
+
+var person = new Person("bill",21);
+console.log(person.name,person.age);// bill 21
+person.getName();//"bill"
+```
+
+上面那些代码中是看不出来new关键字做了什么的！
+
+我们用伪代码模拟下上述过程的执行过程 也就是这一句
+
+```js
+var person = new Person("bill",21);
+```
+
+等同于下面内容
+
+```js
+new Person('bill',21) = {
+    var obj = {};
+	obj.__proto__ = Person.prototype;
+	var res = Person.call(obj, 'bill', 21);// 单独的方法也可以这么用 
+// func.call(obj) 赋给obj对象func方法！
+	return res;//这里先不考虑构造函数有return 毕竟比较少见
+}
+```
+
+
+
+- 【1】创建了一个新的空对象 `{}`
+
+```js
+var obj = {};
+```
+
+
+
+- 【2】将新对象的 `__proto__` 指向构造函数的 `prototype` 属性
+  - 也就是设置这个对象原型指向构造函数
+
+```js
+obj.__proto__ = Person.prototype;
+```
+
+
+
+- 【3】将构造函数的作用域赋值给新对象（this指向新创建的空对象）
+
+> 这里注意 在执行构造函数中的代码时 会为这个新对象添加属性 同时this会指向新创建的对象
+>
+> 之后 this关键字被提及的时候 可以调用新创建的对象的属性/方法 `this.name`  `this.func()`
+
+```js
+var res = Person.call(obj, 'bill', 21);
+```
+
+
+
+- 【4】返回新对象（这里注意 如果构造函数中return一个对象 那么会返回return的内容 而不是创建的这个对象！！）
+
+```js
+return res;
+```
+
+##### 原型链必会概念
+
+```js
+// 要有顺着原型链找东西的技巧 
+// 甭管是 常规的 找方法、找属性
+// 还是面试中可能问的找构造函数 找Function Object的显式原型
+/*（比如写一个 Function.prototype.func = function(){...} 
+ 要知道这个func方法 哪些实例对象可以调用（顺着原型链的隐式原型那条路线要能抵达Function的显式原型 那就能用那上面的方法！） */
+var Foo = function(){...};
+var foo = new Foo();                       
+console.log(foo.__proto__.__proto__ === Object.prototype;)//true 
+```
+
+
+
+
+
+脑子里要有这幅图~
+
+![在这里插入图片描述](https://img-blog.csdnimg.cn/fed8f4e733fe486890b312bcd60bd4e7.png)
+
+
+
+
+
+另外这张图可以帮助理解一下~
+
+可以看到实例对象的变量 顺着原型链可以找到Object的原型对象 
+
+Object的原型对象上有很多定义好的方法~
+
+> 另外Object的原型对象与Function的原型方法也有联系 看上图即可~
+
+![在这里插入图片描述](https://img-blog.csdnimg.cn/ac15bad11c2c4e64a323d2143f687d47.png)
+
+#### 3.神奇的“,”运算符
+
+```js
+// 顺带复习下LIFE立即执行函数
+var fn = (
+    function test1(){
+        return 1;
+    },
+	function test2(){
+        return '2';
+    }
+)();
+var num = (1,2);
+// 01 先来输出这个数值 输出的是逗号后面的值
+// 另外 之前一直没见过这样子的数值~
+console.log(num);// 2
+console.log(typeof(num));// number
+// 02 再来输出下立即执行函数 发现逗号后面那个才是本体~
+console.log(typeof(fn));//
+```
+
+
+
+#### 4.call()方法
+
+[JavaScript 函数 Call](https://www.w3school.com.cn/js/js_function_call.asp)
+
+用于达到“**方法重用**”的效果
+
+使用 call() 方法，您可以编写能够**在不同对象上使用的方法**。
+
+简单来说就是这样——
+
+```js
+方法拥有者（对象）.方法.call(另一个对象)
+```
+
+
+
+##### 函数是对象的方法
+
+在 JavaScript 中，函数是对象的方法。
+
+**如果一个函数不是 JavaScript 对象的方法，那么它就是全局对象的函数**（这个结论妙啊！！）
+
+
+
+下面的例子创建了带有三个属性的对象（`firstName、lastName、fullName`）。
+
+```js
+var person = {
+    firstName:"Bill",
+    lastName: "Gates",
+    fullName: function () {
+        return this.firstName + " " + this.lastName;
+    }
+}
+person.fullName();// "Bill Gates"
+```
+
+==`fullName` 属性是一个*方法*。person 对象是该方法的*拥有者*==。
+
+
+
+call() 方法是预定义的 JavaScript 方法。
+
+它可以用来调用所有者对象作为参数的方法。
+
+通过 call()，您能够使用属于另一个对象的方法。
+
+本例调用 person 的 fullName 方法，并用于 person1：
+
+
+
+```js
+var person = {
+    fullName: function() {
+        return this.firstName + " " + this.lastName;
+    }
+}
+var person1 = {
+    firstName:"Bill",
+    lastName: "Gates",
+}
+var person2 = {
+    firstName:"Steve",
+    lastName: "Jobs",
+}
+person.fullName.call(person1);  // 将返回 "Bill Gates"
+// 方法拥有者（对象）.方法.call(另一个对象)
+```
+
+
+
+##### 同时call方法可以接受参数 
+
+```js
+var person = {
+  fullName: function(city, country) {
+    return this.firstName + " " + this.lastName + "," + city + "," + country;
+  }
+}
+var person1 = {
+  firstName:"Bill",
+  lastName: "Gates"
+}
+person.fullName.call(person1, "Seattle", "USA");//Bill Gates,Seatle,USA
+
+person.fullName.call(person1, "Seattle");//Bill Gates,Seatle,undefined
 ```
 
