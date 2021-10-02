@@ -7145,6 +7145,8 @@ Totally 440min
 
 顺着隐式原型属性找就行~
 
+此处Object空对象 即为产生的Object实例对象  
+
 ![在这里插入图片描述](https://img-blog.csdnimg.cn/ac15bad11c2c4e64a323d2143f687d47.png)
 
 想要调用实例对象中的方法 顺着原型链寻找就可以了（就是蓝色箭头指出来的路径）
@@ -9632,7 +9634,7 @@ var aa = 3 >> 1;// 1
 ```js
 // 今日主要收获 & 学习时间
 // 逛b站、看漫画、聊qq/微信、打游戏 计时 每次30min娱乐时间MAX 饭后可以允许有一次 其他学习时间不要分心哦！
-Totally min
+Totally 450min
 1.前端基础知识 
 // 从早上-中午 拿出一整块时间学习JS 晚上跑完步回来继续看JS 重视基础！
 // 不要浮于表面地看问题 深入进去！多向自己提问！
@@ -9664,7 +9666,7 @@ Totally min
 		/*  */
 
 3.面试刷题
-	3.1 刷算法 刷力扣 120+min	
+	3.1 刷算法 刷力扣 120min	
     // 【1】阅读掘金小册 + 按照代码随想录推荐【2】刷题
     	/* 掘金小册2/28 代码随想录数组3/7 
         刷了一个medium的二维数组 90分钟才根据提示做出来...难点是顺时针给矩阵赋值 要点是四个方向的代码都要分别设置 找到对应的规律
@@ -9682,9 +9684,9 @@ Totally min
 		/*  */  
     
 4.前端开发框架 
-	4.1 react学习 min
+	4.1 react学习 50min
     // 尚硅谷课程 官方文档五子棋demo
-		/*  */
+		/* 收尾第一个案例 为之后的学习做个规划 */
     
 
 5.前端进阶知识学习
@@ -9692,7 +9694,7 @@ Totally min
     Node.js
 	webpack
 6.其他 
-7.每日总结 min
+7.每日总结 10min
 ```
 
 
@@ -9714,7 +9716,8 @@ Totally min
 2.const保证变量指向的那个内存地址不得改动（本质）
 3.使用扩展运算符拷贝数组
 4.将一切类数组转为数组的最佳方法
-5.只有function声明的函数才会被提升
+5.函数提升造成的闭包
+6.闭包的作用、应用、缺点
 ```
 
 
@@ -9823,10 +9826,6 @@ foo.prop = 123;
 item = [b,i,l,l,b,e,s,t];
 const itemsCopy = [...item];// 方便快捷的复制！
 ```
-
-
-
-
 
 
 
@@ -10056,7 +10055,7 @@ https://github.com/wolverinn/Waking-Up/blob/master/Computer%20Network.md#http%E5
 - 【2】传输方式不同
   - HTTP的信息是 明文传输（存在安全风险）
   - HTTPS运行在SSL（安全协议）之上 添加了加密和认证机制 使得报文能够加密传输（解决了HTTP不安全的缺陷）
-- 【5】建立连接的方式不同
+- 【3】建立连接的方式不同
   - HTTP —— TCP三次握手之后就可以进行HTTP的报文传输了
   - HTTPS —— TCP三次握手 + SSL/TLS握手 才可以进入加密报文传输（在TCP传输层和HTTP应用层之间加入了SSL/TLS协议）
 
@@ -10233,8 +10232,6 @@ TIME_WAIT这个等待阶段会持续2MSL的时间——
 
 
 
-
-
 ## 3.面试题
 
 ### 面试题、面经总结
@@ -10252,14 +10249,10 @@ TIME_WAIT这个等待阶段会持续2MSL的时间——
 1.复习了一下二维数组的初始化方法
 2.超级刷题挑战 一天3+题！
 	59.螺旋矩阵II 被卡住了 跟着提示做出来的！90min
-    
+    今天刷题量没达标！正在适应刷题节奏 给的刷题时间有点少！ + 今天这题有点难搞
 ```
 
 [59.螺旋矩阵II 代码随想录](https://programmercarl.com/0059.%E8%9E%BA%E6%97%8B%E7%9F%A9%E9%98%B5II.html#_59-%E8%9E%BA%E6%97%8B%E7%9F%A9%E9%98%B5ii)
-
-
-
-
 
 
 
@@ -10273,10 +10266,20 @@ const arr = new Array(8).fill(0).map(() => new Array(6).fill(9));// 8行 6列 �
 
 ## 4.前端开发框架
 
+### 项目开发前置知识
+
+```js
+// 学到了尚硅谷react第四章 老师表示 “先学完Ajax Promise axios再回来吧！”
+```
+
+
+
+
+
 ### react基础知识
 
 ```js
-// 先学习广受好评的react教程尚硅谷 先快速过一下 再去实操！
+// 现阶段学习广受好评的react教程尚硅谷 
 Todolist案例相关知识点
 ```
 
@@ -10307,8 +10310,1803 @@ Todolist案例相关知识点
 ### react练手项目
 
 ```js
-// 先过一遍原理 再去敲代码加深印象（freecodecamp）
-// 五子棋demo
-干掉五子棋demo 干掉todolist demo 明天开始推进度！
+// 尚硅谷课程接下来的案例
+// 掘金 记账本egg.js+react全栈 
+```
+
+
+
+# 2021.10.2
+
+学JS高级的各种内容有点上头
+
+东西真多啊哈哈！
+
+明天完结JS高级 然后复习个几天~！
+
+刷题又是被卡了好久 下回出现那种需要调好久才能怼上一个用例的代码 就可以思考下自己是哪里想得复杂+不好了！
+
+用更简练、直观、合理的代码和思路去解题！
+
+```js
+// DDL
+	01 尚硅谷JS高级 10.3学习完第一轮 10.4-7 一天复习一章 
+	02 算法题 数组+排序算法 10.3学习完（可以算是复习）
+    03 Ajax 10.3 Promise 10.4 axios 10.5
+```
+
+
+
+```js
+// 今日主要收获 & 学习时间
+Totally 460min
+1.前端基础知识 
+// 从早上-中午 拿出一整块时间学习JS 晚上跑完步回来继续看JS 重视基础！
+// 不要浮于表面地看问题 深入进去！多向自己提问！
+    1.1 JS学习 50+180min 
+    // 每日重点！编码 + 知识点记录
+    // 近期重点 作用域、闭包、原型链 + ES6 + Ajax axios
+		/* 折腾闭包 最后使用的执行上下文 激活对象AO解决的问题 说明这两块知识点连接很紧密！
+		其实简单来说 闭包形成的原因 就是因为内部函数存在外部作用域的引用！闭包中的变量会存储在堆内存 导致了一些函数内的值会被保存下来 实现方法和属性的私有化——面试题3中体现得淋漓尽致！
+        然而 对闭包得了解还不够 回头需要结合着作用域的知识点再重学一下闭包！当然了 也要多看一些题*/
+    1.2 freecodecamp JS + 响应式网页设计 min
+    	/*  */
+    1.3 JS 30demos min
+    // 每天完成一个 不要求完全理解 先做一个初步的认知
+    // 没有完全了解的/觉得很好的 都要特意标记出来 二刷时候再去好好理解下！
+    	/*  */
+    
+    // 这些内容都是要重点掌握的！
+    DOM编程 BOM使用 —— 复习
+    事件代理/委托
+	事件队列(setTimeout/setInterval/Promise)
+	JSON
+    Ajax/Fetch
+	正则表达式
+
+2.核心基础知识 下午开始学计网 + 刷题
+	2.1 计网 min
+		/*  */
+	2.2 操作系统 min
+		/*  */
+
+3.面试刷题
+	3.1 刷算法 刷力扣 150min	
+    // 【1】阅读掘金小册 + 按照代码随想录推荐【2】刷题
+    	/* 掘金小册3/28 代码随想录数组3/7 
+        刷了一道和昨天差不多的 螺旋矩阵 可把我难住了！比昨天用的时间还多
+        主要是有点陷入昨天题目的做法里了！今天找到超棒的方法！感觉 螺旋矩阵II也可以这么做~~（会繁琐一些 但是好想且形象很多！画面感十足！定下top left right bottom 框住每一轮的循环 当遇到top=bottom left=right的情况 再单独进行遍历那一行！真不错！）
+        */   
+    
+    	// 每个阶段结束后 简单总结下应对某种数据结构/对应类型的题目 应该怎么去想
+    	数组 + 排序 第五周
+        链表 + 二叉树 第六周
+        字符串 + 二叉树 + 栈/队列 第七周
+        双指针 + 遍历专题DFS BFS 第八周
+        回溯算法 + 贪心算法 第九周
+        动态规划 第十周
+    3.2 面试题 min
+    // 有空可以读一些面试题 查缺补漏一下~
+		/*  */  
+    
+4.前端开发框架 
+	4.1 react学习 min
+    // 尚硅谷课程 官方文档五子棋demo
+		/*  */
+    
+
+5.前端进阶知识学习
+// 学完JS再学这个辽！
+    Node.js
+	webpack
+6.其他 
+	毛概作业 70min
+7.每日总结 10min
+```
+
+
+
+
+
+## 1.前端基础
+
+
+
+### 前端基础知识
+
+
+
+```js
+//每日学到的知识点 可以写文章 可以记在心里 总结下来！
+// 本阶段主要学习JS高级教程（尚硅谷）刷freecodecamp
+1.对象的创建模式——直接在构造函数中定义方法 会让每个创建出来的对象都带上那个方法 比较占内存 将方法定义在原型上可以节省内存！
+2.在JS中实现继承！
+3.复习new一个对象背后做了啥
+4.闭包面试题复习
+```
+
+
+
+#### 1.对象的创建模式
+
+- 构造函数模式 —— 定义方法时 再创建对象 会占内存~
+
+```js
+function Person(name, age) {
+  this.name = name;
+  this.age = age;
+  this.setName = function(name){this.name=name;};
+}
+var p1 = new Person('tom', 12);
+var p2 = new Person('jerry', 16);
+```
+
+这两个对象上都会带一个方法——浪费内存！
+
+![在这里插入图片描述](https://img-blog.csdnimg.cn/ffae8dc0c7224d6393e726dba4742cf1.png)
+
+- 构造函数+原型的组合模式 —— 最省内存~
+
+```js
+function Person(name, age) {
+  this.name = name;
+  this.age = age;
+}
+// 简单来说 代码就是这样~
+Person.prototype.setName = function(name){this.name=name;};
+new Person('tom', 12);
+```
+
+
+
+![image-20211002140717986](README.assets/image-20211002140717986.png)
+
+
+
+#### 2.【面试题】JS中实现继承
+
+简单来说 有三种方式
+
+- 原型链继承
+- 借用构造函数
+- 组合
+
+分别来看看原理
+
+- 【1】原型链继承 —— 子类型继承得到方法
+  - 通过`Child.prototype = new Parent()`继承父函数 从而继承了属性与方法
+  - **缺点**：通过Child构造的对象 的原型对象 的 `constructor` 属性指向Parent！这不好！
+    - 我们需要让子类型的原型的 `constructor`  指向子类型 才对！
+    - 这个问题可以通过 `Child.prototype.constructor = Child;` 来修正constructor属性
+
+```js
+// 定义父函数、父函数原型上的方法、子函数
+function Parent(){}
+Parent.prototype.test = function(){};
+function Child(){}
+// 实现继承的关键一步 
+Child.prototype = new Parent();// 出现了！new关键字！创建了父类的实例 让Child子类型的原型指向父类型实例！
+
+var child = new Child(); // Child对象实例中有test() （当然了 父类型的属性也会被继承过来！）
+```
+
+画一个继承的示意图（从内存的角度来看）
+
+![在这里插入图片描述](https://img-blog.csdnimg.cn/b32d8872931d43888b9fec5889e3d1cd.png)
+
+
+
+- 【2】借用构造函数 : 得到属性（这个其实不算继承拉~）
+
+* * 通过 `Parent.call(this,name,age)` 继承（调用父类型构造函数）
+  * 缺点：获得父类型的方法很麻烦！还得借助call方法一个个地弄 `Parent.func.call(this,参数)`
+
+  ```js
+  function Parent(xxx){this.xxx = xxx}
+  Parent.prototype.test = function(){};
+  function Child(xxx,yyy){
+      Parent.call(this, xxx);//借用构造函数   this.Parent(xxx)
+      // 相当于 this.Parent(xxx)
+  }
+  var child = new Child('a', 'b');  //child.xxx为'a', 但child没有test()
+  ```
+
+* 【3】组合（利用原型链继承方法和call方法继承属性）继承
+
+```js
+function Parent(xxx){this.xxx = xxx}
+Parent.prototype.test = function(){};
+function Child(xxx,yyy){
+    Parent.call(this, xxx);//借用构造函数 相当于this.Parent(xxx) 继承父类型地属性
+}
+// 通过原型链继承父类型
+Child.prototype = new Parent(); //得到test()
+var child = new Child(); //child.xxx为'a', 也有test()
+```
+
+
+
+
+
+#### 3.复习下“new要给对象背后做了什么？”
+
+之前写的文章——[JS小知识 new关键字都做了什么？](https://juejin.cn/post/7012887169878458404) 举了例子 
+
+这里再说一下（并配上原型链的图）
+
+![在这里插入图片描述](https://img-blog.csdnimg.cn/ac15bad11c2c4e64a323d2143f687d47.png)
+
+- 创建一个空对象（也就是Object的实例对象）
+- 给实例对象设置`__proto__`, 值为构造函数对象的prototype属性值
+  - 也就是   `this.__proto__ = Fn.prototype`
+
+- 执行构造函数体 将构造函数的作用域赋值给新对象（给对象添加方法/属性）之后this关键字指向新创建的对象实例 
+  - co对象实例就可以使用`this.func() this.name` 来调用方法和属性了！
+
+
+
+#### 4.三道闭包面试题&闭包的定义
+
+【在 JavaScript 中，每当创建一个函数，闭包就会在函数创建的同时被创建出来。】
+[MDN官方文档解释闭包](https://link.segmentfault.com/?url=https%3A%2F%2Fdeveloper.mozilla.org%2Fzh-CN%2Fdocs%2FWeb%2FJavaScript%2FClosures)
+
+
+
+> 个人觉得闭包没有那么复杂，本质就是上级作用域内变量的生命周期，因为被下级作用域内引用，而没有被释放。就导致上级作用域内的变量，等到下级作用域执行完以后才正常得到释放。（个人理解，若有错误，欢迎指正）
+
+https://juejin.cn/post/6844903858636849159#refetch中的评论
+
+> 在 JS 忍者秘籍(P90)中对闭包的定义：闭包允许函数访问并操作函数外部的变量。
+>
+> 红宝书上对于闭包的定义：闭包是指有权访问另外一个函数作用域中的变量的函数。 
+>
+> MDN 对闭包的定义为：闭包是指那些能够访问自由变量的函数。这里的自由变量是外部函数作用域中的变量。
+
+> 概述上面的话，**闭包是指有权访问另一个函数作用域中变量的函数**
+> 作者：`LinYIYI`
+> 链接：https://juejin.cn/post/6937469222251560990
+
+
+
+##### 面试题1 this指向的问题
+
+```js
+var name = "The Window";
+var object = {
+    name: "My Object",
+    getNameFunc: function () {
+        return function () {
+            return this.name;
+        };
+    }
+};
+console.log(object.getNameFunc()());  // The Window
+// this指向的是全局变量（毕竟是在全局中被调用的 也没有闭包）
+// 没有闭包 外层函数压根没变量嘛~
+```
+
+
+
+
+
+```js
+var name2 = "The Window";
+var object2 = {
+    name2: "My Object",
+    getNameFunc: function () {
+        var that = this;
+        return function () {
+            return that.name2;
+        };
+    }
+};
+console.log(object2.getNameFunc()()); // My Object
+// 这里的that是this 是object2
+// 有闭包 闭包为that 被保存起来了
+```
+
+![image.png](https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/19522227c1674b9c95a67557d890e219~tplv-k3u1fbpfcp-watermark.image?)
+
+很显然 这里的name2就是内部的`“My Object”`
+
+##### 面试题2 超级经典 面试必考
+
+```js
+var data = [];
+
+for (var i = 0; i < 3; i++) {
+  data[i] = function () {
+    console.log(i);
+  };
+}
+
+data[0]();// 3
+data[1]();// 3
+data[2]();// 3
+```
+
+[结合 VO AO解答问题](https://github.com/mqyqingfeng/Blog/issues/9) 
+
+
+
+##### 难度较大 面试题3
+
+- 这题的重点前置知识是——执行期上下文的概念（每当有一个函数被调用的时候就会产生一个**执行上下文对象** AO 也叫 激活对象Activation Object)
+
+  > - 就是每进入一个执行上下文时，这个执行上下文儿中的**激活对象AO**就被激活，也就是该上下文中的函数标示符、形参、变量声明等就可以被访问到了
+
+```js
+  function fun(n, o) {
+    console.log(o)
+    return {
+      fun: function (m) {
+        return fun(m, n);// n导致的闭包~
+      }
+    }
+  }
+  var a = fun(0)// o未定义  a是个对象
+  a.fun(1)// 产生了新的闭包 因为执行外部函数——外部的那个fun 但是马上就消失了（因为没有用这个闭包 马上抛弃了这个对象 相应的当前闭包就消失了）
+//所以这三行内容 都是用的a 也就是fun(0)的闭包 
+// fun(0).fun(1) 传进去n=0 形成闭包 
+  a.fun(2)
+  a.fun(3) //四个调用的打印为 undefined,0,0,0
+
+  var b = fun(0).fun(1).fun(2).fun(3) //undefined,0,1,2
+
+  var c = fun(0).fun(1)
+  c.fun(2)
+  c.fun(3) //undefined,0,1,1
+```
+
+【1】`var a = fun(0)  console.log(a)`
+
+![在这里插入图片描述](https://img-blog.csdnimg.cn/905ea79213004eea8ad7446a7153d687.png)
+
+再用`a.fun(1)` 产生n:1的闭包 但是没有用 传进去的n依旧是a中确定的0
+
+【2】
+
+`fun(0).fun(1)` —— 闭包中的n为0 打印出来的结果也为0
+
+`fun(0).fun(1).fun(2)` —— 闭包（fun(0).fun(1)）中的n为 1 结果也为1
+
+> b站大佬给出的分析
+>
+> 省流大师——看第六和第七步 解释齐全 看不懂的回头看前面的前置知识
+>
+> > ```js
+> > function fun(n,o) {//简称f1
+> > 	console.log(o)
+> > 	return {
+> > 		fun:function(m){ //这里简称f2
+> > 			return fun(m,n)
+> > 		}
+> > 	}
+> > }
+> > var a = fun(0) // 0
+> > a.fun(1) // 0
+> > ```
+> >
+> > 需要掌握的知识点
+> > 1.**执行期上下文**(又名 预编译)
+> > -----1.1 执行期上下文的执行顺序 当**一个函数调用他就会生成一个AO对象** (全局的叫GO我不详细讲了)
+> > 只要知道下面这些就可以了
+> > ---------1.1.1 当一个函数调用 **在AO中 先拿到函数中 声明的所有变量(var 的变量) 赋值为undefined**
+> > ---------1.1.2 实参形参相统一
+> > ---------1.1.3 里面的函数声明 函数名作为属性名  属性名=函数体 然后挂到AO对象上
+> > ---------1.1.4 最终已经看过的 变量声明 实参 函数声明 都不看了 去解释一行执行一行 变量看AO里的
+> >
+> > **2.闭包分析问题**
+> > 1.f1执行 里面定义的函数 会**拿到f1的执行期上下文**(AO对象 这里简称AO1)
+> > 2.f1执行 上面的var a=fun(0) 里面的AO对象 n=0 (**AO1 ==n=0,o=undefined==**) —— 所以第九行的代码执行后 打印 undefined（o的值）
+> > 3.当f1执行完毕 会**返回一个==对象 也就是a==** **里面有个函数引用f2**
+> >
+> > 4.`a.fun(1)` f2执行生成自己的AO(简称AO2) **AO2里(==m=1==)** 里面**马上又执行了外面的f1**
+> > ---**此时外面的f1生成了新的AO 里面的值(==n=1【就是AO2里的m】,o=0【AO1里的o】==)**//或许应该叫它AO3 —— 所以第十行的代码执行后 打印 0（o的值）
+> > ---这里是重点 AO2 就是**f2的执行期上下文里没有f2(m,n) 中的n**(参见1.1.2) 它==去AO1里拿的== 第二步有说道此时AO1里的n是几
+> >
+> > 5.但这都不重要 反正你也**没外部保存这个AO3** 当没有变量接收它的引用地址就被自动销毁了(不懂也不要紧反正它没了)
+> >
+> > 6.fun(0).fun(1)的结果
+> >
+> > - f1-fun(0)执行 ——AO1{n=0,o=undefined} ——这里由于闭包 所以fun(0)这个对象里面有一个n=0的
+> > - f2-fun(1)执行——AO2{m=1}  
+> >
+> > 执行生成了AO2之后又马上会执行外面的f1 生成AO3这个存在不了多久的激活对象——传入了n=1 o=0（o是从AO1里拿的）
+> >
+> > - return fun(m,n)执行——AO3{n=1(由AO2传入) o=0（由AO1传入）} —— 打印结果
+> >
+> > > 7.fun(0).fun(1).fun(2)的结果
+> > >
+> > > 同理 如果出现 fun(0).fun(1).fun(2)
+> > >
+> > > 就会出现三个被保存的AO
+> > >
+> > > - f1-fun(0)执行 ——AO1{n=0,o=undefined} 
+> > > - f2-fun(1)执行—— AO2{m=1}  
+> > > - return fun(**m,n**)执行——AO3{n=1(由AO2传入) o=0（由AO1传入）} 
+> > > - f3-fun(2)执行 —— AO4{m=2}
+> > > - return fun(**m,n**)执行—— AO5{n=2(由AO4传入) o=1（由AO3传入）} 
+> > >
+> > > 执行生成AO3之后马上又执行了外面的f1 （又生成了新的AO）将m=2 n=1 传入fun(n,o) （形参和实参相统一哦~）o就是1了！
+> > >
+> > > 自然就会打印1了！
+
+
+
+#### 5.执行上下文与激活对象AO
+
+执行期上下文的概念（每当有一个函数被调用的时候就会产生一个**执行上下文对象** AO 也叫 激活对象Activation Object)
+
+> - 就是每进入一个执行上下文时，这个执行上下文儿中的**激活对象AO**就被激活，也就是该上下文中的函数标示符、形参、变量声明等就可以被访问到了
+
+1.**执行期上下文**(又名 预编译)
+-----1.1 执行期上下文的执行顺序 当**一个函数调用他就会生成一个AO对象** (全局的叫GO我不详细讲了)
+只要知道下面这些就可以了
+---------1.1.1 当一个函数调用 **在AO中 先拿到函数中 声明的所有变量(var 的变量) 赋值为undefined**
+---------1.1.2 实参形参相统一
+---------1.1.3 里面的函数声明 函数名作为属性名  属性名=函数体 然后挂到AO对象上
+---------1.1.4 最终已经看过的 变量声明 实参 函数声明 都不看了 去解释一行执行一行 变量看AO里的
+
+
+
+#### 6.VO AO 作用域链
+
+
+
+
+
+![img](https://pic1.zhimg.com/80/v2-6c734348730c6c28b99e001ee831a674_720w.jpg)
+
+### 1、变量对象(variable object)
+
+> 原文：Every execution context has associated with it a variable object. Variables and functions declared in the source text are added as properties of the variable object. For function code, parameters are added as properties of the variable object.
+
+　　简言之就是：每一个执行上下文都会分配一个变量对象(variable object)，变量对象的属性由 **变量**(variable) 和 **函数声明**(function declaration) 构成。在函数上下文情况下，**参数列表**(parameter list)也会被加入到变量对象(variable object)中作为属性。变量对象与当前作用域息息相关。不同作用域的变量对象互不相同，它保存了当前作用域的所有函数和变量。
+
+　　这里有一点特殊就是只有 **函数声明**(function declaration) 会被加入到变量对象中，而 ****函数表达式**(function expression)**则不会。看代码：
+
+```js
+// 函数声明
+function a(){}
+console.log(typeof a); // "function"
+
+// 函数表达式
+var a = function _a(){};
+console.log(typeof a); // "function"
+console.log(typeof _a); // "undefined"
+```
+
+　　函数声明的方式下，a会被加入到变量对象中，故当前作用域能打印出 a。
+　　函数表达式情况下，a作为变量会加入到变量对象中，_a作为函数表达式则不会加入，故 a 在当前作用域能被正确找到，_a则不会。
+
+
+
+### **2、活动对象(activation object)**
+
+> 原文：When control enters an execution context for function code, an object called the activation object is created and associated with the execution context. The activation object is initialised with a property with name arguments and attributes { DontDelete }. The initial value of this property is the arguments object described below.
+> The activation object is then used as the variable object for the purposes of variable instantiation.
+
+　　简言之：当函数被激活，那么一个活动对象(activation object)就会被创建并且分配给执行上下文。活动对象由特殊对象 arguments 初始化而成。随后，他被当做变量对象(variable object)用于变量初始化。
+用代码来说明就是：
+
+```js
+function a(name, age){
+    var gender = "male";
+    function b(){}
+}
+a(“k”,10);
+```
+
+　　a被调用时，在a的执行上下文会创建一个活动对象AO，并且被初始化为 AO = [arguments]。随后AO又被当做变量对象(variable object)VO进行变量初始化,此时 VO = [arguments].concat([name,age,gender,b])。
+
+[**3、作用域**　](https://github.com/mqyqingfeng/Blog/issues/3)
+
+　　作用域是指程序源代码中定义变量的区域。
+
+　　作用域规定了如何查找变量，也就是确定当前执行代码对变量的访问权限。
+
+　　JavaScript 采用**词法作用域**(lexical scoping)，也就是**静态作用域**。
+
+　　（1）**静态**作用域与**动态**作用域
+
+　　　　因为 JavaScript 采用的是**词法**作用域，函数的作用域在**函数定义**的时候就决定了。
+
+　　　　而与词法作用域相对的是**动态**作用域，函数的作用域是在**函数调用**的时候才决定的。
+
+　　　　让我们认真看个例子就能明白之间的区别：
+
+[![复制代码](https://common.cnblogs.com/images/copycode.gif)](javascript:void(0);)
+
+```js
+var value = 1;
+
+function foo() {
+    console.log(value);
+}
+
+function bar() {
+    var value = 2;
+    foo();
+}
+
+bar();
+
+// 结果是 ???
+```
+
+[![复制代码](https://common.cnblogs.com/images/copycode.gif)](javascript:void(0);)
+
+　　　　假设JavaScript采用静态作用域，让我们分析下执行过程：
+
+　　　　　　执行 foo 函数，先从 foo 函数内部查找是否有局部变量 value，如果没有，就根据书写的位置，查找上面一层的代码，也就是 value 等于 1，所以结果会打印 1。
+
+　　　　而引用《JavaScript权威指南》的回答就是：
+
+　　　　　　JavaScript 函数的执行用到了作用域链，这个作用域链是在函数定义的时候创建的。嵌套的函数 f() 定义在这个作用域链里，其中的变量 scope 一定是局部变量，不管何时何地执行函数 f()，这种绑定在执行 f() 时依然有效。
+
+### **4、执行环境和作用域链(execution context and scope chain)**
+
+- **execution context**
+  顾名思义 执行环境/执行上下文。在javascript中，**执行环境**可以抽象的理解为一个object，它由以下几个属性构成：
+
+  ```js
+  executionContext：{
+      variable object：vars,functions,arguments,
+      scope chain: variable object + all parents scopes
+      thisValue: context object
+  }
+  ```
+
+  　　此外在js解释器运行阶段还会维护一个环境栈，当执行流进入一个函数时，函数的环境就会被压入环境栈，当函数执行完后会将其环境弹出，并将控制权返回前一个执行环境。环境栈的顶端始终是当前正在执行的环境。           **[！](https://github.com/mqyqingfeng/Blog/issues/4)**通俗来讲，就是： 当**执行一个函数**的时候，就会创建一个执行上下文，并且压入执行上下文栈，当函数**执行完毕**的时候，就会将函数的执行上下文从栈中弹出。
+
+  - 执行上下文的代码会分成[两个阶段](https://github.com/mqyqingfeng/Blog/issues/5)进行处理：分析和执行，我们也可以叫做：
+    1. 进入执行上下文（当进入执行上下文时，这时候**还没有执行代码**）
+    2. 代码执行 (在代码执行阶段，会顺序执行代码，根据代码，**修改变量对象的值**)
+
+- **scope chain**
+  作用域链，它在解释器进入到一个执行环境时初始化完成并将其分配给当前执行环境。每个执行环境的**作用域链**由**当前环境的变量对象**及**父级环境的作用域链构成**。
+  作用域链具体是如何构建起来的呢，先上代码：
+
+  ```
+  function test(num){
+      var a = "2";
+      return a+num;
+  }
+  test(1);
+  ```
+
+  1. 执行流开始 初始化function test，test函数会维护一个私有属性 [[scope]],并使用当前环境的作用域链初始化，在这里就是 test.[[Scope]]=global scope.
+  2. test函数执行，这时候会为test函数创建一个执行环境，然后通过复制函数的[[Scope]]属性构建起test函数的作用域链。此时 test.scopeChain = [test.[[Scope]]]
+  3. test函数的活动对象被初始化，随后活动对象被当做变量对象用于初始化。即 test.variableObject = test.activationObject.contact[num,a] = [arguments].contact[num,a]
+  4. test函数的变量对象被压入其作用域链，此时 test.scopeChain = [ test.variableObject, test.[[scope]]];
+
+  至此test的**作用域链**构建完成。
+
+
+
+
+
+
+
+## 2.核心基础知识
+
+### 计网
+
+```js
+//小林的图解网络随时翻阅 & 极客时间趣谈网络协议+网上的文章 & 读图解HTTP TCP等书籍 & 网络抓包实操练习  深入理解
+// 每天一道计网面试题 把自己带入面试者的身份 跟面试官白话白话 嗯就这样子
+今天没学 明天再来补充~
+1.“HTTP和HTTPS有什么区别？
+	// 聊一下Https的连接过程
+    // 输入 www.baidu.com，怎么变成 https://www.baidu.com 的，怎么确定用HTTP还是HTTPS？
+	// HTTPS连接的时候 怎么确定收到的包是服务器发来的？（中间人攻击）
+	// 什么是对称加密、非对称加密？区别是什么？
+	// 数字签名、报文摘要的原理	
+	// HTTPS解决了HTTP的哪些问题？怎么解决的？
+	”
+```
+
+
+
+#### 聊聊HTTP HTTPS的区别 
+
+https://github.com/wolverinn/Waking-Up/blob/master/Computer%20Network.md#http%E5%92%8Chttps%E6%9C%89%E4%BB%80%E4%B9%88%E5%8C%BA%E5%88%AB
+
+- 【1】端口不同
+  - HTTP 80端口
+  - HTTPS 443端口
+- 【2】传输方式不同
+  - HTTP的信息是 明文传输（存在安全风险）
+  - HTTPS运行在SSL（安全协议）之上 添加了加密和认证机制 使得报文能够加密传输（解决了HTTP不安全的缺陷）
+- 【3】建立连接的方式不同
+  - HTTP —— TCP三次握手之后就可以进行HTTP的报文传输了
+  - HTTPS —— TCP三次握手 + SSL/TLS握手 才可以进入加密报文传输（在TCP传输层和HTTP应用层之间加入了SSL/TLS协议）
+
+![请添加图片描述](https://img-blog.csdnimg.cn/22ed1349ab5641b4a09cdf7763f13d43.png)
+
+- 【4】HTTPS带来的开销较大
+  - 由于加密、解密 会带来更大的CPU和内存开销
+- 【5】HTTPS通信需要证书 **来保证服务器的身份是可信的！**
+  - 一般需要向证书颁发机构(CA 证书权威机构)申请购买~
+
+
+
+
+
+##### 1.[HTTPS的连接过程](https://github.com/wolverinn/Waking-Up/blob/master/Computer%20Network.md#https%E7%9A%84%E8%BF%9E%E6%8E%A5%E8%BF%87%E7%A8%8B)
+
+- 【1】客户端 向 服务器发送——
+
+  - 请求
+  - 客户端支持的一套加密规则
+    - 对称加密算法
+    - 非对称加密算法（采用混合加密~）
+    - 摘要算法
+
+- 【2】服务器从中选出一组加密算法和HASH算法 并将自己的身份信息以——
+
+  - 证书
+    - 网站地址
+    - **加密公钥**（用于**非对称加密**）
+    - 证书的颁发机构 等信息
+    - （私钥只能用于服务器端进行解密~）
+
+  的形式发回给浏览器（客户端）
+
+- 【3】客户端 验证 服务器的合法性
+
+  - 证书是否过期 / CA(证书权威机构)是否可靠 
+  - 发行者证书的公钥能否正确解开服务器证书的”发行者的数字签名“ 
+  - 服务器证书上的域名是否和服务器的实际域名相匹配 
+
+- 【4】如果证书受信任 或者用户接受了不受信任的证书 
+
+  - 浏览器会生成一个**随机密钥**（用于**对称算法**）
+    - 并用服务器提供的**公钥加密**（采用非对称算法对密钥加密）
+  - 浏览器会使用Hash算法（**摘要算法**）对握手消息进行摘要计算
+    - 并对摘要使用之前产生的密钥加密（**对称算法**）
+  - 最后 客户端将加密后的随机密钥和摘要一起发送给服务器
+
+- 【5】服务器用自己的私钥解密 得到——对称加密的密钥 用这个密钥解密出Hash摘要值 并验证握手消息是否一致——
+
+  - 如果一致 服务器使用对称加密的**密钥加密握手消息**发给浏览器
+
+- 【6】浏览器解密并验证摘要 若一致 则握手结束
+
+  - 之后的数据传送**都使用对称加密的密钥**进行加密
+
+总结：1.使用的混合加密算法中的——
+
+- 非对称加密算法 用于在握手过程中加密生成的代码（也就是通信建立之前使用非对称加密）
+- 对称加密算法 用于对真正传输的数据进行加密
+
+![请添加图片描述](https://img-blog.csdnimg.cn/3de331f52a0f4778ab1bd691b06ad67d.png)
+
+2.摘要算法用于验证数据的完整性（相当于”指纹“ 预防了”第三方篡改“的风险）
+
+![请添加图片描述](https://img-blog.csdnimg.cn/2d22159e59964e4081ddfc1628039745.png)
+
+> 2-5中的内容 择日再聊！
+
+##### 2.输入 `[www.baidu.com`，怎么变成`https://www.baidu.com` 的，[怎么确定用HTTP还是HTTPS？](https://github.com/wolverinn/Waking-Up/blob/master/Computer%20Network.md#https%E8%BF%9E%E6%8E%A5%E7%9A%84%E6%97%B6%E5%80%99%E6%80%8E%E4%B9%88%E7%A1%AE%E5%AE%9A%E6%94%B6%E5%88%B0%E7%9A%84%E5%8C%85%E6%98%AF%E6%9C%8D%E5%8A%A1%E5%99%A8%E5%8F%91%E6%9D%A5%E7%9A%84%E4%B8%AD%E9%97%B4%E4%BA%BA%E6%94%BB%E5%87%BB)
+
+
+
+
+
+##### 3.HTTPS连接的时候，怎么确定收到的包是服务器发来的（中间人攻击）？
+
+
+
+
+
+##### 4.什么是对称加密、非对称加密？区别是什么？
+
+
+
+
+
+
+
+##### 5.数字签名、报文摘要的原理
+
+
+
+
+
+
+
+##### 6.HTTPS解决了HTTP的哪些问题？怎么解决的？
+
+###### HTTP在安全上存在哪些问题？
+
+HTTP由于是明文传输 所以安全上存在以下三个风险
+
+- **窃听风险**，比如通信链路上可以获取通信内容，用户号容易没。
+- **篡改风险**，比如强制入垃圾广告，视觉污染，用户眼容易瞎。
+- **冒充风险**，比如冒充淘宝网站，用户钱容易没。
+
+
+
+###### HTTPS如何解决这些问题？
+
+- 【1】通过**混合加密**的方式实现信息的<u>机密性</u> 解决了==窃听==的风险
+
+![混合加密](https://mmbiz.qpic.cn/mmbiz_jpg/J0g14CUwaZfXG1113Sjm0iaOXfoOv0tlUYNGEmfY95A74GR3xicqXKZCDI7Q4icgQu7CuSSx9QiaFlr4Py49RHonjw/640?wx_fmt=jpeg)
+
+HTTPS 采用的是**对称加密**和**非对称加密**结合的「混合加密」方式：
+
+- 在通信建立前采用**非对称加密**的方式交换「会话秘钥」，后续就不再使用非对称加密。
+- 在通信过程中全部使用**对称加密**的「会话秘钥」的方式加密明文数据。
+
+采用「混合加密」的方式的原因：
+
+1. **对称加密**只使用一个密钥，运算速度快，密钥必须保密，**无法做到安全的密钥交换**。
+2. **非对称加密**使用两个密钥：公钥和私钥，公钥可以任意分发而私钥保密，解决了密钥交换问题但**速度慢**。
+
+结合二者的特性 在通信建立的时候采用速度慢但是可以进行 **密钥的安全交换（公钥）**的非对称加密
+
+在建立好通信之后 全程使用 无法进行密钥交换（只用一个私钥）但是可以**快速加密与解密** 的对称加密
+
+- 【2】通过**摘要算法**的方式来实现完整性 为数据生成独一无二的「指纹」，指纹用于<u>校验数据的完整性</u>，解决了==篡改==的风险。
+
+![img](https://mmbiz.qpic.cn/mmbiz_jpg/J0g14CUwaZfXG1113Sjm0iaOXfoOv0tlUicIliaBcr2XAXpMdeibLG4MMticpkX0e6xZHbXeiavMu7faJcL2TdVj0Udw/640?wx_fmt=jpeg)
+
+客户端在发送明文之前会通过摘要算法算出明文的「指纹」，发送的时候把「指纹 + 明文」一同加密成密文后，发送给服务器；
+
+服务器解密后，用相同的摘要算法算出发送过来的明文，通过比较客户端携带的「指纹」和当前算出的「指纹」做比较，**若「指纹」相同，说明数据是完整的**。
+
+- 【3】通过**将服务器公钥放入数字证书中** 解决了==冒充==的风险
+
+客户端先向服务器端索要公钥，然后用公钥加密信息，服务器收到密文后，用自己的私钥解密。
+
+这就存在些问题，如何**保证公钥不被篡改和信任度**？
+
+所以这里就需要借助第三方权威机构 `CA` （数字证书认证机构），将**服务器公钥放在数字证书**（由数字证书认证机构颁发）中，只要证书是可信的，公钥就是可信的。
+
+![数子证书工作流程](https://mmbiz.qpic.cn/mmbiz_jpg/J0g14CUwaZfXG1113Sjm0iaOXfoOv0tlUibyiaEab7NMrTn632LZmYQe5qaibibT0xsOs7ic6u98ypWJBjbPMzOUCb2g/640?wx_fmt=jpeg)
+
+一句话小结：通过数字证书的方式**保证服务器公钥的身份**（将服务器公钥放在数字证书中 客户端使用CA的公钥确认服务器的数字证书后即可保证服务器公钥的身份），解决冒充的风险。
+
+这是为了 使得**属于当前连接的所有包都消失掉**
+
+这样做可以保证再次使用相同端口建立连接时 不会有属于上一个连接的滞留在网络中的包对连接产生干扰！
+
+
+
+
+
+
+
+###  操作系统
+
+```js
+// 小林的图解系统 & 学校课程学习 & 王道考研-OS 三者配合 高效学习
+// 要看一下学校的ppt了 课程旷了好几节有点听不懂！
+```
+
+
+
+## 3.面试题
+
+### 面试题、面经总结
+
+```js
+//网上面试题、面经辣么多 一天多看一些 然后同时也要研究一些题的答案！
+```
+
+
+
+### 算法题
+
+```js
+// 跟着掘金小册、代码随想录的内容进行学习！
+1.复习了一下二维数组的初始化方法
+2.超级刷题挑战 一天3+题！
+	剑指 Offer 29. 顺时针打印矩阵 和 54 螺旋矩阵是一道题 这题我觉得比昨天的难。。。但是今天这个方法太棒了！记录下来
+    周赛AC了一道简单题~ 两三分钟就做出来了~
+2.复习下时间复杂度 从小到大的顺序
+```
+
+#### [剑指 Offer 29. 顺时针打印矩阵](https://leetcode-cn.com/problems/shun-shi-zhen-da-yin-ju-zhen-lcof/)
+
+这题太棒了！尤其是解法 这四个边界把数组框起来的想法——
+
+也就是这个大佬写的题解太棒了！mark一下[「手画图解」两种遍历的策略](https://leetcode-cn.com/problems/shun-shi-zhen-da-yin-ju-zhen-lcof/solution/shou-hui-tu-jie-liang-chong-bian-li-de-ce-lue-na-c/)
+
+![image.png](https://pic.leetcode-cn.com/42ee2ec6854ee79ac2b7c91259d2ad5db70522668d11fc691e9e14426918a666-image.png)
+
+```js
+var spiralOrder = function(matrix) {
+    if(!matrix.length || !matrix[0].length){
+        return [];
+    }
+    const res = [];
+    
+    // 定义上下左右边界 一点点往里面挪动！
+    let top = 0;
+    let bottom = matrix.length - 1;
+    let left = 0;
+    let right = matrix[0].length - 1;
+
+    while(top < bottom && left < right){
+        for(let j = left; j < right; j++){
+            res.push(matrix[top][j]);//上层向右
+        }
+        for(let i = top; i < bottom; i++){
+            res.push(matrix[i][right]);//右层向下
+        }
+        for(let j = right; j > left; j--){
+            res.push(matrix[bottom][j]);//下层向左
+        }
+        for(let i = bottom; i > top; i--){
+            res.push(matrix[i][left]);//左层向上
+        }
+        top++;
+        bottom--;
+        left++;
+        right--;
+    }
+    //如果只有一层 那么就不能用上面的循环了 得再写两个循环
+    if(top === bottom){
+        for(let j = left; j <= right; j++){
+            res.push(matrix[top][j]);
+        }
+    }
+    else if(left === right){
+        for(let i = top; i <= bottom; i++){
+            res.push(matrix[i][left]);
+        }
+    }
+    return res;
+};
+```
+
+
+
+#### 2.复习下时间复杂度从小到大排列的顺序
+
+
+
+![img](https://p1-jj.byteimg.com/tos-cn-i-t2oaga2asx/gold-user-assets/2020/4/6/1714f67c52dc8d15~tplv-t2oaga2asx-watermark.awebp)
+
+再往上面是 O(!n) O(n^n^) 
+
+总结下 就是这样
+
+**O(1) < O(logn) < (n) < O(n*logn) < O(n^2^) < O(n^3^) < O(2^n^) < O(n!) < O(n^n^)**
+
+## 4.前端开发框架
+
+### 项目开发前置知识
+
+```js
+// 学到了尚硅谷react第四章 老师表示 “先学完Ajax Promise axios再回来吧！”
+```
+
+
+
+
+
+### react基础知识
+
+```js
+// 现阶段学习广受好评的react教程尚硅谷 
+```
+
+
+
+
+
+### react练手项目
+
+```js
+// 尚硅谷课程接下来的案例
+// 掘金 记账本egg.js+react全栈 
+```
+
+
+
+# 2021.10.3
+
+
+
+```js
+// DDL
+	01 尚硅谷JS高级 10.3学习完第一轮 10.4-7 一天复习一章 
+	02 算法题 数组+排序算法 10.3学习完（可以算是复习）
+    03 Ajax 10.3 Promise 10.4 axios 10.5
+```
+
+
+
+```js
+// 今日主要收获 & 学习时间
+Totally min
+1.前端基础知识 
+// 从早上-中午 拿出一整块时间学习JS 晚上跑完步回来继续看JS 重视基础！
+// 不要浮于表面地看问题 深入进去！多向自己提问！
+    1.1 JS学习 min 
+    // 每日重点！编码 + 知识点记录
+    // 近期重点 作用域、闭包、原型链 + ES6 + Ajax axios
+		/*  */
+    1.2 freecodecamp JS + 响应式网页设计 min
+    	/*  */
+    1.3 JS 30demos min
+    // 每天完成一个 不要求完全理解 先做一个初步的认知
+    // 没有完全了解的/觉得很好的 都要特意标记出来 二刷时候再去好好理解下！
+    	/*  */
+    
+    // 这些内容都是要重点掌握的！
+    DOM编程 BOM使用 —— 复习
+    事件代理/委托
+	事件队列(setTimeout/setInterval/Promise)
+	JSON
+    Ajax/Fetch
+	正则表达式
+
+2.核心基础知识 下午开始学计网 + 刷题
+	2.1 计网 min
+		/*  */
+	2.2 操作系统 min
+		/*  */
+
+3.面试刷题
+	3.1 刷算法 刷力扣 min	
+    // 【1】阅读掘金小册 + 按照代码随想录推荐【2】刷题
+    	/* 掘金小册3/28 代码随想录数组3/7 
+        
+        */   
+    
+    	// 每个阶段结束后 简单总结下应对某种数据结构/对应类型的题目 应该怎么去想
+    	数组 + 排序 第五周
+        链表 + 二叉树 第六周
+        字符串 + 二叉树 + 栈/队列 第七周
+        双指针 + 遍历专题DFS BFS 第八周
+        回溯算法 + 贪心算法 第九周
+        动态规划 第十周
+    3.2 面试题 min
+    // 有空可以读一些面试题 查缺补漏一下~
+		/*  */  
+    
+4.前端开发框架 
+	4.1 react学习 min
+    // 尚硅谷课程 官方文档五子棋demo
+		/*  */
+    
+
+5.前端进阶知识学习
+// 学完JS再学这个辽！
+    Node.js
+	webpack
+6.其他 
+	毛概作业 70min
+7.每日总结 10min
+```
+
+
+
+
+
+## 1.前端基础
+
+
+
+### 前端基础知识
+
+
+
+```js
+//每日学到的知识点 可以写文章 可以记在心里 总结下来！
+// 本阶段主要学习JS高级教程（尚硅谷）刷freecodecamp
+1.对象的创建模式——直接在构造函数中定义方法 会让每个创建出来的对象都带上那个方法 比较占内存 将方法定义在原型上可以节省内存！
+2.在JS中实现继承！
+3.复习new一个对象背后做了啥
+4.闭包面试题复习
+```
+
+
+
+#### 1.对象的创建模式
+
+- 构造函数模式 —— 定义方法时 再创建对象 会占内存~
+
+```js
+function Person(name, age) {
+  this.name = name;
+  this.age = age;
+  this.setName = function(name){this.name=name;};
+}
+var p1 = new Person('tom', 12);
+var p2 = new Person('jerry', 16);
+```
+
+这两个对象上都会带一个方法——浪费内存！
+
+![在这里插入图片描述](https://img-blog.csdnimg.cn/ffae8dc0c7224d6393e726dba4742cf1.png)
+
+- 构造函数+原型的组合模式 —— 最省内存~
+
+```js
+function Person(name, age) {
+  this.name = name;
+  this.age = age;
+}
+// 简单来说 代码就是这样~
+Person.prototype.setName = function(name){this.name=name;};
+new Person('tom', 12);
+```
+
+
+
+![image-20211002140717986](README.assets/image-20211002140717986.png)
+
+
+
+#### 2.【面试题】JS中实现继承
+
+简单来说 有三种方式
+
+- 原型链继承
+- 借用构造函数
+- 组合
+
+分别来看看原理
+
+- 【1】原型链继承 —— 子类型继承得到方法
+  - 通过`Child.prototype = new Parent()`继承父函数 从而继承了属性与方法
+  - **缺点**：通过Child构造的对象 的原型对象 的 `constructor` 属性指向Parent！这不好！
+    - 我们需要让子类型的原型的 `constructor`  指向子类型 才对！
+    - 这个问题可以通过 `Child.prototype.constructor = Child;` 来修正constructor属性
+
+```js
+// 定义父函数、父函数原型上的方法、子函数
+function Parent(){}
+Parent.prototype.test = function(){};
+function Child(){}
+// 实现继承的关键一步 
+Child.prototype = new Parent();// 出现了！new关键字！创建了父类的实例 让Child子类型的原型指向父类型实例！
+
+var child = new Child(); // Child对象实例中有test() （当然了 父类型的属性也会被继承过来！）
+```
+
+画一个继承的示意图（从内存的角度来看）
+
+![在这里插入图片描述](https://img-blog.csdnimg.cn/b32d8872931d43888b9fec5889e3d1cd.png)
+
+
+
+- 【2】借用构造函数 : 得到属性（这个其实不算继承拉~）
+
+* * 通过 `Parent.call(this,name,age)` 继承（调用父类型构造函数）
+  * 缺点：获得父类型的方法很麻烦！还得借助call方法一个个地弄 `Parent.func.call(this,参数)`
+
+  ```js
+  function Parent(xxx){this.xxx = xxx}
+  Parent.prototype.test = function(){};
+  function Child(xxx,yyy){
+      Parent.call(this, xxx);//借用构造函数   this.Parent(xxx)
+      // 相当于 this.Parent(xxx)
+  }
+  var child = new Child('a', 'b');  //child.xxx为'a', 但child没有test()
+  ```
+
+* 【3】组合（利用原型链继承方法和call方法继承属性）继承
+
+```js
+function Parent(xxx){this.xxx = xxx}
+Parent.prototype.test = function(){};
+function Child(xxx,yyy){
+    Parent.call(this, xxx);//借用构造函数 相当于this.Parent(xxx) 继承父类型地属性
+}
+// 通过原型链继承父类型
+Child.prototype = new Parent(); //得到test()
+var child = new Child(); //child.xxx为'a', 也有test()
+```
+
+
+
+
+
+#### 3.复习下“new要给对象背后做了什么？”
+
+之前写的文章——[JS小知识 new关键字都做了什么？](https://juejin.cn/post/7012887169878458404) 举了例子 
+
+这里再说一下（并配上原型链的图）
+
+![在这里插入图片描述](https://img-blog.csdnimg.cn/ac15bad11c2c4e64a323d2143f687d47.png)
+
+- 创建一个空对象（也就是Object的实例对象）
+- 给实例对象设置`__proto__`, 值为构造函数对象的prototype属性值
+  - 也就是   `this.__proto__ = Fn.prototype`
+
+- 执行构造函数体 将构造函数的作用域赋值给新对象（给对象添加方法/属性）之后this关键字指向新创建的对象实例 
+  - co对象实例就可以使用`this.func() this.name` 来调用方法和属性了！
+
+
+
+#### 4.三道闭包面试题&闭包的定义
+
+【在 JavaScript 中，每当创建一个函数，闭包就会在函数创建的同时被创建出来。】
+[MDN官方文档解释闭包](https://link.segmentfault.com/?url=https%3A%2F%2Fdeveloper.mozilla.org%2Fzh-CN%2Fdocs%2FWeb%2FJavaScript%2FClosures)
+
+
+
+> 个人觉得闭包没有那么复杂，本质就是上级作用域内变量的生命周期，因为被下级作用域内引用，而没有被释放。就导致上级作用域内的变量，等到下级作用域执行完以后才正常得到释放。（个人理解，若有错误，欢迎指正）
+
+https://juejin.cn/post/6844903858636849159#refetch中的评论
+
+> 在 JS 忍者秘籍(P90)中对闭包的定义：闭包允许函数访问并操作函数外部的变量。
+>
+> 红宝书上对于闭包的定义：闭包是指有权访问另外一个函数作用域中的变量的函数。 
+>
+> MDN 对闭包的定义为：闭包是指那些能够访问自由变量的函数。这里的自由变量是外部函数作用域中的变量。
+
+> 概述上面的话，**闭包是指有权访问另一个函数作用域中变量的函数**
+> 作者：`LinYIYI`
+> 链接：https://juejin.cn/post/6937469222251560990
+> 
+> 
+
+
+
+##### 面试题1 this指向的问题
+
+```js
+var name = "The Window";
+var object = {
+    name: "My Object",
+    getNameFunc: function () {
+        return function () {
+            return this.name;
+        };
+    }
+};
+console.log(object.getNameFunc()());  // The Window
+// this指向的是全局变量（毕竟是在全局中被调用的 也没有闭包）
+// 没有闭包 外层函数压根没变量嘛~
+```
+
+
+
+
+
+```js
+var name2 = "The Window";
+var object2 = {
+    name2: "My Object",
+    getNameFunc: function () {
+        var that = this;
+        return function () {
+            return that.name2;
+        };
+    }
+};
+console.log(object2.getNameFunc()()); // My Object
+// 这里的that是this 是object2
+// 有闭包 闭包为that 被保存起来了
+```
+
+![image.png](https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/19522227c1674b9c95a67557d890e219~tplv-k3u1fbpfcp-watermark.image?)
+
+很显然 这里的name2就是内部的`“My Object”`
+
+##### 面试题2 超级经典 面试必考
+
+```js
+var data = [];
+
+for (var i = 0; i < 3; i++) {
+  data[i] = function () {
+    console.log(i);
+  };
+}
+
+data[0]();// 3
+data[1]();// 3
+data[2]();// 3
+```
+
+[结合 VO AO解答问题](https://github.com/mqyqingfeng/Blog/issues/9) 
+
+
+
+##### 难度较大 面试题3
+
+- 这题的重点前置知识是——执行期上下文的概念（每当有一个函数被调用的时候就会产生一个**执行上下文对象** AO 也叫 激活对象Activation Object)
+
+  > - 就是每进入一个执行上下文时，这个执行上下文儿中的**激活对象AO**就被激活，也就是该上下文中的函数标示符、形参、变量声明等就可以被访问到了
+
+```js
+  function fun(n, o) {
+    console.log(o)
+    return {
+      fun: function (m) {
+        return fun(m, n);// n导致的闭包~
+      }
+    }
+  }
+  var a = fun(0)// o未定义  a是个对象
+  a.fun(1)// 产生了新的闭包 因为执行外部函数——外部的那个fun 但是马上就消失了（因为没有用这个闭包 马上抛弃了这个对象 相应的当前闭包就消失了）
+//所以这三行内容 都是用的a 也就是fun(0)的闭包 
+// fun(0).fun(1) 传进去n=0 形成闭包 
+  a.fun(2)
+  a.fun(3) //四个调用的打印为 undefined,0,0,0
+
+  var b = fun(0).fun(1).fun(2).fun(3) //undefined,0,1,2
+
+  var c = fun(0).fun(1)
+  c.fun(2)
+  c.fun(3) //undefined,0,1,1
+```
+
+【1】`var a = fun(0)  console.log(a)`
+
+![在这里插入图片描述](https://img-blog.csdnimg.cn/905ea79213004eea8ad7446a7153d687.png)
+
+再用`a.fun(1)` 产生n:1的闭包 但是没有用 传进去的n依旧是a中确定的0
+
+【2】
+
+`fun(0).fun(1)` —— 闭包中的n为0 打印出来的结果也为0
+
+`fun(0).fun(1).fun(2)` —— 闭包（fun(0).fun(1)）中的n为 1 结果也为1
+
+> b站大佬给出的分析
+>
+> 省流大师——看第六和第七步 解释齐全 看不懂的回头看前面的前置知识
+>
+> > ```js
+> > function fun(n,o) {//简称f1
+> > 	console.log(o)
+> > 	return {
+> > 		fun:function(m){ //这里简称f2
+> > 			return fun(m,n)
+> > 		}
+> > 	}
+> > }
+> > var a = fun(0) // 0
+> > a.fun(1) // 0
+> > ```
+> >
+> > 需要掌握的知识点
+> > 1.**执行期上下文**(又名 预编译)
+> > -----1.1 执行期上下文的执行顺序 当**一个函数调用他就会生成一个AO对象** (全局的叫GO我不详细讲了)
+> > 只要知道下面这些就可以了
+> > ---------1.1.1 当一个函数调用 **在AO中 先拿到函数中 声明的所有变量(var 的变量) 赋值为undefined**
+> > ---------1.1.2 实参形参相统一
+> > ---------1.1.3 里面的函数声明 函数名作为属性名  属性名=函数体 然后挂到AO对象上
+> > ---------1.1.4 最终已经看过的 变量声明 实参 函数声明 都不看了 去解释一行执行一行 变量看AO里的
+> >
+> > **2.闭包分析问题**
+> > 1.f1执行 里面定义的函数 会**拿到f1的执行期上下文**(AO对象 这里简称AO1)
+> > 2.f1执行 上面的var a=fun(0) 里面的AO对象 n=0 (**AO1 ==n=0,o=undefined==**) —— 所以第九行的代码执行后 打印 undefined（o的值）
+> > 3.当f1执行完毕 会**返回一个==对象 也就是a==** **里面有个函数引用f2**
+> >
+> > 4.`a.fun(1)` f2执行生成自己的AO(简称AO2) **AO2里(==m=1==)** 里面**马上又执行了外面的f1**
+> > ---**此时外面的f1生成了新的AO 里面的值(==n=1【就是AO2里的m】,o=0【AO1里的o】==)**//或许应该叫它AO3 —— 所以第十行的代码执行后 打印 0（o的值）
+> > ---这里是重点 AO2 就是**f2的执行期上下文里没有f2(m,n) 中的n**(参见1.1.2) 它==去AO1里拿的== 第二步有说道此时AO1里的n是几
+> >
+> > 5.但这都不重要 反正你也**没外部保存这个AO3** 当没有变量接收它的引用地址就被自动销毁了(不懂也不要紧反正它没了)
+> >
+> > 6.fun(0).fun(1)的结果
+> >
+> > - f1-fun(0)执行 ——AO1{n=0,o=undefined} ——这里由于闭包 所以fun(0)这个对象里面有一个n=0的
+> > - f2-fun(1)执行——AO2{m=1}  
+> >
+> > 执行生成了AO2之后又马上会执行外面的f1 生成AO3这个存在不了多久的激活对象——传入了n=1 o=0（o是从AO1里拿的）
+> >
+> > - return fun(m,n)执行——AO3{n=1(由AO2传入) o=0（由AO1传入）} —— 打印结果
+> >
+> > > 7.fun(0).fun(1).fun(2)的结果
+> > >
+> > > 同理 如果出现 fun(0).fun(1).fun(2)
+> > >
+> > > 就会出现三个被保存的AO
+> > >
+> > > - f1-fun(0)执行 ——AO1{n=0,o=undefined} 
+> > > - f2-fun(1)执行—— AO2{m=1}  
+> > > - return fun(**m,n**)执行——AO3{n=1(由AO2传入) o=0（由AO1传入）} 
+> > > - f3-fun(2)执行 —— AO4{m=2}
+> > > - return fun(**m,n**)执行—— AO5{n=2(由AO4传入) o=1（由AO3传入）} 
+> > >
+> > > 执行生成AO3之后马上又执行了外面的f1 （又生成了新的AO）将m=2 n=1 传入fun(n,o) （形参和实参相统一哦~）o就是1了！
+> > >
+> > > 自然就会打印1了！
+
+
+
+#### 5.执行上下文与激活对象AO
+
+执行期上下文的概念（每当有一个函数被调用的时候就会产生一个**执行上下文对象** AO 也叫 激活对象Activation Object)
+
+> - 就是每进入一个执行上下文时，这个执行上下文儿中的**激活对象AO**就被激活，也就是该上下文中的函数标示符、形参、变量声明等就可以被访问到了
+
+1.**执行期上下文**(又名 预编译)
+-----1.1 执行期上下文的执行顺序 当**一个函数调用他就会生成一个AO对象** (全局的叫GO我不详细讲了)
+只要知道下面这些就可以了
+---------1.1.1 当一个函数调用 **在AO中 先拿到函数中 声明的所有变量(var 的变量) 赋值为undefined**
+---------1.1.2 实参形参相统一
+---------1.1.3 里面的函数声明 函数名作为属性名  属性名=函数体 然后挂到AO对象上
+---------1.1.4 最终已经看过的 变量声明 实参 函数声明 都不看了 去解释一行执行一行 变量看AO里的
+
+
+
+#### 6.VO AO 作用域链
+
+
+
+
+
+![img](https://pic1.zhimg.com/80/v2-6c734348730c6c28b99e001ee831a674_720w.jpg)
+
+### 1、变量对象(variable object)
+
+> 原文：Every execution context has associated with it a variable object. Variables and functions declared in the source text are added as properties of the variable object. For function code, parameters are added as properties of the variable object.
+
+　　简言之就是：每一个执行上下文都会分配一个变量对象(variable object)，变量对象的属性由 **变量**(variable) 和 **函数声明**(function declaration) 构成。在函数上下文情况下，**参数列表**(parameter list)也会被加入到变量对象(variable object)中作为属性。变量对象与当前作用域息息相关。不同作用域的变量对象互不相同，它保存了当前作用域的所有函数和变量。
+
+　　这里有一点特殊就是只有 **函数声明**(function declaration) 会被加入到变量对象中，而 ****函数表达式**(function expression)**则不会。看代码：
+
+```js
+// 函数声明
+function a(){}
+console.log(typeof a); // "function"
+
+// 函数表达式
+var a = function _a(){};
+console.log(typeof a); // "function"
+console.log(typeof _a); // "undefined"
+```
+
+　　函数声明的方式下，a会被加入到变量对象中，故当前作用域能打印出 a。
+　　函数表达式情况下，a作为变量会加入到变量对象中，_a作为函数表达式则不会加入，故 a 在当前作用域能被正确找到，_a则不会。
+
+
+
+### **2、活动对象(activation object)**
+
+> 原文：When control enters an execution context for function code, an object called the activation object is created and associated with the execution context. The activation object is initialised with a property with name arguments and attributes { DontDelete }. The initial value of this property is the arguments object described below.
+> The activation object is then used as the variable object for the purposes of variable instantiation.
+
+　　简言之：当函数被激活，那么一个活动对象(activation object)就会被创建并且分配给执行上下文。活动对象由特殊对象 arguments 初始化而成。随后，他被当做变量对象(variable object)用于变量初始化。
+用代码来说明就是：
+
+```js
+function a(name, age){
+    var gender = "male";
+    function b(){}
+}
+a(“k”,10);
+```
+
+　　a被调用时，在a的执行上下文会创建一个活动对象AO，并且被初始化为 AO = [arguments]。随后AO又被当做变量对象(variable object)VO进行变量初始化,此时 VO = [arguments].concat([name,age,gender,b])。
+
+[**3、作用域**　](https://github.com/mqyqingfeng/Blog/issues/3)
+
+　　作用域是指程序源代码中定义变量的区域。
+
+　　作用域规定了如何查找变量，也就是确定当前执行代码对变量的访问权限。
+
+　　JavaScript 采用**词法作用域**(lexical scoping)，也就是**静态作用域**。
+
+　　（1）**静态**作用域与**动态**作用域
+
+　　　　因为 JavaScript 采用的是**词法**作用域，函数的作用域在**函数定义**的时候就决定了。
+
+　　　　而与词法作用域相对的是**动态**作用域，函数的作用域是在**函数调用**的时候才决定的。
+
+　　　　让我们认真看个例子就能明白之间的区别：
+
+[![复制代码](https://common.cnblogs.com/images/copycode.gif)](javascript:void(0);)
+
+```js
+var value = 1;
+
+function foo() {
+    console.log(value);
+}
+
+function bar() {
+    var value = 2;
+    foo();
+}
+
+bar();
+
+// 结果是 ???
+```
+
+[![复制代码](https://common.cnblogs.com/images/copycode.gif)](javascript:void(0);)
+
+　　　　假设JavaScript采用静态作用域，让我们分析下执行过程：
+
+　　　　　　执行 foo 函数，先从 foo 函数内部查找是否有局部变量 value，如果没有，就根据书写的位置，查找上面一层的代码，也就是 value 等于 1，所以结果会打印 1。
+
+　　　　而引用《JavaScript权威指南》的回答就是：
+
+　　　　　　JavaScript 函数的执行用到了作用域链，这个作用域链是在函数定义的时候创建的。嵌套的函数 f() 定义在这个作用域链里，其中的变量 scope 一定是局部变量，不管何时何地执行函数 f()，这种绑定在执行 f() 时依然有效。
+
+### **4、执行环境和作用域链(execution context and scope chain)**
+
+- **execution context**
+  顾名思义 执行环境/执行上下文。在javascript中，**执行环境**可以抽象的理解为一个object，它由以下几个属性构成：
+
+  ```js
+  executionContext：{
+      variable object：vars,functions,arguments,
+      scope chain: variable object + all parents scopes
+      thisValue: context object
+  }
+  ```
+
+  　　此外在js解释器运行阶段还会维护一个环境栈，当执行流进入一个函数时，函数的环境就会被压入环境栈，当函数执行完后会将其环境弹出，并将控制权返回前一个执行环境。环境栈的顶端始终是当前正在执行的环境。           **[！](https://github.com/mqyqingfeng/Blog/issues/4)**通俗来讲，就是： 当**执行一个函数**的时候，就会创建一个执行上下文，并且压入执行上下文栈，当函数**执行完毕**的时候，就会将函数的执行上下文从栈中弹出。
+
+  - 执行上下文的代码会分成[两个阶段](https://github.com/mqyqingfeng/Blog/issues/5)进行处理：分析和执行，我们也可以叫做：
+    1. 进入执行上下文（当进入执行上下文时，这时候**还没有执行代码**）
+    2. 代码执行 (在代码执行阶段，会顺序执行代码，根据代码，**修改变量对象的值**)
+
+- **scope chain**
+  作用域链，它在解释器进入到一个执行环境时初始化完成并将其分配给当前执行环境。每个执行环境的**作用域链**由**当前环境的变量对象**及**父级环境的作用域链构成**。
+  作用域链具体是如何构建起来的呢，先上代码：
+
+  ```
+  function test(num){
+      var a = "2";
+      return a+num;
+  }
+  test(1);
+  ```
+
+  1. 执行流开始 初始化function test，test函数会维护一个私有属性 [[scope]],并使用当前环境的作用域链初始化，在这里就是 test.[[Scope]]=global scope.
+  2. test函数执行，这时候会为test函数创建一个执行环境，然后通过复制函数的[[Scope]]属性构建起test函数的作用域链。此时 test.scopeChain = [test.[[Scope]]]
+  3. test函数的活动对象被初始化，随后活动对象被当做变量对象用于初始化。即 test.variableObject = test.activationObject.contact[num,a] = [arguments].contact[num,a]
+  4. test函数的变量对象被压入其作用域链，此时 test.scopeChain = [ test.variableObject, test.[[scope]]];
+
+  至此test的**作用域链**构建完成。
+
+
+
+
+
+
+
+## 2.核心基础知识
+
+### 计网
+
+```js
+//小林的图解网络随时翻阅 & 极客时间趣谈网络协议+网上的文章 & 读图解HTTP TCP等书籍 & 网络抓包实操练习  深入理解
+// 每天一道计网面试题 把自己带入面试者的身份 跟面试官白话白话 嗯就这样子
+今天没学 明天再来补充~
+1.“HTTP和HTTPS有什么区别？
+	// 聊一下Https的连接过程
+    // 输入 www.baidu.com，怎么变成 https://www.baidu.com 的，怎么确定用HTTP还是HTTPS？
+	// HTTPS连接的时候 怎么确定收到的包是服务器发来的？（中间人攻击）
+	// 什么是对称加密、非对称加密？区别是什么？
+	// 数字签名、报文摘要的原理	
+	// HTTPS解决了HTTP的哪些问题？怎么解决的？
+	”
+```
+
+
+
+#### 聊聊HTTP HTTPS的区别 
+
+https://github.com/wolverinn/Waking-Up/blob/master/Computer%20Network.md#http%E5%92%8Chttps%E6%9C%89%E4%BB%80%E4%B9%88%E5%8C%BA%E5%88%AB
+
+- 【1】端口不同
+  - HTTP 80端口
+  - HTTPS 443端口
+- 【2】传输方式不同
+  - HTTP的信息是 明文传输（存在安全风险）
+  - HTTPS运行在SSL（安全协议）之上 添加了加密和认证机制 使得报文能够加密传输（解决了HTTP不安全的缺陷）
+- 【3】建立连接的方式不同
+  - HTTP —— TCP三次握手之后就可以进行HTTP的报文传输了
+  - HTTPS —— TCP三次握手 + SSL/TLS握手 才可以进入加密报文传输（在TCP传输层和HTTP应用层之间加入了SSL/TLS协议）
+
+![请添加图片描述](https://img-blog.csdnimg.cn/22ed1349ab5641b4a09cdf7763f13d43.png)
+
+- 【4】HTTPS带来的开销较大
+  - 由于加密、解密 会带来更大的CPU和内存开销
+- 【5】HTTPS通信需要证书 **来保证服务器的身份是可信的！**
+  - 一般需要向证书颁发机构(CA 证书权威机构)申请购买~
+
+
+
+
+
+##### 1.[HTTPS的连接过程](https://github.com/wolverinn/Waking-Up/blob/master/Computer%20Network.md#https%E7%9A%84%E8%BF%9E%E6%8E%A5%E8%BF%87%E7%A8%8B)
+
+- 【1】客户端 向 服务器发送——
+
+  - 请求
+  - 客户端支持的一套加密规则
+    - 对称加密算法
+    - 非对称加密算法（采用混合加密~）
+    - 摘要算法
+
+- 【2】服务器从中选出一组加密算法和HASH算法 并将自己的身份信息以——
+
+  - 证书
+    - 网站地址
+    - **加密公钥**（用于**非对称加密**）
+    - 证书的颁发机构 等信息
+    - （私钥只能用于服务器端进行解密~）
+
+  的形式发回给浏览器（客户端）
+
+- 【3】客户端 验证 服务器的合法性
+
+  - 证书是否过期 / CA(证书权威机构)是否可靠 
+  - 发行者证书的公钥能否正确解开服务器证书的”发行者的数字签名“ 
+  - 服务器证书上的域名是否和服务器的实际域名相匹配 
+
+- 【4】如果证书受信任 或者用户接受了不受信任的证书 
+
+  - 浏览器会生成一个**随机密钥**（用于**对称算法**）
+    - 并用服务器提供的**公钥加密**（采用非对称算法对密钥加密）
+  - 浏览器会使用Hash算法（**摘要算法**）对握手消息进行摘要计算
+    - 并对摘要使用之前产生的密钥加密（**对称算法**）
+  - 最后 客户端将加密后的随机密钥和摘要一起发送给服务器
+
+- 【5】服务器用自己的私钥解密 得到——对称加密的密钥 用这个密钥解密出Hash摘要值 并验证握手消息是否一致——
+
+  - 如果一致 服务器使用对称加密的**密钥加密握手消息**发给浏览器
+
+- 【6】浏览器解密并验证摘要 若一致 则握手结束
+
+  - 之后的数据传送**都使用对称加密的密钥**进行加密
+
+总结：1.使用的混合加密算法中的——
+
+- 非对称加密算法 用于在握手过程中加密生成的代码（也就是通信建立之前使用非对称加密）
+- 对称加密算法 用于对真正传输的数据进行加密
+
+![请添加图片描述](https://img-blog.csdnimg.cn/3de331f52a0f4778ab1bd691b06ad67d.png)
+
+2.摘要算法用于验证数据的完整性（相当于”指纹“ 预防了”第三方篡改“的风险）
+
+![请添加图片描述](https://img-blog.csdnimg.cn/2d22159e59964e4081ddfc1628039745.png)
+
+> 2-5中的内容 择日再聊！
+
+##### 2.输入 `[www.baidu.com`，怎么变成`https://www.baidu.com` 的，[怎么确定用HTTP还是HTTPS？](https://github.com/wolverinn/Waking-Up/blob/master/Computer%20Network.md#https%E8%BF%9E%E6%8E%A5%E7%9A%84%E6%97%B6%E5%80%99%E6%80%8E%E4%B9%88%E7%A1%AE%E5%AE%9A%E6%94%B6%E5%88%B0%E7%9A%84%E5%8C%85%E6%98%AF%E6%9C%8D%E5%8A%A1%E5%99%A8%E5%8F%91%E6%9D%A5%E7%9A%84%E4%B8%AD%E9%97%B4%E4%BA%BA%E6%94%BB%E5%87%BB)
+
+
+
+
+
+##### 3.HTTPS连接的时候，怎么确定收到的包是服务器发来的（中间人攻击）？
+
+
+
+
+
+##### 4.什么是对称加密、非对称加密？区别是什么？
+
+
+
+
+
+
+
+##### 5.数字签名、报文摘要的原理
+
+
+
+
+
+
+
+##### 6.HTTPS解决了HTTP的哪些问题？怎么解决的？
+
+###### HTTP在安全上存在哪些问题？
+
+HTTP由于是明文传输 所以安全上存在以下三个风险
+
+- **窃听风险**，比如通信链路上可以获取通信内容，用户号容易没。
+- **篡改风险**，比如强制入垃圾广告，视觉污染，用户眼容易瞎。
+- **冒充风险**，比如冒充淘宝网站，用户钱容易没。
+
+
+
+###### HTTPS如何解决这些问题？
+
+- 【1】通过**混合加密**的方式实现信息的<u>机密性</u> 解决了==窃听==的风险
+
+![混合加密](https://mmbiz.qpic.cn/mmbiz_jpg/J0g14CUwaZfXG1113Sjm0iaOXfoOv0tlUYNGEmfY95A74GR3xicqXKZCDI7Q4icgQu7CuSSx9QiaFlr4Py49RHonjw/640?wx_fmt=jpeg)
+
+HTTPS 采用的是**对称加密**和**非对称加密**结合的「混合加密」方式：
+
+- 在通信建立前采用**非对称加密**的方式交换「会话秘钥」，后续就不再使用非对称加密。
+- 在通信过程中全部使用**对称加密**的「会话秘钥」的方式加密明文数据。
+
+采用「混合加密」的方式的原因：
+
+1. **对称加密**只使用一个密钥，运算速度快，密钥必须保密，**无法做到安全的密钥交换**。
+2. **非对称加密**使用两个密钥：公钥和私钥，公钥可以任意分发而私钥保密，解决了密钥交换问题但**速度慢**。
+
+结合二者的特性 在通信建立的时候采用速度慢但是可以进行 **密钥的安全交换（公钥）**的非对称加密
+
+在建立好通信之后 全程使用 无法进行密钥交换（只用一个私钥）但是可以**快速加密与解密** 的对称加密
+
+- 【2】通过**摘要算法**的方式来实现完整性 为数据生成独一无二的「指纹」，指纹用于<u>校验数据的完整性</u>，解决了==篡改==的风险。
+
+![img](https://mmbiz.qpic.cn/mmbiz_jpg/J0g14CUwaZfXG1113Sjm0iaOXfoOv0tlUicIliaBcr2XAXpMdeibLG4MMticpkX0e6xZHbXeiavMu7faJcL2TdVj0Udw/640?wx_fmt=jpeg)
+
+客户端在发送明文之前会通过摘要算法算出明文的「指纹」，发送的时候把「指纹 + 明文」一同加密成密文后，发送给服务器；
+
+服务器解密后，用相同的摘要算法算出发送过来的明文，通过比较客户端携带的「指纹」和当前算出的「指纹」做比较，**若「指纹」相同，说明数据是完整的**。
+
+- 【3】通过**将服务器公钥放入数字证书中** 解决了==冒充==的风险
+
+客户端先向服务器端索要公钥，然后用公钥加密信息，服务器收到密文后，用自己的私钥解密。
+
+这就存在些问题，如何**保证公钥不被篡改和信任度**？
+
+所以这里就需要借助第三方权威机构 `CA` （数字证书认证机构），将**服务器公钥放在数字证书**（由数字证书认证机构颁发）中，只要证书是可信的，公钥就是可信的。
+
+![数子证书工作流程](https://mmbiz.qpic.cn/mmbiz_jpg/J0g14CUwaZfXG1113Sjm0iaOXfoOv0tlUibyiaEab7NMrTn632LZmYQe5qaibibT0xsOs7ic6u98ypWJBjbPMzOUCb2g/640?wx_fmt=jpeg)
+
+一句话小结：通过数字证书的方式**保证服务器公钥的身份**（将服务器公钥放在数字证书中 客户端使用CA的公钥确认服务器的数字证书后即可保证服务器公钥的身份），解决冒充的风险。
+
+这是为了 使得**属于当前连接的所有包都消失掉**
+
+这样做可以保证再次使用相同端口建立连接时 不会有属于上一个连接的滞留在网络中的包对连接产生干扰！
+
+
+
+
+
+
+
+###  操作系统
+
+```js
+// 小林的图解系统 & 学校课程学习 & 王道考研-OS 三者配合 高效学习
+// 要看一下学校的ppt了 课程旷了好几节有点听不懂！
+```
+
+
+
+## 3.面试题
+
+### 面试题、面经总结
+
+```js
+//网上面试题、面经辣么多 一天多看一些 然后同时也要研究一些题的答案！
+```
+
+
+
+### 算法题
+
+```js
+// 跟着掘金小册、代码随想录的内容进行学习！
+1.复习了一下二维数组的初始化方法
+2.超级刷题挑战 一天3+题！
+	剑指 Offer 29. 顺时针打印矩阵 和 54 螺旋矩阵是一道题 这题我觉得比昨天的难。。。但是今天这个方法太棒了！记录下来
+    周赛AC了一道简单题~ 两三分钟就做出来了~
+2.复习下时间复杂度 从小到大的顺序
+```
+
+#### [剑指 Offer 29. 顺时针打印矩阵](https://leetcode-cn.com/problems/shun-shi-zhen-da-yin-ju-zhen-lcof/)
+
+这题太棒了！尤其是解法 这四个边界把数组框起来的想法——
+
+也就是这个大佬写的题解太棒了！mark一下[「手画图解」两种遍历的策略](https://leetcode-cn.com/problems/shun-shi-zhen-da-yin-ju-zhen-lcof/solution/shou-hui-tu-jie-liang-chong-bian-li-de-ce-lue-na-c/)
+
+![image.png](https://pic.leetcode-cn.com/42ee2ec6854ee79ac2b7c91259d2ad5db70522668d11fc691e9e14426918a666-image.png)
+
+```js
+var spiralOrder = function(matrix) {
+    if(!matrix.length || !matrix[0].length){
+        return [];
+    }
+    const res = [];
+    
+    // 定义上下左右边界 一点点往里面挪动！
+    let top = 0;
+    let bottom = matrix.length - 1;
+    let left = 0;
+    let right = matrix[0].length - 1;
+
+    while(top < bottom && left < right){
+        for(let j = left; j < right; j++){
+            res.push(matrix[top][j]);//上层向右
+        }
+        for(let i = top; i < bottom; i++){
+            res.push(matrix[i][right]);//右层向下
+        }
+        for(let j = right; j > left; j--){
+            res.push(matrix[bottom][j]);//下层向左
+        }
+        for(let i = bottom; i > top; i--){
+            res.push(matrix[i][left]);//左层向上
+        }
+        top++;
+        bottom--;
+        left++;
+        right--;
+    }
+    //如果只有一层 那么就不能用上面的循环了 得再写两个循环
+    if(top === bottom){
+        for(let j = left; j <= right; j++){
+            res.push(matrix[top][j]);
+        }
+    }
+    else if(left === right){
+        for(let i = top; i <= bottom; i++){
+            res.push(matrix[i][left]);
+        }
+    }
+    return res;
+};
+```
+
+
+
+#### 2.复习下时间复杂度从小到大排列的顺序
+
+
+
+![img](https://p1-jj.byteimg.com/tos-cn-i-t2oaga2asx/gold-user-assets/2020/4/6/1714f67c52dc8d15~tplv-t2oaga2asx-watermark.awebp)
+
+再往上面是 O(!n) O(n^n^) 
+
+总结下 就是这样
+
+**O(1) < O(logn) < (n) < O(n*logn) < O(n^2^) < O(n^3^) < O(2^n^) < O(n!) < O(n^n^)**
+
+## 4.前端开发框架
+
+### 项目开发前置知识
+
+```js
+// 学到了尚硅谷react第四章 老师表示 “先学完Ajax Promise axios再回来吧！”
+```
+
+
+
+
+
+### react基础知识
+
+```js
+// 现阶段学习广受好评的react教程尚硅谷 
+Todolist案例相关知识点
+```
+
+
+
+#### 尚硅谷Todolist案例知识点
+
+​    1.拆分组件、实现静态组件，注意：className、style的写法
+
+​    2.动态初始化列表，如何确定将数据放在哪个组件的state中？
+
+​          ——某个组件使用：放在其自身的state中
+
+​          ——某些组件使用：放在他们共同的父组件state中（官方称此操作为：**状态提升**）
+
+​    3.关于父子之间通信：
+
+​        1.【父组件】给【子组件】传递数据：通过props传递
+
+​        2.<u>【子组件】给【父组件】传递数据：</u>通过props传递，要求**父提前给子传递一个函数**
+
+​    4.注意`defaultChecked` 和 `checked`的区别，类似的还有：`defaultValue` 和 `value`
+
+​    5.状态在哪里，操作状态的方法就在哪里
+
+
+
+### react练手项目
+
+```js
+// 尚硅谷课程接下来的案例
+// 掘金 记账本egg.js+react全栈 
 ```
 
