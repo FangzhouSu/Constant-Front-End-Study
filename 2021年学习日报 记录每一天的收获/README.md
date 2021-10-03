@@ -9648,7 +9648,7 @@ Totally 450min
     1.3 JS 30demos min
     // 每天完成一个 不要求完全理解 先做一个初步的认知
     // 没有完全了解的/觉得很好的 都要特意标记出来 二刷时候再去好好理解下！
-    	/*  */
+    /* 做了个视频播放器 */
     
     // 这些内容都是要重点掌握的！
     DOM编程 BOM使用 —— 复习
@@ -10750,138 +10750,140 @@ data[2]();// 3
 
 
 
-#### 6.VO AO 作用域链
+- #### 6.VO AO 作用域链
+  
+  
 
+  
+  
+  ![img](https://pic1.zhimg.com/80/v2-6c734348730c6c28b99e001ee831a674_720w.jpg)
+  
+  ##### 1、变量对象(variable object)
+  
+  > 原文：Every execution context has associated with it a variable object. Variables and functions declared in the source text are added as properties of the variable object. For function code, parameters are added as properties of the variable object.
 
-
-
-
-![img](https://pic1.zhimg.com/80/v2-6c734348730c6c28b99e001ee831a674_720w.jpg)
-
-### 1、变量对象(variable object)
-
-> 原文：Every execution context has associated with it a variable object. Variables and functions declared in the source text are added as properties of the variable object. For function code, parameters are added as properties of the variable object.
-
-　　简言之就是：每一个执行上下文都会分配一个变量对象(variable object)，变量对象的属性由 **变量**(variable) 和 **函数声明**(function declaration) 构成。在函数上下文情况下，**参数列表**(parameter list)也会被加入到变量对象(variable object)中作为属性。变量对象与当前作用域息息相关。不同作用域的变量对象互不相同，它保存了当前作用域的所有函数和变量。
-
-　　这里有一点特殊就是只有 **函数声明**(function declaration) 会被加入到变量对象中，而 ****函数表达式**(function expression)**则不会。看代码：
-
-```js
-// 函数声明
-function a(){}
-console.log(typeof a); // "function"
-
-// 函数表达式
-var a = function _a(){};
-console.log(typeof a); // "function"
-console.log(typeof _a); // "undefined"
-```
-
-　　函数声明的方式下，a会被加入到变量对象中，故当前作用域能打印出 a。
-　　函数表达式情况下，a作为变量会加入到变量对象中，_a作为函数表达式则不会加入，故 a 在当前作用域能被正确找到，_a则不会。
-
-
-
-### **2、活动对象(activation object)**
-
-> 原文：When control enters an execution context for function code, an object called the activation object is created and associated with the execution context. The activation object is initialised with a property with name arguments and attributes { DontDelete }. The initial value of this property is the arguments object described below.
-> The activation object is then used as the variable object for the purposes of variable instantiation.
-
-　　简言之：当函数被激活，那么一个活动对象(activation object)就会被创建并且分配给执行上下文。活动对象由特殊对象 arguments 初始化而成。随后，他被当做变量对象(variable object)用于变量初始化。
-用代码来说明就是：
-
-```js
-function a(name, age){
-    var gender = "male";
-    function b(){}
-}
-a(“k”,10);
-```
-
-　　a被调用时，在a的执行上下文会创建一个活动对象AO，并且被初始化为 AO = [arguments]。随后AO又被当做变量对象(variable object)VO进行变量初始化,此时 VO = [arguments].concat([name,age,gender,b])。
-
-[**3、作用域**　](https://github.com/mqyqingfeng/Blog/issues/3)
-
-　　作用域是指程序源代码中定义变量的区域。
-
-　　作用域规定了如何查找变量，也就是确定当前执行代码对变量的访问权限。
-
-　　JavaScript 采用**词法作用域**(lexical scoping)，也就是**静态作用域**。
-
-　　（1）**静态**作用域与**动态**作用域
-
-　　　　因为 JavaScript 采用的是**词法**作用域，函数的作用域在**函数定义**的时候就决定了。
-
-　　　　而与词法作用域相对的是**动态**作用域，函数的作用域是在**函数调用**的时候才决定的。
-
-　　　　让我们认真看个例子就能明白之间的区别：
-
-[![复制代码](https://common.cnblogs.com/images/copycode.gif)](javascript:void(0);)
-
-```js
-var value = 1;
-
-function foo() {
-    console.log(value);
-}
-
-function bar() {
-    var value = 2;
-    foo();
-}
-
-bar();
-
-// 结果是 ???
-```
-
-[![复制代码](https://common.cnblogs.com/images/copycode.gif)](javascript:void(0);)
-
-　　　　假设JavaScript采用静态作用域，让我们分析下执行过程：
-
-　　　　　　执行 foo 函数，先从 foo 函数内部查找是否有局部变量 value，如果没有，就根据书写的位置，查找上面一层的代码，也就是 value 等于 1，所以结果会打印 1。
-
-　　　　而引用《JavaScript权威指南》的回答就是：
-
-　　　　　　JavaScript 函数的执行用到了作用域链，这个作用域链是在函数定义的时候创建的。嵌套的函数 f() 定义在这个作用域链里，其中的变量 scope 一定是局部变量，不管何时何地执行函数 f()，这种绑定在执行 f() 时依然有效。
-
-### **4、执行环境和作用域链(execution context and scope chain)**
-
-- **execution context**
-  顾名思义 执行环境/执行上下文。在javascript中，**执行环境**可以抽象的理解为一个object，它由以下几个属性构成：
-
+  　　简言之就是：每一个执行上下文都会分配一个变量对象(variable object)，变量对象的属性由 **变量**(variable) 和 **函数声明**(function declaration) 构成。在函数上下文情况下，**参数列表**(parameter list)也会被加入到变量对象(variable object)中作为属性。变量对象与当前作用域息息相关。不同作用域的变量对象互不相同，它保存了当前作用域的所有函数和变量。
+  
+  　　这里有一点特殊就是只有 **函数声明**(function declaration) 会被加入到变量对象中，而 ****函数表达式**(function expression)**则不会。看代码：
+  
   ```js
-  executionContext：{
-      variable object：vars,functions,arguments,
-      scope chain: variable object + all parents scopes
-      thisValue: context object
+  // 函数声明
+  function a(){}
+  console.log(typeof a); // "function"
+  
+  // 函数表达式
+  var a = function _a(){};
+  console.log(typeof a); // "function"
+  console.log(typeof _a); // "undefined"
+  ```
+  
+  　　函数声明的方式下，a会被加入到变量对象中，故当前作用域能打印出 a。
+  　　函数表达式情况下，a作为变量会加入到变量对象中，_a作为函数表达式则不会加入，故 a 在当前作用域能被正确找到，_a则不会。
+  
+  
+  
+  ##### **2、活动对象(activation object)**
+  
+  > 原文：When control enters an execution context for function code, an object called the activation object is created and associated with the execution context. The activation object is initialised with a property with name arguments and attributes { DontDelete }. The initial value of this property is the arguments object described below.
+  > The activation object is then used as the variable object for the purposes of variable instantiation.
+  
+  　　简言之：当函数被激活，那么一个活动对象(activation object)就会被创建并且分配给执行上下文。活动对象由特殊对象 arguments 初始化而成。随后，他被当做变量对象(variable object)用于变量初始化。
+  用代码来说明就是：
+  
+  ```js
+  function a(name, age){
+      var gender = "male";
+      function b(){}
   }
+  a(“k”,10);
   ```
-
-  　　此外在js解释器运行阶段还会维护一个环境栈，当执行流进入一个函数时，函数的环境就会被压入环境栈，当函数执行完后会将其环境弹出，并将控制权返回前一个执行环境。环境栈的顶端始终是当前正在执行的环境。           **[！](https://github.com/mqyqingfeng/Blog/issues/4)**通俗来讲，就是： 当**执行一个函数**的时候，就会创建一个执行上下文，并且压入执行上下文栈，当函数**执行完毕**的时候，就会将函数的执行上下文从栈中弹出。
-
-  - 执行上下文的代码会分成[两个阶段](https://github.com/mqyqingfeng/Blog/issues/5)进行处理：分析和执行，我们也可以叫做：
-    1. 进入执行上下文（当进入执行上下文时，这时候**还没有执行代码**）
-    2. 代码执行 (在代码执行阶段，会顺序执行代码，根据代码，**修改变量对象的值**)
-
-- **scope chain**
-  作用域链，它在解释器进入到一个执行环境时初始化完成并将其分配给当前执行环境。每个执行环境的**作用域链**由**当前环境的变量对象**及**父级环境的作用域链构成**。
-  作用域链具体是如何构建起来的呢，先上代码：
-
-  ```
-  function test(num){
-      var a = "2";
-      return a+num;
+  
+  　　a被调用时，在a的执行上下文会创建一个活动对象AO，并且被初始化为 AO = [arguments]。随后AO又被当做变量对象(variable object)VO进行变量初始化,此时 VO = [arguments].concat([name,age,gender,b])。
+  
+  ##### [**3、作用域**　](https://github.com/mqyqingfeng/Blog/issues/3)
+  
+  　　作用域是指程序源代码中定义变量的区域。
+  
+  　　作用域规定了如何查找变量，也就是确定当前执行代码对变量的访问权限。
+  
+  　　JavaScript 采用**词法作用域**(lexical scoping)，也就是**静态作用域**。
+  
+  　　（1）**静态**作用域与**动态**作用域
+  
+  　　　　因为 JavaScript 采用的是**词法**作用域，函数的作用域在**函数定义**的时候就决定了。
+  
+  　　　　而与词法作用域相对的是**动态**作用域，函数的作用域是在**函数调用**的时候才决定的。
+  
+  　　　　让我们认真看个例子就能明白之间的区别：
+  
+  [![复制代码](https://common.cnblogs.com/images/copycode.gif)](javascript:void(0);)
+  
+  ```js
+  var value = 1;
+  
+  function foo() {
+      console.log(value);
   }
-  test(1);
+  
+  function bar() {
+      var value = 2;
+      foo();
+  }
+  
+  bar();
+  
+  // 结果是 ???
   ```
-
-  1. 执行流开始 初始化function test，test函数会维护一个私有属性 [[scope]],并使用当前环境的作用域链初始化，在这里就是 test.[[Scope]]=global scope.
-  2. test函数执行，这时候会为test函数创建一个执行环境，然后通过复制函数的[[Scope]]属性构建起test函数的作用域链。此时 test.scopeChain = [test.[[Scope]]]
-  3. test函数的活动对象被初始化，随后活动对象被当做变量对象用于初始化。即 test.variableObject = test.activationObject.contact[num,a] = [arguments].contact[num,a]
-  4. test函数的变量对象被压入其作用域链，此时 test.scopeChain = [ test.variableObject, test.[[scope]]];
-
-  至此test的**作用域链**构建完成。
+  
+  [![复制代码](https://common.cnblogs.com/images/copycode.gif)](javascript:void(0);)
+  
+  　　　　假设JavaScript采用静态作用域，让我们分析下执行过程：
+  
+  　　　　　　执行 foo 函数，先从 foo 函数内部查找是否有局部变量 value，如果没有，就根据书写的位置，查找上面一层的代码，也就是 value 等于 1，所以结果会打印 1。
+  
+  　　　　而引用《JavaScript权威指南》的回答就是：
+  
+  　　　　　　JavaScript 函数的执行用到了作用域链，这个作用域链是在函数定义的时候创建的。嵌套的函数 f() 定义在这个作用域链里，其中的变量 scope 一定是局部变量，不管何时何地执行函数 f()，这种绑定在执行 f() 时依然有效。
+  
+  ##### **4、执行环境和作用域链(execution context and scope chain)**
+  
+  - **execution context**
+    顾名思义 执行环境/执行上下文。在javascript中，**执行环境**可以抽象的理解为一个object，它由以下几个属性构成：
+  
+    ```js
+    executionContext：{
+        variable object：vars,functions,arguments,
+        scope chain: variable object + all parents scopes
+        thisValue: context object
+    }
+    ```
+  
+    　　此外在js解释器运行阶段还会维护一个环境栈，当执行流进入一个函数时，函数的环境就会被压入环境栈，当函数执行完后会将其环境弹出，并将控制权返回前一个执行环境。环境栈的顶端始终是当前正在执行的环境。           **[！](https://github.com/mqyqingfeng/Blog/issues/4)**通俗来讲，就是： 当**执行一个函数**的时候，就会创建一个执行上下文，并且压入执行上下文栈，当函数**执行完毕**的时候，就会将函数的执行上下文从栈中弹出。
+  
+    - 执行上下文的代码会分成[两个阶段](https://github.com/mqyqingfeng/Blog/issues/5)进行处理：分析和执行，我们也可以叫做：
+      1. 进入执行上下文（当进入执行上下文时，这时候**还没有执行代码**）
+      2. 代码执行 (在代码执行阶段，会顺序执行代码，根据代码，**修改变量对象的值**)
+  
+  - **scope chain**
+    作用域链，它在解释器进入到一个执行环境时初始化完成并将其分配给当前执行环境。每个执行环境的**作用域链**由**当前环境的变量对象**及**父级环境的作用域链构成**。
+    作用域链具体是如何构建起来的呢，先上代码：
+  
+    ```
+    function test(num){
+        var a = "2";
+        return a+num;
+    }
+    test(1);
+    ```
+  
+    1. 执行流开始 初始化function test，test函数会维护一个私有属性 [[scope]],并使用当前环境的作用域链初始化，在这里就是 test.[[Scope]]=global scope.
+    2. test函数执行，这时候会为test函数创建一个执行环境，然后通过复制函数的[[Scope]]属性构建起test函数的作用域链。此时 test.scopeChain = [test.[[Scope]]]
+    3. test函数的活动对象被初始化，随后活动对象被当做变量对象用于初始化。即 test.variableObject = test.activationObject.contact[num,a] = [arguments].contact[num,a]
+    4. test函数的变量对象被压入其作用域链，此时 test.scopeChain = [ test.variableObject, test.[[scope]]];
+  
+    至此test的**作用域链**构建完成。
+  
+  
 
 
 
@@ -11216,27 +11218,29 @@ var spiralOrder = function(matrix) {
 // DDL
 	01 尚硅谷JS高级 10.3学习完第一轮 10.4-7 一天复习一章 
 	02 算法题 数组+排序算法 10.3学习完（可以算是复习）
-    03 Ajax 10.3 Promise 10.4 axios 10.5
+    03 Ajax 10.3 4 Promise 10.5 6 axios 10.7 8 react Todo List案例重写 10.9
 ```
 
 
 
 ```js
 // 今日主要收获 & 学习时间
-Totally min
+Totally 320min
 1.前端基础知识 
 // 从早上-中午 拿出一整块时间学习JS 晚上跑完步回来继续看JS 重视基础！
 // 不要浮于表面地看问题 深入进去！多向自己提问！
-    1.1 JS学习 min 
+    1.1 JS学习 20+80min 
     // 每日重点！编码 + 知识点记录
     // 近期重点 作用域、闭包、原型链 + ES6 + Ajax axios
-		/*  */
+		/* 学习了一下JS实现数组去重~
+        完结JS高级的课程~后面是比较基础 底层的一些知识点 偏浏览器一些 之后需要专门好好学一下浏览器相关欸！*/
     1.2 freecodecamp JS + 响应式网页设计 min
     	/*  */
-    1.3 JS 30demos min
+    1.3 JS 30demos 40+80min
     // 每天完成一个 不要求完全理解 先做一个初步的认知
     // 没有完全了解的/觉得很好的 都要特意标记出来 二刷时候再去好好理解下！
-    	/*  */
+    	/* demo11 是一个在线的视频播放器 利用了HTML5的video标签
+        */
     
     // 这些内容都是要重点掌握的！
     DOM编程 BOM使用 —— 复习
@@ -11247,16 +11251,16 @@ Totally min
 	正则表达式
 
 2.核心基础知识 下午开始学计网 + 刷题
-	2.1 计网 min
-		/*  */
+	2.1 计网 20min
+		/* 复习下HTTPS的内容~ */
 	2.2 操作系统 min
 		/*  */
 
 3.面试刷题
-	3.1 刷算法 刷力扣 min	
+	3.1 刷算法 刷力扣 60+20min	
     // 【1】阅读掘金小册 + 按照代码随想录推荐【2】刷题
     	/* 掘金小册3/28 代码随想录数组3/7 
-        
+        周赛两题
         */   
     
     	// 每个阶段结束后 简单总结下应对某种数据结构/对应类型的题目 应该怎么去想
@@ -11275,14 +11279,12 @@ Totally min
     // 尚硅谷课程 官方文档五子棋demo
 		/*  */
     
-
 5.前端进阶知识学习
 // 学完JS再学这个辽！
     Node.js
 	webpack
 6.其他 
-	毛概作业 70min
-7.每日总结 10min
+7.每日总结 min
 ```
 
 
@@ -11300,475 +11302,117 @@ Totally min
 ```js
 //每日学到的知识点 可以写文章 可以记在心里 总结下来！
 // 本阶段主要学习JS高级教程（尚硅谷）刷freecodecamp
-1.对象的创建模式——直接在构造函数中定义方法 会让每个创建出来的对象都带上那个方法 比较占内存 将方法定义在原型上可以节省内存！
-2.在JS中实现继承！
-3.复习new一个对象背后做了啥
-4.闭包面试题复习
+1.JS数组去重问题
+2.利用扩展运算符 ... 合并两个数组 arr1.push(...arr2)
+3.解构赋值的应用
+4.JS用的是单线程模式 为啥？可以证明么？
+5.JS引擎执行代码的基本流程
+6.浏览器的事件循环模型 面试时候问到最好把图画一下！p46
+7.交换数组中两个/多个元素的位置的快捷方法 [arr[a], arr[b]] = [arr[b], arr[a]]
 ```
 
 
 
-#### 1.对象的创建模式
+#### 1.面试高频 利用JavaScript实现数组去重
 
-- 构造函数模式 —— 定义方法时 再创建对象 会占内存~
+参考 写得很棒的文章 [JavaScript数组去重问题](https://juejin.cn/post/7014009223197491236) 同为大三在校生 为何人家如此优秀！
+
+明天来复习一下~
+
+##### 【1】原始方法 遍历
+
+
+
+##### 【2】利用`res.indexOf(item)`查找是否item在res中是重复的
+
+
+
+##### 【3】利用filter结合indexOf方法过滤获得res
+
+
+
+##### 【4】排序+比较先前元素pre和当前元素是否相同 
+
+
+
+##### 【5】结合【4】`arr.sort().filter(对应函数)` 更简单！
+
+
+
+##### 【6】利用Set生成哈希表（很快啊！）
+
+Set 对象允许你存储任何类型的唯一值，无论是原始值或者是对象引用。
+
+所以我们可以利用Set的这一特性，来进行去重处理。
 
 ```js
-function Person(name, age) {
-  this.name = name;
-  this.age = age;
-  this.setName = function(name){this.name=name;};
+var arr = [1,1,2,3,4,5,6,7,4,3,'1',8,'3','1','3','66']
+// var hashtable = Array.from(new Set(arr));//[1, 2, 3, 4, 5, 6, 7, "1", 8, "3", "66"]
+// Set原来是这么用的啊！之前一直都使用一个个比对+遍历 
+function unique(arr){
+	return Array.from(new Set(arr))
 }
-var p1 = new Person('tom', 12);
-var p2 = new Person('jerry', 16);
+
+console.log(unique(arr));
 ```
 
-这两个对象上都会带一个方法——浪费内存！
-
-![在这里插入图片描述](https://img-blog.csdnimg.cn/ffae8dc0c7224d6393e726dba4742cf1.png)
-
-- 构造函数+原型的组合模式 —— 最省内存~
+###### 通过解构赋值进一步简化
 
 ```js
-function Person(name, age) {
-  this.name = name;
-  this.age = age;
+var arr = [1,1,2,3,4,5,6,7,4,3,'1',8,'3','1','3','66']
+
+function unique(arr){
+	return [...new Set(arr)]
 }
-// 简单来说 代码就是这样~
-Person.prototype.setName = function(name){this.name=name;};
-new Person('tom', 12);
+
+console.log(unique(arr));
 ```
 
-
-
-![image-20211002140717986](README.assets/image-20211002140717986.png)
-
-
-
-#### 2.【面试题】JS中实现继承
-
-简单来说 有三种方式
-
-- 原型链继承
-- 借用构造函数
-- 组合
-
-分别来看看原理
-
-- 【1】原型链继承 —— 子类型继承得到方法
-  - 通过`Child.prototype = new Parent()`继承父函数 从而继承了属性与方法
-  - **缺点**：通过Child构造的对象 的原型对象 的 `constructor` 属性指向Parent！这不好！
-    - 我们需要让子类型的原型的 `constructor`  指向子类型 才对！
-    - 这个问题可以通过 `Child.prototype.constructor = Child;` 来修正constructor属性
+###### 极简箭头函数
 
 ```js
-// 定义父函数、父函数原型上的方法、子函数
-function Parent(){}
-Parent.prototype.test = function(){};
-function Child(){}
-// 实现继承的关键一步 
-Child.prototype = new Parent();// 出现了！new关键字！创建了父类的实例 让Child子类型的原型指向父类型实例！
-
-var child = new Child(); // Child对象实例中有test() （当然了 父类型的属性也会被继承过来！）
-```
-
-画一个继承的示意图（从内存的角度来看）
-
-![在这里插入图片描述](https://img-blog.csdnimg.cn/b32d8872931d43888b9fec5889e3d1cd.png)
-
-
-
-- 【2】借用构造函数 : 得到属性（这个其实不算继承拉~）
-
-* * 通过 `Parent.call(this,name,age)` 继承（调用父类型构造函数）
-  * 缺点：获得父类型的方法很麻烦！还得借助call方法一个个地弄 `Parent.func.call(this,参数)`
-
-  ```js
-  function Parent(xxx){this.xxx = xxx}
-  Parent.prototype.test = function(){};
-  function Child(xxx,yyy){
-      Parent.call(this, xxx);//借用构造函数   this.Parent(xxx)
-      // 相当于 this.Parent(xxx)
-  }
-  var child = new Child('a', 'b');  //child.xxx为'a', 但child没有test()
-  ```
-
-* 【3】组合（利用原型链继承方法和call方法继承属性）继承
-
-```js
-function Parent(xxx){this.xxx = xxx}
-Parent.prototype.test = function(){};
-function Child(xxx,yyy){
-    Parent.call(this, xxx);//借用构造函数 相当于this.Parent(xxx) 继承父类型地属性
-}
-// 通过原型链继承父类型
-Child.prototype = new Parent(); //得到test()
-var child = new Child(); //child.xxx为'a', 也有test()
+var arr = [1,1,2,3,4,5,6,7,4,3,'1',8,'3','1','3','66']
+var unique = (arr) => return [...new Set(arr)];// 就是把常规函数形式 变了一下下~
+console.log(unique(arr));
 ```
 
 
 
+#### 2.解构赋值的应用
 
+很棒的一个大三前端大佬的博客中的内容
 
-#### 3.复习下“new要给对象背后做了什么？”
+依旧是明天来复习下
 
-之前写的文章——[JS小知识 new关键字都做了什么？](https://juejin.cn/post/7012887169878458404) 举了例子 
+https://blog.wangez.site/posts/1586874348.html/
 
-这里再说一下（并配上原型链的图）
+#### 3.JS执行是单线程的 如何证明？ 为啥要用这种模式？
 
-![在这里插入图片描述](https://img-blog.csdnimg.cn/ac15bad11c2c4e64a323d2143f687d47.png)
+定时器回调函数 `setTimeout()` 的回调函数是在主线程执行的 这些函数只有在运行栈中的代码（初始化代码）全执行完后才有可能执行！
 
-- 创建一个空对象（也就是Object的实例对象）
-- 给实例对象设置`__proto__`, 值为构造函数对象的prototype属性值
-  - 也就是   `this.__proto__ = Fn.prototype`
-
-- 执行构造函数体 将构造函数的作用域赋值给新对象（给对象添加方法/属性）之后this关键字指向新创建的对象实例 
-  - co对象实例就可以使用`this.func() this.name` 来调用方法和属性了！
-
-
-
-#### 4.三道闭包面试题&闭包的定义
-
-【在 JavaScript 中，每当创建一个函数，闭包就会在函数创建的同时被创建出来。】
-[MDN官方文档解释闭包](https://link.segmentfault.com/?url=https%3A%2F%2Fdeveloper.mozilla.org%2Fzh-CN%2Fdocs%2FWeb%2FJavaScript%2FClosures)
-
-
-
-> 个人觉得闭包没有那么复杂，本质就是上级作用域内变量的生命周期，因为被下级作用域内引用，而没有被释放。就导致上级作用域内的变量，等到下级作用域执行完以后才正常得到释放。（个人理解，若有错误，欢迎指正）
-
-https://juejin.cn/post/6844903858636849159#refetch中的评论
-
-> 在 JS 忍者秘籍(P90)中对闭包的定义：闭包允许函数访问并操作函数外部的变量。
+> 代码分为两种
 >
-> 红宝书上对于闭包的定义：闭包是指有权访问另外一个函数作用域中的变量的函数。 
->
-> MDN 对闭包的定义为：闭包是指那些能够访问自由变量的函数。这里的自由变量是外部函数作用域中的变量。
+> - 初始化代码
+> - 回调代码（就是回调函数中包含的代码咯~）
 
-> 概述上面的话，**闭包是指有权访问另一个函数作用域中变量的函数**
-> 作者：`LinYIYI`
-> 链接：https://juejin.cn/post/6937469222251560990
-> 
-> 
 
 
+JS的单线程模式与其用途有关
 
-##### 面试题1 this指向的问题
+- 作为浏览器脚本语言 JS的==主要用途==是**与用户互动 & 操作DOM**
+- 这决定了JS只能是单线程 否则会带来很复杂的同步问题！
 
-```js
-var name = "The Window";
-var object = {
-    name: "My Object",
-    getNameFunc: function () {
-        return function () {
-            return this.name;
-        };
-    }
-};
-console.log(object.getNameFunc()());  // The Window
-// this指向的是全局变量（毕竟是在全局中被调用的 也没有闭包）
-// 没有闭包 外层函数压根没变量嘛~
-```
 
 
+#### 4.JS引擎执行代码的基本流程
 
-
-
-```js
-var name2 = "The Window";
-var object2 = {
-    name2: "My Object",
-    getNameFunc: function () {
-        var that = this;
-        return function () {
-            return that.name2;
-        };
-    }
-};
-console.log(object2.getNameFunc()()); // My Object
-// 这里的that是this 是object2
-// 有闭包 闭包为that 被保存起来了
-```
-
-![image.png](https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/19522227c1674b9c95a67557d890e219~tplv-k3u1fbpfcp-watermark.image?)
-
-很显然 这里的name2就是内部的`“My Object”`
-
-##### 面试题2 超级经典 面试必考
-
-```js
-var data = [];
-
-for (var i = 0; i < 3; i++) {
-  data[i] = function () {
-    console.log(i);
-  };
-}
-
-data[0]();// 3
-data[1]();// 3
-data[2]();// 3
-```
-
-[结合 VO AO解答问题](https://github.com/mqyqingfeng/Blog/issues/9) 
-
-
-
-##### 难度较大 面试题3
-
-- 这题的重点前置知识是——执行期上下文的概念（每当有一个函数被调用的时候就会产生一个**执行上下文对象** AO 也叫 激活对象Activation Object)
-
-  > - 就是每进入一个执行上下文时，这个执行上下文儿中的**激活对象AO**就被激活，也就是该上下文中的函数标示符、形参、变量声明等就可以被访问到了
-
-```js
-  function fun(n, o) {
-    console.log(o)
-    return {
-      fun: function (m) {
-        return fun(m, n);// n导致的闭包~
-      }
-    }
-  }
-  var a = fun(0)// o未定义  a是个对象
-  a.fun(1)// 产生了新的闭包 因为执行外部函数——外部的那个fun 但是马上就消失了（因为没有用这个闭包 马上抛弃了这个对象 相应的当前闭包就消失了）
-//所以这三行内容 都是用的a 也就是fun(0)的闭包 
-// fun(0).fun(1) 传进去n=0 形成闭包 
-  a.fun(2)
-  a.fun(3) //四个调用的打印为 undefined,0,0,0
-
-  var b = fun(0).fun(1).fun(2).fun(3) //undefined,0,1,2
-
-  var c = fun(0).fun(1)
-  c.fun(2)
-  c.fun(3) //undefined,0,1,1
-```
-
-【1】`var a = fun(0)  console.log(a)`
-
-![在这里插入图片描述](https://img-blog.csdnimg.cn/905ea79213004eea8ad7446a7153d687.png)
-
-再用`a.fun(1)` 产生n:1的闭包 但是没有用 传进去的n依旧是a中确定的0
-
-【2】
-
-`fun(0).fun(1)` —— 闭包中的n为0 打印出来的结果也为0
-
-`fun(0).fun(1).fun(2)` —— 闭包（fun(0).fun(1)）中的n为 1 结果也为1
-
-> b站大佬给出的分析
->
-> 省流大师——看第六和第七步 解释齐全 看不懂的回头看前面的前置知识
->
-> > ```js
-> > function fun(n,o) {//简称f1
-> > 	console.log(o)
-> > 	return {
-> > 		fun:function(m){ //这里简称f2
-> > 			return fun(m,n)
-> > 		}
-> > 	}
-> > }
-> > var a = fun(0) // 0
-> > a.fun(1) // 0
-> > ```
-> >
-> > 需要掌握的知识点
-> > 1.**执行期上下文**(又名 预编译)
-> > -----1.1 执行期上下文的执行顺序 当**一个函数调用他就会生成一个AO对象** (全局的叫GO我不详细讲了)
-> > 只要知道下面这些就可以了
-> > ---------1.1.1 当一个函数调用 **在AO中 先拿到函数中 声明的所有变量(var 的变量) 赋值为undefined**
-> > ---------1.1.2 实参形参相统一
-> > ---------1.1.3 里面的函数声明 函数名作为属性名  属性名=函数体 然后挂到AO对象上
-> > ---------1.1.4 最终已经看过的 变量声明 实参 函数声明 都不看了 去解释一行执行一行 变量看AO里的
-> >
-> > **2.闭包分析问题**
-> > 1.f1执行 里面定义的函数 会**拿到f1的执行期上下文**(AO对象 这里简称AO1)
-> > 2.f1执行 上面的var a=fun(0) 里面的AO对象 n=0 (**AO1 ==n=0,o=undefined==**) —— 所以第九行的代码执行后 打印 undefined（o的值）
-> > 3.当f1执行完毕 会**返回一个==对象 也就是a==** **里面有个函数引用f2**
-> >
-> > 4.`a.fun(1)` f2执行生成自己的AO(简称AO2) **AO2里(==m=1==)** 里面**马上又执行了外面的f1**
-> > ---**此时外面的f1生成了新的AO 里面的值(==n=1【就是AO2里的m】,o=0【AO1里的o】==)**//或许应该叫它AO3 —— 所以第十行的代码执行后 打印 0（o的值）
-> > ---这里是重点 AO2 就是**f2的执行期上下文里没有f2(m,n) 中的n**(参见1.1.2) 它==去AO1里拿的== 第二步有说道此时AO1里的n是几
-> >
-> > 5.但这都不重要 反正你也**没外部保存这个AO3** 当没有变量接收它的引用地址就被自动销毁了(不懂也不要紧反正它没了)
-> >
-> > 6.fun(0).fun(1)的结果
-> >
-> > - f1-fun(0)执行 ——AO1{n=0,o=undefined} ——这里由于闭包 所以fun(0)这个对象里面有一个n=0的
-> > - f2-fun(1)执行——AO2{m=1}  
-> >
-> > 执行生成了AO2之后又马上会执行外面的f1 生成AO3这个存在不了多久的激活对象——传入了n=1 o=0（o是从AO1里拿的）
-> >
-> > - return fun(m,n)执行——AO3{n=1(由AO2传入) o=0（由AO1传入）} —— 打印结果
-> >
-> > > 7.fun(0).fun(1).fun(2)的结果
-> > >
-> > > 同理 如果出现 fun(0).fun(1).fun(2)
-> > >
-> > > 就会出现三个被保存的AO
-> > >
-> > > - f1-fun(0)执行 ——AO1{n=0,o=undefined} 
-> > > - f2-fun(1)执行—— AO2{m=1}  
-> > > - return fun(**m,n**)执行——AO3{n=1(由AO2传入) o=0（由AO1传入）} 
-> > > - f3-fun(2)执行 —— AO4{m=2}
-> > > - return fun(**m,n**)执行—— AO5{n=2(由AO4传入) o=1（由AO3传入）} 
-> > >
-> > > 执行生成AO3之后马上又执行了外面的f1 （又生成了新的AO）将m=2 n=1 传入fun(n,o) （形参和实参相统一哦~）o就是1了！
-> > >
-> > > 自然就会打印1了！
-
-
-
-#### 5.执行上下文与激活对象AO
-
-执行期上下文的概念（每当有一个函数被调用的时候就会产生一个**执行上下文对象** AO 也叫 激活对象Activation Object)
-
-> - 就是每进入一个执行上下文时，这个执行上下文儿中的**激活对象AO**就被激活，也就是该上下文中的函数标示符、形参、变量声明等就可以被访问到了
-
-1.**执行期上下文**(又名 预编译)
------1.1 执行期上下文的执行顺序 当**一个函数调用他就会生成一个AO对象** (全局的叫GO我不详细讲了)
-只要知道下面这些就可以了
----------1.1.1 当一个函数调用 **在AO中 先拿到函数中 声明的所有变量(var 的变量) 赋值为undefined**
----------1.1.2 实参形参相统一
----------1.1.3 里面的函数声明 函数名作为属性名  属性名=函数体 然后挂到AO对象上
----------1.1.4 最终已经看过的 变量声明 实参 函数声明 都不看了 去解释一行执行一行 变量看AO里的
-
-
-
-#### 6.VO AO 作用域链
-
-
-
-
-
-![img](https://pic1.zhimg.com/80/v2-6c734348730c6c28b99e001ee831a674_720w.jpg)
-
-### 1、变量对象(variable object)
-
-> 原文：Every execution context has associated with it a variable object. Variables and functions declared in the source text are added as properties of the variable object. For function code, parameters are added as properties of the variable object.
-
-　　简言之就是：每一个执行上下文都会分配一个变量对象(variable object)，变量对象的属性由 **变量**(variable) 和 **函数声明**(function declaration) 构成。在函数上下文情况下，**参数列表**(parameter list)也会被加入到变量对象(variable object)中作为属性。变量对象与当前作用域息息相关。不同作用域的变量对象互不相同，它保存了当前作用域的所有函数和变量。
-
-　　这里有一点特殊就是只有 **函数声明**(function declaration) 会被加入到变量对象中，而 ****函数表达式**(function expression)**则不会。看代码：
-
-```js
-// 函数声明
-function a(){}
-console.log(typeof a); // "function"
-
-// 函数表达式
-var a = function _a(){};
-console.log(typeof a); // "function"
-console.log(typeof _a); // "undefined"
-```
-
-　　函数声明的方式下，a会被加入到变量对象中，故当前作用域能打印出 a。
-　　函数表达式情况下，a作为变量会加入到变量对象中，_a作为函数表达式则不会加入，故 a 在当前作用域能被正确找到，_a则不会。
-
-
-
-### **2、活动对象(activation object)**
-
-> 原文：When control enters an execution context for function code, an object called the activation object is created and associated with the execution context. The activation object is initialised with a property with name arguments and attributes { DontDelete }. The initial value of this property is the arguments object described below.
-> The activation object is then used as the variable object for the purposes of variable instantiation.
-
-　　简言之：当函数被激活，那么一个活动对象(activation object)就会被创建并且分配给执行上下文。活动对象由特殊对象 arguments 初始化而成。随后，他被当做变量对象(variable object)用于变量初始化。
-用代码来说明就是：
-
-```js
-function a(name, age){
-    var gender = "male";
-    function b(){}
-}
-a(“k”,10);
-```
-
-　　a被调用时，在a的执行上下文会创建一个活动对象AO，并且被初始化为 AO = [arguments]。随后AO又被当做变量对象(variable object)VO进行变量初始化,此时 VO = [arguments].concat([name,age,gender,b])。
-
-[**3、作用域**　](https://github.com/mqyqingfeng/Blog/issues/3)
-
-　　作用域是指程序源代码中定义变量的区域。
-
-　　作用域规定了如何查找变量，也就是确定当前执行代码对变量的访问权限。
-
-　　JavaScript 采用**词法作用域**(lexical scoping)，也就是**静态作用域**。
-
-　　（1）**静态**作用域与**动态**作用域
-
-　　　　因为 JavaScript 采用的是**词法**作用域，函数的作用域在**函数定义**的时候就决定了。
-
-　　　　而与词法作用域相对的是**动态**作用域，函数的作用域是在**函数调用**的时候才决定的。
-
-　　　　让我们认真看个例子就能明白之间的区别：
-
-[![复制代码](https://common.cnblogs.com/images/copycode.gif)](javascript:void(0);)
-
-```js
-var value = 1;
-
-function foo() {
-    console.log(value);
-}
-
-function bar() {
-    var value = 2;
-    foo();
-}
-
-bar();
-
-// 结果是 ???
-```
-
-[![复制代码](https://common.cnblogs.com/images/copycode.gif)](javascript:void(0);)
-
-　　　　假设JavaScript采用静态作用域，让我们分析下执行过程：
-
-　　　　　　执行 foo 函数，先从 foo 函数内部查找是否有局部变量 value，如果没有，就根据书写的位置，查找上面一层的代码，也就是 value 等于 1，所以结果会打印 1。
-
-　　　　而引用《JavaScript权威指南》的回答就是：
-
-　　　　　　JavaScript 函数的执行用到了作用域链，这个作用域链是在函数定义的时候创建的。嵌套的函数 f() 定义在这个作用域链里，其中的变量 scope 一定是局部变量，不管何时何地执行函数 f()，这种绑定在执行 f() 时依然有效。
-
-### **4、执行环境和作用域链(execution context and scope chain)**
-
-- **execution context**
-  顾名思义 执行环境/执行上下文。在javascript中，**执行环境**可以抽象的理解为一个object，它由以下几个属性构成：
-
-  ```js
-  executionContext：{
-      variable object：vars,functions,arguments,
-      scope chain: variable object + all parents scopes
-      thisValue: context object
-  }
-  ```
-
-  　　此外在js解释器运行阶段还会维护一个环境栈，当执行流进入一个函数时，函数的环境就会被压入环境栈，当函数执行完后会将其环境弹出，并将控制权返回前一个执行环境。环境栈的顶端始终是当前正在执行的环境。           **[！](https://github.com/mqyqingfeng/Blog/issues/4)**通俗来讲，就是： 当**执行一个函数**的时候，就会创建一个执行上下文，并且压入执行上下文栈，当函数**执行完毕**的时候，就会将函数的执行上下文从栈中弹出。
-
-  - 执行上下文的代码会分成[两个阶段](https://github.com/mqyqingfeng/Blog/issues/5)进行处理：分析和执行，我们也可以叫做：
-    1. 进入执行上下文（当进入执行上下文时，这时候**还没有执行代码**）
-    2. 代码执行 (在代码执行阶段，会顺序执行代码，根据代码，**修改变量对象的值**)
-
-- **scope chain**
-  作用域链，它在解释器进入到一个执行环境时初始化完成并将其分配给当前执行环境。每个执行环境的**作用域链**由**当前环境的变量对象**及**父级环境的作用域链构成**。
-  作用域链具体是如何构建起来的呢，先上代码：
-
-  ```
-  function test(num){
-      var a = "2";
-      return a+num;
-  }
-  test(1);
-  ```
-
-  1. 执行流开始 初始化function test，test函数会维护一个私有属性 [[scope]],并使用当前环境的作用域链初始化，在这里就是 test.[[Scope]]=global scope.
-  2. test函数执行，这时候会为test函数创建一个执行环境，然后通过复制函数的[[Scope]]属性构建起test函数的作用域链。此时 test.scopeChain = [test.[[Scope]]]
-  3. test函数的活动对象被初始化，随后活动对象被当做变量对象用于初始化。即 test.variableObject = test.activationObject.contact[num,a] = [arguments].contact[num,a]
-  4. test函数的变量对象被压入其作用域链，此时 test.scopeChain = [ test.variableObject, test.[[scope]]];
-
-  至此test的**作用域链**构建完成。
-
-
-
-
+- 【1】先执行初始化代码
+  - 设置定时器
+  - 绑定监听
+  - 发送ajax请求
+  - console.log alert这些代码也会被先执行
+    - alert执行的时候 线程会暂时阻塞~
+- 【2】后面的某个时刻才会执行回调代码
 
 
 
@@ -11874,27 +11518,53 @@ https://github.com/wolverinn/Waking-Up/blob/master/Computer%20Network.md#http%E5
 
 ##### 2.输入 `[www.baidu.com`，怎么变成`https://www.baidu.com` 的，[怎么确定用HTTP还是HTTPS？](https://github.com/wolverinn/Waking-Up/blob/master/Computer%20Network.md#https%E8%BF%9E%E6%8E%A5%E7%9A%84%E6%97%B6%E5%80%99%E6%80%8E%E4%B9%88%E7%A1%AE%E5%AE%9A%E6%94%B6%E5%88%B0%E7%9A%84%E5%8C%85%E6%98%AF%E6%9C%8D%E5%8A%A1%E5%99%A8%E5%8F%91%E6%9D%A5%E7%9A%84%E4%B8%AD%E9%97%B4%E4%BA%BA%E6%94%BB%E5%87%BB)
 
+[你访问的网站是如何自动切换到 HTTPS 的？](https://www.sohu.com/a/136637876_487516)
 
+一种是<u>原始的302跳转</u>，服务器**把所有的HTTP流量跳转到HTTPS**。
+
+- 但这样有一个漏洞，就是中间人可能在第一次访问站点的时候就劫持。 
+  - 解决方法是引入HSTS机制，用户浏览器在**访问站点的时候强制使用HTTPS**。
 
 
 
 ##### 3.HTTPS连接的时候，怎么确定收到的包是服务器发来的（中间人攻击）？
 
+针对SSL的中间人攻击方式主要有两类，分别是SSL劫持攻击和SSL剥离攻击
 
+**SSL劫持攻击**
+攻击者在传输过程中伪造服务器的证书，将服务器的公钥替换成自己的公钥；
+
+但是对于客户端来说，如果中间人伪造了证书，在校验证书过程中会提示证书错误。
+
+**SSL剥离攻击**
+中间人和服务器之间仍然保持HTTPS服务器；
+
+之后将HTTPS范文替换为HTTP返回给浏览器。
+
+
+
+我们要做到的是 —— 中间人攻击的预防
+
+可以看看这篇文章 [详解HTTPS连接过程以及中间人攻击劫持](https://blog.csdn.net/Linuxprobe18/article/details/79619339?utm_medium=distribute.pc_relevant.none-task-blog-2%7Edefault%7ECTRLIST%7Edefault-1.no_search_link&depth_1-utm_source=distribute.pc_relevant.none-task-blog-2%7Edefault%7ECTRLIST%7Edefault-1.no_search_link)
 
 
 
 ##### 4.什么是对称加密、非对称加密？区别是什么？
 
+- 对称加密：加密和解密采用相同的密钥。如：DES、RC2、RC4
+- 非对称加密：需要两个密钥：公钥和私钥。如果用公钥加密，需要用私钥才能解密。如：RSA
+- 区别：对称加密速度更快，通常用于大量数据的加密；非对称加密安全性更高（不需要传送私钥）
 
-
-
+> 通信建立之前使用**非对称加密**
+>
+> 建立好通信后 使用**对称加密** 加密明文数据
 
 
 
 ##### 5.数字签名、报文摘要的原理
 
-
+- 发送者A用私钥进行签名，接收者B用公钥验证签名。因为除A外没有人有私钥，所以B相信签名是来自A。A不可抵赖，B也不能伪造报文。
+- 摘要算法:MD5、SHA
 
 
 
@@ -11967,7 +11637,74 @@ HTTPS 采用的是**对称加密**和**非对称加密**结合的「混合加密
 ```js
 // 小林的图解系统 & 学校课程学习 & 王道考研-OS 三者配合 高效学习
 // 要看一下学校的ppt了 课程旷了好几节有点听不懂！
+JS高级的角度讲进程、线程~
+    多线程的优缺点
+浏览器内核
 ```
+
+
+
+#### 进程与线程
+
+- 何为多进程/多线程
+
+  - 多进程就是一个应用程序中有多个进程在执行
+  - 多线程就是一个进程中有多个线程在执行
+
+  ![在这里插入图片描述](https://img-blog.csdnimg.cn/a006829c74eb48059cac828e121129c3.png)
+
+  - 进程——==程序==执行一次产生一个进程 
+    - 占有一片独有的内存空间
+  - 线程——是进程内的一个**独立执行单元** 
+    - 为程序执行的一个完整流程 （==应用程序==必须运行在**某个进程的某个线程**上！）
+    - 线程是CPU的最小调度单元
+
+- 多线程
+  - 优点：能有效提升CPU的利用率
+  - 缺点：
+    - 创建多线程开销
+    - 线程间存在切换的开销
+    - 会出现 死锁、状态同步等问题！
+
+- JS是单线程的
+  - 使用H5的Web Workers可以多线程运行 —— 产生“启动**分线程**”的语法！
+- 浏览器是多线程运行的
+- 浏览器有单进程/多进程的
+  - 老版IE 老版firefox 单进程
+  - 现在的浏览器大多都是多进程的
+
+
+
+#### 浏览器内核
+
+浏览器内核是由很多模块组成的！
+
+##### 主线程
+
+- JS引擎模块 
+  - 负责JS程序的编译与运行
+- HTML CSS文档解析模块 
+  - 负责页面文本的解析
+- DOM/CSS模块 
+  - 负责DOM/CSS在内存中的相关处理
+
+- **布局**和**渲染**模块 —— 负责**页面的布局**和**效果的绘制**（内存中的对象）
+
+参照**内存中的DOM对象、元素** 来渲染 并展示出来页面~
+
+
+
+##### 分线程
+
+- 定时器模块 —— 负责定时器的管理
+- 事件相应模块 —— 负责事件的管理
+- 网络请求模块 —— 负责ajax请求
+
+
+
+
+
+
 
 
 
@@ -11987,78 +11724,114 @@ HTTPS 采用的是**对称加密**和**非对称加密**结合的「混合加密
 // 跟着掘金小册、代码随想录的内容进行学习！
 1.复习了一下二维数组的初始化方法
 2.超级刷题挑战 一天3+题！
-	剑指 Offer 29. 顺时针打印矩阵 和 54 螺旋矩阵是一道题 这题我觉得比昨天的难。。。但是今天这个方法太棒了！记录下来
-    周赛AC了一道简单题~ 两三分钟就做出来了~
-2.复习下时间复杂度 从小到大的顺序
+	周赛A了两题~
+    看了排序算法
+		基础排序算法
+        	冒泡排序——每次迭代将最大值移到最后面（提到了一种优化的方式 最好的时间复杂度变为O(N) 平均时间复杂度依旧是O(N^2)）
+            选择排序——每次迭代将最小值交换到最前面 使用minIndex记录值最小元素的下标
+            插入排序——每次迭代让当前元素前面的元素局部有序 
 ```
 
-#### [剑指 Offer 29. 顺时针打印矩阵](https://leetcode-cn.com/problems/shun-shi-zhen-da-yin-ju-zhen-lcof/)
+[基础排序算法](https://juejin.cn/book/6844733800300150797/section/6844733800367439885)
 
-这题太棒了！尤其是解法 这四个边界把数组框起来的想法——
+- 冒泡排序
 
-也就是这个大佬写的题解太棒了！mark一下[「手画图解」两种遍历的策略](https://leetcode-cn.com/problems/shun-shi-zhen-da-yin-ju-zhen-lcof/solution/shou-hui-tu-jie-liang-chong-bian-li-de-ce-lue-na-c/)
+  - 次优解
 
-![image.png](https://pic.leetcode-cn.com/42ee2ec6854ee79ac2b7c91259d2ad5db70522668d11fc691e9e14426918a666-image.png)
+  ```js
+  function bubbleSort(arr){
+      const len = arr.length  
+      for(let i=0;i<len;i++) {
+          // 注意差别在这行，我们对内层循环的范围作了限制 优化在这个 -i
+          for(let j=0;j<len-1-i;j++) {
+              if(arr[j] > arr[j+1]) {
+                  [arr[j], arr[j+1]] = [arr[j+1], arr[j]]
+              }
+          }
+      }
+      return arr
+  }
+  ```
+
+  
+
+  - 最优解
+
+  ```js
+  function betterBubbleSort(arr) {
+      const len = arr.length  
+      
+      for(let i=0;i<len;i++) {
+          // 区别在这里，我们加了一个标志位
+          let flag = false
+          for(let j=0;j<len-1-i;j++) {
+              if(arr[j] > arr[j+1]) {
+                  [arr[j], arr[j+1]] = [arr[j+1], arr[j]]
+                  // 只要发生了一次交换，就修改标志位
+                  flag = true
+              }
+          }
+          // 这里雀氏很新奇！若一次交换也没发生，则说明数组有序，直接放过
+          if(flag == false)  return arr;
+      }
+      // 最好的时间复杂度——数组本来就是有序的 O(N)
+      return arr
+  }
+  ```
+
+  
+
+- 选择排序
+
+关键就是获得那个`minIndex` 然后内层循环结束时 把`minIndex`和`i`位置的元素换个位置~
 
 ```js
-var spiralOrder = function(matrix) {
-    if(!matrix.length || !matrix[0].length){
-        return [];
+function selectSort(arr)  {
+  // 缓存数组长度
+  const len = arr.length 
+  // 定义 minIndex，缓存当前区间最小值的索引，注意是索引
+  let minIndex  
+  // i 是当前排序区间的起点
+  for(let i = 0; i < len - 1; i++) { 
+    // 初始化 minIndex 为当前区间第一个元素
+    minIndex = i  
+    // i、j分别定义当前区间的上下界，i是左边界，j是右边界
+    for(let j = i; j < len; j++) {  
+      // 若 j 处的数据项比当前最小值还要小，则更新最小值索引为 j
+      if(arr[j] < arr[minIndex]) {  
+        minIndex = j
+      }
     }
-    const res = [];
-    
-    // 定义上下左右边界 一点点往里面挪动！
-    let top = 0;
-    let bottom = matrix.length - 1;
-    let left = 0;
-    let right = matrix[0].length - 1;
-
-    while(top < bottom && left < right){
-        for(let j = left; j < right; j++){
-            res.push(matrix[top][j]);//上层向右
-        }
-        for(let i = top; i < bottom; i++){
-            res.push(matrix[i][right]);//右层向下
-        }
-        for(let j = right; j > left; j--){
-            res.push(matrix[bottom][j]);//下层向左
-        }
-        for(let i = bottom; i > top; i--){
-            res.push(matrix[i][left]);//左层向上
-        }
-        top++;
-        bottom--;
-        left++;
-        right--;
+    // 如果 minIndex 对应元素不是目前的头部元素，则交换两者
+    if(minIndex !== i) {
+      [arr[i], arr[minIndex]] = [arr[minIndex], arr[i]]
     }
-    //如果只有一层 那么就不能用上面的循环了 得再写两个循环
-    if(top === bottom){
-        for(let j = left; j <= right; j++){
-            res.push(matrix[top][j]);
-        }
-    }
-    else if(left === right){
-        for(let i = top; i <= bottom; i++){
-            res.push(matrix[i][left]);
-        }
-    }
-    return res;
-};
+  }
+  return arr
+}
 ```
 
 
 
-#### 2.复习下时间复杂度从小到大排列的顺序
+- 插入排序
+
+```js
+function insertSort(arr){
+    const len = arr.length;
+    for(let i = 1; i < len; i++){
+        let j = i;
+        let temp = arr[j]
+        while(j > 0 && arr[j - 1] > temp){
+            arr[j] = arr[j - 1];
+            j--
+        }
+        arr[j] = temp;
+    }
+    return arr;
+}
+```
 
 
-
-![img](https://p1-jj.byteimg.com/tos-cn-i-t2oaga2asx/gold-user-assets/2020/4/6/1714f67c52dc8d15~tplv-t2oaga2asx-watermark.awebp)
-
-再往上面是 O(!n) O(n^n^) 
-
-总结下 就是这样
-
-**O(1) < O(logn) < (n) < O(n*logn) < O(n^2^) < O(n^3^) < O(2^n^) < O(n!) < O(n^n^)**
 
 ## 4.前端开发框架
 
