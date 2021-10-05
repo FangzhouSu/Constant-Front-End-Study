@@ -1,4 +1,4 @@
-2021年学习总结
+~~2021~~年学习总结
 
 > 后期打算分3-4周 截出来一个当月学习日记 因为全放在一起太多了！
 
@@ -12280,7 +12280,9 @@ https://blog.wangez.site/posts/1586874348.html/
 
 # 2021.10.5
 
+许久未见的低迷 
 
+明天加把劲哈！补回来！
 
 ```js
 // DDL
@@ -12293,23 +12295,23 @@ https://blog.wangez.site/posts/1586874348.html/
 
 ```js
 // 今日主要收获 & 学习时间
-Totally 460min
+Totally 210min
 1.前端基础知识 
 // 从早上-中午 拿出一整块时间学习JS 晚上跑完步回来继续看JS 重视基础！
 // 不要浮于表面地看问题 深入进去！多向自己提问！
-    1.1 JS学习 min 
+    1.1 JS学习 100+30min 
     // 每日重点！编码 + 知识点记录
     // 近期重点 作用域、闭包、原型链 + ES6 + Ajax axios
-		/*  */
-    1.2 freecodecamp JS + 响应式网页设计 min
-    	/*  */
+		/* 复习原型链、执行上下文栈、作用域链 */
+    1.2 freecodecamp JS + 响应式网页设计 30min
+    	/* 学习了些JS的内容 */
     1.3 JS 30demos min
     // 每天完成一个 不要求完全理解 先做一个初步的认知
     // 没有完全了解的/觉得很好的 都要特意标记出来 二刷时候再去好好理解下！
     	/* 
         */
-    1.4 react前置知识 90min
-    	/* ajax有点难啊！放弃尚硅谷这个了 有点劝退 明天早起敲一下案例巩固一下 */
+    1.4 react前置知识 min
+    	/*  */
     
     // 这些内容都是要重点掌握的！
     DOM编程 BOM使用 —— 复习
@@ -12320,16 +12322,16 @@ Totally 460min
 	正则表达式
 
 2.核心基础知识 下午开始学计网 + 刷题
-	2.1 计网 60min
-		/*  */
+	2.1 计网 20min
+		/* 找了一下学习资源 发现还是图解网络更好！ */
 	2.2 操作系统 min
 		/*  */
 
 3.面试刷题
-	3.1 刷算法 刷力扣 min	
+	3.1 刷算法 刷力扣 20min	
     // 【1】阅读掘金小册 + 按照代码随想录推荐【2】刷题
-    	/* 掘金小册 5/28 代码随想录数组 
-        
+    	/* 掘金小册 5/28 代码随想录链表 1/9
+        翻转链表
         */   
     
     	// 每个阶段结束后 简单总结下应对某种数据结构/对应类型的题目 应该怎么去想
@@ -12344,16 +12346,16 @@ Totally 460min
 		/*  */  
     
 4.前端开发框架 
-	4.1 react学习 10min
+	4.1 react学习 min
     // 尚硅谷课程 官方文档五子棋demo
-		/* 决定了下之后的学习路径 */
+		/*  */
     
 5.前端进阶知识学习
 // 学完JS再学这个辽！
     Node.js
 	webpack
 6.其他 
-7.每日总结 40min
+7.每日总结 10min
 ```
 
 
@@ -12362,15 +12364,17 @@ Totally 460min
 >
 > 这里说的实操 都是在 `freecodecamp` 中进行练习
 
-- [ ] 计网
-- [ ] JS高级快速回顾 
-- [ ] JS基础快速过
-- [ ] JS数组API总结、学习（学习数组去重、解构赋值）
-- [ ] JS CSS 实操 各60min
-- [ ] 刷算法 高级排序算法 + 链表专场
-- [ ] JS30demos
-- [ ] `promise` `ajax（稍微再学一下 不信学不懂了！）`
-- [ ] react实操 
+第一天就寄了！这事儿闹的 明天一定！
+
+- [x] 计网
+- [x] JS高级快速回顾 
+- [ ] ~~JS基础快速过~~ 
+- [x] JS数组API总结、学习（学习数组去重、解构赋值）- 晚上 
+- [x] JS CSS 实操 
+- [x] 刷算法 高级排序算法 + 链表专场 - 晚上
+- [ ] ~~JS30demos~~ 
+- [ ] ~~`promise` `ajax（稍微再学一下 不信学不懂了！）`~~ 
+- [ ] react实操  
 
 
 
@@ -12387,7 +12391,10 @@ Totally 460min
 // 本阶段主要学习JS高级教程（尚硅谷）刷freecodecamp
 1.JS数组去重问题
 2.解构赋值的应用
-
+3.顺着原型链找方法的面试题复习 涉及了构造函数、Object、Function的原型对象！
+4.执行上下文栈
+5.作用域链
+6.数组扁平化的六种方法
 ```
 
 
@@ -12396,9 +12403,32 @@ Totally 460min
 
 参考 写得很棒的文章 [JavaScript数组去重问题](https://juejin.cn/post/7014009223197491236) 同为大三在校生 为何人家如此优秀！
 
-明天来复习一下~
+```js
+var arr = ['v','i','o','l','i','n','C','o','d','i','n','g'];
+```
+
+目的 去除 violin Coding 这个字符串中每个字母组成的**数组**中的重复字符
 
 ##### 【1】原始方法 遍历
+
+```js
+// 01 暴力双层循环
+function iteration(){
+    for(let i = 0; i < arr.length; i++){
+        var isNotRepeat = true;
+        for(let j = 0; j < res.length; j++){
+            if(arr[i] === res[j]){
+                isNotRepeat = false;
+                break;
+            }
+        }
+        if(isNotRepeat){
+            res.push(arr[i]);
+            console.log(res);
+        }
+    }
+}
+```
 
 
 
@@ -12406,7 +12436,7 @@ Totally 460min
 
 
 
-##### 【3】利用filter结合indexOf方法过滤获得res
+##### 【3】利用filter结合`indexOf`方法过滤获得res
 
 
 
@@ -12461,9 +12491,193 @@ console.log(unique(arr));
 
 很棒的一个大三前端大佬的博客中的内容
 
-依旧是明天来复习下
+10.6学习
 
 https://blog.wangez.site/posts/1586874348.html/
+
+
+
+#### 3.顺着原型链找方法 终极版本
+
+```js
+function F(){}
+Object.prototype.a = function(){
+    // Object的原型对象上增添了一个a方法
+    console.log('a()')
+}
+Function.prototype.b = function(){
+    console.log('b()')
+}
+var f = new F()
+f.a()//【1】可以找到
+f.b()//【2】报错 b不是一个函数
+F.a()//【3】可以找到
+F.b()//【4】可以找到
+```
+
+重点就是那个原型链的图！
+
+![在这里插入图片描述](https://img-blog.csdnimg.cn/98c5698e603342d5b916fdf65b25433f.png)
+
+来捋一捋
+
+（根据隐式原型属性 `__proto__` 去指向）
+
+【1】
+
+- **实例对象f** - 构造函数的显式原型对象 `F.prototype`
+- 构造函数的显式原型对象 `F.prototype` - `Object.prototype`
+- `Object.prototype` - null
+
+一条链结束 所以实例对象可以引用Object原型对象上的方法
+
+【2】
+
+- **构造函数F** - `Function.prototype`
+
+- `Function.prototype` - `Object.prototype`
+- `Object.prototype` - null
+
+一条链结束
+
+说明构造函数可以使用Object Function原型对象上的方法
+
+
+
+本题答案很明显咯~
+
+#### 4.执行上下文栈
+
+```js
+
+var a = 10;
+var bar = function(x){
+    var b = 5;
+    console.log("bar入栈")
+    foo(x + b);
+}
+var foo = function(y){
+    var c = 5;
+    console.log("foo入栈")
+    console.log(b);// 报错 b is not defined 当然了！不同函数作用域中存在“变量隔离”~
+    console.log(a + c + y);// 30 （10 + 15 + 5）
+}
+bar(10);
+```
+
+【1】全局上下文环境入栈 - 1（行代码处）也就是全局代码执行前~
+
+【2】bar函数上下文环境入栈 - 1
+
+【3】foo函数上下文函数入栈 - 6
+
+【4】foo函数上下文函数出栈 
+
+【5】bar函数上下文函数出栈
+
+
+
+#### 5.执行上下文栈面试题复习 递归
+
+
+
+```js
+foo(1);
+function foo(i) {
+    if (i == 4) {
+        return;
+    }
+    console.log('foo() begin:' + i);
+    foo(i + 1);
+    console.log('foo() end:' + i);
+}
+输出 // 1 2 3 3 2 1
+```
+
+进入一个上下文
+
+则入栈一个上下文！
+
+![请添加图片描述](https://img-blog.csdnimg.cn/521009f83144442592863ef335ab93a7.png)
+
+等到了`i=4` 则开始出栈
+
+#### 6.作用域是静态的！面试题考察静态性-面试题1复习
+
+```js
+var x = 10;
+function fn(){
+    console.log(x);// 10
+}
+function show(f){
+    var x = 20;
+    f();
+}
+show(fn);// 打印10
+```
+
+记住一句话——
+
+**在其他函数中被调用不影响x在打印语句中的值**（x在一开始定义的时候就确定了 打印的x是全局中的（毕竟是在人家全局那里调用的函数show嘛~））
+
+```js
+// 变式
+var x = 10;
+function fn(){
+    console.log(x);// 10
+}
+function show(f){
+    var x = 20;
+    f();
+}
+show((x) => console.log(x));// 20 -这里的x很明显就是show函数作用域中的了~（为20）
+show(fn);// 打印10
+```
+
+
+
+#### 7.作用域链面试题~沿着作用域链找某个变量-面试题2复习
+
+```js
+var fn = function () {
+    console.log(fn)//function(){console.log(fn)}
+    var fn2 = function(){
+      	console.log("找不到我吧~");
+    }
+}
+fn()
+
+var obj = {
+    fn2: function () {
+        console.log(fn2)// 报错 fn2 is not defined
+        console.log(this.fn2)//function(){...}
+    }
+}
+obj.fn2()
+```
+
+- 首先 第二行的打印是 fn对象（人家顺着作用域链就能轻松找到位于全局作用域中的fn咯~）
+- 第十一行 报错 来看看fn2的心路历程
+  - 先在fn2构造函数的函数作用域中找 没有定义过fn2！ 
+  - 再去全局作用域里找 全局变量也没它这号变量！
+  - 再去同级的函数作用域里找找行么？
+    - 不行！😂
+
+- 第十二行 打印fn2对象 加上this 表示obj对象 obj对象拥有这个fn2函数啊 没问题~
+
+
+
+#### 8.数组扁平化
+
+```js
+var arr = [1, [2, 3, [4, 5, [6]]]]
+```
+
+10.6学习
+
+[js如何实现数组扁平化](https://blog.csdn.net/original_heart/article/details/78906911?utm_medium=distribute.pc_relevant.none-task-blog-2%7Edefault%7ECTRLIST%7Edefault-2.no_search_link&depth_1-utm_source=distribute.pc_relevant.none-task-blog-2%7Edefault%7ECTRLIST%7Edefault-2.no_search_link)
+
+
 
 
 
@@ -12482,155 +12696,6 @@ https://blog.wangez.site/posts/1586874348.html/
 ```
 
 
-
-
-
-#### 1.[HTTPS的连接过程](https://github.com/wolverinn/Waking-Up/blob/master/Computer Network.md#https的连接过程)
-
-一共有两个半来回~最后一次验证的操作是客户端做的 确认无误 握手结束数据传输开始（使用对称加密算法）
-
-> 第一次 
->
-> - 客户端发请求 发过去支持的加密规则 
-> - 服务端发送它选择的加密规则 发送身份信息
->
-> 第二次
->
-> - 客户端验证服务器的合法性（证书、公钥等）将加密后的随机密钥和摘要一起发给服务器
-> - 服务器用自己的私钥解密 并验证摘要（指纹验证）一致则使用对称加密的方式加密握手信息发给客户端
->
-> 最后的验证
->
-> - 客户端解密这条握手信息 验证摘要（指纹验证） 若一致 握手结束 解除以下风险
->   - 窃听风险（混合加密 让网络上的坏蛋~听不到）
->   - 篡改风险（用摘要算法验证报文是否被改过）
->   - 冒充风险（服务端公钥放在数字证书中）
-
-- 【1】客户端 向 服务器发送——
-
-  - 请求
-  - 客户端支持的一套加密规则
-    - 对称加密算法
-    - 非对称加密算法（采用混合加密~）
-    - 摘要算法
-
-- 【2】服务器从中选出一组加密算法和HASH算法 并将自己的身份信息以——
-
-  - 证书
-    - 网站地址
-    - **加密公钥**（用于**非对称加密**）
-    - 证书的颁发机构 等信息
-    - （私钥只能用于服务器端进行解密~）
-
-  的形式发回给浏览器（客户端）
-
-- 【3】客户端 验证 服务器的合法性
-
-  - 证书是否过期 / CA(证书权威机构)是否可靠 
-  - 发行者证书的公钥能否正确解开服务器证书的”发行者的数字签名“ 
-  - 服务器证书上的域名是否和服务器的实际域名相匹配 
-
-- 【4】如果证书受信任
-
-  - 浏览器会生成一个**随机密钥**（用于**对称算法**）
-    - 并用服务器提供的**公钥加密**（采用非对称算法对密钥加密）
-  - 浏览器会使用Hash算法（**摘要算法**）对握手消息进行摘要计算（相当于设置指纹）
-    - 并对摘要使用之前产生的密钥加密（**对称算法**）
-  - 最后 客户端将加密后的随机密钥和摘要一起发送给服务器
-
-- 【5】服务器用自己的私钥解密 得到——对称加密的密钥 用这个密钥解密出Hash摘要值 并验证握手消息是否一致——（相当于验证指纹）
-
-  - 如果一致 服务器使用对称加密的**密钥加密握手消息**发给浏览器
-
-- 【6】浏览器解密并验证摘要 若一致 则握手结束
-
-  - 之后的数据传送**都使用对称加密的密钥**进行加密
-
-总结：
-
-1.使用的混合加密算法中的——（解决窃听的问题）
-
-- 非对称加密算法 用于在握手过程中加密生成的代码（也就是通信建立之前使用非对称加密）
-- 对称加密算法 用于对真正传输的数据进行加密
-
-![请添加图片描述](https://img-blog.csdnimg.cn/3de331f52a0f4778ab1bd691b06ad67d.png)
-
-2.摘要算法用于验证数据的完整性（相当于”指纹“ 预防了”第三方篡改“的风险）
-
-![请添加图片描述](https://img-blog.csdnimg.cn/2d22159e59964e4081ddfc1628039745.png)
-
-
-
-3.通过**将服务器公钥放入数字证书中** 解决了冒充的风险
-
-客户端先向服务器端索要公钥，然后用公钥加密信息，服务器收到密文后，用自己的私钥解密。
-
-这就存在些问题，如何**保证公钥不被篡改和信任度**？
-
-所以这里就需要借助第三方权威机构 `CA` （数字证书认证机构），将**服务器公钥放在数字证书**（由数字证书认证机构颁发）中，只要证书是可信的，公钥就是可信的。
-
-![数子证书工作流程](https://mmbiz.qpic.cn/mmbiz_jpg/J0g14CUwaZfXG1113Sjm0iaOXfoOv0tlUibyiaEab7NMrTn632LZmYQe5qaibibT0xsOs7ic6u98ypWJBjbPMzOUCb2g/640?wx_fmt=jpeg)
-
-一句话小结：通过数字证书的方式**保证服务器公钥的身份**（将服务器公钥放在数字证书中 客户端使用CA的公钥确认服务器的数字证书后即可保证服务器公钥的身份），解决冒充的风险。
-
-
-
-
-
-#### 2.[GET与POST的区别](https://github.com/wolverinn/Waking-Up/blob/master/Computer%20Network.md#get%E4%B8%8Epost%E7%9A%84%E5%8C%BA%E5%88%AB)
-
-这里对安全性的探讨就很深刻了 贴两篇文章（不一定完全正确哈 我反正还是认为GET方法安全 因为没对服务器上的数据进行更改呐~）
-
-[讨论“get”和“post”安全性](https://blog.csdn.net/liujiahan629629/article/details/18511079)
-
-[为什么大型网站都采用get方法，而非post方法](https://blog.csdn.net/findsafety/article/details/47129021)
-
-【1】GET是幂等的,即读取同一个资源,总是得到相同的数据,POST不是幂等的;
-
-【2】GET一般用于从服务器获取资源，而POST有可能改变服务器上的资源（发起对某块儿数据进行更改的POST请求）；
-
-【3】**请求形式**上：GET请求的数据附在URL之后，在HTTP请求头中；POST请求的数据在请求体中；
-
-【4】安全性：GET请求可被缓存、收藏、保留到历史记录，且其请求数据明文出现在URL中。POST的参数不会被保存，安全性相对较高；**这里观点与小林的图解Coding不同了！这个观点也确实争议比较大 我更倾向于图解网路中的说法hh**
-
-> [讨论“get”和“post”安全性](https://blog.csdn.net/liujiahan629629/article/details/18511079)
->
-> [为什么大型网站都采用get方法，而非post方法](https://blog.csdn.net/findsafety/article/details/47129021)
-
-【5】GET只允许ASCII字符，POST对数据类型没有要求，也允许二进制数据；
-
-【6】GET的长度有限制（操作系统或者浏览器），而POST数据大小无限制
-
-#### 3.[Session与Cookie的区别？](https://github.com/wolverinn/Waking-Up/blob/master/Computer%20Network.md#session%E4%B8%8Ecookie%E7%9A%84%E5%8C%BA%E5%88%AB)
-
-> 这里注意不要混淆 **session** 和 **session实现**
->
-> - **session**是一个抽象概念 开发者为了实现中断和继续等操作 将use agent（用户代理）和server（服务器）之间一对一的交互 抽象为“会话” 进而衍生出”会话状态“ 也就是session
-> - **session的实现**（也就是我们今天所说的session）是为了绕开cookie的各种限制 通常借助cookie本身和后端存储实现的 是一种更高级的会话状态实现
->   - cookie是一个实际存在的东西 是http协议定义在header中的字段 可以认为是session的一种后端无状态实现~
->
-> session因为`sessionid`的存在 通常需要借助Cookie实现（下面有说到）是通用性比较好的实现方案 （下面提到了 如果禁用Cookie的话 也可以使用URL重写机制来保存`Sessionid`）
->
-> > 来自知乎 https://www.zhihu.com/question/19786827
-
-
-
-
-
-- Session是服务器端保持状态的方案
-  - 保存在服务端 通过检索`Sessionid`查看状态 （也就是session的运行依赖`Sessionid`  `Sessionid` 存在cookie中~）
-  - 保存`Sessionid`的方法可以采用——
-    - Cookie
-    - 禁用Cookie的话 可以使用URL重写机制（把会话ID保存在URL中）
-- Cookie是客户端保持状态的方案
-  - 保存在客户端本地 客户端请求服务器时会将Cookie一起提交
-
-总结一下
-
-- 首先 概念 session：会话控制（状态） cookie HTTP协议定义在header中的字段 是[存储在用户本地终端上的数据](https://baike.baidu.com/item/cookie/1119?fr=aladdin)
-
-- 【1】session的常见实现要借助cookie来发送`Sessionid` 
-- 【2】维持一个会话的==核心==是客户端的唯一标识—— `Sessionid` 
 
 ###  操作系统
 
@@ -12655,6 +12720,7 @@ https://blog.wangez.site/posts/1586874348.html/
 
 ```js
 // 跟着掘金小册、代码随想录的内容进行学习！
+简单刷了一道反转链表
 ```
 
 
@@ -12665,11 +12731,468 @@ https://blog.wangez.site/posts/1586874348.html/
 
 ```js
 // 学到了尚硅谷react第四章 老师表示 “先学完Ajax Promise axios再回来吧！”
-1.AJAX
-2.Promise
 ```
 
 
+
+### react基础知识
+
+```js
+// 现阶段学习广受好评的react教程尚硅谷 
+```
+
+
+
+
+
+# 2021.10.6
+
+
+
+```js
+// DDL
+	01 10.4-8 一天复习一章（中间有一章是两集） 
+	02 算法题 链表 二叉树部分 排序算法部分 10.10
+    03 Promise 10.5 6 axios 10.7 8 
+```
+
+
+
+```js
+// 今日主要收获 & 学习时间
+Totally min
+1.前端基础知识 
+// 从早上-中午 拿出一整块时间学习JS 晚上跑完步回来继续看JS 重视基础！
+// 不要浮于表面地看问题 深入进去！多向自己提问！
+    1.1 JS学习 min 
+    // 每日重点！编码 + 知识点记录
+    // 近期重点 作用域、闭包、原型链 + ES6 + Ajax axios
+		/* 复习原型链、执行上下文栈、作用域链 */
+    1.2 freecodecamp JS + 响应式网页设计 min
+    	/* 学习了些JS的内容 */
+    1.3 JS 30demos min
+    // 每天完成一个 不要求完全理解 先做一个初步的认知
+    // 没有完全了解的/觉得很好的 都要特意标记出来 二刷时候再去好好理解下！
+    	/* 
+        */
+    1.4 react前置知识 min
+    	/*  */
+    
+    // 这些内容都是要重点掌握的！
+    DOM编程 BOM使用 —— 复习
+    事件代理/委托
+	事件队列(setTimeout/setInterval/Promise)
+	JSON
+    Ajax/Fetch
+	正则表达式
+
+2.核心基础知识 下午开始学计网 + 刷题
+	2.1 计网 min
+		/*  */
+	2.2 操作系统 min
+		/*  */
+
+3.面试刷题
+	3.1 刷算法 刷力扣 min	
+    // 【1】阅读掘金小册 + 按照代码随想录推荐【2】刷题
+    	/* 掘金小册 5/28 代码随想录链表 1/9
+        
+        */   
+    
+    	// 每个阶段结束后 简单总结下应对某种数据结构/对应类型的题目 应该怎么去想
+    	数组 + 排序 第五周
+        链表 + 二叉树 第六周
+        字符串 + 二叉树 + 栈/队列 第七周
+        双指针 + 遍历专题DFS BFS 第八周
+        回溯算法 + 贪心算法 第九周
+        动态规划 第十周
+    3.2 面试题 min
+    // 有空可以读一些面试题 查缺补漏一下~
+		/*  */  
+    
+4.前端开发框架 
+	4.1 react学习 min
+    // 尚硅谷课程 freecodecamp
+		/*  */
+    
+5.前端进阶知识学习
+// 学完JS再学这个辽！
+    Node.js
+	webpack
+6.其他 
+7.每日总结 min
+```
+
+
+
+> 学习顺序预告
+>
+> 这里说的实操 都是在 `freecodecamp` 中进行练习
+
+
+
+- [ ] 计网
+- [ ] JS高级快速回顾 
+- [ ] JS基础快速过 
+- [ ] JS数组API总结、学习（学习数组去重、解构赋值、数组扁平化）
+- [ ] JS CSS 实操 
+- [ ] 刷算法 高级排序算法 + 链表专场 
+- [ ] JS30demos 
+- [ ] `promise` `ajax（稍微再学一下 不信学不懂了！）` 
+- [ ] react实操  
+
+
+
+## 1.前端基础
+
+
+
+### 前端基础知识
+
+
+
+```js
+//每日学到的知识点 可以写文章 可以记在心里 总结下来！
+// 本阶段主要学习JS高级教程（尚硅谷）刷freecodecamp
+1.JS数组去重问题
+2.解构赋值的应用
+3.数组扁平化的六种方法
+```
+
+
+
+#### 1.面试高频 利用JavaScript实现数组去重
+
+参考 写得很棒的文章 [JavaScript数组去重问题](https://juejin.cn/post/7014009223197491236) 同为大三在校生 为何人家如此优秀！
+
+```js
+var arr = ['v','i','o','l','i','n','C','o','d','i','n','g'];
+```
+
+目的 去除 violin Coding 这个字符串中每个字母组成的**数组**中的重复字符
+
+##### 【1】原始方法 遍历
+
+```js
+// 01 暴力双层循环
+function iteration(){
+    for(let i = 0; i < arr.length; i++){
+        var isNotRepeat = true;
+        for(let j = 0; j < res.length; j++){
+            if(arr[i] === res[j]){
+                isNotRepeat = false;
+                break;
+            }
+        }
+        if(isNotRepeat){
+            res.push(arr[i]);
+            console.log(res);
+        }
+    }
+}
+```
+
+
+
+##### 【2】利用`res.indexOf(item)`查找是否item在res中是重复的
+
+
+
+##### 【3】利用filter结合`indexOf`方法过滤获得res
+
+
+
+##### 【4】排序+比较先前元素pre和当前元素是否相同 
+
+
+
+##### 【5】结合【4】`arr.sort().filter(对应函数)` 更简单！
+
+
+
+##### 【6】利用Set生成哈希表（很快啊！）
+
+Set 对象允许你存储任何类型的唯一值，无论是原始值或者是对象引用。
+
+所以我们可以利用Set的这一特性，来进行去重处理。
+
+```js
+var arr = [1,1,2,3,4,5,6,7,4,3,'1',8,'3','1','3','66']
+// var hashtable = Array.from(new Set(arr));//[1, 2, 3, 4, 5, 6, 7, "1", 8, "3", "66"]
+// Set原来是这么用的啊！之前一直都使用一个个比对+遍历 
+function unique(arr){
+	return Array.from(new Set(arr))
+}
+
+console.log(unique(arr));
+```
+
+###### 通过解构赋值进一步简化
+
+```js
+var arr = [1,1,2,3,4,5,6,7,4,3,'1',8,'3','1','3','66']
+
+function unique(arr){
+	return [...new Set(arr)]
+}
+
+console.log(unique(arr));
+```
+
+###### 极简箭头函数
+
+```js
+var arr = [1,1,2,3,4,5,6,7,4,3,'1',8,'3','1','3','66']
+var unique = (arr) => return [...new Set(arr)];// 就是把常规函数形式 变了一下下~
+console.log(unique(arr));
+```
+
+
+
+#### 2.解构赋值的应用
+
+很棒的一个大三前端大佬的博客中的内容
+
+10.6学习
+
+https://blog.wangez.site/posts/1586874348.html/
+
+
+
+#### 3.顺着原型链找方法 终极版本
+
+```js
+function F(){}
+Object.prototype.a = function(){
+    // Object的原型对象上增添了一个a方法
+    console.log('a()')
+}
+Function.prototype.b = function(){
+    console.log('b()')
+}
+var f = new F()
+f.a()//【1】可以找到
+f.b()//【2】报错 b不是一个函数
+F.a()//【3】可以找到
+F.b()//【4】可以找到
+```
+
+重点就是那个原型链的图！
+
+![在这里插入图片描述](https://img-blog.csdnimg.cn/98c5698e603342d5b916fdf65b25433f.png)
+
+来捋一捋
+
+（根据隐式原型属性 `__proto__` 去指向）
+
+【1】
+
+- **实例对象f** - 构造函数的显式原型对象 `F.prototype`
+- 构造函数的显式原型对象 `F.prototype` - `Object.prototype`
+- `Object.prototype` - null
+
+一条链结束 所以实例对象可以引用Object原型对象上的方法
+
+【2】
+
+- **构造函数F** - `Function.prototype`
+
+- `Function.prototype` - `Object.prototype`
+- `Object.prototype` - null
+
+一条链结束
+
+说明构造函数可以使用Object Function原型对象上的方法
+
+
+
+本题答案很明显咯~
+
+#### 4.执行上下文栈
+
+```js
+var a = 10;
+var bar = function(x){
+    var b = 5;
+    console.log("bar入栈")
+    foo(x + b);
+}
+var foo = function(y){
+    var c = 5;
+    console.log("foo入栈")
+    console.log(b);// 报错 b is not defined 当然了！不同函数作用域中存在“变量隔离”~
+    console.log(a + c + y);// 30 （10 + 15 + 5）
+}
+bar(10);
+```
+
+【1】全局上下文环境入栈 - 1（行代码处）也就是全局代码执行前~
+
+【2】bar函数上下文环境入栈 - 1
+
+【3】foo函数上下文函数入栈 - 6
+
+【4】foo函数上下文函数出栈 
+
+【5】bar函数上下文函数出栈
+
+
+
+#### 5.执行上下文栈面试题复习 递归
+
+
+
+```js
+foo(1);
+function foo(i) {
+    if (i == 4) {
+        return;
+    }
+    console.log('foo() begin:' + i);
+    foo(i + 1);
+    console.log('foo() end:' + i);
+}
+输出 // 1 2 3 3 2 1
+```
+
+进入一个上下文
+
+则入栈一个上下文！
+
+![请添加图片描述](https://img-blog.csdnimg.cn/521009f83144442592863ef335ab93a7.png)
+
+等到了`i=4` 则开始出栈
+
+#### 6.作用域是静态的！面试题考察静态性-面试题1复习
+
+```js
+var x = 10;
+function fn(){
+    console.log(x);// 10
+}
+function show(f){
+    var x = 20;
+    f();
+}
+show(fn);// 打印10
+```
+
+记住一句话——
+
+**在其他函数中被调用不影响x在打印语句中的值**（x在一开始定义的时候就确定了 打印的x是全局中的（毕竟是在人家全局那里调用的函数show嘛~））
+
+```js
+// 变式
+var x = 10;
+function fn(){
+    console.log(x);// 10
+}
+function show(f){
+    var x = 20;
+    f();
+}
+show((x) => console.log(x));// 20 -这里的x很明显就是show函数作用域中的了~（为20）
+show(fn);// 打印10
+```
+
+
+
+#### 7.作用域链面试题~沿着作用域链找某个变量-面试题2复习
+
+```js
+var fn = function () {
+    console.log(fn)//function(){console.log(fn)}
+    var fn2 = function(){
+      	console.log("找不到我吧~");
+    }
+}
+fn()
+
+var obj = {
+    fn2: function () {
+        console.log(fn2)// 报错 fn2 is not defined
+        console.log(this.fn2)//function(){...}
+    }
+}
+obj.fn2()
+```
+
+- 首先 第二行的打印是 fn对象（人家顺着作用域链就能轻松找到位于全局作用域中的fn咯~）
+- 第十一行 报错 来看看fn2的心路历程
+  - 先在fn2构造函数的函数作用域中找 没有定义过fn2！ 
+  - 再去全局作用域里找 全局变量也没它这号变量！
+  - 再去同级的函数作用域里找找行么？
+    - 不行！😂
+
+- 第十二行 打印fn2对象 加上this 表示obj对象 obj对象拥有这个fn2函数啊 没问题~
+
+
+
+#### 3.数组扁平化
+
+```js
+var arr = [1, [2, 3, [4, 5, [6]]]]
+```
+
+10.6学习
+
+[js如何实现数组扁平化](https://blog.csdn.net/original_heart/article/details/78906911?utm_medium=distribute.pc_relevant.none-task-blog-2%7Edefault%7ECTRLIST%7Edefault-2.no_search_link&depth_1-utm_source=distribute.pc_relevant.none-task-blog-2%7Edefault%7ECTRLIST%7Edefault-2.no_search_link)
+
+
+
+
+
+
+
+
+
+## 2.核心基础知识
+
+### 计网
+
+```js
+//小林的图解网络随时翻阅 & 极客时间趣谈网络协议+网上的文章 & 读图解HTTP TCP等书籍 & 网络抓包实操练习  深入理解
+// 每天一道计网面试题 把自己带入面试者的身份 跟面试官白话白话 嗯就这样子
+
+```
+
+
+
+###  操作系统
+
+```js
+// 小林的图解系统 & 学校课程学习 & 王道考研-OS 三者配合 高效学习
+// 要看一下学校的ppt了 课程旷了好几节有点听不懂！
+```
+
+
+
+## 3.面试题
+
+### 面试题、面经总结
+
+```js
+//网上面试题、面经辣么多 一天多看一些 然后同时也要研究一些题的答案！
+```
+
+
+
+### 算法题
+
+```js
+// 跟着掘金小册、代码随想录的内容进行学习！
+
+```
+
+
+
+## 4.前端开发框架
+
+### 项目开发前置知识
+
+```js
+// 学到了尚硅谷react第四章 老师表示 “先学完Ajax Promise axios再回来吧！”
+```
 
 
 
