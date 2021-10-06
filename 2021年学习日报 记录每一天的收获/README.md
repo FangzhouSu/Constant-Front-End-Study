@@ -9969,7 +9969,7 @@ f();// 3
 
   
 
-  - 可能会导致==内存泄露==
+  - 可能会导致==内存泄露==（一块内存空间被长期占用而不被释放）
 
   ```js
   function fn(){
@@ -12278,7 +12278,7 @@ https://blog.wangez.site/posts/1586874348.html/
 
 
 
-# 2021.10.5
+# 2021.10.5 *经典原型链图在这里！
 
 许久未见的低迷 
 
@@ -12745,9 +12745,14 @@ var arr = [1, [2, 3, [4, 5, [6]]]]
 
 
 
-# 2021.10.6
+# 2021.10.6 *如何高效自学方法总结 *JS实现继承的图在这里！
 
-
+> > 来自KieSun
+>
+> [
+> ![Z0qdJz](https://camo.githubusercontent.com/74cc97d08429dd26cbad4dad2671811896f2693070ab912be1310a107fd032c2/68747470733a2f2f79636b2d313235343236333432322e66696c652e6d7971636c6f75642e636f6d2f755069632f5a3071644a7a2e706e67)](https://camo.githubusercontent.com/74cc97d08429dd26cbad4dad2671811896f2693070ab912be1310a107fd032c2/68747470733a2f2f79636b2d313235343236333432322e66696c652e6d7971636c6f75642e636f6d2f755069632f5a3071644a7a2e706e67)
+>
+> 这个学习方法笔者百试百灵，学习任何技术都会用上这个思路。另外我们还能通过这个思路拓宽自己的技术栈，将各个知识联系起来建立自己的知识体系，并且通过这种学习方式学到的知识也不容易遗忘。
 
 ```js
 // DDL
@@ -12764,12 +12769,15 @@ Totally min
 1.前端基础知识 
 // 从早上-中午 拿出一整块时间学习JS 晚上跑完步回来继续看JS 重视基础！
 // 不要浮于表面地看问题 深入进去！多向自己提问！
-    1.1 JS学习 min 
+    1.1 前端基础学习 10+130+30min 
     // 每日重点！编码 + 知识点记录
     // 近期重点 作用域、闭包、原型链 + ES6 + Ajax axios
-		/* 复习原型链、执行上下文栈、作用域链 */
-    1.2 freecodecamp JS + 响应式网页设计 min
-    	/* 学习了些JS的内容 */
+		/* 1.找到了一些不错的新资源与新学习思路 今天试着这样学习promise！
+        2.复习了作用域链 复习了闭包 了解了更多
+        JS实现继承的实践 非常棒！
+      	3.回忆起了自己之前做的HTML+CSS品优购项目~*/
+    1.2 freecodecamp JS + 响应式网页设计 60+min
+    	/*  */
     1.3 JS 30demos min
     // 每天完成一个 不要求完全理解 先做一个初步的认知
     // 没有完全了解的/觉得很好的 都要特意标记出来 二刷时候再去好好理解下！
@@ -12787,8 +12795,11 @@ Totally min
 	正则表达式
 
 2.核心基础知识 下午开始学计网 + 刷题
-	2.1 计网 min
-		/*  */
+	2.1 计网 60min
+		/* 复习下HTTP的特性 包括HTTP/1.1协议的优缺点；HTTP/1.1协议的性能问题：
+        	相对于/1.0有性能提升的长连接
+        	管道网络传输
+        	因为HTTP请求-应答模式导致的队头堵塞问题*/
 	2.2 操作系统 min
 		/*  */
 
@@ -12820,6 +12831,7 @@ Totally min
     Node.js
 	webpack
 6.其他 
+	毛概小组作业 论内卷 10+
 7.每日总结 min
 ```
 
@@ -12831,10 +12843,10 @@ Totally min
 
 
 
-- [ ] 计网
-- [ ] JS高级快速回顾 
-- [ ] JS基础快速过 
-- [ ] JS数组API总结、学习（学习数组去重、解构赋值、数组扁平化）
+- [x] 计网
+- [x] JS高级快速回顾 
+- [ ] ~~JS基础快速过~~ 
+- [ ] JS数组API总结、学习（学习数组去重、解构赋值、数组扁平化）- 下午
 - [ ] JS CSS 实操 
 - [ ] 刷算法 高级排序算法 + 链表专场 
 - [ ] JS30demos 
@@ -12857,6 +12869,15 @@ Totally min
 1.JS数组去重问题
 2.解构赋值的应用
 3.数组扁平化的六种方法
+4.闭包的复习——经典闭包题 调用n次外部函数 产生n个闭包
+	闭包到底是什么？
+    产生闭包的条件 闭包死亡的情况
+	闭包的作用——定义JS模块 保证其私有性 只向外暴露对象
+    闭包的缺点
+5.JS实现继承的最佳实践——原型链 + 构造函数的call方法
+6.freecodecamp 写一个函数来操作对象中的属性
+	频繁使用 obj[变量] 对 对象 中的变量进行操作
+    if(obj.hasOwnProperty(对象属性名) === false) 来判断对象中是否有这个属性
 ```
 
 
@@ -12959,176 +12980,293 @@ https://blog.wangez.site/posts/1586874348.html/
 
 
 
-#### 3.顺着原型链找方法 终极版本
+#### 3.作用域链
+
+ 多个嵌套的作用域形成的**由内向外**的结构, 用于**查找变量**
 
 ```js
-function F(){}
-Object.prototype.a = function(){
-    // Object的原型对象上增添了一个a方法
-    console.log('a()')
-}
-Function.prototype.b = function(){
-    console.log('b()')
-}
-var f = new F()
-f.a()//【1】可以找到
-f.b()//【2】报错 b不是一个函数
-F.a()//【3】可以找到
-F.b()//【4】可以找到
-```
-
-重点就是那个原型链的图！
-
-![在这里插入图片描述](https://img-blog.csdnimg.cn/98c5698e603342d5b916fdf65b25433f.png)
-
-来捋一捋
-
-（根据隐式原型属性 `__proto__` 去指向）
-
-【1】
-
-- **实例对象f** - 构造函数的显式原型对象 `F.prototype`
-- 构造函数的显式原型对象 `F.prototype` - `Object.prototype`
-- `Object.prototype` - null
-
-一条链结束 所以实例对象可以引用Object原型对象上的方法
-
-【2】
-
-- **构造函数F** - `Function.prototype`
-
-- `Function.prototype` - `Object.prototype`
-- `Object.prototype` - null
-
-一条链结束
-
-说明构造函数可以使用Object Function原型对象上的方法
-
-
-
-本题答案很明显咯~
-
-#### 4.执行上下文栈
-
-```js
-var a = 10;
-var bar = function(x){
-    var b = 5;
-    console.log("bar入栈")
-    foo(x + b);
-}
-var foo = function(y){
-    var c = 5;
-    console.log("foo入栈")
-    console.log(b);// 报错 b is not defined 当然了！不同函数作用域中存在“变量隔离”~
-    console.log(a + c + y);// 30 （10 + 15 + 5）
-}
-bar(10);
-```
-
-【1】全局上下文环境入栈 - 1（行代码处）也就是全局代码执行前~
-
-【2】bar函数上下文环境入栈 - 1
-
-【3】foo函数上下文函数入栈 - 6
-
-【4】foo函数上下文函数出栈 
-
-【5】bar函数上下文函数出栈
-
-
-
-#### 5.执行上下文栈面试题复习 递归
-
-
-
-```js
-foo(1);
-function foo(i) {
-    if (i == 4) {
-        return;
+var a = 2;
+function fn1(){
+    var b = 3;
+    function fn2(){
+        var c = 4;
+        console.log(c);// 4
+        console.log(b);// 3
+        console.log(a);// 2
+        console.log(d);// 报错 d is not defined
+        console.log(a.b);// undefined 
     }
-    console.log('foo() begin:' + i);
-    foo(i + 1);
-    console.log('foo() end:' + i);
+    fn2();
 }
-输出 // 1 2 3 3 2 1
+fn1();
 ```
 
-进入一个上下文
+寻找`a.b` 先顺着作用域链找 找到了a再顺着原型链找b~
 
-则入栈一个上下文！
-
-![请添加图片描述](https://img-blog.csdnimg.cn/521009f83144442592863ef335ab93a7.png)
-
-等到了`i=4` 则开始出栈
-
-#### 6.作用域是静态的！面试题考察静态性-面试题1复习
+#### 4.调用n次外部函数 内部函数产生n个闭包！
 
 ```js
-var x = 10;
+    <button>1</button>
+    <button>2</button>
+    <button>3</button>
+    <button>4</button>
+    <button>5</button>
+
+    <script>
+        var btns = document.getElementsByTagName('button');
+        for(var i = 0,length = btns.length; i < length; i++){
+            (function(i){// 这个立即函数执行是产生闭包的关键
+                // 如果不让btns[i]处于函数作用域中 点击调用的回调函数将获得外层的i（=5）且点哪个按钮都只会产生这个i=5的闭包
+                var btn = btns[i];
+                btn.onclick = function(){
+                    alert("第" + (i + 1) + "个");
+                }
+            })(i)
+        }
+    </script>
+```
+
+产生了n个闭包（这里例子中就是产生了5个闭包）
+
+闭包在点击这个过程中（函数执行完了） 是没有释放的~
+
+注意内部函数是被按钮对象引用了（使用onclick）所以这个闭包一直不会消失
+
+> 换句话说 只要按钮不释放 这个闭包就不会消失~
+>
+> 使用 `btn.onclick = null` 释放闭包 解决内存泄露问题~
+
+![在这里插入图片描述](https://img-blog.csdnimg.cn/d1b1e2768a9f4228bb14a668506915b7.png)
+
+
+
+#### 5.闭包到底是什么？
+
+当一个嵌套的子函数引用了嵌套的外部（父）函数的 **变量/函数** 时  就产生了闭包！
+
+我们通过chrome调试查看——了解一下闭包到底是个啥？
+
+- 理解1：闭包是嵌套的内部函数（大众一些的说法）
+- 理解2：闭包是 **包含被引用变量（/函数）的对象** （比较少见的说法哈）
+
+#### 6.产生闭包的条件 闭包死亡的情况
+
+即闭包生命周期的问题
+
+- 产生：嵌套内部函数定义执行完就产生了（==不是调用的时候产生的！==）
+
+- 死亡：嵌套的内部函数成为**垃圾对象**时
+  - 另外：**外部函数执行完之后** 只要在内部函数中 没有用变量接收闭包的返回值 **闭包直接就结束生命周期了！**（也可以说 成为垃圾对象）
+
+
+
+```js
+function fn1() {
+    // 此时闭包就已经产生了(函数提升, 内部函数对象已经创建了)
+    // 在被调用之前就产生了闭包！
+    var a = 2
+    function fn2 () {
+        a++
+        console.log(a)
+    }
+    return fn2
+}
+var f = fn1()
+f() // 3
+f() // 4
+f = null //闭包死亡(包含闭包的函数对象成为垃圾对象)
+```
+
+![在这里插入图片描述](https://img-blog.csdnimg.cn/dab1776a3d5f45919f67f5e33a3dbd5b.png)
+
+
+
+
+
+
+
+
+
+
+
+
+
+#### 7.闭包的作用：定义JS模块化
+
+简单来说就是让JS模块中的变量、方法等 是“**私有**”的
+
+只向外暴露一个包含n个方法的对象/函数
+
+
+
+```js
+// myModule2.js 使用立即执行函数为佳
+(function () {
+  //私有数据
+  var msg = 'My atguigu'
+  //操作数据的函数
+  function doSomething() {
+    console.log('doSomething() '+msg.toUpperCase())
+  }
+  function doOtherthing () {
+    console.log('doOtherthing() '+msg.toLowerCase())
+  }
+
+  //向外暴露对象(给外部使用的方法)
+  window.myModule2 = {
+    doSomething: doSomething,
+    doOtherthing: doOtherthing
+  }
+})()
+```
+
+```js
+// 使用的时候这么用就OK了！
+<script type="text/javascript" src="myModule2.js"></script>
+<script type="text/javascript">
+  myModule2.doSomething()
+  myModule2.doOtherthing()
+</script>
+```
+
+
+
+使用function也能达到这个效果 不过用上面的立即执行函数更简单~
+
+```js
+// myModule.js
+function myModule() {
+  //私有数据
+  var msg = 'My atguigu'
+  //操作数据的函数
+  function doSomething() {
+    console.log('doSomething() '+msg.toUpperCase())
+  }
+  function doOtherthing () {
+    console.log('doOtherthing() '+msg.toLowerCase())
+  }
+
+  //向外暴露对象(给外部使用的方法)
+  return {
+    doSomething: doSomething,
+    doOtherthing: doOtherthing
+  }
+}
+
+```
+
+```js
+// 使用的时候这么用就OK了！
+<script type="text/javascript" src="myModule.js"></script>
+<script type="text/javascript">
+  var module = myModule()
+  module.doSomething()
+  module.doOtherthing()
+</script>
+```
+
+
+
+
+
+#### 8.闭包的缺点（之前的优点）
+
+- 函数执行完之后 函数内的局部变量没有释放 占用内存时间会变长  
+
+```js
+function fn1(){
+    var arr = new Array[10000000]
+    function fn2(){
+        console.log(arr.length);
+    }
+    return fn2;
+}
+var f = fn1();
+f();// fn1形成闭包 本该释放的arr变量现在不会被释放！
+```
+
+所以需要及时释放
+
+```js
+f = null;// 解放空间！
+```
+
+
+
+- 容易造成内存泄露（一块内存空间被长期占用而不被释放）
+
+```js
 function fn(){
-    console.log(x);// 10
+    a = new Array(1000000);// a为意外的全局变量 会造成内存泄漏
+    console.log(a);
 }
-function show(f){
-    var x = 20;
-    f();
-}
-show(fn);// 打印10
+fn();// a变量不会被回收 一直存在 
 ```
 
-记住一句话——
 
-**在其他函数中被调用不影响x在打印语句中的值**（x在一开始定义的时候就确定了 打印的x是全局中的（毕竟是在人家全局那里调用的函数show嘛~））
+
+- 可能导致==内存溢出==（面试高频）
 
 ```js
-// 变式
-var x = 10;
-function fn(){
-    console.log(x);// 10
-}
-function show(f){
-    var x = 20;
-    f();
-}
-show((x) => console.log(x));// 20 -这里的x很明显就是show函数作用域中的了~（为20）
-show(fn);// 打印10
+var obj = {};
+for(var i = 0; i < 10000; i++){
+    obj[i] = new Array(1000000);// new Array(1000000)定义一个长度为1000000的数组
+    console.log('------')
+}// 这个代码会导致内存溢出 浏览器会做一个崩溃的设置 终止程序
 ```
 
 
 
-#### 7.作用域链面试题~沿着作用域链找某个变量-面试题2复习
+
+
+解决方案：
+
+- 能不用闭包就不用
+- 及时释放(让嵌套的内部对象成为垃圾对象)
+
+
+
+#### 9.JS实现继承的最佳实践
+
+> 使用 原型链结合构造函数
+>
+> 在父类型属性有很多条时 使用 `Parent.call(this,父函数属性)` 让子类型继承
 
 ```js
-var fn = function () {
-    console.log(fn)//function(){console.log(fn)}
-    var fn2 = function(){
-      	console.log("找不到我吧~");
-    }
+function Parent(attribute,other){
+    this.attribute = attribute;
+    this.other = other;
 }
-fn()
-
-var obj = {
-    fn2: function () {
-        console.log(fn2)// 报错 fn2 is not defined
-        console.log(this.fn2)//function(){...}
-    }
+Parent.prototype.output = function(){
+    console.log("此方法位于Parent的显式原型中  Child构造函数继承了我 所以Child的实例对象可以顺着隐式原型连找到这个对象（在Object对象上）");
 }
-obj.fn2()
+function Child(attribute, other){
+    Parent.call(this,attribute,other);// 继承父类型的属性
+}
+Child.prototype = new Parent();// 原型链继承！让子类型的显式原型指向父类型的实例！
+Child.prototype.constructor = Child;// 出于严谨 这里修正constructor属性 要不然Child的显式原型的constructor就是Parent了 这就很奇怪！
+var child = new Child('a', 'b');// ['a', 'b']
+child.output();
 ```
 
-- 首先 第二行的打印是 fn对象（人家顺着作用域链就能轻松找到位于全局作用域中的fn咯~）
-- 第十一行 报错 来看看fn2的心路历程
-  - 先在fn2构造函数的函数作用域中找 没有定义过fn2！ 
-  - 再去全局作用域里找 全局变量也没它这号变量！
-  - 再去同级的函数作用域里找找行么？
-    - 不行！😂
+![在这里插入图片描述](https://img-blog.csdnimg.cn/73bdd1e607af4508870095cf0d8ffd98.png)
 
-- 第十二行 打印fn2对象 加上this 表示obj对象 obj对象拥有这个fn2函数啊 没问题~
+上面的属性的输出有些问题
+
+JS继承最佳实践完整版输出如下：
+
+![在这里插入图片描述](https://img-blog.csdnimg.cn/12053e2fc0e9454696d32fcf45227495.png)
+
+好吧上面的还是不全 有点小问题——
+
+```js
+Child.prototype.constructor = Child;// 出于严谨 这里修正constructor属性 要不然Child的显式原型的constructor就是Parent了 这就很奇怪！
+// 修正完 constructor指向Child构造函数
+```
 
 
 
-#### 3.数组扁平化
+#### 10.数组扁平化
 
 ```js
 var arr = [1, [2, 3, [4, 5, [6]]]]
@@ -13153,8 +13291,239 @@ var arr = [1, [2, 3, [4, 5, [6]]]]
 ```js
 //小林的图解网络随时翻阅 & 极客时间趣谈网络协议+网上的文章 & 读图解HTTP TCP等书籍 & 网络抓包实操练习  深入理解
 // 每天一道计网面试题 把自己带入面试者的身份 跟面试官白话白话 嗯就这样子
-
+1.“来聊聊HTTP的一些特性
+	HTTP的优点
+    HTTP的缺点
+    HTTP的性能如何？”
+2.GET POST复习
 ```
+
+#### HTTP的特性
+
+> 图解网络2.1【1】
+
+##### 1.HTTP（/1.1 也就是现在用到最多的协议）优点有哪些？怎么体现的？
+
+- 简单
+
+HTTP基本的报文格式就是`header+body` 头部信息也是 `key-value` 简单文本的形式 —— 易于理解 降低了学习和使用的门槛 所以说它的一个优点是简单
+
+> HTTP报文格式：
+>
+> - 请求行 request line
+>
+> - 请求头部 header
+>
+> - 空行 blank line
+>
+> - 请求数据 request-body
+>
+> ![img](https://pic002.cnblogs.com/images/2012/426620/2012072810301161.png)
+>
+> 客户程序发送的请求以及服务器端的响应的格式——
+>
+> - 请求报文
+>
+> ![HTTP Request 请求报文格式](https://img-blog.csdn.net/20170330192653242?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvSG9sbW9meQ==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast)
+>
+> - 响应报文
+>
+> ![Response HTTP响应报文格式](https://img-blog.csdn.net/20170330192754102?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvSG9sbW9meQ==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast)
+
+
+
+
+
+- 灵活&易于扩展
+
+HTTP协议里的各类请求方法、URI/URL、状态码、头字段等每个组成要求都没有被固定死 都允许开发人员**自定义和扩充**
+
+同时 HTTP 由于是⼯作在应⽤层（ OSI 第七层），则它**下层可以随意变化**
+
+> 举个例子 可以发现HTTP协议的下层可以随意变化~（毕竟人家在上层嘛~）
+>
+> - HTTPS 也就是在 HTTP 与 TCP 层之间增加了 SSL/TLS 安全传输层
+> - HTTP/3 甚⾄把 TCP 层换成了基于 UDP 的 QUIC
+
+- 应用广泛&跨平台
+
+互联⽹发展⾄今，HTTP 的应⽤范围⾮常的⼴泛，从台式机的浏览器到⼿机上的各种 APP，**从看新闻、刷贴吧到购物、理财、吃鸡，HTTP 的应⽤遍地开花**，同时天然具有**跨平台**的优越性
+
+
+
+
+
+##### 2.HTTP协议的缺点有哪些
+
+HTTP 协议⾥有优缺点⼀体的**双刃剑**，分别是==「⽆状态、明⽂传输」==，同时还有⼀⼤**缺点**「不安全」
+
+- HTTP协议双刃剑
+
+  - 无状态
+
+    - 优点 服务器<u>不会去记忆 HTTP 的状态</u>，所以不需要额外的资源来记录状态信息，这能**减轻服务器的 负担**，能够把更多的 CPU 和内存⽤来对外提供服务。
+    - 缺点 既然服务器没有记忆能⼒，它在**完成有关联性的操作时会非常麻烦**。 例如登录->添加购物⻋->下单->结算->⽀付，这系列操作都要知道⽤户的身份才⾏。但服务器不知道这些请求是有 关联的，每次都要问⼀遍身份信息
+    - 缺点的解决方法
+
+    这样每操作⼀次，都要验证信息，购物体验下降！
+
+    对于⽆状态的问题，解法⽅案有很多种，其中⽐较简单的⽅式⽤ **Cookie 技术**。 
+
+    Cookie 通过在请求和响应报⽂中写⼊ Cookie 信息来控制客户端的状态。 
+
+    相当于，**在客户端第⼀次请求后，服务器会下发⼀个装有客户信息的「⼩贴纸」，后续客户端请求服务器的时候， 带上「⼩贴纸」，服务器就能认得了了**
+
+    ![img](http://5b0988e595225.cdn.sohucs.com/images/20200309/cd5875840f394614a43e64a93429f66f.jpeg)
+
+    下次再（请求中带上Cookie）请求就会方便很多
+
+    
+
+  - 明文传输
+
+    - 优点 传输过程中的信息，是可⽅便阅读的，**通过浏览器的 F12 控制台或 Wireshark 抓包**都可以直接肉眼查看，为我们调试⼯作带了极⼤的便利性
+    - 缺点 信息裸奔。
+
+    正是因为这样，HTTP 的所有信息都暴露在了光天化⽇下，相当于**信息裸奔**。在传输的漫⻓的过程中，信息的内容都毫⽆隐私可⾔，很容易就能被窃取，如果⾥⾯有你的账号密码信息，那你号没了:joy:
+
+
+
+- HTTP协议是不安全的！——严重缺点
+  - 通信使⽤**明⽂（不加密）**，内容可能会被窃听。⽐如，**账号信息容易泄漏**，那你号没了。
+  - **不验证通信⽅的身份**，因此有可能遭遇伪装。⽐如，**访问假的淘宝、拼多多**，那你钱没了。 
+  - **⽆法证明报文的完整性，所以有可能已遭篡改**。⽐如，⽹⻚上植⼊垃圾⼴告，视觉污染，眼没了
+
+HTTP 的安全问题，可以⽤ HTTPS 的⽅式解决，也就是通过引⼊ SSL/TLS 层，使得在安全上达到了极致！
+
+##### 3.HTTP/1.1的性能如何？
+
+HTTP协议是基于TCP/IP 并且使用了 【请求-应答】的通信模式 所以性能的关键就在这两点里~
+
+###### 长连接（性能提升！）
+
+早期 <u>HTTP/1.0</u> 性能上的⼀个很⼤的问题，那就是每发起⼀个请求，都要新建⼀次 TCP 连接（三次握⼿），⽽且是 串⾏请求，做了⽆谓的 TCP 连接建⽴和断开，增加了通信开销。 
+
+为了解决上述 TCP 连接问题，<u>HTTP/1.1</u> 提出了**长连接**的通信⽅式，也叫持久连接。这种⽅式的好处在于减少了 TCP 连接的重复建⽴和断开所造成的额外开销，减轻了服务器端的负载。 
+
+持久连接的特点是，只要任意⼀端没有明确提出断开连接，则保持 TCP 连接状态
+
+![img](http://5b0988e595225.cdn.sohucs.com/images/20200309/3463897bce7142a0845b3744e2b7d779.jpeg)
+
+
+
+###### 管道网络传输
+
+HTTP/1.1 采用了长连接的方式，这使得管道（pipeline）网络传输成为了可能。
+
+ 即可在同⼀个 TCP 连接⾥⾯，客户端可以发起多个请求，只要第⼀个请求发出去了，**不必等其回来，就可以发第⼆个请求出去**，可以**减少整体的响应时间**
+
+举例来说，客户端需要请求两个资源。**以前的做法**是，在同⼀个TCP连接⾥⾯，先发送 A 请求，然后等待服务器做 出回应，收到后再发出 B 请求（有点像同步机制）。**管道机制**则是允许浏览器同时发出 A 请求和 B 请求（类似异步机制的感觉~）
+
+![img](http://5b0988e595225.cdn.sohucs.com/images/20200309/f9149650a28742fc90d5c10656c2d0ef.jpeg)
+
+但是服务器还是按照**顺序**，先回应 A 请求，完成后再回应 B 请求。要是前⾯的回应特别慢，后⾯就会有许多请求 排队等着。这称为「队头堵塞」（可见与异步还是有些不同的 
+
+###### 队头堵塞
+
+「请求 - 应答」的模式加剧了 HTTP 的性能问题
+
+因为当顺序发送的请求序列中的⼀个请求因为某种原因被阻塞时，在后⾯排队的所有请求也⼀同被阻塞了，会招致 客户端⼀直请求不到数据，这也就是「队头阻塞」。好⽐上班的路上塞⻋
+
+![img](http://5b0988e595225.cdn.sohucs.com/images/20200309/5dff63bb71164d99ac5609da0023f949.jpeg)
+
+
+
+总之 HTTP/1.1 的性能⼀般般，后续的 HTTP/2 和 HTTP/3 就是在优化 HTTP 的性能
+
+（不过HTTP/1.1依旧是目前应用最广泛的HTTP协议~）
+
+
+
+#### 2.GET POST请求复习
+
+
+
+> 这里提到的POST比GET安全 又有点道理了XD
+>
+> [HTTP报文（面试会问开发时常用的报文头格式）](https://www.cnblogs.com/chenguangliang/p/6708592.html)
+
+![img](https://pic002.cnblogs.com/images/2012/426620/2012072810301161.png)
+
+**HTTP请求头部**由 请求方法字段 URL字段 HTTP协议版本字段 三个字段组成（使用空格分隔）
+
+例如： `GET /index.html HTTP/1.1。` GET 和 /index.html 和 HTTP/1.1
+
+- GET请求方法
+
+最常见的一种请求方式，当客户端要从服务器中读取文档时，当点击网页上的链接或者通过在浏览器的地址栏输入网址来浏览网页的，使用的都是GET方式。GET方法要求服务器将URL定位的资源放在响应报文的数据部分，回送给客户端。使用GET方法时，请求参数和对应的值附加在URL后面，利用一个问号（“?”）代表URL的结尾与请求参数的开始，传递参数长度受限制。例如，`/index.jsp?id=100&op=bind`,这样通过GET方式传递的数据直接表示在地址中，所以我们可以把请求结果以链接的形式发送给好友。
+
+，GET方式的请求一般不包含”请求内容”部分，请求数据以地址的形式表现在请求行。地址链接如下：
+
+```html
+<a href="http://www.google.cn/search?hl=zh-CN&source=hp&q=domety&aq=f&oq=">http://www.google.cn/search?hl=zh-CN&source=hp
+&q=domety&aq=f&oq=</a> 
+```
+
+地址中”?”之后的部分就是通过GET发送的请求数据，我们可以在地址栏中清楚的看到，各个数据之间用”&”符号隔开。
+
+显然，这种方式**不适合传送私密数据**。另外，由于不同的浏览器对地址的字符限制也有所不同，一般最多只能识别1024个字符，所以如果**需要传送大量数据的时候，也不适合使用GET方式**。
+
+- POST请求方法
+
+对于上面提到的不适合使用GET方式的情况，可以考虑使用POST方式，因为使用POST方法可以允许客户端给服务器提供信息较多。
+
+POST方法将请求参数封装在HTTP请求数据中，以名称/值的形式出现，可以传输大量数据，这样POST方式对传送的数据大小没有限制，而且**也不会显示在URL中**。
+
+
+
+###### 1.1 GET提交，**请求的数据会附在URL之后**（就是把数据放置在HTTP==协议头＜request-line＞==中）
+
+- 以?分割URL和传输数据
+- 多个参数用&连接;
+- 例如：`login.action?name=hyddd&password=idontknow&verify=%E4%BD%A0 %E5%A5%BD`。
+
+报文内容问题：
+
+- 如果数据是英文字母/数字，原样发送
+
+- **如果是空格，转换为+**
+- 如果**是中文/其他字符，则直接把字符串用BASE64加密**，得出如： `%E4%BD%A0%E5%A5%BD`，其中％XX中的**XX为该符号以16进制表示的ASCII**。
+
+
+
+###### 1.2 POST提交：把**提交的数据放置在**HTTP包的==**包体**＜request-body＞==中。
+
+ 
+
+因此，**GET提交的数据会在地址栏中显示出来，而POST提交，地址栏不会改变**
+
+ 
+
+2.传输数据的大小：
+
+  首先声明,HTTP协议**没有对传输的数据大小进行限制**，HTTP协议规范**也没有对URL长度进行限制**。 而在实际开发中存在的限制主要有：
+
+-  GET:**特定浏览器和服务器对URL长度有限制**，例如IE对URL长度的限制是2083字节(2K+35)。对于其他浏览器，如Netscape、FireFox等，理论上没有长度限制，其限制取决于[操作系统](http://lib.csdn.net/base/operatingsystem)的支持。
+
+  因此**对于GET提交时，传输数据就会受到URL长度的限制**。
+
+- POST:**由于不是通过URL传值，理论上数据不受限**。但<u>实际各个WEB服务器会规定对post提交数据大小进行限制</u>，Apache、IIS6都有各自的配置。
+
+ 
+
+3.安全性：
+
+  ==POST的安全性要比GET的安全性高==。注意：这里所说的安全性和上面GET提到的“安全”不是同个概念。
+
+**上面“安全”的含义仅仅是不作数据修改，而这里安全的含义是真正的Security的含义**
+
+比如：通过GET提交数据，==用户名和密码将**明文出现**在URL上==（信息直接一个的裸奔XD），因为**(1)登录页面有可能被浏览器缓存**， **(2)其他人查看浏览器的历史纪录**，那么别人就可以拿到你的账号和密码了。
+
+![img](https://images2015.cnblogs.com/blog/982259/201704/982259-20170414142132314-785720939.png)
+
+ 
+
+
 
 
 
