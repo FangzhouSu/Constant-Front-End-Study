@@ -9634,7 +9634,7 @@ var aa = 3 >> 1;// 1
 ```js
 // 今日主要收获 & 学习时间
 // 逛b站、看漫画、聊qq/微信、打游戏 计时 每次30min娱乐时间MAX 饭后可以允许有一次 其他学习时间不要分心哦！
-Totally 450min
+Totally 500min
 1.前端基础知识 
 // 从早上-中午 拿出一整块时间学习JS 晚上跑完步回来继续看JS 重视基础！
 // 不要浮于表面地看问题 深入进去！多向自己提问！
@@ -9645,7 +9645,7 @@ Totally 450min
         110min针对闭包的学习 还是有些一知半解 明天继续推进度 看一些题 多了解！*/
     1.2 freecodecamp JS + 响应式网页设计 min
     	/*  */
-    1.3 JS 30demos min
+    1.3 JS 30demos 50min
     // 每天完成一个 不要求完全理解 先做一个初步的认知
     // 没有完全了解的/觉得很好的 都要特意标记出来 二刷时候再去好好理解下！
     /* 做了个视频播放器 */
@@ -11879,7 +11879,7 @@ function insertSort(arr){
 
 ```js
 // 今日主要收获 & 学习时间
-Totally 460min
+Totally 480min
 1.前端基础知识 
 // 从早上-中午 拿出一整块时间学习JS 晚上跑完步回来继续看JS 重视基础！
 // 不要浮于表面地看问题 深入进去！多向自己提问！
@@ -13992,6 +13992,8 @@ function sum(arr, n){
 
 
 
+![image.png](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/59c75d3171c6413b9fbca4db30709aa8~tplv-k3u1fbpfcp-watermark.awebp?)
+
 #### 5.递归进阶练习！
 
 依旧是按照执行上下文栈的思路去想 
@@ -14061,8 +14063,6 @@ count(0) 这里不会往下执行了 直接返回 countArray = []
 [4,3,2,1].splice(0,0,5) —— 最底层出栈
 返回最终结果 [5,4,3,2,1]
 ```
-
-
 
 
 
@@ -14260,36 +14260,32 @@ console.log(countChange());// 121
 
 # 10.8
 
+今天去机场接颖咯~
+
 ```js
 // DDL
-	0 算法题 链表 二叉树部分 排序算法部分 递归 10.10
-    03 Promise 10.8 axios 10.9
+	算法题 链表 二叉树部分 排序算法部分 递归 10.10
+    Promise 10.8 axios 10.9
 ```
 
 
 
-今天看递归上了头了！DDL啥的 害！
-
 ```js
 // 今日主要收获 & 学习时间
-Totally 530min
+Totally min
 1.前端基础知识 
 // 从早上-中午 拿出一整块时间学习JS 晚上跑完步回来继续看JS 重视基础！
 // 不要浮于表面地看问题 深入进去！多向自己提问！
-    1.1 前端基础学习 90min 
+    1.1 前端基础学习 min 
     // 每日重点！编码 + 知识点记录
     // 近期重点 作用域、闭包、原型链 + ES6 + Ajax axios
-		/* JS高级复习完毕~ 
-		JS基础复习开始！
-		简单学习了正则表达式
-		复习了一下递归 又明白点儿了！！*/
-    1.2 freecodecamp JS + 响应式网页设计 120min
-    	/* 完结JS基础部分 */
+		/*  */
+    1.2 freecodecamp JS + 响应式网页设计 min
+    	/*  */
     1.3 JS 30demos min
     // 每天完成一个 不要求完全理解 先做一个初步的认知
     // 没有完全了解的/觉得很好的 都要特意标记出来 二刷时候再去好好理解下！
-    	/* 
-        */
+    	/*  */
     1.4 react前置知识 min
     	/*  */
     
@@ -14308,12 +14304,11 @@ Totally 530min
 		/*  */
 
 3.面试刷题
-	3.1 刷算法 刷力扣 180+80min	
+	3.1 刷算法 刷力扣 min	
     // 【1】阅读掘金小册 + 按照代码随想录推荐【2】刷题
     	/* 掘金小册 6/28 代码随想录链表 1/9
-        今天跟递归耗上了！写了一大篇文章！用递归解决反转链表
+        
         */   
-    
     	// 每个阶段结束后 简单总结下应对某种数据结构/对应类型的题目 应该怎么去想
     	数组 + 排序 第五周
         链表 + 二叉树 第六周
@@ -14321,9 +14316,9 @@ Totally 530min
         双指针 + 遍历专题DFS BFS 第八周
         回溯算法 + 贪心算法 第九周
         动态规划 第十周
-    3.2 面试题 30min
+    3.2 面试题 min
     // 有空可以读一些面试题 查缺补漏一下~
-		/* 看了一道有意思的面试题——10块钱破成1 0.5 0.1元 */  
+		/*  */  
     
 4.前端开发框架 
 	4.1 react学习 min
@@ -14335,7 +14330,7 @@ Totally 530min
     Node.js
 	webpack
 6.其他 
-7.每日总结 30min
+7.每日总结 min
 ```
 
 
@@ -14344,21 +14339,14 @@ Totally 530min
 >
 > 这里说的实操 都是在 `freecodecamp` 中进行练习
 
-- [ ] ~~计网~~
-- [x] JS高级快速回顾 
-- [x] JS基础快速过 
-- [ ] ~~JS数组API总结、学习（学习数组去重、解构赋值、数组扁平化） - 下午 刷完题之后~~
-- [x] JS CSS 实操 
-- [x] 刷算法 高级排序算法 + 链表+递归专场 
-- [ ] ~~JS30demos~~ 
-- [ ] ~~`promise` `ajax（稍微再学一下 不信学不懂了！）`~~ 
-- [ ] ~~react实操~~  
+- [ ] 计网
+- [ ] JS数组API总结、学习（学习数组去重、解构赋值、数组扁平化） 
+- [ ] JS30demos 
+- [ ] 刷算法 高级排序算法 + 链表+递归专场 
+- [ ] `promise` `ajax（稍微再学一下 不信学不懂了！）` 
+- [ ] react实操  
 
-今天后面这些因为总结递归 + 刷题上头 + 效率略低 
 
-都木有做。。
-
-明天去接天津回来的颖 做一些查缺补漏的工作！
 
 ## 1.前端基础
 
@@ -14368,35 +14356,19 @@ Totally 530min
 
 
 
-
-
 ```js
 //每日学到的知识点 可以写文章 可以记在心里 总结下来！
 // 本阶段主要学习JS高级教程（尚硅谷）刷freecodecamp
 1.JS数组去重问题
 2.解构赋值的应用
 3.数组扁平化的六种方法
-4.执行上下文栈的角度解释递归
-5.生成min - max之间的随机整数 Math.floor(Math.random(max - min + 1) + min)
-6.parseInt()解析一个字符串返回一个整数 
-	parseInt("007.1");// 7  
-	parseInt("sfz30");// NaN
-可以利用这个方法计算n进制数 parseInt(str, radix);// 这个radix就是进制数的设置
-	parseInt("0011", 2);// 3
-	parseInt("11010010", 2);// 210
-	parseInt("11010010", 16);// 285278224
-很方便！
-7.三元运算符更好的书写格式
-return num > 0 ? "正数"
-    : num < 0 ? "负数"
-	: "为0"
 ```
 
 
 
 #### 1.面试高频 利用JavaScript实现数组去重
 
-参考 写得很棒的文章 [JavaScript数组去重问题](https://juejin.cn/post/7014009223197491236) 同为大三在校生 为何人家如此优秀！
+参考 写得很棒的文章 [JavaScript数组去重问题](https://juejin.cn/post/7014009223197491236) 
 
 ```js
 var arr = ['v','i','o','l','i','n','C','o','d','i','n','g'];
@@ -14502,180 +14474,6 @@ var arr = [1, [2, 3, [4, 5, [6]]]]
 
 
 
-#### 4.递归复习
-
-有图有真相
-
-[`freecodecamp`:**使用递归代替循环**](https://chinese.freecodecamp.org/learn/javascript-algorithms-and-data-structures/basic-javascript/replace-loops-using-recursion)
-
-题目
-
-```
-计算数组内前n个元素的和
-```
-
-```js
-function sum(arr, n){
-    if(n <= 0){
-        return 0;
-    }
-    else{
-        return sum(arr, n - 1) + arr[n - 1];
-    }
-}
-```
-
-
-
-
-
-
-
-![在这里插入图片描述](https://img-blog.csdnimg.cn/ccd5e9a285ea4e479f55e4e535623ce2.png)
-
-
-
-#### 5.递归进阶练习！
-
-依旧是按照执行上下文栈的思路去想 
-
-其实只要考虑到最内层那个函数的**返回值** 就好了！
-
-第二层的函数根据第一层的值计算得到返回值
-
-第三层再根据第二层的返回值…
-
-直到最后一层函数（执行上下文栈的最底部）也被执行 递归函数调用结束 返回最终结果~
-
-
-
-看一道题
-
-[**使用递归创建一个倒计时**](https://chinese.freecodecamp.org/learn/javascript-algorithms-and-data-structures/basic-javascript/use-recursion-to-create-a-countdown)
-
-题目
-
-```
-输入一个n
-
-输出 [n, n-1, …, 1]
-```
-
-
-
-解决方案
-
-```js
-// 01 先将函数入栈（递 的过程） n = 0 时 countdown就是 []
-// 出栈的时候将值插入数组中（归 的过程）
-function countdown(n){
-    if(n <= 0){
-        return [];
-    }
-    else{
-        const countArray = countdown(n - 1);
-        countArray.unshift(n);// 需要头插 因为是倒序的数组嘛~
-        // countArray.splice(0, 0, n);// 这样也可以达到头插的效果
-        return countArray;
-    }
-}
-
-```
-
-执行上下文栈模拟——
-
-```js
-// 假设n = 5
-// 递归函数入栈(函数体的所有内容都入栈哈)
-countArray = countdown(4) —— 最底层 n = 5
-countArray = countdown(3) —— 第四层 n = 4
-countArray = countdown(2) —— 第三层 n = 3
-countArray = countdown(1) —— 第二层 n = 2
-countArray = countdown(0) —— 第一层 n = 1
-count(0) 这里不会往下执行了 直接返回 countArray = [] 
-```
-
-```js
-// 出栈（执行递归函数 并将其出栈）
-[].splice(0,0,1) —— 第一层出栈
-[1].splice(0,0,2) —— 第二层出栈
-[2,1].splice(0,0,3) —— 第三层出栈
-[3,2,1].splice(0,0,4) —— 第四层出栈
-[4,3,2,1].splice(0,0,5) —— 最底层出栈
-返回最终结果 [5,4,3,2,1]
-```
-
-
-
-
-
-
-
-
-
-下面的代码则再升一级 利用三元运算符让代码更加简洁 
-
-不必创建数组 利用`concat` / `…` 将数组不断拼接起来
-
-```js
-// 02 更为简洁的一行代码秒杀法
-// n = 0时 返回值为 [5,...[]] 之后随着递归函数出栈 返回值数组逐渐插入数字
-function countdown(n){
-	return n <= 0 ? [] : [n].concat(countdown(n - 1));
-    // return n <= 0? [] : [n, ...countdown(n - 1)];// 更加简洁的展开运算符~
-}
-```
-
-
-
-##### 再来一题！
-
-[**使用递归来创建一个数字序列**](https://chinese.freecodecamp.org/learn/javascript-algorithms-and-data-structures/basic-javascript/use-recursion-to-create-a-range-of-numbers)
-
-```js
-function rangeOfNumbers(startNum, endNum) {
-  if(startNum === endNum){
-    return [startNum];
-  }
-  else{
-    const countArray = rangeOfNumbers(startNum + 1, endNum);
-    countArray.unshift(startNum)
-    return countArray;
-  }
-};
-```
-
-```js
-function rangeOfNumbers(startNum, endNum) {
-    return startNum === endNum 
-      ? [startNum] 
-      :rangeOfNumbers(startNum, endNum - 1).concat(endNum);
-      // : [...rangeOfNumbers(startNum, endNum - 1), endNum];  
-};
-```
-
-
-
-
-
-#### 6.parseInt()方法
-
-```js
-parseInt()解析一个字符串返回一个整数 
-	parseInt("007.1");// 7  
-	parseInt("sfz30");// NaN
-```
-
-
-
-```js
-可以利用这个方法计算n进制数 parseInt(str, radix);// 这个radix就是进制数的设置
-	parseInt("0011", 2);// 3
-	parseInt("11010010", 2);// 210
-	parseInt("11010010", 16);// 285278224
-很方便！
-```
-
 
 
 ## 2.核心基础知识
@@ -14685,6 +14483,7 @@ parseInt()解析一个字符串返回一个整数
 ```js
 //小林的图解网络随时翻阅 & 极客时间趣谈网络协议+网上的文章 & 读图解HTTP TCP等书籍 & 网络抓包实操练习  深入理解
 // 每天一道计网面试题 把自己带入面试者的身份 跟面试官白话白话 嗯就这样子
+1.“
 ```
 
 
@@ -14706,55 +14505,7 @@ parseInt()解析一个字符串返回一个整数
 
 ```js
 //网上面试题、面经辣么多 一天多看一些 然后同时也要研究一些题的答案！
-1.把10元破成1元、5角、1角有多少种方法
 ```
-
-#### 10元破成`a*1 + b*0.5+c*0.1`
-
-##### 没做出来的递归法
-
-```js
-// 这个递归有点问题啊！
-// 虽说我觉得看起来挺有道理的 然而事实是 根本没法让所有递归函数出栈啊！
-function countChange(money){
-    let total = 0;
-    if(money < 0){
-        return 0;
-    }
-    else if(money === 0){
-        return 1;
-    }
-    else{
-        total += 1;
-        return countChange(money - 1) + countChange(money - 0.5) + countChange(money - 0.1) 
-        console.log(total)
-    }
-}
-```
-
-##### 疯狂迭代法
-
-```js
-// money为10时 最多分成10个1元 20个五角 50个一角 
-function countChange(){
-    let count = 0;
-    for(let i = 0; i <= 10; i++){
-        for(let j = 0; j <= 20; j++){
-            for(let k = 0; k <= 100; k++){
-                if(i + 0.5*j +0.1*k === 10){
-                    count++;
-                }
-            }
-        }
-    }
-    return count;
-}
-console.log(countChange());// 121
-```
-
-
-
-
 
 
 
@@ -14764,8 +14515,6 @@ console.log(countChange());// 121
 // 跟着掘金小册、代码随想录的内容进行学习！
 
 ```
-
-[一文学会递归解题！——方法论 题目总结得很好！](https://www.cnblogs.com/xiekun/p/11968538.html)
 
 
 
