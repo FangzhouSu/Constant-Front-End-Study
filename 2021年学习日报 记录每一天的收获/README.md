@@ -13718,29 +13718,30 @@ var mergeTwoLists = function(l1, l2) {
 
 ```js
 // DDL
-	01 10.4-8 一天复习一章（中间有一章是两集） 
-	02 算法题 链表 二叉树部分 排序算法部分 10.10
-    03 Promise 10.5 6 7 axios 10.8 
+	01 10.4-7 一天复习一章（中间有一章是两集 有一集是两章XD） 
+	02 算法题 链表 二叉树部分 排序算法部分 递归 10.10
+    03 Promise 10.8 axios 10.9
 ```
 
 
 
-有些高开低走的一天
-
-DDL到了 任务没完成orz
+今天看递归上了头了！DDL啥的 害！
 
 ```js
 // 今日主要收获 & 学习时间
-Totally min
+Totally 530min
 1.前端基础知识 
 // 从早上-中午 拿出一整块时间学习JS 晚上跑完步回来继续看JS 重视基础！
 // 不要浮于表面地看问题 深入进去！多向自己提问！
-    1.1 前端基础学习 min 
+    1.1 前端基础学习 90min 
     // 每日重点！编码 + 知识点记录
     // 近期重点 作用域、闭包、原型链 + ES6 + Ajax axios
-		/*  */
-    1.2 freecodecamp JS + 响应式网页设计 60min
-    	/*  */
+		/* JS高级复习完毕~ 
+		JS基础复习开始！
+		简单学习了正则表达式
+		复习了一下递归 又明白点儿了！！*/
+    1.2 freecodecamp JS + 响应式网页设计 120min
+    	/* 完结JS基础部分 */
     1.3 JS 30demos min
     // 每天完成一个 不要求完全理解 先做一个初步的认知
     // 没有完全了解的/觉得很好的 都要特意标记出来 二刷时候再去好好理解下！
@@ -13758,16 +13759,16 @@ Totally min
 	正则表达式
 
 2.核心基础知识 下午开始学计网 + 刷题
-	2.1 计网 60min
+	2.1 计网 min
 		/*  */
 	2.2 操作系统 min
 		/*  */
 
 3.面试刷题
-	3.1 刷算法 刷力扣 130min	
+	3.1 刷算法 刷力扣 180+80min	
     // 【1】阅读掘金小册 + 按照代码随想录推荐【2】刷题
     	/* 掘金小册 6/28 代码随想录链表 1/9
-        
+        今天跟递归耗上了！写了一大篇文章！用递归解决反转链表
         */   
     
     	// 每个阶段结束后 简单总结下应对某种数据结构/对应类型的题目 应该怎么去想
@@ -13777,9 +13778,9 @@ Totally min
         双指针 + 遍历专题DFS BFS 第八周
         回溯算法 + 贪心算法 第九周
         动态规划 第十周
-    3.2 面试题 min
+    3.2 面试题 30min
     // 有空可以读一些面试题 查缺补漏一下~
-		/*  */  
+		/* 看了一道有意思的面试题——10块钱破成1 0.5 0.1元 */  
     
 4.前端开发框架 
 	4.1 react学习 min
@@ -13791,8 +13792,7 @@ Totally min
     Node.js
 	webpack
 6.其他 
-	毛概小组作业 论内卷 10min
-7.每日总结 min
+7.每日总结 30min
 ```
 
 
@@ -13801,19 +13801,21 @@ Totally min
 >
 > 这里说的实操 都是在 `freecodecamp` 中进行练习
 
+- [ ] ~~计网~~
+- [x] JS高级快速回顾 
+- [x] JS基础快速过 
+- [ ] ~~JS数组API总结、学习（学习数组去重、解构赋值、数组扁平化） - 下午 刷完题之后~~
+- [x] JS CSS 实操 
+- [x] 刷算法 高级排序算法 + 链表+递归专场 
+- [ ] ~~JS30demos~~ 
+- [ ] ~~`promise` `ajax（稍微再学一下 不信学不懂了！）`~~ 
+- [ ] ~~react实操~~  
 
+今天后面这些因为总结递归 + 刷题上头 + 效率略低 
 
-- [ ] 计网
-- [ ] JS高级快速回顾 
-- [ ] JS基础快速过 
-- [ ] JS数组API总结、学习（学习数组去重、解构赋值、数组扁平化）
-- [ ] JS CSS 实操 
-- [ ] 刷算法 高级排序算法 + 链表专场 
-- [ ] JS30demos 
-- [ ] `promise` `ajax（稍微再学一下 不信学不懂了！）` 
-- [ ] react实操  
+都木有做。。
 
-
+明天去接天津回来的颖 做一些查缺补漏的工作！
 
 ## 1.前端基础
 
@@ -13823,13 +13825,28 @@ Totally min
 
 
 
+
+
 ```js
 //每日学到的知识点 可以写文章 可以记在心里 总结下来！
 // 本阶段主要学习JS高级教程（尚硅谷）刷freecodecamp
 1.JS数组去重问题
 2.解构赋值的应用
 3.数组扁平化的六种方法
-
+4.执行上下文栈的角度解释递归
+5.生成min - max之间的随机整数 Math.floor(Math.random(max - min + 1) + min)
+6.parseInt()解析一个字符串返回一个整数 
+	parseInt("007.1");// 7  
+	parseInt("sfz30");// NaN
+可以利用这个方法计算n进制数 parseInt(str, radix);// 这个radix就是进制数的设置
+	parseInt("0011", 2);// 3
+	parseInt("11010010", 2);// 210
+	parseInt("11010010", 16);// 285278224
+很方便！
+7.三元运算符更好的书写格式
+return num > 0 ? "正数"
+    : num < 0 ? "负数"
+	: "为0"
 ```
 
 
@@ -13926,333 +13943,195 @@ console.log(unique(arr));
 
 很棒的一个大三前端大佬的博客中的内容
 
-10.6学习
-
 https://blog.wangez.site/posts/1586874348.html/
 
 
 
-#### 3.作用域链
 
- 多个嵌套的作用域形成的**由内向外**的结构, 用于**查找变量**
 
-```js
-var a = 2;
-function fn1(){
-    var b = 3;
-    function fn2(){
-        var c = 4;
-        console.log(c);// 4
-        console.log(b);// 3
-        console.log(a);// 2
-        console.log(d);// 报错 d is not defined
-        console.log(a.b);// undefined 
-    }
-    fn2();
-}
-fn1();
-```
-
-寻找`a.b` 先顺着作用域链找 找到了a再顺着原型链找b~
-
-#### 4.调用n次外部函数 内部函数产生n个闭包！
-
-```js
-    <button>1</button>
-    <button>2</button>
-    <button>3</button>
-    <button>4</button>
-    <button>5</button>
-
-    <script>
-        var btns = document.getElementsByTagName('button');
-        for(var i = 0,length = btns.length; i < length; i++){
-            (function(i){// 这个立即函数执行是产生闭包的关键
-                // 如果不让btns[i]处于函数作用域中 点击调用的回调函数将获得外层的i（=5）且点哪个按钮都只会产生这个i=5的闭包
-                var btn = btns[i];
-                btn.onclick = function(){
-                    alert("第" + (i + 1) + "个");
-                }
-            })(i)
-        }
-    </script>
-```
-
-产生了n个闭包（这里例子中就是产生了5个闭包）
-
-闭包在点击这个过程中（函数执行完了） 是没有释放的~
-
-注意内部函数是被按钮对象引用了（使用onclick）所以这个闭包一直不会消失
-
-> 换句话说 只要按钮不释放 这个闭包就不会消失~
->
-> 使用 `btn.onclick = null` 释放闭包 解决内存泄露问题~
-
-![在这里插入图片描述](https://img-blog.csdnimg.cn/d1b1e2768a9f4228bb14a668506915b7.png)
-
-
-
-#### 5.闭包到底是什么？
-
-当一个嵌套的子函数引用了嵌套的外部（父）函数的 **变量/函数** 时  就产生了闭包！
-
-我们通过chrome调试查看——了解一下闭包到底是个啥？
-
-- 理解1：闭包是嵌套的内部函数（大众一些的说法）
-- 理解2：闭包是 **包含被引用变量（/函数）的对象** （比较少见的说法哈）
-
-#### 6.产生闭包的条件 闭包死亡的情况
-
-即闭包生命周期的问题
-
-- 产生：嵌套内部函数定义执行完就产生了（==不是调用的时候产生的！==）
-
-- 死亡：嵌套的内部函数成为**垃圾对象**时
-  - 另外：**外部函数执行完之后** 只要在内部函数中 没有用变量接收闭包的返回值 **闭包直接就结束生命周期了！**（也可以说 成为垃圾对象）
-
-
-
-```js
-function fn1() {
-    // 此时闭包就已经产生了(函数提升, 内部函数对象已经创建了)
-    // 在被调用之前就产生了闭包！
-    var a = 2
-    function fn2 () {
-        a++
-        console.log(a)
-    }
-    return fn2
-}
-var f = fn1()
-f() // 3
-f() // 4
-f = null //闭包死亡(包含闭包的函数对象成为垃圾对象)
-```
-
-![在这里插入图片描述](https://img-blog.csdnimg.cn/dab1776a3d5f45919f67f5e33a3dbd5b.png)
-
-
-
-
-
-
-
-
-
-
-
-
-
-#### 7.闭包的作用：定义JS模块化
-
-简单来说就是让JS模块中的变量、方法等 是“**私有**”的
-
-只向外暴露一个包含n个方法的对象/函数
-
-
-
-```js
-// myModule2.js 使用立即执行函数为佳
-(function () {
-  //私有数据
-  var msg = 'My atguigu'
-  //操作数据的函数
-  function doSomething() {
-    console.log('doSomething() '+msg.toUpperCase())
-  }
-  function doOtherthing () {
-    console.log('doOtherthing() '+msg.toLowerCase())
-  }
-
-  //向外暴露对象(给外部使用的方法)
-  window.myModule2 = {
-    doSomething: doSomething,
-    doOtherthing: doOtherthing
-  }
-})()
-```
-
-```js
-// 使用的时候这么用就OK了！
-<script type="text/javascript" src="myModule2.js"></script>
-<script type="text/javascript">
-  myModule2.doSomething()
-  myModule2.doOtherthing()
-</script>
-```
-
-
-
-使用function也能达到这个效果 不过用上面的立即执行函数更简单~
-
-```js
-// myModule.js
-function myModule() {
-  //私有数据
-  var msg = 'My atguigu'
-  //操作数据的函数
-  function doSomething() {
-    console.log('doSomething() '+msg.toUpperCase())
-  }
-  function doOtherthing () {
-    console.log('doOtherthing() '+msg.toLowerCase())
-  }
-
-  //向外暴露对象(给外部使用的方法)
-  return {
-    doSomething: doSomething,
-    doOtherthing: doOtherthing
-  }
-}
-
-```
-
-```js
-// 使用的时候这么用就OK了！
-<script type="text/javascript" src="myModule.js"></script>
-<script type="text/javascript">
-  var module = myModule()
-  module.doSomething()
-  module.doOtherthing()
-</script>
-```
-
-
-
-
-
-#### 8.闭包的缺点（之前的优点）
-
-- 函数执行完之后 函数内的局部变量没有释放 占用内存时间会变长  
-
-```js
-function fn1(){
-    var arr = new Array[10000000]
-    function fn2(){
-        console.log(arr.length);
-    }
-    return fn2;
-}
-var f = fn1();
-f();// fn1形成闭包 本该释放的arr变量现在不会被释放！
-```
-
-所以需要及时释放
-
-```js
-f = null;// 解放空间！
-```
-
-
-
-- 容易造成内存泄露（一块内存空间被长期占用而不被释放）
-
-```js
-function fn(){
-    a = new Array(1000000);// a为意外的全局变量 会造成内存泄漏
-    console.log(a);
-}
-fn();// a变量不会被回收 一直存在 
-```
-
-
-
-- 可能导致==内存溢出==（面试高频）
-
-```js
-var obj = {};
-for(var i = 0; i < 10000; i++){
-    obj[i] = new Array(1000000);// new Array(1000000)定义一个长度为1000000的数组
-    console.log('------')
-}// 这个代码会导致内存溢出 浏览器会做一个崩溃的设置 终止程序
-```
-
-
-
-
-
-解决方案：
-
-- 能不用闭包就不用
-- 及时释放(让嵌套的内部对象成为垃圾对象)
-
-
-
-#### 9.JS实现继承的最佳实践
-
-> 使用 原型链结合构造函数
->
-> 在父类型属性有很多条时 使用 `Parent.call(this,父函数属性)` 让子类型继承
-
-```js
-function Parent(attribute,other){
-    this.attribute = attribute;
-    this.other = other;
-}
-Parent.prototype.output = function(){
-    console.log("此方法位于Parent的显式原型中  Child构造函数继承了我 所以Child的实例对象可以顺着隐式原型连找到这个对象（在Object对象上）");
-}
-function Child(attribute, other){
-    Parent.call(this,attribute,other);// 继承父类型的属性
-}
-Child.prototype = new Parent();// 原型链继承！让子类型的显式原型指向父类型的实例！
-Child.prototype.constructor = Child;// 出于严谨 这里修正constructor属性 要不然Child的显式原型的constructor就是Parent了 这就很奇怪！
-var child = new Child('a', 'b');// ['a', 'b']
-child.output();
-```
-
-![在这里插入图片描述](https://img-blog.csdnimg.cn/73bdd1e607af4508870095cf0d8ffd98.png)
-
-上面的属性的输出有些问题
-
-JS继承最佳实践完整版输出如下：
-
-![在这里插入图片描述](https://img-blog.csdnimg.cn/12053e2fc0e9454696d32fcf45227495.png)
-
-好吧上面的还是不全 有点小问题——
-
-```js
-Child.prototype.constructor = Child;// 出于严谨 这里修正constructor属性 要不然Child的显式原型的constructor就是Parent了 这就很奇怪！
-// 修正完 constructor指向Child构造函数
-```
-
-
-
-#### 10.数组扁平化
+#### 3.数组扁平化
 
 ```js
 var arr = [1, [2, 3, [4, 5, [6]]]]
 ```
 
-10.6学习
-
 [js如何实现数组扁平化](https://blog.csdn.net/original_heart/article/details/78906911?utm_medium=distribute.pc_relevant.none-task-blog-2%7Edefault%7ECTRLIST%7Edefault-2.no_search_link&depth_1-utm_source=distribute.pc_relevant.none-task-blog-2%7Edefault%7ECTRLIST%7Edefault-2.no_search_link)
 
 
 
+#### 4.递归复习
 
+有图有真相
 
-#### 11.JS数组未必是真正的数组~
+[`freecodecamp`:**使用递归代替循环**](https://chinese.freecodecamp.org/learn/javascript-algorithms-and-data-structures/basic-javascript/replace-loops-using-recursion)
 
-纯数字数组对应的是连续的内存！
+题目
 
-- 但如果我们定义了不同类型的元素：
-
-```js
-// 这种元素类型各不相同的“数组”对应的是不连续的内存 
-const arr =['bill',666,{bill:666}];
+```
+计算数组内前n个元素的和
 ```
 
-JS数组**不再具有数组的特征** 
+```js
+function sum(arr, n){
+    if(n <= 0){
+        return 0;
+    }
+    else{
+        return sum(arr, n - 1) + arr[n - 1];
+    }
+}
+```
 
-其底层是用哈希映射分配内存空间（是用对象链表来实现的）
 
-> 问到数组、链表的区别
->
-> 可以说一下这个最好~
 
-- 链表 的 增删 高效——O(1) ； 访问 时间复杂度高——O(N)！
-- 数组相反~
+
+
+
+
+![在这里插入图片描述](https://img-blog.csdnimg.cn/ccd5e9a285ea4e479f55e4e535623ce2.png)
+
+
+
+#### 5.递归进阶练习！
+
+依旧是按照执行上下文栈的思路去想 
+
+其实只要考虑到最内层那个函数的**返回值** 就好了！
+
+第二层的函数根据第一层的值计算得到返回值
+
+第三层再根据第二层的返回值…
+
+直到最后一层函数（执行上下文栈的最底部）也被执行 递归函数调用结束 返回最终结果~
+
+
+
+看一道题
+
+[**使用递归创建一个倒计时**](https://chinese.freecodecamp.org/learn/javascript-algorithms-and-data-structures/basic-javascript/use-recursion-to-create-a-countdown)
+
+题目
+
+```
+输入一个n
+
+输出 [n, n-1, …, 1]
+```
+
+
+
+解决方案
+
+```js
+// 01 先将函数入栈（递 的过程） n = 0 时 countdown就是 []
+// 出栈的时候将值插入数组中（归 的过程）
+function countdown(n){
+    if(n <= 0){
+        return [];
+    }
+    else{
+        const countArray = countdown(n - 1);
+        countArray.unshift(n);// 需要头插 因为是倒序的数组嘛~
+        // countArray.splice(0, 0, n);// 这样也可以达到头插的效果
+        return countArray;
+    }
+}
+
+```
+
+执行上下文栈模拟——
+
+```js
+// 假设n = 5
+// 递归函数入栈(函数体的所有内容都入栈哈)
+countArray = countdown(4) —— 最底层 n = 5
+countArray = countdown(3) —— 第四层 n = 4
+countArray = countdown(2) —— 第三层 n = 3
+countArray = countdown(1) —— 第二层 n = 2
+countArray = countdown(0) —— 第一层 n = 1
+count(0) 这里不会往下执行了 直接返回 countArray = [] 
+```
+
+```js
+// 出栈（执行递归函数 并将其出栈）
+[].splice(0,0,1) —— 第一层出栈
+[1].splice(0,0,2) —— 第二层出栈
+[2,1].splice(0,0,3) —— 第三层出栈
+[3,2,1].splice(0,0,4) —— 第四层出栈
+[4,3,2,1].splice(0,0,5) —— 最底层出栈
+返回最终结果 [5,4,3,2,1]
+```
+
+
+
+
+
+
+
+
+
+下面的代码则再升一级 利用三元运算符让代码更加简洁 
+
+不必创建数组 利用`concat` / `…` 将数组不断拼接起来
+
+```js
+// 02 更为简洁的一行代码秒杀法
+// n = 0时 返回值为 [5,...[]] 之后随着递归函数出栈 返回值数组逐渐插入数字
+function countdown(n){
+	return n <= 0 ? [] : [n].concat(countdown(n - 1));
+    // return n <= 0? [] : [n, ...countdown(n - 1)];// 更加简洁的展开运算符~
+}
+```
+
+
+
+##### 再来一题！
+
+[**使用递归来创建一个数字序列**](https://chinese.freecodecamp.org/learn/javascript-algorithms-and-data-structures/basic-javascript/use-recursion-to-create-a-range-of-numbers)
+
+```js
+function rangeOfNumbers(startNum, endNum) {
+  if(startNum === endNum){
+    return [startNum];
+  }
+  else{
+    const countArray = rangeOfNumbers(startNum + 1, endNum);
+    countArray.unshift(startNum)
+    return countArray;
+  }
+};
+```
+
+```js
+function rangeOfNumbers(startNum, endNum) {
+    return startNum === endNum 
+      ? [startNum] 
+      :rangeOfNumbers(startNum, endNum - 1).concat(endNum);
+      // : [...rangeOfNumbers(startNum, endNum - 1), endNum];  
+};
+```
+
+
+
+
+
+#### 6.parseInt()方法
+
+```js
+parseInt()解析一个字符串返回一个整数 
+	parseInt("007.1");// 7  
+	parseInt("sfz30");// NaN
+```
+
+
+
+```js
+可以利用这个方法计算n进制数 parseInt(str, radix);// 这个radix就是进制数的设置
+	parseInt("0011", 2);// 3
+	parseInt("11010010", 2);// 210
+	parseInt("11010010", 16);// 285278224
+很方便！
+```
 
 
 
@@ -14263,237 +14142,7 @@ JS数组**不再具有数组的特征**
 ```js
 //小林的图解网络随时翻阅 & 极客时间趣谈网络协议+网上的文章 & 读图解HTTP TCP等书籍 & 网络抓包实操练习  深入理解
 // 每天一道计网面试题 把自己带入面试者的身份 跟面试官白话白话 嗯就这样子
-1.“来聊聊HTTP的一些特性
-	HTTP的优点
-    HTTP的缺点
-    HTTP的性能如何？”
-2.GET POST复习
 ```
-
-#### HTTP的特性
-
-> 图解网络2.1【1】
-
-##### 1.HTTP（/1.1 也就是现在用到最多的协议）优点有哪些？怎么体现的？
-
-- 简单
-
-HTTP基本的报文格式就是`header+body` 头部信息也是 `key-value` 简单文本的形式 —— 易于理解 降低了学习和使用的门槛 所以说它的一个优点是简单
-
-> HTTP报文格式：
->
-> - 请求行 request line
->
-> - 请求头部 header
->
-> - 空行 blank line
->
-> - 请求数据 request-body
->
-> ![img](https://pic002.cnblogs.com/images/2012/426620/2012072810301161.png)
->
-> 客户程序发送的请求以及服务器端的响应的格式——
->
-> - 请求报文
->
-> ![HTTP Request 请求报文格式](https://img-blog.csdn.net/20170330192653242?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvSG9sbW9meQ==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast)
->
-> - 响应报文
->
-> ![Response HTTP响应报文格式](https://img-blog.csdn.net/20170330192754102?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvSG9sbW9meQ==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast)
-
-
-
-
-
-- 灵活&易于扩展
-
-HTTP协议里的各类请求方法、URI/URL、状态码、头字段等每个组成要求都没有被固定死 都允许开发人员**自定义和扩充**
-
-同时 HTTP 由于是⼯作在应⽤层（ OSI 第七层），则它**下层可以随意变化**
-
-> 举个例子 可以发现HTTP协议的下层可以随意变化~（毕竟人家在上层嘛~）
->
-> - HTTPS 也就是在 HTTP 与 TCP 层之间增加了 SSL/TLS 安全传输层
-> - HTTP/3 甚⾄把 TCP 层换成了基于 UDP 的 QUIC
-
-- 应用广泛&跨平台
-
-互联⽹发展⾄今，HTTP 的应⽤范围⾮常的⼴泛，从台式机的浏览器到⼿机上的各种 APP，**从看新闻、刷贴吧到购物、理财、吃鸡，HTTP 的应⽤遍地开花**，同时天然具有**跨平台**的优越性
-
-
-
-
-
-##### 2.HTTP协议的缺点有哪些
-
-HTTP 协议⾥有优缺点⼀体的**双刃剑**，分别是==「⽆状态、明⽂传输」==，同时还有⼀⼤**缺点**「不安全」
-
-- HTTP协议双刃剑
-
-  - 无状态
-
-    - 优点 服务器<u>不会去记忆 HTTP 的状态</u>，所以不需要额外的资源来记录状态信息，这能**减轻服务器的 负担**，能够把更多的 CPU 和内存⽤来对外提供服务。
-    - 缺点 既然服务器没有记忆能⼒，它在**完成有关联性的操作时会非常麻烦**。 例如登录->添加购物⻋->下单->结算->⽀付，这系列操作都要知道⽤户的身份才⾏。但服务器不知道这些请求是有 关联的，每次都要问⼀遍身份信息
-    - 缺点的解决方法
-
-    这样每操作⼀次，都要验证信息，购物体验下降！
-
-    对于⽆状态的问题，解法⽅案有很多种，其中⽐较简单的⽅式⽤ **Cookie 技术**。 
-
-    Cookie 通过在请求和响应报⽂中写⼊ Cookie 信息来控制客户端的状态。 
-
-    相当于，**在客户端第⼀次请求后，服务器会下发⼀个装有客户信息的「⼩贴纸」，后续客户端请求服务器的时候， 带上「⼩贴纸」，服务器就能认得了了**
-
-    ![img](http://5b0988e595225.cdn.sohucs.com/images/20200309/cd5875840f394614a43e64a93429f66f.jpeg)
-
-    下次再（请求中带上Cookie）请求就会方便很多
-
-    
-
-  - 明文传输
-
-    - 优点 传输过程中的信息，是可⽅便阅读的，**通过浏览器的 F12 控制台或 Wireshark 抓包**都可以直接肉眼查看，为我们调试⼯作带了极⼤的便利性
-    - 缺点 信息裸奔。
-
-    正是因为这样，HTTP 的所有信息都暴露在了光天化⽇下，相当于**信息裸奔**。在传输的漫⻓的过程中，信息的内容都毫⽆隐私可⾔，很容易就能被窃取，如果⾥⾯有你的账号密码信息，那你号没了:joy:
-
-
-
-- HTTP协议是不安全的！——严重缺点
-  - 通信使⽤**明⽂（不加密）**，内容可能会被窃听。⽐如，**账号信息容易泄漏**，那你号没了。
-  - **不验证通信⽅的身份**，因此有可能遭遇伪装。⽐如，**访问假的淘宝、拼多多**，那你钱没了。 
-  - **⽆法证明报文的完整性，所以有可能已遭篡改**。⽐如，⽹⻚上植⼊垃圾⼴告，视觉污染，眼没了
-
-HTTP 的安全问题，可以⽤ HTTPS 的⽅式解决，也就是通过引⼊ SSL/TLS 层，使得在安全上达到了极致！
-
-##### 3.HTTP/1.1的性能如何？
-
-HTTP协议是基于TCP/IP 并且使用了 【请求-应答】的通信模式 所以性能的关键就在这两点里~
-
-###### 长连接（性能提升！）
-
-早期 <u>HTTP/1.0</u> 性能上的⼀个很⼤的问题，那就是每发起⼀个请求，都要新建⼀次 TCP 连接（三次握⼿），⽽且是 串⾏请求，做了⽆谓的 TCP 连接建⽴和断开，增加了通信开销。 
-
-为了解决上述 TCP 连接问题，<u>HTTP/1.1</u> 提出了**长连接**的通信⽅式，也叫持久连接。这种⽅式的好处在于减少了 TCP 连接的重复建⽴和断开所造成的额外开销，减轻了服务器端的负载。 
-
-持久连接的特点是，只要任意⼀端没有明确提出断开连接，则保持 TCP 连接状态
-
-![img](http://5b0988e595225.cdn.sohucs.com/images/20200309/3463897bce7142a0845b3744e2b7d779.jpeg)
-
-
-
-###### 管道网络传输
-
-HTTP/1.1 采用了长连接的方式，这使得管道（pipeline）网络传输成为了可能。
-
- 即可在同⼀个 TCP 连接⾥⾯，客户端可以发起多个请求，只要第⼀个请求发出去了，**不必等其回来，就可以发第⼆个请求出去**，可以**减少整体的响应时间**
-
-举例来说，客户端需要请求两个资源。**以前的做法**是，在同⼀个TCP连接⾥⾯，先发送 A 请求，然后等待服务器做 出回应，收到后再发出 B 请求（有点像同步机制）。**管道机制**则是允许浏览器同时发出 A 请求和 B 请求（类似异步机制的感觉~）
-
-![img](http://5b0988e595225.cdn.sohucs.com/images/20200309/f9149650a28742fc90d5c10656c2d0ef.jpeg)
-
-但是服务器还是按照**顺序**，先回应 A 请求，完成后再回应 B 请求。要是前⾯的回应特别慢，后⾯就会有许多请求 排队等着。这称为「队头堵塞」（可见与异步还是有些不同的 
-
-###### 队头堵塞
-
-「请求 - 应答」的模式加剧了 HTTP 的性能问题
-
-因为当顺序发送的请求序列中的⼀个请求因为某种原因被阻塞时，在后⾯排队的所有请求也⼀同被阻塞了，会招致 客户端⼀直请求不到数据，这也就是「队头阻塞」。好⽐上班的路上塞⻋
-
-![img](http://5b0988e595225.cdn.sohucs.com/images/20200309/5dff63bb71164d99ac5609da0023f949.jpeg)
-
-
-
-总之 HTTP/1.1 的性能⼀般般，后续的 HTTP/2 和 HTTP/3 就是在优化 HTTP 的性能
-
-（不过HTTP/1.1依旧是目前应用最广泛的HTTP协议~）
-
-
-
-#### 2.GET POST请求复习
-
-
-
-> 这里提到的POST比GET安全 又有点道理了XD
->
-> [HTTP报文（面试会问开发时常用的报文头格式）](https://www.cnblogs.com/chenguangliang/p/6708592.html)
-
-![img](https://pic002.cnblogs.com/images/2012/426620/2012072810301161.png)
-
-**HTTP请求头部**由 请求方法字段 URL字段 HTTP协议版本字段 三个字段组成（使用空格分隔）
-
-例如： `GET /index.html HTTP/1.1。` GET 和 /index.html 和 HTTP/1.1
-
-- GET请求方法
-
-最常见的一种请求方式，当客户端要从服务器中读取文档时，当点击网页上的链接或者通过在浏览器的地址栏输入网址来浏览网页的，使用的都是GET方式。GET方法要求服务器将URL定位的资源放在响应报文的数据部分，回送给客户端。使用GET方法时，请求参数和对应的值附加在URL后面，利用一个问号（“?”）代表URL的结尾与请求参数的开始，传递参数长度受限制。例如，`/index.jsp?id=100&op=bind`,这样通过GET方式传递的数据直接表示在地址中，所以我们可以把请求结果以链接的形式发送给好友。
-
-，GET方式的请求一般不包含”请求内容”部分，请求数据以地址的形式表现在请求行。地址链接如下：
-
-```html
-<a href="http://www.google.cn/search?hl=zh-CN&source=hp&q=domety&aq=f&oq=">http://www.google.cn/search?hl=zh-CN&source=hp
-&q=domety&aq=f&oq=</a> 
-```
-
-地址中”?”之后的部分就是通过GET发送的请求数据，我们可以在地址栏中清楚的看到，各个数据之间用”&”符号隔开。
-
-显然，这种方式**不适合传送私密数据**。另外，由于不同的浏览器对地址的字符限制也有所不同，一般最多只能识别1024个字符，所以如果**需要传送大量数据的时候，也不适合使用GET方式**。
-
-- POST请求方法
-
-对于上面提到的不适合使用GET方式的情况，可以考虑使用POST方式，因为使用POST方法可以允许客户端给服务器提供信息较多。
-
-POST方法将请求参数封装在HTTP请求数据中，以名称/值的形式出现，可以传输大量数据，这样POST方式对传送的数据大小没有限制，而且**也不会显示在URL中**。
-
-
-
-###### 1.1 GET提交，**请求的数据会附在URL之后**（就是把数据放置在HTTP==协议头＜request-line＞==中）
-
-- 以?分割URL和传输数据
-- 多个参数用&连接;
-- 例如：`login.action?name=hyddd&password=idontknow&verify=%E4%BD%A0 %E5%A5%BD`。
-
-报文内容问题：
-
-- 如果数据是英文字母/数字，原样发送
-
-- **如果是空格，转换为+**
-- 如果**是中文/其他字符，则直接把字符串用BASE64加密**，得出如： `%E4%BD%A0%E5%A5%BD`，其中％XX中的**XX为该符号以16进制表示的ASCII**。
-
-
-
-###### 1.2 POST提交：把**提交的数据放置在**HTTP包的==**包体**＜request-body＞==中。
-
- 
-
-因此，**GET提交的数据会在地址栏中显示出来，而POST提交，地址栏不会改变**
-
- 
-
-2.传输数据的大小：
-
-  首先声明,HTTP协议**没有对传输的数据大小进行限制**，HTTP协议规范**也没有对URL长度进行限制**。 而在实际开发中存在的限制主要有：
-
-- GET:**特定浏览器和服务器对URL长度有限制**，例如IE对URL长度的限制是2083字节(2K+35)。对于其他浏览器，如Netscape、FireFox等，理论上没有长度限制，其限制取决于[操作系统](http://lib.csdn.net/base/operatingsystem)的支持。
-
-  因此**对于GET提交时，传输数据就会受到URL长度的限制**。
-
-- POST:**由于不是通过URL传值，理论上数据不受限**。但<u>实际各个WEB服务器会规定对post提交数据大小进行限制</u>，Apache、IIS6都有各自的配置。
-
- 
-
-3.安全性：
-
-  ==POST的安全性要比GET的安全性高==。注意：这里所说的安全性和上面GET提到的“安全”不是同个概念。
-
-**上面“安全”的含义仅仅是不作数据修改，而这里安全的含义是真正的Security的含义**
-
-比如：通过GET提交数据，==用户名和密码将**明文出现**在URL上==（信息直接一个的裸奔XD），因为**(1)登录页面有可能被浏览器缓存**， **(2)其他人查看浏览器的历史纪录**，那么别人就可以拿到你的账号和密码了。
-
-![img](https://images2015.cnblogs.com/blog/982259/201704/982259-20170414142132314-785720939.png)
-
- 
 
 
 
@@ -14514,7 +14163,55 @@ POST方法将请求参数封装在HTTP请求数据中，以名称/值的形式�
 
 ```js
 //网上面试题、面经辣么多 一天多看一些 然后同时也要研究一些题的答案！
+1.把10元破成1元、5角、1角有多少种方法
 ```
+
+#### 10元破成`a*1 + b*0.5+c*0.1`
+
+##### 没做出来的递归法
+
+```js
+// 这个递归有点问题啊！
+// 虽说我觉得看起来挺有道理的 然而事实是 根本没法让所有递归函数出栈啊！
+function countChange(money){
+    let total = 0;
+    if(money < 0){
+        return 0;
+    }
+    else if(money === 0){
+        return 1;
+    }
+    else{
+        total += 1;
+        return countChange(money - 1) + countChange(money - 0.5) + countChange(money - 0.1) 
+        console.log(total)
+    }
+}
+```
+
+##### 疯狂迭代法
+
+```js
+// money为10时 最多分成10个1元 20个五角 50个一角 
+function countChange(){
+    let count = 0;
+    for(let i = 0; i <= 10; i++){
+        for(let j = 0; j <= 20; j++){
+            for(let k = 0; k <= 100; k++){
+                if(i + 0.5*j +0.1*k === 10){
+                    count++;
+                }
+            }
+        }
+    }
+    return count;
+}
+console.log(countChange());// 121
+```
+
+
+
+
 
 
 
@@ -14522,110 +14219,555 @@ POST方法将请求参数封装在HTTP请求数据中，以名称/值的形式�
 
 ```js
 // 跟着掘金小册、代码随想录的内容进行学习！
-链表内容的学习 看了2节的内容（链表的比重在小册中很大！说明作者认为其很重要（他确实也这么说了hh））
-leetcode21 递归算法的研究
-leetcode83 easy
-leetcode82 卡住！笨死！！下回做题务必画图&头脑清醒一些！！
+总结了半天的递归。
+刷了反转链表的递归解法
 ```
 
-数组、字符串若想往难了出，那一定是要结合一些超越数据结构本身的东西——比如排序算法、二分思想、动态规划思想等等
+[一文学会递归解题！——方法论 题目总结得很好！](https://www.cnblogs.com/xiekun/p/11968538.html)
 
-但是链表可不一样了。如果说在命题时，数组和字符串的角色往往是“算法思想的载体”，那么链表本身就可以被认为是“命题的目的”。
+[掌握递归调用栈思想 由浅入深研究递归🎉](https://juejin.cn/post/7016324095843237901)
 
-结合实际面试中的命题规律，我把这些题目分为以下三类：
-
-- 链表的处理
-  - 合并
-  - **删除**（重点！）
-- 链表的反转 以及 衍生题目
-- 链表成环问题 以及 衍生题目
+[超棒的递归解决206.反转链表](https://leetcode-cn.com/problems/reverse-linked-list/solution/dong-hua-yan-shi-206-fan-zhuan-lian-biao-by-user74/)
 
 
 
+## 4.前端开发框架
 
-
-#### 递归法学习
-
-[21. 合并两个有序链表](https://leetcode-cn.com/problems/merge-two-sorted-lists/)
-
-这俩题一样哈——[剑指 Offer 25. 合并两个排序的链表](https://leetcode-cn.com/problems/he-bing-liang-ge-pai-xu-de-lian-biao-lcof/)
+### 项目开发前置知识
 
 ```js
-var mergeTwoLists = function(l1, l2){
-    if(l1 === null){
-        return l2;// 碰到一个链表走到null 就结束“递” 开始归
-    }
-    else if(l2 === null){
-        return l1;
-    }
-    else if(l1.val < l2.val){
-        l1.next = mergeTwoLists(l1.next, l2);
-    }
-    else{
-        l2.next = mergeTwoLists(l1, l2.next);
+// 学到了尚硅谷react第四章 老师表示 “先学完Ajax Promise axios再回来吧！”
+```
+
+
+
+### react基础知识
+
+```js
+// 现阶段学习广受好评的react教程尚硅谷 
+```
+
+
+
+### react练手项目
+
+```js
+// 尚硅谷课程接下来的案例
+// 掘金 记账本egg.js+react全栈 
+```
+
+
+
+# 10.8
+
+```js
+// DDL
+	0 算法题 链表 二叉树部分 排序算法部分 递归 10.10
+    03 Promise 10.8 axios 10.9
+```
+
+
+
+今天看递归上了头了！DDL啥的 害！
+
+```js
+// 今日主要收获 & 学习时间
+Totally 530min
+1.前端基础知识 
+// 从早上-中午 拿出一整块时间学习JS 晚上跑完步回来继续看JS 重视基础！
+// 不要浮于表面地看问题 深入进去！多向自己提问！
+    1.1 前端基础学习 90min 
+    // 每日重点！编码 + 知识点记录
+    // 近期重点 作用域、闭包、原型链 + ES6 + Ajax axios
+		/* JS高级复习完毕~ 
+		JS基础复习开始！
+		简单学习了正则表达式
+		复习了一下递归 又明白点儿了！！*/
+    1.2 freecodecamp JS + 响应式网页设计 120min
+    	/* 完结JS基础部分 */
+    1.3 JS 30demos min
+    // 每天完成一个 不要求完全理解 先做一个初步的认知
+    // 没有完全了解的/觉得很好的 都要特意标记出来 二刷时候再去好好理解下！
+    	/* 
+        */
+    1.4 react前置知识 min
+    	/*  */
+    
+    // 这些内容都是要重点掌握的！
+    DOM编程 BOM使用 —— 复习
+    事件代理/委托
+	事件队列(setTimeout/setInterval/Promise)
+	JSON
+    Ajax/Fetch
+	正则表达式
+
+2.核心基础知识 下午开始学计网 + 刷题
+	2.1 计网 min
+		/*  */
+	2.2 操作系统 min
+		/*  */
+
+3.面试刷题
+	3.1 刷算法 刷力扣 180+80min	
+    // 【1】阅读掘金小册 + 按照代码随想录推荐【2】刷题
+    	/* 掘金小册 6/28 代码随想录链表 1/9
+        今天跟递归耗上了！写了一大篇文章！用递归解决反转链表
+        */   
+    
+    	// 每个阶段结束后 简单总结下应对某种数据结构/对应类型的题目 应该怎么去想
+    	数组 + 排序 第五周
+        链表 + 二叉树 第六周
+        字符串 + 二叉树 + 栈/队列 第七周
+        双指针 + 遍历专题DFS BFS 第八周
+        回溯算法 + 贪心算法 第九周
+        动态规划 第十周
+    3.2 面试题 30min
+    // 有空可以读一些面试题 查缺补漏一下~
+		/* 看了一道有意思的面试题——10块钱破成1 0.5 0.1元 */  
+    
+4.前端开发框架 
+	4.1 react学习 min
+    // 尚硅谷课程 freecodecamp
+		/*  */
+    
+5.前端进阶知识学习
+// 学完JS再学这个辽！
+    Node.js
+	webpack
+6.其他 
+7.每日总结 30min
+```
+
+
+
+> 学习顺序预告
+>
+> 这里说的实操 都是在 `freecodecamp` 中进行练习
+
+- [ ] ~~计网~~
+- [x] JS高级快速回顾 
+- [x] JS基础快速过 
+- [ ] ~~JS数组API总结、学习（学习数组去重、解构赋值、数组扁平化） - 下午 刷完题之后~~
+- [x] JS CSS 实操 
+- [x] 刷算法 高级排序算法 + 链表+递归专场 
+- [ ] ~~JS30demos~~ 
+- [ ] ~~`promise` `ajax（稍微再学一下 不信学不懂了！）`~~ 
+- [ ] ~~react实操~~  
+
+今天后面这些因为总结递归 + 刷题上头 + 效率略低 
+
+都木有做。。
+
+明天去接天津回来的颖 做一些查缺补漏的工作！
+
+## 1.前端基础
+
+
+
+### 前端基础知识
+
+
+
+
+
+```js
+//每日学到的知识点 可以写文章 可以记在心里 总结下来！
+// 本阶段主要学习JS高级教程（尚硅谷）刷freecodecamp
+1.JS数组去重问题
+2.解构赋值的应用
+3.数组扁平化的六种方法
+4.执行上下文栈的角度解释递归
+5.生成min - max之间的随机整数 Math.floor(Math.random(max - min + 1) + min)
+6.parseInt()解析一个字符串返回一个整数 
+	parseInt("007.1");// 7  
+	parseInt("sfz30");// NaN
+可以利用这个方法计算n进制数 parseInt(str, radix);// 这个radix就是进制数的设置
+	parseInt("0011", 2);// 3
+	parseInt("11010010", 2);// 210
+	parseInt("11010010", 16);// 285278224
+很方便！
+7.三元运算符更好的书写格式
+return num > 0 ? "正数"
+    : num < 0 ? "负数"
+	: "为0"
+```
+
+
+
+#### 1.面试高频 利用JavaScript实现数组去重
+
+参考 写得很棒的文章 [JavaScript数组去重问题](https://juejin.cn/post/7014009223197491236) 同为大三在校生 为何人家如此优秀！
+
+```js
+var arr = ['v','i','o','l','i','n','C','o','d','i','n','g'];
+```
+
+目的 去除 violin Coding 这个字符串中每个字母组成的**数组**中的重复字符
+
+##### 【1】原始方法 遍历
+
+```js
+// 01 暴力双层循环
+function iteration(){
+    for(let i = 0; i < arr.length; i++){
+        var isNotRepeat = true;
+        for(let j = 0; j < res.length; j++){
+            if(arr[i] === res[j]){
+                isNotRepeat = false;
+                break;
+            }
+        }
+        if(isNotRepeat){
+            res.push(arr[i]);
+            console.log(res);
+        }
     }
 }
 ```
 
-[递归法图解](https://leetcode-cn.com/problems/merge-two-sorted-lists/solution/yi-kan-jiu-hui-yi-xie-jiu-fei-xiang-jie-di-gui-by-/)
 
-递归就思考第一层第二层最好
 
-每层不要忘了返回当层结果（执行这一次递归函数 返回的结果）！
+##### 【2】利用`res.indexOf(item)`查找是否item在res中是重复的
 
-以原始用例 [1,2] [1,3,4]
 
-【1】**开始“递”** 一直到最里面那一层 
 
-- l1小的时候 l1指向再里层一些的那个递归函数`mergeTwoLists()`别忘了l1要往前挪动一位 `mergeTwoLists(l1.next, l2)`
-- l2小的时候同理
+##### 【3】利用filter结合`indexOf`方法过滤获得res
 
-![img](https://pic.leetcode-cn.com/fe5eca7edea29a76316f7e8529f73a90ae4990fd66fea093c6ee91567788e482-%E5%B9%BB%E7%81%AF%E7%89%874.JPG)
 
-【2】return l2 执行时
 
-![img](https://pic.leetcode-cn.com/e59fd2981f3633cc70a90bd3136e07647ecf89c6f4eefb82159ea54db9772889-%E5%B9%BB%E7%81%AF%E7%89%875.JPG)
+##### 【4】排序+比较先前元素pre和当前元素是否相同 
 
-**这里结束了“递”** 
 
-最里面那层的`mergeTwoLists()`执行完了
 
-开始“归” —— 逐步执行外层的`mergeTwoLists()`函数
+##### 【5】结合【4】`arr.sort().filter(对应函数)` 更简单！
 
-【3】最外面一层函数执行完 
 
-![img](https://pic.leetcode-cn.com/e95ec0c841cfa308e5789eb1f9f214f785bc77d99214c01504b303939581eb07-%E5%B9%BB%E7%81%AF%E7%89%877.JPG)
 
-就可以返回最终结果了~
+##### 【6】利用Set生成哈希表（很快啊！）
 
-![img](https://pic.leetcode-cn.com/c1687ef7811036b7b5e58e4882ed12e243f6a77ddb8077123f013ef094cafd73-%E5%B9%BB%E7%81%AF%E7%89%878.JPG)
+Set 对象允许你存储任何类型的唯一值，无论是原始值或者是对象引用。
 
-小结一下——
-
-- 想一下“哪个是最里层被调用的函数” 在那里返回对应结果
-  - 也就是主要想**第一层**
-
-迭代法
+所以我们可以利用Set的这一特性，来进行去重处理。
 
 ```js
-var mergeTwoLists = function(l1, l2) {
-    let dummyHead = new ListNode(0, l1);
-    let cur = dummyHead;
-    while(l1 !== null && l2 !== null){
-        if(l1.val < l2.val){
-            cur.next = l1;
-            l1 = l1.next;
-        }
-        else{
-            cur.next = l2;
-            l2 = l2.next;
-        }
-        cur = cur.next;
+var arr = [1,1,2,3,4,5,6,7,4,3,'1',8,'3','1','3','66']
+// var hashtable = Array.from(new Set(arr));//[1, 2, 3, 4, 5, 6, 7, "1", 8, "3", "66"]
+// Set原来是这么用的啊！之前一直都使用一个个比对+遍历 
+function unique(arr){
+	return Array.from(new Set(arr))
+}
+
+console.log(unique(arr));
+```
+
+###### 通过解构赋值进一步简化
+
+```js
+var arr = [1,1,2,3,4,5,6,7,4,3,'1',8,'3','1','3','66']
+
+function unique(arr){
+	return [...new Set(arr)]
+}
+
+console.log(unique(arr));
+```
+
+###### 极简箭头函数
+
+```js
+var arr = [1,1,2,3,4,5,6,7,4,3,'1',8,'3','1','3','66']
+var unique = (arr) => return [...new Set(arr)];// 就是把常规函数形式 变了一下下~
+console.log(unique(arr));
+```
+
+
+
+#### 2.解构赋值的应用
+
+很棒的一个大三前端大佬的博客中的内容
+
+https://blog.wangez.site/posts/1586874348.html/
+
+
+
+
+
+#### 3.数组扁平化
+
+```js
+var arr = [1, [2, 3, [4, 5, [6]]]]
+```
+
+[js如何实现数组扁平化](https://blog.csdn.net/original_heart/article/details/78906911?utm_medium=distribute.pc_relevant.none-task-blog-2%7Edefault%7ECTRLIST%7Edefault-2.no_search_link&depth_1-utm_source=distribute.pc_relevant.none-task-blog-2%7Edefault%7ECTRLIST%7Edefault-2.no_search_link)
+
+
+
+#### 4.递归复习
+
+有图有真相
+
+[`freecodecamp`:**使用递归代替循环**](https://chinese.freecodecamp.org/learn/javascript-algorithms-and-data-structures/basic-javascript/replace-loops-using-recursion)
+
+题目
+
+```
+计算数组内前n个元素的和
+```
+
+```js
+function sum(arr, n){
+    if(n <= 0){
+        return 0;
     }
-    cur.next = l1 === null ? l2 : l1;
-    return dummyHead.next;
+    else{
+        return sum(arr, n - 1) + arr[n - 1];
+    }
+}
+```
+
+
+
+
+
+
+
+![在这里插入图片描述](https://img-blog.csdnimg.cn/ccd5e9a285ea4e479f55e4e535623ce2.png)
+
+
+
+#### 5.递归进阶练习！
+
+依旧是按照执行上下文栈的思路去想 
+
+其实只要考虑到最内层那个函数的**返回值** 就好了！
+
+第二层的函数根据第一层的值计算得到返回值
+
+第三层再根据第二层的返回值…
+
+直到最后一层函数（执行上下文栈的最底部）也被执行 递归函数调用结束 返回最终结果~
+
+
+
+看一道题
+
+[**使用递归创建一个倒计时**](https://chinese.freecodecamp.org/learn/javascript-algorithms-and-data-structures/basic-javascript/use-recursion-to-create-a-countdown)
+
+题目
+
+```
+输入一个n
+
+输出 [n, n-1, …, 1]
+```
+
+
+
+解决方案
+
+```js
+// 01 先将函数入栈（递 的过程） n = 0 时 countdown就是 []
+// 出栈的时候将值插入数组中（归 的过程）
+function countdown(n){
+    if(n <= 0){
+        return [];
+    }
+    else{
+        const countArray = countdown(n - 1);
+        countArray.unshift(n);// 需要头插 因为是倒序的数组嘛~
+        // countArray.splice(0, 0, n);// 这样也可以达到头插的效果
+        return countArray;
+    }
+}
+
+```
+
+执行上下文栈模拟——
+
+```js
+// 假设n = 5
+// 递归函数入栈(函数体的所有内容都入栈哈)
+countArray = countdown(4) —— 最底层 n = 5
+countArray = countdown(3) —— 第四层 n = 4
+countArray = countdown(2) —— 第三层 n = 3
+countArray = countdown(1) —— 第二层 n = 2
+countArray = countdown(0) —— 第一层 n = 1
+count(0) 这里不会往下执行了 直接返回 countArray = [] 
+```
+
+```js
+// 出栈（执行递归函数 并将其出栈）
+[].splice(0,0,1) —— 第一层出栈
+[1].splice(0,0,2) —— 第二层出栈
+[2,1].splice(0,0,3) —— 第三层出栈
+[3,2,1].splice(0,0,4) —— 第四层出栈
+[4,3,2,1].splice(0,0,5) —— 最底层出栈
+返回最终结果 [5,4,3,2,1]
+```
+
+
+
+
+
+
+
+
+
+下面的代码则再升一级 利用三元运算符让代码更加简洁 
+
+不必创建数组 利用`concat` / `…` 将数组不断拼接起来
+
+```js
+// 02 更为简洁的一行代码秒杀法
+// n = 0时 返回值为 [5,...[]] 之后随着递归函数出栈 返回值数组逐渐插入数字
+function countdown(n){
+	return n <= 0 ? [] : [n].concat(countdown(n - 1));
+    // return n <= 0? [] : [n, ...countdown(n - 1)];// 更加简洁的展开运算符~
+}
+```
+
+
+
+##### 再来一题！
+
+[**使用递归来创建一个数字序列**](https://chinese.freecodecamp.org/learn/javascript-algorithms-and-data-structures/basic-javascript/use-recursion-to-create-a-range-of-numbers)
+
+```js
+function rangeOfNumbers(startNum, endNum) {
+  if(startNum === endNum){
+    return [startNum];
+  }
+  else{
+    const countArray = rangeOfNumbers(startNum + 1, endNum);
+    countArray.unshift(startNum)
+    return countArray;
+  }
 };
 ```
+
+```js
+function rangeOfNumbers(startNum, endNum) {
+    return startNum === endNum 
+      ? [startNum] 
+      :rangeOfNumbers(startNum, endNum - 1).concat(endNum);
+      // : [...rangeOfNumbers(startNum, endNum - 1), endNum];  
+};
+```
+
+
+
+
+
+#### 6.parseInt()方法
+
+```js
+parseInt()解析一个字符串返回一个整数 
+	parseInt("007.1");// 7  
+	parseInt("sfz30");// NaN
+```
+
+
+
+```js
+可以利用这个方法计算n进制数 parseInt(str, radix);// 这个radix就是进制数的设置
+	parseInt("0011", 2);// 3
+	parseInt("11010010", 2);// 210
+	parseInt("11010010", 16);// 285278224
+很方便！
+```
+
+
+
+## 2.核心基础知识
+
+### 计网
+
+```js
+//小林的图解网络随时翻阅 & 极客时间趣谈网络协议+网上的文章 & 读图解HTTP TCP等书籍 & 网络抓包实操练习  深入理解
+// 每天一道计网面试题 把自己带入面试者的身份 跟面试官白话白话 嗯就这样子
+```
+
+
+
+
+
+###  操作系统
+
+```js
+// 小林的图解系统 & 学校课程学习 & 王道考研-OS 三者配合 高效学习
+// 要看一下学校的ppt了 课程旷了好几节有点听不懂！
+```
+
+
+
+## 3.面试题
+
+### 面试题、面经总结
+
+```js
+//网上面试题、面经辣么多 一天多看一些 然后同时也要研究一些题的答案！
+1.把10元破成1元、5角、1角有多少种方法
+```
+
+#### 10元破成`a*1 + b*0.5+c*0.1`
+
+##### 没做出来的递归法
+
+```js
+// 这个递归有点问题啊！
+// 虽说我觉得看起来挺有道理的 然而事实是 根本没法让所有递归函数出栈啊！
+function countChange(money){
+    let total = 0;
+    if(money < 0){
+        return 0;
+    }
+    else if(money === 0){
+        return 1;
+    }
+    else{
+        total += 1;
+        return countChange(money - 1) + countChange(money - 0.5) + countChange(money - 0.1) 
+        console.log(total)
+    }
+}
+```
+
+##### 疯狂迭代法
+
+```js
+// money为10时 最多分成10个1元 20个五角 50个一角 
+function countChange(){
+    let count = 0;
+    for(let i = 0; i <= 10; i++){
+        for(let j = 0; j <= 20; j++){
+            for(let k = 0; k <= 100; k++){
+                if(i + 0.5*j +0.1*k === 10){
+                    count++;
+                }
+            }
+        }
+    }
+    return count;
+}
+console.log(countChange());// 121
+```
+
+
+
+
+
+
+
+### 算法题
+
+```js
+// 跟着掘金小册、代码随想录的内容进行学习！
+
+```
+
+[一文学会递归解题！——方法论 题目总结得很好！](https://www.cnblogs.com/xiekun/p/11968538.html)
+
+
 
 
 
