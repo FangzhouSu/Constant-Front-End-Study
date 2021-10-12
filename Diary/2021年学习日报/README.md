@@ -218,7 +218,7 @@ SSL/TLS协议基本流程
 
 ```js
      
-o// DDL
+// DDL
 	写出第一版简历  10.24
 		1.重点掌握HTTP协议
         2.JS基础良好 https://github.com/KieSun/fucking-frontend
@@ -266,7 +266,7 @@ Totally min
 		/*  */  
     
 4.前端开发框架 
-	4.1 react学习 min
+	4.1 react学习 40+min
 		/*  */
     
 5.前端进阶知识学习
