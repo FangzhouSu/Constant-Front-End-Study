@@ -312,7 +312,37 @@ Totally min
 
 #### 1.Map的应用以及API回忆
 
+```js
+// 记录map中的键出现的次数count 并将其更新为值 {x=>count}
+for(let x of nums){
+    if(count > 0){
+        count ++;
+        map.set(x, count);
+    }
+    else{
+        map.set(x, 1);
+    }
+}
+// map中存储了键值对之后 迭代其每一对的键、值 将count>2的插入结果数组res
+for(let [key, value] of map.entries()){
+    if(value >= 2){
+        res.push(key);
+    }
+}
+```
+
+
+
 #### 2.Set的应用以及API回忆
+
+```js
+// 数组去重 
+function unique(){
+    return [...new Set(arr)];// return Array.from(new Set(arr)) e
+}
+```
+
+
 
 #### 3.继续学习异步编程
 
