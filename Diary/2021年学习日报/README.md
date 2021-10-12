@@ -214,7 +214,11 @@ SSL/TLS协议基本流程
 
 # 10.12
 
-没起来床的一天 下午努努力吼吼
+没起来床的一天 
+
+主要收获是 github玩儿得更六了 对客户端服务端的通信更有感觉了
+
+明天继续rush React ！！
 
 ```js
      
@@ -231,7 +235,7 @@ SSL/TLS协议基本流程
 
 ```js
 // 今日主要收获 & 学习时间
-Totally min
+Totally 430min
 1.前端基础知识 
 // 从早上-中午 拿出一整块时间学习JS 晚上跑完步回来继续看JS
     1.1 前端基础学习 120min 
@@ -242,8 +246,6 @@ Totally min
     	/*  */
     1.3 JS 30demos 60min
     	/* demo16 对事件的认知更深一层 复习了解构赋值 */
-    1.4 react前置知识 min
-    	/*  */
 
 2.核心基础知识 下午开始学计网 + 刷题
 	2.1 计网 30min
@@ -266,15 +268,18 @@ Totally min
 		/*  */  
     
 4.前端开发框架 
-	4.1 react学习 40+min
-		/*  */
+	4.1 react学习 40+50min
+		/* 了解了解决跨域的两种方法 
+        	package.json中追加配置
+        	创建代理配置文件
+        	了解了下客户端服务端收发请求的一个过程 有点感觉了？*/
     
 5.前端进阶知识学习
     Node.js
 	webpack
 6.其他 
 	完成了pr的一些更改 熟悉了一下流程 40min
-7.每日总结 min
+7.每日总结 20min
 ```
 
 
@@ -285,11 +290,10 @@ Totally min
 
 - [x] Map Set的API总结
 - [x] 看完promise AJAX `axios`  
-- [ ] JS30demos
+- [x] JS30demos
 - [x] 计网
 - [x] 力扣
-- [ ] react文档复习 + 视频学习
-- [ ] 晚间JS学习看篇文章 - this问题~ 响应式布局 刷题
+- [x] react文档复习 + 视频学习
 
 
 
@@ -501,5 +505,72 @@ console.log(id, status, numbers); //10 "OK" [111, 222]
 
 ### react学习
 
+#### 解决跨域的方法
 
+因为AJAX引擎 同源策略会限制请求
+
+出现跨域问题
+
+- 响应从服务器回到客户端时 无法被接收！
+
+![在这里插入图片描述](https://img-blog.csdnimg.cn/79b6635a61d84bbda856403f5dc1723a.png)
+
+使用代理解决跨域问题
+
+![在这里插入图片描述](https://img-blog.csdnimg.cn/dc91fa54aff14e5e8e428d9096a27006.png)
+
+##### 方法一
+
+> 在package.json中追加如下配置
+
+```json
+"proxy":"http://localhost:5000"
+```
+
+说明：
+
+1. 优点：配置简单，前端请求资源时可以不加任何前缀。
+2. 缺点：不能配置多个代理。
+3. 工作方式：上述方式配置代理，当请求了3000不存在的资源时，那么该请求会转发给5000 （优先匹配前端资源）
+
+
+
+##### 方法二
+
+1. 第一步：创建代理配置文件
+
+   ```
+   在src下创建配置文件：src/setupProxy.js
+   ```
+
+2. 编写setupProxy.js配置具体代理规则：
+
+   ```js
+   const proxy = require('http-proxy-middleware')
+   
+   module.exports = function(app) {
+     app.use(
+       proxy('/api1', {  //api1是需要转发的请求(所有带有/api1前缀的请求都会转发给5000)
+         target: 'http://localhost:5000', //配置转发目标地址(能返回数据的服务器地址)
+         changeOrigin: true, //控制服务器接收到的请求头中host字段的值
+         /*
+         	changeOrigin设置为true时，服务器收到的请求头中的host为：localhost:5000
+         	changeOrigin设置为false时，服务器收到的请求头中的host为：localhost:3000
+         	changeOrigin默认值为false，但我们一般将changeOrigin值设为true
+         */
+         pathRewrite: {'^/api1': ''} //去除请求前缀，保证交给后台服务器的是正常请求地址(必须配置)
+       }),
+       proxy('/api2', { 
+         target: 'http://localhost:5001',
+         changeOrigin: true,
+         pathRewrite: {'^/api2': ''}
+       })
+     )
+   }
+   ```
+
+说明：
+
+1. 优点：可以配置多个代理，可以灵活的控制请求是否走代理。
+2. 缺点：配置繁琐，前端请求资源时必须加前缀。
 
