@@ -578,10 +578,9 @@ console.log(id, status, numbers); //10 "OK" [111, 222]
 
 # 10.13
 
-
+身体略有一些不适的一天 感觉有点消化不老好滴？
 
 ```js
-     
 // DDL
 	写出第一版简历  10.24
 		1.重点掌握HTTP协议
@@ -605,12 +604,13 @@ Totally min
         	复习闭包*/
     1.2 freecodecamp JS + 响应式网页设计 min
     	/*  */
-    1.3 JS 30demos min
-    	/*  */
+    1.3 JS 30demos 80min
+    	/* demo17 一个简单的小demo 练习了正则表达式和数组的一些方法 */
 
 2.核心基础知识 下午开始学计网 + 刷题
-	2.1 计网 min
-		/*  */
+	2.1 计网 30min
+		/* 图解HTTP 简单学习了IP协议与数据链路层数据的传输，
+        	复习了HTTP/1.1y	*/
 	2.2 操作系统 min
 		/*  */
 
@@ -646,13 +646,13 @@ Totally min
 >
 > 这里说的实操 都是在 `freecodecamp` 中进行练习
 
-- [ ] MDN网页API学习
-- [ ] 闭包复习
-- [ ] JS30demos 
-- [ ] 计网
+- [x] MDN网页API学习
+- [x] 闭包复习
+- [x] JS30demos 
+- [x] 计网
 - [ ] 力扣
 - [ ] CSS实操
-- [ ] react文档复习 + 视频学习
+- [ ] ~~react文档复习 + 视频学习~~
 
 
 
@@ -690,7 +690,7 @@ Totally min
 
 ##### [从服务器获取数据](https://developer.mozilla.org/zh-CN/docs/Learn/JavaScript/Client-side_web_APIs/Fetching_data)
 
-
+完成了一半 明天学习开启一个本地服务器 并进行数据的发送接收
 
 ##### [第三方API](https://developer.mozilla.org/zh-CN/docs/Learn/JavaScript/Client-side_web_APIs/Third_party_APIs)
 
@@ -704,9 +704,41 @@ Totally min
 // 准备读 图解HTTP
 // 每天一道计网面试题 把自己带入面试者的身份 跟面试官白话白话 嗯就这样子
 “HTTP/1.1如何优化
-”
+	传输层 TCP协议的角度
+    HTTP协议的角度
+    明天来看看如何利用缓存技术避免发送HTTP请求...最终优化HTTP/1.1协议”
 读图解HTTP 
+	简单看了一下IP协议 了解了如何通过 ARP协议与MAC地址 通过数据链路层找到接收方（路由选择）
 ```
+
+#### HTTP/1.1如何优化
+
+- 通过 TCP协议的keepalive将HTTP/1.1从短连接改成长连接
+
+  这里参考了[这篇文章](https://www.jianshu.com/p/9fe2c140fa52)  得知了HTTP TCP协议各自有一个Keep-Alive 和 `KeepAlive`机制，这里优化HTTP/1.1的机制指的是传输层部分的内容~
+
+  - 机制意图在于
+
+    - 保活
+    - 心跳
+    - 检测连接错误
+
+    一个TCP连接两端长时间没有数据传输时（通常默认配置是2小时），发送keepalive指针，探测链接是否存活
+
+通过减少 TCP 连接建立和断开的次数，来减少了网络传输的延迟，从⽽提⾼ HTTP/1.1 协议的传输效率。
+
+
+
+- HTTP协议的角度
+- **尽量避免发送HTTP请求**
+  - 缓存
+- **在需要发送HTTP请求时，要考虑如何减少请求次数**
+  - 减少重定向请求次数
+  - 合并请求
+  - 延迟发送请求
+- **减少服务器的HTTP响应数据的大小**
+  - 无损压缩
+  - 有损压缩
 
 
 
