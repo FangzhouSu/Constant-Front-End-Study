@@ -598,10 +598,10 @@ console.log(id, status, numbers); //10 "OK" [111, 222]
 Totally min
 1.前端基础知识 
 // 从早上-中午 拿出一整块时间学习JS 晚上跑完步回来继续看JS
-    1.1 前端基础学习 100+min 
+    1.1 前端基础学习 100+190min 
 		/* 学习了DOM API的一些内容 完成了一个小demo 为前端知识库增添“项目”内容
-        	项目内容的添砖加瓦
-        	从服务器获取数据
+        	项目内容的添砖加瓦 —— 一个DOM编程 一个Ajax的例子
+        	从服务器获取数据，暂时学习了将本地.txt文件当作服务器的方法 但是这样是无法请求到数据的~明天学一下在server端运行这个例子~
         	复习闭包*/
     1.2 freecodecamp JS + 响应式网页设计 min
     	/*  */
@@ -703,18 +703,10 @@ Totally min
 ```js
 // 准备读 图解HTTP
 // 每天一道计网面试题 把自己带入面试者的身份 跟面试官白话白话 嗯就这样子
-“网页是如何变成https://前缀的”
+“HTTP/1.1如何优化
+”
 读图解HTTP 
 ```
-
-##### 输入 `[www.baidu.com`，怎么变成`https://www.baidu.com` 的，[怎么确定用HTTP还是HTTPS？](https://github.com/wolverinn/Waking-Up/blob/master/Computer%20Network.md#https%E8%BF%9E%E6%8E%A5%E7%9A%84%E6%97%B6%E5%80%99%E6%80%8E%E4%B9%88%E7%A1%AE%E5%AE%9A%E6%94%B6%E5%88%B0%E7%9A%84%E5%8C%85%E6%98%AF%E6%9C%8D%E5%8A%A1%E5%99%A8%E5%8F%91%E6%9D%A5%E7%9A%84%E4%B8%AD%E9%97%B4%E4%BA%BA%E6%94%BB%E5%87%BB)
-
-[你访问的网站是如何自动切换到 HTTPS 的？](https://www.sohu.com/a/136637876_487516)
-
-一种是<u>原始的302跳转(暂时重定向)</u>，服务器**把所有的HTTP流量跳转到HTTPS**。
-
-- 但这样**有一个漏洞**，就是中间人可能在第一次访问站点的时候就劫持。 
-  - 解决方法是**引入HSTS机制**，用户浏览器在**访问站点的时候<u>强制</u>使用HTTPS**。
 
 
 
