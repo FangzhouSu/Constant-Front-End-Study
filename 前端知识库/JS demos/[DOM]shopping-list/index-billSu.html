@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shopping list example | by billSu</title>
+    <style>
+      li {
+        margin-bottom: 10px;
+      }
+
+      li button {
+        font-size: 8px;
+        margin-left: 20px;
+        color: #666;
+      }
+    </style>
+  </head>
+  <body>
+
+    <h1>My shopping list</h1>
+
+    <div>
+      <label for="item">Enter a new item:</label>
+      <input type="text" name="item" id="item">
+      <button>Add item</button>
+    </div>
+
+    <ul>
+
+    </ul>
+
+    <script>
+        // 本部分内容变量的命名规范性是向MDN学习的 大家放心看~
+        // 01 创建三个变量来保存本例中的三个主要元素
+            // 输入框
+            // 增添元素按钮
+            // 要生成的列表
+        const input = document.querySelector('input');
+        const button = document.querySelector('button');
+        const list = document.querySelector('ul');
+        // 02 创建一个函数 来响应按钮点击事件
+        button.onclick = function(){
+            // 设置元素记录输入框中的内容，初始值为空
+            let myItem = input.value;
+            input.value = '';
+            // 03 通过点击按钮触发事件生成的元素
+                // 列表元素 listItem
+                    // listItem中包含的内容 & （删除）按钮
+            let listItem = document.createElement('li');
+            let listText = document.createElement('span');
+            let listBtn = document.createElement('button');
+            // 04 将列表内容与按钮加入到listItem中 组成一个列表元素
+            listItem.appendChild(listText);
+            listText.textContent = myItem;// 设置内容的文本为“从输入框获取的内容”
+            listItem.appendChild(listBtn);
+            listBtn.textContent = "Delete";// 设置按钮的文本
+            // 05 将列表的一项加入总列表中
+            list.appendChild(listItem);
+            // 06 为删除按钮绑定事件处理程序
+            listBtn.onclick = function(){
+                // 点击按钮时，删除其所在的整个listItem元素（也就是列表项）
+                list.removeChild(listItem);
+            }
+            // 07 点击完一次按钮之后，重新聚焦于输入框
+            input.focus();
+        }
+    </script>
+  </body>
+</html>

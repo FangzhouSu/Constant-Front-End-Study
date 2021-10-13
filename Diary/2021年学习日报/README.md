@@ -1,4 +1,4 @@
-- [不断摸索前进方向的开始 9.6-10.10的学习日报 ](./9.6-10.10学习日报)
+- [.不断摸索前进方向的开始 9.6-10.10的学习日报 ](./9.6-10.10学习日报)
 
 > 新的开始 
 >
@@ -464,6 +464,235 @@ console.log(id, status, numbers); //10 "OK" [111, 222]
 ```
 
 
+
+
+
+## 2.核心基础知识
+
+### 计网
+
+```js
+// 准备读 图解HTTP
+// 每天一道计网面试题 把自己带入面试者的身份 跟面试官白话白话 嗯就这样子
+“网页是如何变成https://前缀的”
+读图解HTTP 
+```
+
+##### 输入 `[www.baidu.com`，怎么变成`https://www.baidu.com` 的，[怎么确定用HTTP还是HTTPS？](https://github.com/wolverinn/Waking-Up/blob/master/Computer%20Network.md#https%E8%BF%9E%E6%8E%A5%E7%9A%84%E6%97%B6%E5%80%99%E6%80%8E%E4%B9%88%E7%A1%AE%E5%AE%9A%E6%94%B6%E5%88%B0%E7%9A%84%E5%8C%85%E6%98%AF%E6%9C%8D%E5%8A%A1%E5%99%A8%E5%8F%91%E6%9D%A5%E7%9A%84%E4%B8%AD%E9%97%B4%E4%BA%BA%E6%94%BB%E5%87%BB)
+
+[你访问的网站是如何自动切换到 HTTPS 的？](https://www.sohu.com/a/136637876_487516)
+
+一种是<u>原始的302跳转(暂时重定向)</u>，服务器**把所有的HTTP流量跳转到HTTPS**。
+
+- 但这样**有一个漏洞**，就是中间人可能在第一次访问站点的时候就劫持。 
+  - 解决方法是**引入HSTS机制**，用户浏览器在**访问站点的时候<u>强制</u>使用HTTPS**。
+
+
+
+###  操作系统
+
+
+
+## 3.面试题
+
+### 面试题、面经总结
+
+### 算法题
+
+
+
+## 4.前端开发框架
+
+### react学习
+
+#### 解决跨域的方法
+
+因为AJAX引擎 同源策略会限制请求
+
+出现跨域问题
+
+- 响应从服务器回到客户端时 无法被接收！
+
+![在这里插入图片描述](https://img-blog.csdnimg.cn/79b6635a61d84bbda856403f5dc1723a.png)
+
+使用代理解决跨域问题
+
+![在这里插入图片描述](https://img-blog.csdnimg.cn/dc91fa54aff14e5e8e428d9096a27006.png)
+
+##### 方法一
+
+> 在package.json中追加如下配置
+
+```json
+"proxy":"http://localhost:5000"
+```
+
+说明：
+
+1. 优点：配置简单，前端请求资源时可以不加任何前缀。
+2. 缺点：不能配置多个代理。
+3. 工作方式：上述方式配置代理，当请求了3000不存在的资源时，那么该请求会转发给5000 （优先匹配前端资源）
+
+
+
+##### 方法二
+
+1. 第一步：创建代理配置文件
+
+   ```
+   在src下创建配置文件：src/setupProxy.js
+   ```
+
+2. 编写setupProxy.js配置具体代理规则：
+
+   ```js
+   const proxy = require('http-proxy-middleware')
+   
+   module.exports = function(app) {
+     app.use(
+       proxy('/api1', {  //api1是需要转发的请求(所有带有/api1前缀的请求都会转发给5000)
+         target: 'http://localhost:5000', //配置转发目标地址(能返回数据的服务器地址)
+         changeOrigin: true, //控制服务器接收到的请求头中host字段的值
+         /*
+         	changeOrigin设置为true时，服务器收到的请求头中的host为：localhost:5000
+         	changeOrigin设置为false时，服务器收到的请求头中的host为：localhost:3000
+         	changeOrigin默认值为false，但我们一般将changeOrigin值设为true
+         */
+         pathRewrite: {'^/api1': ''} //去除请求前缀，保证交给后台服务器的是正常请求地址(必须配置)
+       }),
+       proxy('/api2', { 
+         target: 'http://localhost:5001',
+         changeOrigin: true,
+         pathRewrite: {'^/api2': ''}
+       })
+     )
+   }
+   ```
+
+说明：
+
+1. 优点：可以配置多个代理，可以灵活的控制请求是否走代理。
+2. 缺点：配置繁琐，前端请求资源时必须加前缀。
+
+
+
+# 10.13
+
+
+
+```js
+     
+// DDL
+	写出第一版简历  10.24
+		1.重点掌握HTTP协议
+        2.JS基础良好 https://github.com/KieSun/fucking-frontend
+        3.ES6过完 
+    	4.JS30项目完结
+        5.框架相关内容完结并尽量完成记事本项目！
+```
+
+
+
+```js
+// 今日主要收获 & 学习时间
+Totally min
+1.前端基础知识 
+// 从早上-中午 拿出一整块时间学习JS 晚上跑完步回来继续看JS
+    1.1 前端基础学习 100+min 
+		/* 学习了DOM API的一些内容 完成了一个小demo 为前端知识库增添“项目”内容
+        	项目内容的添砖加瓦
+        	从服务器获取数据
+        	复习闭包*/
+    1.2 freecodecamp JS + 响应式网页设计 min
+    	/*  */
+    1.3 JS 30demos min
+    	/*  */
+
+2.核心基础知识 下午开始学计网 + 刷题
+	2.1 计网 min
+		/*  */
+	2.2 操作系统 min
+		/*  */
+
+3.面试刷题
+	3.1 刷算法 刷力扣 min	
+    	/* 掘金小册 7/28 代码随想录
+        	*/   
+    	// 每个阶段结束后 简单总结下应对某种数据结构/对应类型的题目 应该怎么去想
+    	每日推进掘金小册的进度 + 一道代码随想录的对应部分题目
+        链表 + 二叉树
+        字符串 + 二叉树 + 栈/队列
+        双指针 + 遍历专题DFS BFS
+        回溯算法 + 贪心算法
+        动态规划
+    3.2 面试题 min
+		/*  */  
+    
+4.前端开发框架 
+	4.1 react学习 min
+		/*  */
+    
+5.前端进阶知识学习
+    Node.js
+	webpack
+6.其他 
+	毛概 30min
+7.每日总结 min
+```
+
+
+
+> 学习顺序预告
+>
+> 这里说的实操 都是在 `freecodecamp` 中进行练习
+
+- [ ] MDN网页API学习
+- [ ] 闭包复习
+- [ ] JS30demos 
+- [ ] 计网
+- [ ] 力扣
+- [ ] CSS实操
+- [ ] react文档复习 + 视频学习
+
+
+
+## 1.前端基础
+
+### 前端基础知识
+
+```js
+1.Web API学习
+```
+
+
+
+#### 1.[客户端网页API](https://developer.mozilla.org/zh-CN/docs/Learn/JavaScript/Client-side_web_APIs/Introduction)
+
+比如说，编程来显示一些3D图形，使用**以更高级语言编写的API**（例如JavaScript或Python）将会比**直接编写直接控制计算机的GPU或其他图形功能的低级代码**（比如C或C++）来执行操作要容易得多。
+
+
+
+##### [操作文档](https://developer.mozilla.org/zh-CN/docs/Learn/JavaScript/Client-side_web_APIs/Manipulating_documents#%E4%B8%BB%E5%8A%A8%E5%AD%A6%E4%B9%A0_%E5%9F%BA%E6%9C%AC%E7%9A%84dom_%E6%93%8D%E4%BD%9C)
+
+对文档和DOM操作的研究
+
+应该了解什么是文档对象模型，怎样操作它来创建有用的功能
+
+- CSS样式的JavaSript属性版本以小驼峰式命名法书写，而CSS版本带连接符号（`backgroundColor` 对 `background-color`）。确保你不会混淆，否则就不能工作。
+
+- 使用JavaScript创建静态内容是毫无意义的 — 最好将其写入HTML，而不使用JavaScript。用JavaScript创建内容也有其他问题（如不能被搜索引擎读取），比HTML复杂得多。
+
+
+
+###### 根据官网指导做了一个DOM操作的小demo
+
+
+
+##### [从服务器获取数据](https://developer.mozilla.org/zh-CN/docs/Learn/JavaScript/Client-side_web_APIs/Fetching_data)
+
+
+
+##### [第三方API](https://developer.mozilla.org/zh-CN/docs/Learn/JavaScript/Client-side_web_APIs/Third_party_APIs)
 
 
 
