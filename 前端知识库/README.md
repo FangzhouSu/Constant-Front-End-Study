@@ -33,5 +33,6 @@
 >
 > 学习笔记格式建议参考[demos总结指南](demos总结指南.md)
 
-- [HTML CSS demos](HTML-CSS-demos.md)
-- [JS demos](JS-demos.md)
+- [HTML CSS demos](HTML-CSS-demos)
+- [JS demos](JS-demos)
+
