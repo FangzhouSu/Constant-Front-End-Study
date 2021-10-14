@@ -758,3 +758,172 @@ Totally 460min
 
 ### react学习
 
+
+
+# 10.14
+
+
+
+```js
+// DDL
+	写出第一版简历  10.24
+		1.重点掌握HTTP协议
+        2.JS基础良好 https://github.com/KieSun/fucking-frontend
+        3.ES6过完 
+    	4.JS30项目完结
+        5.框架相关内容完结并尽量完成记事本项目！
+```
+
+
+
+```js
+// 今日主要收获 & 学习时间
+Totally min
+1.前端基础知识 
+// 从早上-中午 拿出一整块时间学习JS 晚上跑完步回来继续看JS
+    1.1 前端基础学习 160min 
+		/* 继续入门ajax fetch promise 稍微有点感觉了！MDN文档还是比较顶！
+        复习DOM编程内容，整理下，发到掘金上~
+        做了个前端知识库*/
+    1.2 freecodecamp JS + 响应式网页设计 min
+    	/*  */
+    1.3 JS 30demos min
+    	/*  */
+
+2.核心基础知识 下午开始学计网 + 刷题
+	2.1 计网 min
+		/* 	*/
+	2.2 操作系统 min
+		/*  */
+
+3.面试刷题
+	3.1 刷算法 刷力扣 min	
+    	/* 掘金小册 7/28 代码随想录
+        	*/   
+    	// 每个阶段结束后 简单总结下应对某种数据结构/对应类型的题目 应该怎么去想
+    	每日推进掘金小册的进度 + 一道代码随想录的对应部分题目
+        链表 + 二叉树
+        字符串 + 二叉树 + 栈/队列
+        双指针 + 遍历专题DFS BFS
+        回溯算法 + 贪心算法
+        动态规划
+    3.2 面试题 min
+		/*  */  
+    
+4.前端开发框架 
+	4.1 react学习 min
+		/*  */
+    
+5.前端进阶知识学习
+    Node.js
+	webpack
+6.其他 
+	金融市场分析 小论文
+7.每日总结 min
+```
+
+
+
+> 学习顺序预告
+>
+> 这里说的实操 都是在 `freecodecamp` 中进行练习
+
+- [ ] MDN从服务器获取数据的学习
+- [ ] 文章总结AJAX Fetch promise & DOM编程
+- [ ] JS30demos 
+- [ ] 计网
+- [ ] 文章总结 力扣 数组 & 链表
+- [ ] 如何理解金融
+- [ ] react文档复习 + 视频学习
+- [ ] CSS实操
+
+
+
+## 1.前端基础
+
+### 前端基础知识
+
+```js
+1.Web API学习
+	学习了如何开启本地服务器，学习了Fetch API，复习了Promise
+```
+
+
+
+#### 1.[客户端网页API](https://developer.mozilla.org/zh-CN/docs/Learn/JavaScript/Client-side_web_APIs/Introduction)
+
+##### [从服务器获取数据](https://developer.mozilla.org/zh-CN/docs/Learn/JavaScript/Client-side_web_APIs/Fetching_data)
+
+ 使用http-server开启一个本地服务器 并进行数据的发送接收
+
+##### Fetch
+
+
+
+##### Promise
+
+##### [第三方API](https://developer.mozilla.org/zh-CN/docs/Learn/JavaScript/Client-side_web_APIs/Third_party_APIs)
+
+明天学习并尽量完成这个demo
+
+## 2.核心基础知识
+
+### 计网
+
+```js
+// 准备读 图解HTTP
+// 每天一道计网面试题 把自己带入面试者的身份 跟面试官白话白话 嗯就这样子
+“HTTP/1.1如何优化
+	传输层 TCP协议的角度
+    HTTP协议的角度
+    明天来看看如何利用缓存技术避免发送HTTP请求...最终优化HTTP/1.1协议”
+读图解HTTP 
+	简单看了一下IP协议 了解了如何通过 ARP协议与MAC地址 通过数据链路层找到接收方（路由选择）
+```
+
+#### HTTP/1.1如何优化
+
+- 通过 TCP协议的keepalive将HTTP/1.1从短连接改成长连接
+
+  这里参考了[这篇文章](https://www.jianshu.com/p/9fe2c140fa52)  得知了HTTP TCP协议各自有一个Keep-Alive 和 `KeepAlive`机制，这里优化HTTP/1.1的机制指的是传输层部分的内容~
+
+  - 机制意图在于
+
+    - 保活
+    - 心跳
+    - 检测连接错误
+
+    一个TCP连接两端长时间没有数据传输时（通常默认配置是2小时），发送keepalive指针，探测链接是否存活
+
+通过减少 TCP 连接建立和断开的次数，来减少了网络传输的延迟，从⽽提⾼ HTTP/1.1 协议的传输效率。
+
+
+
+- HTTP协议的角度
+- **尽量避免发送HTTP请求**
+  - 缓存
+- **在需要发送HTTP请求时，要考虑如何减少请求次数**
+  - 减少重定向请求次数
+  - 合并请求
+  - 延迟发送请求
+- **减少服务器的HTTP响应数据的大小**
+  - 无损压缩
+  - 有损压缩
+
+
+
+###  操作系统
+
+
+
+## 3.面试题
+
+### 面试题、面经总结
+
+### 算法题
+
+
+
+## 4.前端开发框架
+
+### react学习

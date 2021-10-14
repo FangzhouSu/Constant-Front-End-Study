@@ -67,9 +67,9 @@
         const verseChoose = document.querySelector('select');
         const poemDisplay = document.querySelector('pre');
 
-        verseChoose.onChange = function(){
+        verseChoose.onchange = function(){
             const verse = verseChoose.value;// 获取到的诗 赋给verse变量
-            updateDisplay(verse);// 获取到的诗传给函数 目的:将Verse 1 转换为verse.txt
+            updateDisplay(verse);// 获取到的诗传给函数 
         }
 
 
@@ -78,19 +78,21 @@
             verse  = verse.replace(" ", "");// 将空格去掉（Web服务器的文件名无空格）
             verse = verse.toLowerCase();
             let url = verse + '.txt';
+            
             // 开始创建XHR请求 —— AJAX操作中的核心
-            let request = new XMLHttpRequest();
-            // 指定 用于从网站请求资源的HTTP请求方法 这里是GET方法
-            // 指定 想请求资源的网站的URL
-            request.open('GET', url);
-            // 作为 text.  这并不是绝对必要的 — XHR默认返回文本
-            // 如果你想在以后获取其他类型的数据，养成这样的习惯是一个好习惯
-            request.responseType = 'text';
-            // 当onload 事件触发时（当响应已经返回时）这个事件会被运行
-            request.onload = function(){
-                poemDisplay.textContent = request.response;
-            }
-            request.send();
+            // let request = new XMLHttpRequest();
+            // request.open('GET', url);
+            // request.responseType = 'text';
+            // request.onload = function(){
+            //     poemDisplay.textContent = request.response;
+            // }
+            // request.send();
+
+            fetch(url).then(function(response){
+              response.text().then(function(text){
+                poemDisplay.textContent = text;
+              });
+            });
         }
 
         // 首次加载也要显示

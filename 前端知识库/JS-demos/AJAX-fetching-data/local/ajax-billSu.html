@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Ajax starting point | by billSu</title>
+
+    <style>
+      html, pre {
+        font-family: sans-serif;
+      }
+
+      body {
+        width: 500px;
+        margin: 0 auto;
+        background-color: #ccc;
+      }
+
+      pre {
+        line-height: 1.5;
+        letter-spacing: 0.05rem;
+        padding: 1rem;
+        background-color: white;
+      }
+
+      label {
+        width: 200px;
+        margin-right: 33px;
+      }
+
+      select {
+        width: 350px;
+        padding: 5px;
+      }
+
+    </style>
+    <!--[if lt IE 9]>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv.js"></script>
+    <![endif]-->
+  </head>
+
+  <body>
+    <h1>Ajax starting point</h1>
+
+    <form>
+      <label for="verse-choose">Choose a verse</label>
+      <select id="verse-choose" name="verse-choose">
+        <option>Verse 1</option>
+        <option>Verse 2</option>
+        <option>Verse 3</option>
+        <option>Verse 4</option>
+      </select>
+    </form>
+
+    <h2>The Conqueror Worm, <em>Edgar Allen Poe, 1843</em></h2>
+
+    <pre>
+
+    </pre>
+
+    <script>
+        // 注意 如果只是从本地文件运行示例，
+        // 一些浏览器(包括Chrome)将不会运行XHR请求。这是因为安全限制~
+        // 为了解决这个问题，我们需要通过在本地web服务器上运行它来测试这个示例
+        const verseChoose = document.querySelector('select');
+        const poemDisplay = document.querySelector('pre');
+
+        verseChoose.onchange = function(){
+            const verse = verseChoose.value;// 获取到的诗 赋给verse变量
+            updateDisplay(verse);// 获取到的诗传给函数
+        }
+
+
+        function updateDisplay(verse){
+            // 将Verse 1 转换为verse.txt
+            verse  = verse.replace(" ", "");// 将空格去掉（Web服务器的文件名无空格）
+            verse = verse.toLowerCase();
+            
+            let url = verse + '.txt';
+            // 开始创建XHR请求 —— AJAX操作中的核心
+            let request = new XMLHttpRequest();
+            // 指定 用于从网站请求资源的HTTP请求方法 这里是GET方法
+            // 指定 想请求资源的网站的URL
+            request.open('GET', url);
+            // 作为 text.  这并不是绝对必要的 — XHR默认返回文本
+            // 如果你想在以后获取其他类型的数据，养成这样的习惯是一个好习惯
+            request.responseType = 'text';
+            // 当onload 事件触发时（当响应已经返回时）这个事件会被运行
+            request.onload = function(){
+                poemDisplay.textContent = request.response;
+            }
+            request.send();
+        }
+
+        // 首次加载也要显示
+        updateDisplay('Verse 1');
+        verseChoose.value = 'Verse 1';
+
+    </script>
+  </body>
+</html>
