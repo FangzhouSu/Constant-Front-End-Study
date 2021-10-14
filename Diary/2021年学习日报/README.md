@@ -787,8 +787,8 @@ Totally min
         做了个前端知识库的海报hhh*/
     1.2 freecodecamp JS + 响应式网页设计 min
     	/*  */
-    1.3 JS 30demos min
-    	/*  */
+    1.3 JS 30demos 10+min
+    	/* demo1 */
 
 2.核心基础知识 下午开始学计网 + 刷题
 	2.1 计网 50min
@@ -835,7 +835,7 @@ Totally min
 - [x] MDN从服务器获取数据的学习
 - [x] 文章总结AJAX Fetch promise & DOM编程
 - [x] 计网
-- [ ] 力扣 数组 & 链
+- [ ] 力扣 数组
 - [ ] JS30demos 
 - [ ] 如何理解金融
 - [ ] react文档复习 + 视频学习
