@@ -807,7 +807,7 @@ Totally 480min
 3.面试刷题
 	3.1 刷算法 刷力扣 50min	
     	/* 掘金小册 7.5/28 代码随想录
-        	两数之和 h*/   
+        	两数之和 */   
     	// 每个阶段结束后 简单总结下应对某种数据结构/对应类型的题目 应该怎么去想
     	每日推进掘金小册的进度 + 一道代码随想录的对应部分题目
         链表 + 二叉树
@@ -1122,7 +1122,6 @@ Totally 400min
         	88 合并两个有序数组题多种方法的探索，明天还要来看双指针的方法！
         	15 三数之和 有哈希表的做法、双指针的做法*/   
     	// 每个阶段结束后 简单总结下应对某种数据结构/对应类型的题目 应该怎么去想
-    	每日推进掘金小册的进度 + 一道代码随想录的对应部分题目
         链表 + 二叉树
         字符串 + 二叉树 + 栈/队列
         双指针 + 遍历专题DFS BFS
@@ -1215,6 +1214,8 @@ url.split('?')[1].split('&').reduce((obj, item) => (
     obj[item.split('=')[0]]=item.split('=')[1], obj), {}
 )
 ```
+
+
 
 #### 2.求数组最大值
 
@@ -2095,6 +2096,8 @@ QUIC 协议没有用四元组的方式来“绑定”连接，而是**通过连�
 
 今天要动起来了！
 
+今日感想，**二分查找**的思想很重要！在代码上的实践也很重要！非常考验我们对一个问题的考虑全面程度！！
+
 ```js
 // DDL
 	写出第一版简历  10.24
@@ -2109,29 +2112,29 @@ QUIC 协议没有用四元组的方式来“绑定”连接，而是**通过连�
 
 ```js
 // 今日主要收获 & 学习时间
-Totally min
+Totally 4min
 1.前端基础知识 
 // 从早上-中午 拿出一整块时间学习JS 晚上跑完步回来继续看JS
-    1.1 前端基础学习 120+0min 
-		/*  */
-    1.2 freecodecamp JS + 响应式网页设计 min
-    	/*  */
-    1.3 JS 30demos min
-    	/*  */
+    1.1 前端基础学习 40min 
+		/* 早上看了会儿红宝书 困得要命！ */
+    1.2 freecodecamp JS + 响应式网页设计 80min
+    	/* JS基础数据结构完结 数组 对象的结构与一些API更加清晰了！ */
+    1.3 JS 30demos 30min
+    	/* 调用了浏览器的API */
 
 2.核心基础知识 下午开始学计网 + 刷题
-	2.1 计网 min
-		/*  */
+	2.1 计网 30min
+		/* 复习了一下TCP协议 */
 	2.2 操作系统 min
 		/*  */
 
 3.面试刷题
-	3.1 刷算法 刷力扣 min	
+	3.1 刷算法 刷力扣 190min	
     	/* 掘金小册 9/28 代码随想录
         	三数之和 剑指Offer的一些内容
+        	经典面试题 有序数组的单一元素 全部方法
         	*/   
     	// 每个阶段结束后 简单总结下应对某种数据结构/对应类型的题目 应该怎么去想
-    	每日推进掘金小册的进度 + 一道代码随想录的对应部分题目
         链表 + 二叉树
         字符串 + 二叉树 + 栈/队列
         双指针 + 遍历专题DFS BFS
@@ -2141,13 +2144,14 @@ Totally min
 		/*  */  
     
 4.前端开发框架 
-	4.1 react学习 min
-		/*  */
+	4.1 react学习 30min
+		/* 看了一集 明天要加快步伐了！ */
     
 5.前端进阶知识学习
     Node.js
 	webpack
 6.其他 
+	搞图床 80min 成功了！！！！
 7.每日总结 
 ```
 
@@ -2157,8 +2161,15 @@ Totally min
 >
 > 这里说的实操 都是在 `freecodecamp` 中进行练习
 
-- [ ] 周总结
-- [ ] 
+- [x] 周总结
+- [x] 总结今日要写的文/刷的题
+- [x] JS红宝书 函数 
+- [x] JS实操 数据结构基础那块
+- [x] 刷题 三数之和 剑指Offer经典面试题一道
+- [x] 计网 复习传输层内容 + 继续读图解HTTP
+- [x] react 重启！
+- [x] JS30demos
+- [ ] 搞图床
 
 ## 1.前端基础
 
@@ -2167,10 +2178,60 @@ Totally min
 ```js
 1.隐式转换的问题
 	由一道面试题引入
-
+2.找URI中的某个字符
+// 上面两篇文明日总结 今天时间紧张了XD（其实是被自己浪没得 orz）
+3.红宝书 函数
+4.数组遍历	
+5.巧用every 与 hasOwnProperty搜索数组/对象中是否有某几个元素
+6.Object.keys(obj);// 生成obj所有属性组成的数组
 ```
 
-#### 1.一道面试题引入的隐式转换的学习
+#### 1.从URL字符串中获取“查询字符串参数”
+
+可参考下这篇 https://www.cnblogs.com/chun6/p/6366125.html
+
+- 简单遍历🥺
+
+```js
+console.log(getUrlArr());
+function getUrlArr() {
+    let arr = [];
+    let url = "https://github.com/FangzhouSu/Constant-Front-End-Study/?a=1&b=2&c=3"
+    let str = url.split("?")[1];
+    let arr1 = str.split("&");
+    for(let i = 0; i < arr1.length; i++) {
+        let value = arr1[i].split("=")[1];
+        arr.push(value);
+    }
+    return arr;
+}
+```
+
+- 用`Array.prototype.map()`优化一下查询方法🤔
+
+```js
+let url = "https://github.com/FangzhouSu/Constant-Front-End-Study/?a=1&b=2&c=3"
+let obj = {};
+let result = url.split('?')[1].split('&').map((item) =>
+    obj[item.split('=')[0]] = item.split('=')[1];
+)
+console.log(obj);// 
+```
+
+
+
+- 利用`Array.prototype.reduce()`一行完成查询（骄傲脸😎）
+
+```js
+let url = "https://github.com/FangzhouSu/Constant-Front-End-Study/?a=1&b=2&c=3"
+url.split('?')[1].split('&').reduce((obj, item) => (
+    obj[item.split('=')[0]]=item.split('=')[1], obj), {}
+)
+```
+
+
+
+#### 2.一道面试题引入的隐式转换的学习
 
 [看](https://blog.csdn.net/weixin_33711647/article/details/88723157?utm_medium=distribute.pc_relevant.none-task-blog-2~default~baidujs_title~default-1.no_search_link&spm=1001.2101.3001.4242)
 
@@ -2200,140 +2261,183 @@ if ([1] == [1]) {
 
 
 
+#### 3.数组遍历
+
+用一个 `for` 循环来做筛选，使函数返回一个由 `arr` 中不包含 `elem` 的数组所组成的新数组
+
+```js
+let arr = [4,5,[6,6,6],8];// 去掉4
+arr = arr.flat(Infinity);
+let newArr = [];
+// map
+var wnewArr = arr.map(item => item !== 4);// [false, true, true, true, true] 新数组中每个元素为函数item!=4的返回值 所以用map不太行 删不掉这个4~
+// filter
+newArr = arr.filter(item => item != 4);// [5, 6, 6, 8] 新数组中的值不满足函数中条件的会被筛掉
+
+// 要求返回的数组格式不能变动 且只用一层for循环
+let ans = [ [3, 2, 3], [1, 6, 3], [3, 13, 26], [19, 3, 9] ]
+// for
+for(let i = 0; i < arr.length; i++){
+	if(arr[i].indexOf(item) === -1){
+        newArr.push(arr[i]);
+    }
+}
+```
+
+
+
+#### 4.巧用every
+
+```js
+let users = {
+  Alan: {
+    age: 27,
+    online: true
+  },
+  Jeff: {
+    age: 32,
+    online: true
+  },
+};
+function isEveryoneHere(userObj){
+    return ['Alan', 'Jeff'].every(name => userObj.hasOwnProperty(name))
+}
+```
+
+
+
 ## 2.核心基础知识
 
 ### 计网
 
 ```js
-
+1.TCP的基本认识
 ```
 
-#### HTTPS优化总览
+#### TCP的基本认识
 
-- 对于**硬件优化**的方向 
+![图片](https://mmbiz.qpic.cn/mmbiz_png/J0g14CUwaZeo9xBVAyPJ8iaWCC6sYS843PvjUjeM1AEqsdRCeZCODPM3k8fNbTe2BHlme1VmNNKlz3L0wyWcQxw/640?wx_fmt=png&tp=webp&wxfrom=5&wx_lazy=1&wx_co=1)
 
-因为HTTPS是属于<u>计算密集型</u> 应该选择计算力更强的CPU 而且最好选择 ==支持 AES-NI 特性的CPU== 这个特性可以**在硬件级别优化AES对称加密算法** 加快应用数据的加解密
+> （聊到某个细节的时候得能说出来点儿东西~）
 
-- 对于**软件优化**的方向
+##### 1.TCP的头格式以及重要字段
 
-如果可以的话 把软件升级成较新的版本 比如将Linux内核 2.X 升级成 4.X
+看看TCP头部格式中的重点字段
 
-将`openssl 1.0.1`升级到`1.1.1` 因为新版本的软件不仅会提供新的特性 而且还会修复老版本的问题~
+- 序列号 - 解决**网络包乱序**的问题
 
-- 对于**协议优化**的方向 
-  - 密钥交换算法应该选择 ==ECDHE算法== 而不用RSA算法 因为ECDHA算法具备前向安全性 而且**客户端可以在第三次握手之后就发送加密应用数据** 节省了1RTT
-  - 将 TSL1.2 升级 TSL1.3，因为 TSL1.3 的握⼿过程只需要 1 RTT，⽽且安全性更强。
+建立连接时由计算机生成的随机数作为其初始值
 
-- 关于**证书优化**的方法
-  - 服务器应该选⽤ ECDSA 证书，⽽⾮ RSA 证书，因为在相同安全级别下，ECC 的密钥⻓度⽐ RSA 短很多， 这样可以提⾼证书传输的效率；
-  - 服务器应该开启 OCSP Stapling 功能，由服务器预先获得 OCSP 的响应，并把响应结果缓存起来，这样
-    TLS 握⼿的时候就不⽤再访问 CA 服务器，减少了⽹络通信的开销，提⾼了证书验证的效率；
+通过 SYN 包传给接收端主机，每发送一次数据，就「累加」一次该「数据字节数」的大小。**用来解决网络包乱序问题。**
 
-- 关于**会话复用**
+- 确认应答号 - 解决**不丢包**的问题
 
-对于重连 HTTPS 时，我们可以使⽤⼀些技术让客户端和服务端使⽤上⼀次 HTTPS 连接使⽤的会话密钥，直接恢 复会话，⽽不⽤再重新⾛完整的 TLS 握⼿过程。
+指下一次「期望」收到的数据的序列号
 
-常⻅的**会话重⽤技术**有 Session ID 和 Session Ticket，⽤了会话重⽤技术，当再次重连 HTTPS 时，只需要 1 RTT 就可以恢复会话。对于 TLS1.3 使⽤ Pre-shared Key 会话重⽤技术，只需要 0 RTT 就可以恢复会话。
+**发送端收到**这个确认应答（第三次握手）以后可以认为在这个序号以前的数据都已经被正常接收。**用来解决不丢包的问题。**
 
-这些会话重⽤技术虽然好⽤，**但是存在⼀定的安全⻛险**，它们不仅不具备前向安全，⽽且有重放攻击的⻛险，所以应当对会话密钥设定⼀个合理的过期时间。
+- ACK
 
-#### HTTP/2优点
+该位为 `1` 时，「确认应答」的字段变为有效，
 
-关于HTTP/2是**如何提示性能**的几个方向 它相比HTTP/1大大提高了==传输效率、吞吐能力==
+> TCP 规定除了最初建立连接时的 `SYN` 包之外该位必须设置为 `1` 。
 
-【1】**头部压缩**
+- RST
 
-- 对于常见的 HTTP 头部通过**静态表和 Huffman 编码**的方式，将体积压缩了近一半
+该位为 `1` 时，表示 TCP 连接中出现异常必须强制断开连接。
 
-- 而且针对后续的请求头部，还可以建立**动态表**，将体积压缩近 90%，大大提高了编码效率，同时节约了带宽资源。
-  - 不过，动态表并非可以无限增大， 因为动态表是会占用内存的，动态表越大，内存也越大，容易影响服务器总体的并发能力，因此服务器**需要限制 HTTP/2 连接时长或者请求次数**。
+- SYN
 
+该位为 `1` 时，表示希望建立连接，并在其「序列号」的字段进行序列号初始值的设定。
 
+- FIN
 
-【2】**并发传输**
+该位为 `1` 时，表示今后不会再有数据发送，希望断开连接
 
-- **HTTP/2 实现了 Stream 并发**，多个 Stream 只需复用 1 个 TCP 连接
-  - 节约了TCP和TLS握手时间
-  - 以及减少了 TCP 慢启动阶段对流量的影响
-- 不同的 Stream ID 才可以并发，即时乱序发送帧也没问题，但是同一个 Stream 里的帧必须严格有序。
+> 当通信结束希望断开连接时，通信双方的主机之间就可以相互交换 `FIN` 位置为 1 的 TCP 段。
 
-- 另外，可以根据资源的渲染顺序来设置 Stream 的**优先级**，从而提高用户体验。
+![图片](https://mmbiz.qpic.cn/mmbiz_png/J0g14CUwaZeo9xBVAyPJ8iaWCC6sYS843ZPb6tFLvCVuXEn98khfs7y2KRvOV0ia5icVByzIK3aAKRURuVZKagsKw/640?wx_fmt=png&tp=webp&wxfrom=5&wx_lazy=1&wx_co=1)
 
+#####  2.为什么需要TCP协议？TCP工作在哪一层？
 
+`IP` 层（网络层）是「不可靠」的，它不保证网络包的交付、不保证网络包的按序交付、也不保证网络包中的数据的完整性。
 
-【3】服务器**支持主动推送资源**
+如果需要**保障网络数据包的可靠性**，那么就——
 
-- 大大提升了消息的传输性能
+- 需要由上层（<u>传输层</u>）的 `TCP` 协议来负责。
 
-- 服务器推送资源时，会先发送 PUSH_PROMISE 帧，告诉客户端接下来在哪个 Stream 发送资源，然后用偶数号 Stream 发送资源给客户端。
 
-- HTTP/2 通过 Stream 的并发能力，解决了 HTTP/1 队头阻塞的问题，看似很完美了，但是 HTTP/2 还是存在“队头阻塞”的问题，只不过问题不是在 HTTP 这一层面，而是在 TCP 这一层。
 
-  - **HTTP/2 是基于 TCP 协议来传输数据的，TCP 是字节流协议，TCP 层必须保证收到的字节数据是完整且连续的，这样内核才会将缓冲区里的数据返回给 HTTP 应用，那么当「前 1 个字节数据」没有到达时，后收到的字节数据只能存放在内核缓冲区里，只有等到这 1 个字节数据到达时，HTTP/2 应用层才能从内核中拿到数据，这就是 HTTP/2 队头阻塞问题。**
+![图片](https://mmbiz.qpic.cn/mmbiz_png/J0g14CUwaZeo9xBVAyPJ8iaWCC6sYS843tzTAWL4l6rZB0pulNqkLno7buMqnh5Hlphn7aibB798ga1t3a0Dqmzg/640?wx_fmt=png&tp=webp&wxfrom=5&wx_lazy=1&wx_co=1)
 
-  - 有没有什么解决方案呢？既然是 TCP 协议自身的问题，那干脆放弃 TCP 协议，转而使用 UDP 协议作为传输层协议，这个大胆的决定， HTTP/3 协议做了！
+是的 TCP协议工作在传输层——
 
-    ![图片](https://mmbiz.qpic.cn/mmbiz_jpg/J0g14CUwaZfUsx6kLW0BIhb41MgDMjGSVpOic2RofI9f4jRvhWRU70bUvkJzbl8gANjGbDlkvHokSibLtLg63H4w/640?wx_fmt=jpeg&tp=webp&wxfrom=5&wx_lazy=1&wx_co=1)
+- 是一个**可靠数据传输**的服务
+- 能确保接收端接收的网络包是**无损坏、无间隔、非冗余、按序**的
 
+##### 3.什么是TCP？
 
+==答==：
 
-#### HTTP/3优点
+TCP是 面向连接的、可靠的、基于字节流 的传输层通信协议
 
-##### HTTP/2的缺陷
+> 记住这三个特性~
+>
+> ![图片](https://mmbiz.qpic.cn/mmbiz_png/J0g14CUwaZeo9xBVAyPJ8iaWCC6sYS8438HibyWCtJ5Tn9VN7YuzgAibg46Ocdf7swUxgeKMQ9ge8Nic3WOibTSxPXA/640?wx_fmt=png&tp=webp&wxfrom=5&wx_lazy=1&wx_co=1)
 
-HTTP/2 虽然具有多个流并发传输的能力 但是**传输层是TCP协议** 于是存在以下缺陷：
+- 面向连接 - 一定是「一对一」才能连接
 
-- **队头阻塞**
+不能像 UDP 协议 可以<u>一个主机同时向多个主机发送消息</u>，也就是一对多是无法做到的；
 
-HTTP/2 多个请求跑在一个 TCP 连接中，如果序列号较低的 TCP 段在网络传输中丢失了，即使序列号较高的 TCP 段已经被接收了，应用层也无法从内核中读取到这部分数据，从 HTTP 视角看，就是**多个请求被阻塞了**；
+- 可靠的 - 无论**网络链路中出现了怎样的链路变化**，TCP都可以保证一个报文一定能到达接收端
+- 字节流 - 消息是「没有边界」的，所以无论我们消息有多大都可以进行传输。
+  - 并且消息是「有序的」，当「前一个」消息没有收到的时候，即使它先收到了后面的字节（这个特性的缺点：可能导致队头堵塞~HTTP/3中提到使用QUIC协议+UDP协议优化它！<u>（回头可以再去看看HTTP/3的优化）</u>），那么也不能扔给应用层去处理
+  - 同时对「重复」的报文会自动丢弃。
 
-- **TCP 和 TLS 握手时延**
+##### 4.什么是TCP连接？
 
-TCL 三次握手和 TLS 四次握手，共有 **3-RTT（RTT:往返时延 = 发送方的数据完全发送完（最后一个bit推送到数据链路上）到收到确认信号的时间） 的时延**
+==答==：
 
-![img](https://pic1.zhimg.com/80/v2-3c7376e036be5f531505ecfa8daf9cff_720w.jpg?source=1940ef5c)
+> 为了保证 客户端&服务端达成 **套接字Socket、序列号Sequence Numbers、窗口大小Window Sizes** 这三个信息的共识
+>
+> 根据RFC793对Connections的形容，连接是 套接字、序列号（用于保证可靠性）、窗口大小（用于进行流量控制） 的“combination”（组合）
 
-- **连接迁移需要重新连接**（4G切换成WIFI后的那一下卡顿~）
 
-移动设备从 4G 网络环境切换到 WIFI 时，由于 TCP 是基于四元组来确认一条 TCP 连接的，那么网络环境变化后，就会导致 IP 地址或端口变化，于是 **TCP 只能断开连接，然后再重新建立连接**，<u>切换网络环境的成本高</u>；
 
+不能死背八股文，来具体了解下
 
+> 我们来看看 RFC 793 是如何定义「连接」的：
+>
+> > *Connections:* 
+> >
+> > *The reliability and flow control mechanisms described above require that TCPs initialize and maintain certain status information for each data stream.*  
+> >
+> > *The combination of this information, including sockets, sequence numbers, and window sizes, is called a connection.*
+>
+> 简单来说（主要看最后一句）就是，**用于保证【1】<u>可靠性</u>和【2】<u>流量控制维护的某些状态信息</u>**，这些信息**的组合**（<u>包括Socket、序列号和窗口大小</u>） **称为连接**。
+>
+> ![图片](https://mmbiz.qpic.cn/mmbiz_png/J0g14CUwaZeo9xBVAyPJ8iaWCC6sYS843wVoVXxKKTibcN9sLAuSgibkDfV2X8LH8eicpV1yAJ1uffibGqAuWShXibYg/640?wx_fmt=png&tp=webp&wxfrom=5&wx_lazy=1&wx_co=1)
 
-##### 在UDP协议上开发的QUIC协议保证了数据的可靠传输
+所以我们可以知道 **建立一个TCP连接**是需要 客户端&服务端 **达成上述三个信息的共识**
 
-HTTP/3 就将传输层从 TCP 替换成了 UDP，并在 UDP 协议上开发了 QUIC 协议，来保证数据的可靠传输。
+- sockets套接字 **由 IP 地址和端口号组成**
+- sequence numbers序列号 **用来解决乱序问题等**
+- window sizes窗口大小 **用来做流量控制**
 
-QUIC 协议的特点：
+> 后面我们还会详细了解这里的细则 啥滑动窗口啥的 
 
->  上面HTTP/2的缺点在这里都有所改进！
+##### 5.如何唯一确定一个TCP连接呢？
 
-- 无队头阻塞
+==答：==
 
-HTTP/3 就将传输层从 TCP 替换成了 UDP，并在 UDP 协议上开发了 QUIC 协议，来保证数据的可靠传输。
-
-![图片](https://mmbiz.qpic.cn/mmbiz_png/J0g14CUwaZeyKxnpjy8lBsnDoLG0H9KjfwOOuQ5yPvE5KibWzHcOqg9cbQDoXX95t4pUEqqm5f8jhbOI1NNWjTQ/640?wx_fmt=png&tp=webp&wxfrom=5&wx_lazy=1&wx_co=1)
-
-- 建立连接速度快
-
-因为 QUIC 内部包含 ==TLS1.3==，因此仅需 1 个 RTT 就可以「同时」完成建立连接与 TLS 密钥协商。
-
-![在这里插入图片描述](https://img-blog.csdnimg.cn/b285a42233b848e0b2ba491d8294cbe5.png)
-
-
-
-甚至在第二次连接的时候，应用数据包可以和 QUIC 握手信息（连接信息 + TLS 信息）一起发送，达到 0-RTT 的效果。
-
-![图片](https://mmbiz.qpic.cn/mmbiz_gif/J0g14CUwaZeyKxnpjy8lBsnDoLG0H9Kj4THuEibxoaQ80CibfmxNfnLjVQewKNzr5GSWLaEgV2m6z2V7picIyEicOg/640?wx_fmt=gif&tp=webp&wxfrom=5&wx_lazy=1)
-
-- 连接迁移
-
-QUIC 协议没有用四元组的方式来“绑定”连接，而是**通过连接 ID 来标记通信的两个端点**，客户端和服务器可以各自选择一组 ID 来标记自己，因此即使移动设备的网络变化后，导致 IP 地址变化了，**只要仍保有上下文信息（比如连接 ID、TLS 密钥等），就可以“无缝”地复用原连接**，<u>消除重连的成本；</u>
-
-
-
-- 另外 HTTP/3 的 QPACK 通过两个特殊的单向流来同步双方的动态表，解决了 HTTP/2 的 HPACK 队头阻塞问题。
-
-> 不过，由于 QUIC 使用的是 UDP 传输协议，UDP 属于“二等公民”，**大部分路由器在网络繁忙的时候，会丢掉 UDP包**，把“空间”让给 TCP 包，所以 QUIC 的推广之路应该没那么简单。
+> TCP四元组可以唯一地确定一个连接，四元组包括：
+>
+> - TCP头部中的 源**端口**号、目的端口号 
+>   - <u>告诉TCP协议应该把报文发给哪个进程</u>
+> - IP头部中的 源**地址**、目的地址 
+>   - 通过IP协议<u>进行寻址，把报文发给对应进程</u>（IP协议有远程定位功能）
+>
+> 简单来说，根据起点、终点的端口号、地址，可以确定一个TCP连接
 
 
 
@@ -2345,80 +2449,10 @@ QUIC 协议没有用四元组的方式来“绑定”连接，而是**通过连�
 
 ### 面试题、面经总结
 
-发现昨天讨论的面试题就是剑指Offer上的内容
-
-
-
-
-
-#### CSS实现垂直居中
-
-之前[青训营活动时写的文章](https://juejin.cn/post/7009662518406676488/)~
-
-以下属性没有特别说明都是对子元素进行设置哈
-
-- flex布局
-
-  - 【1】`justify-content: center;  align-items: center;`
-  - 【2】`margin: auto;`
-
-- 绝对定位
-
-  - 【3】很常见的一个方法
-
-  ```css
-  position: absolute;
-  /* left变大的话盒子会往右移动（距离左边远） right大 向左
-  top变大盒子会向下移动 bottom大 向上*/
-  left: 0;
-  right: 0;
-  top: 0;
-  bottom: 0;
-  margin: auto;
-  ```
-
-  - 【4】子绝父相+子元素通过transform向左上偏移（很重要的一个实现方法，涉及多方面知识点）
-
-  ```css 
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  /* 上述代码会将盒子的左上角置于页面的中心点（xy轴的交点，也就是零点）上 */
-  transform: translate(-50%,-50%);// 向左上偏移50%
-  ```
-
-- grid布局与table-cell布局
-
-  - 【5】父元素使用grid布局 同【2】一样，子元素设为`margin: atuo;`即可
-  - 【6】父元素使用table-cell布局 子元素设置成行内块元素(这个方法比较新颖)
-
-  ```css
-  .father{
-      display: table-cell;
-      text-align: center;/* 水平居中 */
-      vertical-align: middle;/* 垂直居中 */
-  }
-  .son{
-      display: inline-block;
-  }
-  作者：敲代码的小提琴手
-  链接：https://juejin.cn/post/7009662518406676488/
-  来源：稀土掘金
-  ```
-
-  
-
-
-
-
-
-
-
 ### 算法题
 
 ```js
 1.三数之和 双指针
-// 昨天纠结勒半天的面试题 都是剑指上的鸭！
 2.剑指 Offer 56 - I. 数组中数字出现的次数 - 成对出现的数
 3.剑指 Offer II 070. 排序数组中只出现一次的数字 - 
 4.剑指 Offer 56 - II. 数组中数字出现的次数 II
@@ -2426,11 +2460,133 @@ QUIC 协议没有用四元组的方式来“绑定”连接，而是**通过连�
 
 #### [15. 三数之和](https://leetcode-cn.com/problems/3sum/)
 
+简单写了个题解[【JavaScript】对撞双指针 + 定指针 注释齐全](https://leetcode-cn.com/problems/3sum/solution/javascript-dui-zhuang-shuang-zhi-zhen-di-xbfk/)
+
 
 
 #### [剑指 Offer II 070. 排序数组中只出现一次的数字](https://leetcode-cn.com/problems/skFtm2/)
 
+同主站[540 有序数组的单一元素](https://leetcode-cn.com/problems/single-element-in-a-sorted-array/)
 
+我的题解——[[JavaScript]异或、二分搜索（全体二分查找乱序数组&偶数二分查找有序数组）注释齐全](https://leetcode-cn.com/problems/single-element-in-a-sorted-array/solution/javascriptyi-huo-er-fen-sou-suo-quan-ti-f6rzu/)
+
+##### 异或快捷解决
+
+```js
+var singleNonDuplicate = function(nums) {
+    let res;
+    for(let i = 0; i < nums.length; i++){
+        res ^= nums[i];
+    }
+    return res;
+};
+```
+
+##### 再优化，二分法（面试重点）
+
+> 这里的第一个关键点是先把四种情况列出来！
+>
+> 参考官方题解
+>
+> 例子 1：中间元素的同一元素在右边，且被 mid 分成两半的数组为偶数。
+>
+> 我们将右子数组的第一个元素移除后，则右子数组元素个数变成奇数，我们应将 lo 设置为 mid + 2。
+>
+> ![在这里插入图片描述](https://pic.leetcode-cn.com/08f1ff0fa20c9963ae4f5aafb7c6317df713b5eb562064ba8b7644c1d773c626-file_1576478245275)
+>
+> 例子 2：中间元素的同一元素在右边，且被 mid 分成两半的数组为奇数。
+>
+> 我们将右子数组的第一个元素移除后，则右子数组的元素个数变为偶数，我们应将 hi 设置为 mid - 1。
+>
+> ![在这里插入图片描述](https://pic.leetcode-cn.com/8481e9a41430c85977693dbad0d12de7df96a7064d13edd6eb359f7d8ccbcf99-file_1576478245283)
+>
+> 例子 3：中间元素的同一元素在左边，且被 mid 分成两半的数组为偶数。
+>
+> 我们将左子数组的最后一个元素移除后，则左子数组的元素个数变为奇数，我们应将 hi 设置为 mid - 2。
+>
+> ![在这里插入图片描述](https://pic.leetcode-cn.com/186af681e3fced71c9588d9422accc7832062b24d33c343edecd9aef2e0c6ba1-file_1576478245286)
+>
+> 例子 4：中间元素的同一元素在左边，且被 mid 分成两半的数组为奇数。
+>
+> 我们将左子数组的最后一个元素移除后，则左子数组的元素个数变为偶数，我们应将 lo 设置为 mid + 1。
+>
+> ![在这里插入图片描述](https://pic.leetcode-cn.com/067fab9a30b1b278da9e633de7b627931cdab5444d0f99e7142eb2907bff4431-file_1576478245290)
+
+
+
+然后就常规二分法做就行了~注意分情况讨论的细则即可！
+
+```js
+var singleNonDuplicate = function(nums) {
+    // 定义双指针
+    let i = 0, j = nums.length - 1;
+    while(i < j){
+        // let mid = (i + j) >> 1;
+        // 为了防止大数溢出 建议这么写
+        let mid = i + (j - i >> 1)
+        // 此方法的关键——判断哪边为奇数的变量 要设置好
+        let isEven = (j - mid) % 2 == 0;
+        // 如果j-mid为偶数 则去除中间两个值相同的元素并跳过它们之后，两指针（包括两指针）之间有奇数个元素，
+        // 也就是单个的元素一定在这之间
+        if(nums[mid] === nums[mid - 1]){
+            if(isEven){
+                // 在左边
+                j = mid - 2;
+            }
+            else{
+                i = mid + 1;
+            }
+        }
+        else if(nums[mid] === nums[mid + 1]){
+            if(isEven){
+                // 在右边
+                i = mid + 2;
+            }
+            else{
+                console.log("last j",j)
+                j = mid - 1;
+            }
+        }
+        else{
+            return nums[mid];
+        }
+    }
+    return nums[i];
+};
+```
+
+怎么说呢，双指针的题，多画图就完事了！
+
+时间复杂度 O(logn)，相比于暴力循环（包括异或），每次迭代将搜索空间缩减了一半！
+
+##### 进一步优化，仅对偶数索引进行二分搜索
+
+最佳实践
+
+```js
+var singleNonDuplicate = function(nums) {
+    let i = 0, j = nums.length - 1;// 数组长度必为奇数，所以一前一后两个元素下标为偶数
+    while(i < j){
+        let mid = i + ((j - i) >> 1);
+        if(mid % 2 === 1){
+            // mid为奇数则-1变为偶数 则mid现在必为“边缘” 不必再分四种情况来讨论
+            // 这就是仅对偶数索引进行二分搜索！
+            mid--;
+        }
+        if(nums[mid + 1] === nums[mid]){
+            // 去除mid那一对数之后，左侧数必为偶数，右侧数必为奇数，继续去紧挨着那对数的右边1个找
+            i = mid + 2;
+        }
+        else{
+            // 去除mid那一对数之后，左侧数为奇数，右侧数必为偶数，继续去紧挨着那对数的左边1个找
+            j = mid;// 此时mid已经在原基础上左移一位了 所以j直接放在mid这个位置即可
+        }
+    }
+    return nums[i];
+};
+```
+
+- 时间复杂度：O(log n/2) = O(log*n*)。我们仅对元素的一半进行二分搜索。
 
 #### [剑指 Offer 56 - I. 数组中数字出现的次数](https://leetcode-cn.com/problems/shu-zu-zhong-shu-zi-chu-xian-de-ci-shu-lcof/)
 
@@ -2444,3 +2600,14 @@ QUIC 协议没有用四元组的方式来“绑定”连接，而是**通过连�
 
 ### react学习
 
+看了一集的~
+
+
+
+
+
+#### 特别纪念 - 图床成功搭好！
+
+一句话的经验教训：看日志找bug再去搜更好！
+
+![image-20211019003938644](https://gitee.com/su-fangzhou/blog-image/raw/master/202110190039784.png)
