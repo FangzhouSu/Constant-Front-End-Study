@@ -1,5 +1,7 @@
 # 🎨前端知识库🎨
 
+## 基础知识汇总🤔
+
 > @[billSu](https://github.com/FangzhouSu)和小伙伴们一起维护的前端学习知识库👍
 >
 > 记录：
@@ -23,16 +25,16 @@
 - [前端开发框架](5-前端开发框架.md)
 - [操作系统](6-操作系统.md)
 
-项目方面
+## 优秀练手项目🧑‍💻
 
-> 欢迎来贡献更多优秀滴项目！🎉
+- [HTML CSS demos](HTML-CSS-demos)
+- [JS demos](JS-demos)
+
+> 另外欢迎来贡献更多优秀滴项目！🎉
 >
 > 贡献时注意格式：
 >
 > ![在这里插入图片描述](https://img-blog.csdnimg.cn/dd0372f5a9ae48f4b1ad406c588758e3.png)
 >
 > 学习笔记格式建议参考[demos总结指南](demos总结指南.md)
-
-- [HTML CSS demos](HTML-CSS-demos)
-- [JS demos](JS-demos)
 
