@@ -2628,7 +2628,7 @@ var singleNonDuplicate = function(nums) {
 
 
 
-# 10.19 *开始每日刷些题！
+# 10.19 *开始每日刷些面试高频题！
 
 和浙大的一个同样步调的朋友聊过之后感觉自己该刷刷题了！
 
@@ -2650,7 +2650,7 @@ var singleNonDuplicate = function(nums) {
 
 ```js
 // 今日主要收获 & 学习时间
-Totally 45min
+Totally 450min
 1.前端基础知识 
 // 从早上-中午 拿出一整块时间学习前端基础 晚上跑完步回来继续看~
     1.1 前端基础学习 30min 
@@ -2700,10 +2700,10 @@ Totally 45min
 > 这里说的实操 都是在 `freecodecamp` 中进行练习
 
 - [x] JS实操 
-- [ ] 刷题 剑指Offer经典面试题2道 小册完成二叉树的两章
+- [x] 刷题 剑指Offer经典面试题2道 小册完成二叉树的两章
 - [x] 计网 复习传输层内容 完结TCP基础 + 图解HTTP往下读
 - [x] 总结1篇前端基础相关的文章！
-- [ ] react 完成github搜索案例
+- [x] react 完成github搜索案例
 - [x] JS30demos
 
 ## 1.前端基础
@@ -2751,6 +2751,561 @@ let result = url.split('?')[1].split('&').map((item) =>
     obj[item.split('=')[0]] = item.split('=')[1];
 )
 console.log(obj);// 
+```
+
+
+
+- 利用`Array.prototype.reduce()`一行完成查询（骄傲脸😎）
+
+每次迭代中 对obj对象进行 `obj[item.split('=')[0]]=item.split('=')[1]` 操作
+
+obj初值为{}
+
+```js
+let url = "https://github.com/FangzhouSu/Constant-Front-End-Study/?a=1&b=2&c=3"
+url.split('?')[1].split('&').reduce((obj, item) => (
+    obj[item.split('=')[0]]=item.split('=')[1], obj), {}
+)
+```
+
+
+
+#### 2.一道面试题引入的隐式转换的学习
+
+[看](https://blog.csdn.net/weixin_33711647/article/details/88723157?utm_medium=distribute.pc_relevant.none-task-blog-2~default~baidujs_title~default-1.no_search_link&spm=1001.2101.3001.4242)
+
+```js
+if ([] == false) {
+    console.log(1);// 1
+}
+if ([]) {
+    console.log(3);// 3
+}
+if ({} == false ) {
+    console.log(2);// undefined 
+}
+if ({}) {
+    console.log(2);// 2
+}
+if ([1] == [1]) {
+    console.log(4);// undefined 
+}
+```
+
+
+
+```js
+{} == false;// Unexpected token '=='
+```
+
+
+
+#### 3.**使用 getter 和 setter 来控制对象的访问**
+
+在 class 中使用一个温度标准，要么是华氏温度，要么是摄氏温度。
+
+这就是 getter 和 setter 的功能。 你正在**为别的用户创建一个 API**，不论你使用哪一个，用户都将获得正确的结果。
+
+或者说，你从用户需求中抽象出了实现细节。
+
+```js
+class Thermostat{
+  constructor(huashi){
+    this._huashi = huashi;
+  }
+  get temperature(){
+    return (this._huashi - 32)*5/9;
+  }
+  set temperature(sheshi){
+    this._huashi = 9*sheshi/5 + 32;
+  }
+
+}
+
+const thermos = new Thermostat(76); // 设置为华氏刻度
+let temp = thermos.temperature; // 24.44 摄氏度(getter方法起作用)
+thermos.temperature = 26;// 将摄氏度转化为类私有的华氏度(setter方法起作用)
+temp = thermos.temperature; // 26 摄氏度(getter方法再次进行转换获得摄氏温度)
+```
+
+
+
+#### 4.export重用代码块
+
+```js
+// math_functions.js
+// 想让其他JS文件也可以使用这个函数——
+// 导出方法1
+export const add = (x, y) => x + y;
+// 导出方法2 可导出多个方法
+const add = (x, y) => x + y;
+{ add }
+```
+
+
+
+## 2.核心基础知识
+
+### 计网
+
+```js
+1.继续学习TCP的基本认识
+	头格式&基础字段
+	为什么需要TCP协议？
+    什么是TCP？什么是TCP连接？
+    如何唯一确定一个TCP连接？
+    一个IP服务器最大的TCP连接数是？
+    UDP TCP协议
+    	五个方位的区别
+        应用场景的区别
+    头部报文的内容上为何——
+    	UDP报文头部无首部长度字段、有包长度字段
+    	TCP报文头部有首部长度字段、无包长度字段 
+```
+
+#### TCP的基本认识
+
+![图片](https://mmbiz.qpic.cn/mmbiz_png/J0g14CUwaZeo9xBVAyPJ8iaWCC6sYS843PvjUjeM1AEqsdRCeZCODPM3k8fNbTe2BHlme1VmNNKlz3L0wyWcQxw/640?wx_fmt=png&tp=webp&wxfrom=5&wx_lazy=1&wx_co=1)
+
+> （聊到某个细节的时候得能说出来点儿东西~）
+
+##### 1.TCP的头格式以及重要字段
+
+看看TCP头部格式中的重点字段
+
+- 序列号 - 解决**网络包乱序**的问题
+
+建立连接时由计算机生成的随机数作为其初始值
+
+通过 SYN 包传给接收端主机，每发送一次数据，就「累加」一次该「数据字节数」的大小。**用来解决网络包乱序问题。**
+
+- 确认应答号 - 解决**不丢包**的问题
+
+指下一次「期望」收到的数据的序列号
+
+**发送端收到**这个确认应答（第三次握手）以后可以认为在这个序号以前的数据都已经被正常接收。**用来解决不丢包的问题。**
+
+- ACK
+
+该位为 `1` 时，「确认应答」的字段变为有效，
+
+> TCP 规定除了最初建立连接时的 `SYN` 包之外该位必须设置为 `1` 。
+
+- RST
+
+该位为 `1` 时，表示 TCP 连接中出现异常必须强制断开连接。
+
+- SYN
+
+该位为 `1` 时，表示希望建立连接，并在其「序列号」的字段进行序列号初始值的设定。
+
+- FIN
+
+该位为 `1` 时，表示今后不会再有数据发送，希望断开连接
+
+> 当通信结束希望断开连接时，通信双方的主机之间就可以相互交换 `FIN` 位置为 1 的 TCP 段。
+
+![图片](https://mmbiz.qpic.cn/mmbiz_png/J0g14CUwaZeo9xBVAyPJ8iaWCC6sYS843ZPb6tFLvCVuXEn98khfs7y2KRvOV0ia5icVByzIK3aAKRURuVZKagsKw/640?wx_fmt=png&tp=webp&wxfrom=5&wx_lazy=1&wx_co=1)
+
+#####  2.为什么需要TCP协议？TCP工作在哪一层？
+
+`IP` 层（网络层）是「不可靠」的，它不保证网络包的交付、不保证网络包的按序交付、也不保证网络包中的数据的完整性。
+
+如果需要**保障网络数据包的可靠性**，那么就——
+
+- 需要由上层（<u>传输层</u>）的 `TCP` 协议来负责。
+
+
+
+![图片](https://mmbiz.qpic.cn/mmbiz_png/J0g14CUwaZeo9xBVAyPJ8iaWCC6sYS843tzTAWL4l6rZB0pulNqkLno7buMqnh5Hlphn7aibB798ga1t3a0Dqmzg/640?wx_fmt=png&tp=webp&wxfrom=5&wx_lazy=1&wx_co=1)
+
+是的 TCP协议工作在传输层——
+
+- 是一个**可靠数据传输**的服务
+- 能确保接收端接收的网络包是**无损坏、无间隔、非冗余、按序**的
+
+##### 3.什么是TCP？
+
+==答==：
+
+TCP是 面向连接的、可靠的、基于字节流 的传输层通信协议
+
+> 记住这三个特性~
+>
+> ![图片](https://mmbiz.qpic.cn/mmbiz_png/J0g14CUwaZeo9xBVAyPJ8iaWCC6sYS8438HibyWCtJ5Tn9VN7YuzgAibg46Ocdf7swUxgeKMQ9ge8Nic3WOibTSxPXA/640?wx_fmt=png&tp=webp&wxfrom=5&wx_lazy=1&wx_co=1)
+
+- 面向连接 - 一定是「一对一」才能连接
+
+不能像 UDP 协议 可以<u>一个主机同时向多个主机发送消息</u>，也就是一对多是无法做到的；
+
+- 可靠的 - 无论**网络链路中出现了怎样的链路变化**，TCP都可以保证一个报文一定能到达接收端
+- 字节流 - 消息是「没有边界」的，所以无论我们消息有多大都可以进行传输。
+  - 并且消息是「有序的」，当「前一个」消息没有收到的时候，即使它先收到了后面的字节（这个特性的缺点：可能导致队头堵塞~HTTP/3中提到使用QUIC协议+UDP协议优化它！<u>（回头可以再去看看HTTP/3的优化）</u>），那么也不能扔给应用层去处理
+  - 同时对「重复」的报文会自动丢弃。
+
+##### 4.什么是TCP连接？
+
+==答==：
+
+> 为了保证 客户端&服务端达成 **套接字Socket、序列号Sequence Numbers、窗口大小Window Sizes** 这三个信息的共识
+>
+> 根据RFC793对Connections的形容，连接是 套接字、序列号（用于保证可靠性）、窗口大小（用于进行流量控制） 的“combination”（组合）
+
+
+
+不能死背八股文，来具体了解下
+
+> 我们来看看 RFC 793 是如何定义「连接」的：
+>
+> > *Connections:* 
+> >
+> > *The reliability and flow control mechanisms described above require that TCPs initialize and maintain certain status information for each data stream.*  
+> >
+> > *The combination of this information, including sockets, sequence numbers, and window sizes, is called a connection.*
+>
+> 简单来说（主要看最后一句）就是，**用于保证【1】<u>可靠性</u>和【2】<u>流量控制维护的某些状态信息</u>**，这些信息**的组合**（<u>包括Socket、序列号和窗口大小</u>） **称为连接**。
+>
+> ![图片](https://mmbiz.qpic.cn/mmbiz_png/J0g14CUwaZeo9xBVAyPJ8iaWCC6sYS843wVoVXxKKTibcN9sLAuSgibkDfV2X8LH8eicpV1yAJ1uffibGqAuWShXibYg/640?wx_fmt=png&tp=webp&wxfrom=5&wx_lazy=1&wx_co=1)
+
+所以我们可以知道 **建立一个TCP连接**是需要 客户端&服务端 **达成上述三个信息的共识**
+
+- sockets套接字 **由 IP 地址和端口号组成**
+- sequence numbers序列号 **用来解决乱序问题等**
+- window sizes窗口大小 **用来做流量控制**
+
+> 后面我们还会详细了解这里的细则 啥滑动窗口啥的 
+
+##### 5.如何唯一确定一个TCP连接呢？
+
+==答：==
+
+> TCP四元组可以唯一地确定一个连接，四元组包括：
+>
+> - TCP头部中的 源**端口**号、目的端口号 
+>   - <u>告诉TCP协议应该把报文发给哪个进程</u>
+> - IP头部中的 源**地址**、目的地址 
+>   - 通过IP协议<u>进行寻址，把报文发给对应进程</u>（IP协议有远程定位功能）
+>
+> 简单来说，根据起点、终点的端口号、地址，可以确定一个TCP连接
+
+##### 6.一个IP服务器监听了一个端口，它的TCP最大连接数是多少？
+
+==答==：
+
+> 服务器通常固定在某个本地端口上监听，等待客户端的连接请求。
+>
+> 因此，**客户端IP和端口是可变的**，**最大TCP连接数的理论值**计算公式如下：
+>
+> ![图片](https://mmbiz.qpic.cn/mmbiz_png/J0g14CUwaZeo9xBVAyPJ8iaWCC6sYS843wBh1Ca3jpEqO0Xia0YzlicCgFdhLw8N4f0TCfglTwtxzecpECvmhBtEQ/640?wx_fmt=png&tp=webp&wxfrom=5&wx_lazy=1&wx_co=1)
+>
+> 对于<u>IPV4</u>来说：
+>
+> - 客户端的 **IP数 最多**为 `2` 的 `32` 次方
+> - 客户端的**端口数最多**为 `2` 的 `16` 次方
+>
+> 也就是服务端**单机最大 TCP 连接数**，约为 `2` 的 `48` 次方。
+
+当然，服务端**最大并发 TCP 连接数远<u>不能达到理论上限</u>。**
+
+- 首先主要是**文件描述符限制**，Socket 都是文件，所以首先要通过 `ulimit` 配置文件描述符的数目；
+- 另一个是**内存限制**，每个 TCP 连接都要占用一定内存，操作系统是有限的。
+
+##### 7.UDP和TCP有什么区别呢？
+
+==答==：
+
+> 【1】连接
+>
+> - TCP - 面向连接 （具有可靠性、基于字节流）的传输层协议，传输数据之前要先建立连接
+> - UDP - **不需要连接**，即刻传输数据（用在HTTP/3中，是优点！才不管你传没传过去呢哼唧😎）
+>
+> 【2】服务对象
+>
+> - TCP - 一对一的两点服务（一条连接只有两个端点哦~）
+> - UDP - 支持一对一、**一对多、多对多**的交互通信
+>
+> 【3】可靠性
+>
+> - TCP是**可靠交付数据**的，数据可以无差错、不丢失、不重复，按需到达
+> - UDP尽最大努力交付，不保证可靠交付数据
+>
+> 【4】拥塞控制、流量控制
+>
+> - TCP有**拥塞控制和流量控制**机制，保证数据传输的**安全**性
+> - UDP则没有，即使网络非常拥堵了也不会影响UDP的发送速率~
+>
+> 【5】首部开销
+>
+> - TCP首部长度较长，会有一定的开销
+>   - 在没有使用「选项」字段时是 `20` 个字节，如果使用了「选项」字段则会变长的。
+> - UDP首部只有8个字节（64位），且是固定不变的，开销较小
+>   - ![图片](https://mmbiz.qpic.cn/mmbiz_png/J0g14CUwaZeo9xBVAyPJ8iaWCC6sYS8431Mymq2yPGjMPGodSEg8b31eoyQbibzGjDEHiaQUUDlbvCEwcXN3aicOTw/640?wx_fmt=png&tp=webp&wxfrom=5&wx_lazy=1&wx_co=1)
+
+###### UDP协议的一些特点
+
+- 不提供复杂的控制机制，利用 IP 提供面向「无连接」的通信服务。
+- 协议真的非常简单，头部就8个字节，如上👆
+- 目标和源端口：主要是**告诉 UDP 协议应该把报文发给哪个进程**。
+- 包长度：该字段**保存了 UDP 首部的长度跟数据的长度之和**。
+- 校验和：校验和是为了**提供可靠的 UDP 首部和数据**而设计。
+
+##### 8.UDP TCP分别的应用场景是什么？
+
+==答==：
+
+> TCP - 面向连接 可以保证数据的可靠性交付 经常用于：
+>
+> - FTP文件传输
+> - HTTP / HTTPS协议
+>
+> UDP - 面向无连接 可以随时发送数据 UDP本身处理简单且高效 经常用于：
+>
+> - 包总量较少的通信：
+>   - DNS
+>   - SNMP
+> - 视频、音频等多媒体通信
+> - 广播通信
+
+##### 9.为什么UDP头部没有「首部长度」字段，而 TCP 头部有「首部长度」字段呢？
+
+![image-20210821191532870](https://gitee.com/su-fangzhou/blog-image/raw/master/202110191508650.png)
+
+就是介个~首部长度字段
+
+而UDP只有要给包长度的字段~
+
+![image-20211019150948995](https://gitee.com/su-fangzhou/blog-image/raw/master/202110191509143.png)
+
+==答：==
+
+> - TCP 有 可以变长 的选项字段 所以需要 首部长度字段 来记录TCP的首部长度
+> - UDP头部长度不会变化！所以不用多一个字段来记录UDP的首部长度了~
+>
+> 这里也可以看出来UDP是很简单滴一个通信协议~
+
+##### 10.为什么 UDP 头部有「包长度」字段，而 TCP 头部则没有「包长度」字段呢？
+
+==答==：
+
+> TCP数据长度计算方法：
+>
+> ![图片](https://mmbiz.qpic.cn/mmbiz_png/J0g14CUwaZeo9xBVAyPJ8iaWCC6sYS843bzI6JAcXCXOvBbURJoFAsBWnFrSCc8xibRxNEWerFaY8dWFJDlbYibaA/640?wx_fmt=png&tp=webp&wxfrom=5&wx_lazy=1&wx_co=1)
+>
+> - IP报文头部
+>   - IP总长度
+>   - IP首部长度
+> - TCP报文头部
+>   - TCP首部长度
+>
+> TCP数据长度（包长度）由此计算得来
+
+这里有个令人疑惑的点：UDP也是基于IP层的呐~那UDP的数据长度不也可以通过这个公式算？
+
+《图解网络》作者也觉得这个说法蛮有道理😂
+
+但是再往深里挖掘以下，可以得知——
+
+**为了网络设备的硬件设计和处理方便，首部长度需要是4字节的整数倍**
+
+> 如果去掉 UDP 「包长度」字段，那 UDP 首部长度就不是 `4` 字节的整数倍了
+>
+> 为了补全 UDP 首部长度是 `4` 字节的整数倍，UDP头部报文才补充了「包长度」字段。
+
+###  操作系统
+
+
+
+## 3.面试题
+
+### 面试题、面经总结
+
+### 算法题
+
+```js
+剑指 Offer 56 - I. 数组中数字出现的次数 - 成对出现的数
+剑指 Offer II 070. 排序数组中只出现一次的数字 -  复习~
+剑指 Offer 56 - II. 数组中数字出现的次数 II
+```
+
+#### [540. 有序数组中的单一元素](https://leetcode-cn.com/problems/single-element-in-a-sorted-array/)
+
+复习二分搜索
+
+#### [剑指 Offer 56 - I. 数组中数字出现的次数](https://leetcode-cn.com/problems/shu-zu-zhong-shu-zi-chu-xian-de-ci-shu-lcof/)
+
+哈希暴力解了 但是这样做不符合题意 应该使用位运算 明天来看
+
+
+
+#### [剑指 Offer 56 - II. 数组中数字出现的次数 II](https://leetcode-cn.com/problems/shu-zu-zhong-shu-zi-chu-xian-de-ci-shu-ii-lcof/)
+
+这题涉及的位运算就更烧脑了。
+
+- 明天用哈希表刷一遍
+- 看一遍位运算 争取看懂。。
+
+#### 二叉树结点的构造函数
+
+```js
+function TreeNode(val){
+    this.val = val;
+    this.left = this.right = null;
+}
+// 再严谨一些（leetcode上给出的定义）
+function TreeNode(val, left, right){
+    this.val = (val === undefined ? 0 : val;)
+    this.left = (left === undefined ? null : left);
+    this.right = (right === undefined ? null : right)
+}
+```
+
+值为 1 的二叉树结点，从结构上来说，它长这样：
+
+![img](https://p1-jj.byteimg.com/tos-cn-i-t2oaga2asx/gold-user-assets/2020/4/6/1714e6b26ae0d174~tplv-t2oaga2asx-watermark.awebp)
+
+以这个结点为根结点，我们可以通过给 left/right 赋值拓展其子树信息，延展出一棵二叉树。因此从更加细化的角度来看，一棵二叉树的形态实际是这样的：
+![img](https://p1-jj.byteimg.com/tos-cn-i-t2oaga2asx/gold-user-assets/2020/4/6/1714e6b268b61522~tplv-t2oaga2asx-watermark.awebp)
+
+二叉树也可以用一个嵌套对象来进行表示
+
+举个例子
+
+![img](https://p1-jj.byteimg.com/tos-cn-i-t2oaga2asx/gold-user-assets/2020/4/6/1714ec42acc57e04~tplv-t2oaga2asx-watermark.awebp)
+
+
+
+```js
+const root = {
+  val: "A",
+  left: {
+    val: "B",
+    left: {
+      val: "D"
+    },
+    right: {
+      val: "E"
+    }
+  },
+    
+  right: {
+    val: "C",
+    right: {
+      val: "F"
+    }
+  }
+};
+```
+
+## 4.前端开发框架
+
+### react学习
+
+
+
+# 10.20 
+
+坚持每日刷题的第一天哈！
+
+```js
+// DDL
+	写出第一版简历  10.31
+		1.重点掌握HTTP协议
+        2.JS基础良好 
+        3.ES6过完 
+    	4.JS30项目完结
+        5.框架相关内容完结并尽量完成记事本项目！
+```
+
+
+
+```js
+// 今日主要收获 & 学习时间
+Totally min
+1.前端基础知识 
+// 从早上-中午 拿出一整块时间学习前端基础 晚上跑完步回来继续看~
+    1.1 前端基础学习 40+min 
+    // 红宝书、刷题
+		/* 看了些面试题 规划一下学习路径 */
+    1.2 freecodecamp JS + 响应式网页设计 min
+    	/*  */
+    1.3 JS 30demos min
+    	/* demo22  */
+
+2.核心基础知识 下午开始学计网 + 刷题
+	2.1 计网 min
+		/*  */
+	2.2 操作系统 min
+		/*  */
+
+3.面试刷题
+	3.1 刷算法 刷力扣 min	
+    	/* 掘金小册 11/28
+        	继续复习剑指这三道经典题 主要是位运算的内容 再复习下二分法
+        	继续推进小册的内容 按顺序就可了
+        	*/   
+    	// 每个阶段结束后 简单总结下应对某种数据结构/对应类型的题目 应该怎么去想
+        1.数组 + 字符串 + 链表 + 二叉树 + 栈/队列 熟练掌握这些数据结构
+        2.双指针 + 遍历专题DFS BFS + 递归
+        3.回溯算法 + 贪心算法 + 动态规划
+        4.了解下前缀和方法 熟练使用哈希表（解决数组问题） 
+    3.2 面试题 min
+		/*  */  
+    
+4.前端开发框架 
+	4.1 react学习 min
+		/*  */
+    
+5.其他 
+	看面经，看面试题 再次发现自己不足，感觉以后得打印几份面经贴墙上XD 40min
+    毛概作业 20min 观辛亥革命有感
+    
+6.每日总结 
+```
+
+
+
+> 学习顺序预告
+>
+> 这里说的实操 都是在 `freecodecamp` 中进行练习
+
+- [ ] JS实操 
+- [ ] JS面试题1-2道
+- [ ] 刷题 剑指Offer经典面试题3道（位运算部分直接看答案） 小册推进
+- [ ] 计网 复习传输层内容 完结TCP基础 + 图解HTTP往下读
+- [ ] 总结1篇前端基础相关的文章！
+- [ ] react 看官方文档复习一下，继续看视频学习兄弟组件传值
+- [ ] JS30demos
+- [ ] JS面试题1-2道
+
+## 1.前端基础
+
+### 前端基础知识
+
+```js
+1.隐式转换的问题
+	由一道面试题引入
+2.找URI中的某个字符
+// 总结文章！
+3.使用 getter 和 setter 来控制对象的访问-华氏、摄氏温度转变
+4.export重用代码块
+```
+
+#### 1.从URL字符串中获取“查询字符串参数”
+
+- 用`Array.prototype.map()`优化一下查询方法🤔
+
+这里map的返回值给我弄得有点懵hh
+
+
+
+```js
+let url = "https://github.com/FangzhouSu/Constant-Front-End-Study/?a=1&b=2&c=3"
+let obj = {};
+let result = url.split('?')[1].split('&').map((item) =>
+    obj[item.split('=')[0]] = item.split('=')[1]
+)
+console.log(obj);// {a: "1", b: "2", c: "3"}
+console.log(result);//  ["1", "2", "3"]
 ```
 
 
