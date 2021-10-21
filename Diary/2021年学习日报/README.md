@@ -3277,10 +3277,8 @@ Totally 450min
 - [x] JS实操 
 - [x] JS面试题1-2道
 - [x] 刷题 剑指Offer经典面试题3道（位运算部分直接看答案） 
-- [ ] 计网 复习传输层内容  + 图解HTTP往下读
-- [ ] react 看官方文档复习一下，继续看视频学习兄弟组件传值
-- [ ] JS30demos
-- [ ] 总结1篇前端基础相关的文章！
+- [x] 计网 复习传输层内容  + 图解HTTP往下读
+- [x] JS30demos
 
 ## 1.前端基础
 
@@ -3614,72 +3612,11 @@ for(let content in bill){
 
 #### [剑指 Offer 56 - I. 数组中数字出现的次数](https://leetcode-cn.com/problems/shu-zu-zhong-shu-zi-chu-xian-de-ci-shu-lcof/)
 
-哈希暴力解了 但是这样做不符合题意 应该使用位运算 明天来看
-
-
+烧脑的位运算 用到了 & 
 
 #### [剑指 Offer 56 - II. 数组中数字出现的次数 II](https://leetcode-cn.com/problems/shu-zu-zhong-shu-zi-chu-xian-de-ci-shu-ii-lcof/)
 
-这题涉及的位运算就更烧脑了。
-
-- 明天用哈希表刷一遍
-- 看一遍位运算 争取看懂。。
-
-#### 二叉树结点的构造函数
-
-```js
-function TreeNode(val){
-    this.val = val;
-    this.left = this.right = null;
-}
-// 再严谨一些（leetcode上给出的定义）
-function TreeNode(val, left, right){
-    this.val = (val === undefined ? 0 : val;)
-    this.left = (left === undefined ? null : left);
-    this.right = (right === undefined ? null : right)
-}
-```
-
-值为 1 的二叉树结点，从结构上来说，它长这样：
-
-![img](https://p1-jj.byteimg.com/tos-cn-i-t2oaga2asx/gold-user-assets/2020/4/6/1714e6b26ae0d174~tplv-t2oaga2asx-watermark.awebp)
-
-以这个结点为根结点，我们可以通过给 left/right 赋值拓展其子树信息，延展出一棵二叉树。因此从更加细化的角度来看，一棵二叉树的形态实际是这样的：
-![img](https://p1-jj.byteimg.com/tos-cn-i-t2oaga2asx/gold-user-assets/2020/4/6/1714e6b268b61522~tplv-t2oaga2asx-watermark.awebp)
-
-二叉树也可以用一个嵌套对象来进行表示
-
-举个例子
-
-![img](https://p1-jj.byteimg.com/tos-cn-i-t2oaga2asx/gold-user-assets/2020/4/6/1714ec42acc57e04~tplv-t2oaga2asx-watermark.awebp)
-
-
-
-```js
-const root = {
-  val: "A",
-  left: {
-    val: "B",
-    left: {
-      val: "D"
-    },
-    right: {
-      val: "E"
-    }
-  },
-    
-  right: {
-    val: "C",
-    right: {
-      val: "F"
-    }
-  }
-};
-```
-
-
-
-
+哈希表暴力解了。。。
 
 
 
@@ -3687,5 +3624,476 @@ const root = {
 
 ### react学习
 
+# 10.21
 
+坚持刷题的第二天！
+
+```js
+// DDL
+	写出第一版简历  10.31
+		1.重点掌握HTTP协议
+        2.JS基础良好 
+        3.ES6过完 
+    	4.JS30项目完结
+        5.框架相关内容完结并尽量完成记事本项目！
+```
+
+
+
+```js
+// 今日主要收获 & 学习时间
+Totally min
+1.前端基础知识 
+// 从早上-中午 拿出一整块时间学习前端基础 晚上跑完步回来继续看~
+    1.1 前端基础学习 40min 
+    // 红宝书、刷题
+		/* 红宝书还是全面！之后还是多拿一些时间看看吧！函数那里东西真的很多啊！+HTML基础一些内容 忘差不多了！	*/
+    1.2 freecodecamp JS + 响应式网页设计 60min
+    	/* 复习勒Promise ES6 */
+    1.3 JS 30demos min
+    	/*  */
+
+2.核心基础知识 下午开始学计网 + 刷题
+	2.1 计网 50min
+		/* TCP三次握手的内容，再看一遍还是很有收获！另外，第三次握手客户端给服务端发送的ACK报文中可以携带数据！这个高频考点要记住！ */
+	2.2 操作系统 min
+		/*  */
+
+3.面试刷题
+	3.1 刷算法 刷力扣 80min	
+    	/* 掘金小册 11/28
+        	晚上效率裂开了。。刷题效率太低 字符串那点东西都没看完。*/   
+    	// 每个阶段结束后 简单总结下应对某种数据结构/对应类型的题目 应该怎么去想
+        1.数组 + 字符串 + 链表 + 二叉树 + 栈/队列 熟练掌握这些数据结构
+        2.双指针 + 遍历专题DFS BFS + 递归
+        3.回溯算法 + 贪心算法 + 动态规划
+        4.了解下前缀和方法 熟练使用哈希表（解决数组问题） 
+    3.2 面试题 50min
+		/* 看面经，看面试题 
+        	JS基础两道 还是围绕着整数来学习勒一下~*/  
+    
+4.前端开发框架 
+	4.1 react学习 min
+		/*  */
+    
+5.其他 
+	规划今日学习路径 稳一些！20min
+6.每日总结 
+```
+
+> 学习顺序预告
+>
+> 这里说的实操 都是在 `freecodecamp` 中进行练习
+
+- [x] JS实操 
+- [x] JS红宝书函数
+- [x] JS面试题1-2道
+- [ ] 计网 TCP连接内容 图解HTTP
+- [ ] 小册刷字符串 刷二分查找
+- [ ] react官方文档+尚硅谷材料 复习（可以去CSDN找找笔记之类的）
+- [ ] JS面试题1道
+- [ ] JS基础文章
+
+## 1.前端基础
+
+### 前端基础知识
+
+```js
+1.隐式转换的问题
+	由一道面试题引入
+// 总结文章！
+2.var变量存在的问题
+3.防止对象改变的freeze方法
+4.设置函数的默认参数来构建更加灵活的函数 const greeting = (name = "Anonymous") => "Hello " + name;
+5. rest 操作符... 					function(...args)
+	使用 spread 运算符展开数组项 ...  [1,2,3,...arr]
+6.img标签中给搜索引擎看的属性是alt！alt属性有两个作用：加载失败的替换文字；让搜索引擎可以通过属性的文字描述获取图片。
+7.src用于替代这个元素，而href用于建立这个标签与外部资源之间的关系。
+```
+
+#### 1.一道面试题引入的隐式转换的学习
+
+[看](https://blog.csdn.net/weixin_33711647/article/details/88723157?utm_medium=distribute.pc_relevant.none-task-blog-2~default~baidujs_title~default-1.no_search_link&spm=1001.2101.3001.4242)
+
+```js
+if ([] == false) {
+    console.log(1);// 1
+}
+if ([]) {
+    console.log(3);// 3
+}
+if ({} == false ) {
+    console.log(2);// undefined 
+}
+if ({}) {
+    console.log(2);// 2
+}
+if ([1] == [1]) {
+    console.log(4);// undefined 
+}
+```
+
+另外 `null + 0 = 0`
+
+```js
+{} == false;// Unexpected token '=='
+```
+
+#### 2.var存在的问题
+
+存储的函数会总是指向更新后的全局 `i` 变量的值。
+
+```js
+var printNumTwo;
+for (var i = 0; i < 3; i++) {
+  if (i === 2) {
+    printNumTwo = function() {
+      return i;
+    };
+  }
+}
+console.log(printNumTwo());// 3
+```
+
+因为赋值给 `i` 的值已经更新，`printNumTwo()` 返回全局的 `i`，而不是在 for 循环中创建函数时 `i` 的值。 `let` 关键字就不会出现这种现象
+
+#### 3.Object.freeze()方法保证数据不被改变
+
+任何更改对象的尝试都将被拒绝，如果脚本在严格模式下运行，将抛出错误。
+
+```js
+Object.freeze(obj);
+```
+
+#### 4.使用展开运算符替代apply方法传参
+
+下面的 ES5 代码使用了 `apply()` 来计算数组的最大值：
+
+```js
+var arr = [6, 89, 3, 45];
+var maximus = Math.max.apply(null, arr);
+```
+
+我们必须使用 `Math.max.apply(null, arr)`，因为 `Math.max(arr)` 返回 `NaN`。
+
+ `Math.max()` 函数中**需要传入的是一系列由逗号分隔的参数**，而不是一个数组。 展开操作符可以<u>提升代码的可读性，使代码易于维护。</u>
+
+```js
+const arr = [6, 89, 3, 45];
+const maximus = Math.max(...arr);
+```
+
+`maximus` 的值应该是 `89`。
+
+`...arr` 返回一个**解压**的数组。 也就是说，它*展开*数组。 然而，展开操作符**只能够在函数的参数中或者数组中使用**。 下面的代码将会报错：
+
+```js
+const spreaded = ...arr;
+```
+
+#### 5.嵌套解构
+
+```js
+const user = {
+  johnDoe: { 
+    age: 34,
+    email: 'johnDoe@freeCodeCamp.com'
+  }
+};
+```
+
+这是解构对象的属性值赋值给具有相同名字的变量：
+
+```js
+const { johnDoe: { age, email }} = user;
+```
+
+这是将对象的属性值赋值给具有不同名字的变量：
+
+```js
+const { johnDoe: { age: userAge, email: userEmail }} = user;
+```
+
+#### 6.使用解构赋值将对象作为函数的参数传递
+
+在某些情况下，你可以在函数的参数里直接解构对象。
+
+请看以下代码：
+
+```js
+const profileUpdate = (profileData) => {
+  const { name, age, nationality, location } = profileData;
+
+}
+```
+
+上面的操作解构了传给函数的对象。 这样的操作也**可以直接在参数里完成**：
+
+```js
+const profileUpdate = ({ name, age, nationality, location }) => {
+
+}
+```
+
+当 `profileData` 被传递到上面的函数时，从函数参数中解构出值以在函数内使用。
+
+#### 7.**使用简单字段编写简洁的对象字面量声明**
+
+ES6 添加了一些很棒的功能，用于更方便地定义对象。
+
+请看以下代码：
+
+```js
+const getMousePosition = (x, y) => ({
+  x: x,
+  y: y
+});
+```
+
+`getMousePosition` 简单的函数，返回拥有两个属性的对象。 ES6 提供了一个语法糖，消除了类似 `x: x` 这种冗余的写法。 你可以只写一次 `x`，解释器会自动将其转换成 `x: x`（或效果相同的内容）。 下面是使用这种语法重写的同样的函数：
+
+```js
+const getMousePosition = (x, y) => ({ x, y });
+```
+
+另一种写法：
+
+```js
+const createPerson = (name, age, gender) => {
+  return {
+    name,age,gender
+  };
+};
+```
+
+Bingo!ES6专题完结
+
+![image-20211021114531185](https://gitee.com/su-fangzhou/blog-image/raw/master/202110211145427.png)
+
+#### 8.闭包原理建议去多读读红宝书！
+
+第四章的作用域链 + 第十章的函数部分 p335（书页数311）
+
+## 2.核心基础知识
+
+### 计网
+
+```js
+2.TCP连接的建立
+	TCP三次握手过程
+    Linux下如何查看TCP状态
+```
+
+#### TCP连接的建立
+
+##### 1.TCP三次握手过程和状态变迁
+
+TCP 是<u>面向连接</u>的协议，所以使用 TCP 前必须先建立连接，而**建立连接是通过三次握手而进行的。**
+
+![图片](https://mmbiz.qpic.cn/mmbiz_png/J0g14CUwaZeo9xBVAyPJ8iaWCC6sYS843fFol7gd3035Kibg3gPMSAZQLVibf9nwEblOUaX80hoOaRLVpaYCAI44w/640?wx_fmt=png&tp=webp&wxfrom=5&wx_lazy=1&wx_co=1)
+
+那么其过程是怎么样的呢？
+
+【1】一开始，客户端和服务端都处于 `CLOSED` 状态。先是==服务端主动监听==某个端口，**处于 `LISTEN` 状态**，且客户端向服务端发送SYN报文，客户端处于`SYN-SENT` 状态。
+
+![图片](https://mmbiz.qpic.cn/mmbiz_png/J0g14CUwaZeo9xBVAyPJ8iaWCC6sYS843V0vbLBibXMvJbdiaqbfw4CictHX1Uc3OpOFWvZwxeI8B5Pv7y3beeAN9A/640?wx_fmt=png&tp=webp&wxfrom=5&wx_lazy=1&wx_co=1)
+
+- 【客户端SYN报文的序列号】客户端会随机初始化序列号（`client_isn`），将此序号置于 TCP 首部的「序列号」字段中，同时把 `SYN` 标志位置为 `1` ，表示 `SYN` 报文。
+  - 将SYN报文发送给服务端表示向服务端发起连接
+  - SYN报文不包含应用层数据
+
+【2】服务端向客户端发送SYN+ACK报文 - 服务端处于`SYN-RCVD` 状态
+
+![图片](https://mmbiz.qpic.cn/mmbiz_png/J0g14CUwaZeo9xBVAyPJ8iaWCC6sYS84320oABn0E6jjsYHLicn6L5mlunbCDWGImCCHs41AWjZMnV8P1qdM99fQ/640?wx_fmt=png&tp=webp&wxfrom=5&wx_lazy=1&wx_co=1)
+
+来看看报文头部的内容
+
+- 【服务端SYN报文的序列号】服务端收到客户端的 `SYN` 报文后，首先服务端也随机初始化自己的序号（`server_isn`），将此序号填入 TCP 首部的「序列号」字段中。
+- 【服务端ACK报文的确认应答号】其次把 TCP 首部的「确认应答号」字段填入 `client_isn + 1`,（将收到客户端的ISN+1）
+- 【SYN ACK值的改变】接着**把 `SYN` 和 `ACK` 标志位置为 `1`。**
+- 最后==把该报文（SYN+ACK报文，二者是一起的~）发给客户端==，该报文**也不包含应用层数据**，之后服务端处于 `SYN-RCVD` 状态。
+
+【3】客户端向服务端回应最后一个应答报文：ACK报文 - 客户端处于`ESTABLISHED` 状态
+
+![图片](https://mmbiz.qpic.cn/mmbiz_png/J0g14CUwaZeo9xBVAyPJ8iaWCC6sYS843OM01fA1X8oZ3wpr2AV8ngpjSJcyhoTQEAFKo8UdYMr456Fb5dv0alQ/640?wx_fmt=png&tp=webp&wxfrom=5&wx_lazy=1&wx_co=1)
+
+- 首先该应答报文 TCP 首部 `ACK` 标志位置为 `1` 
+- 其次「确认应答号」字段填入 `server_isn + 1` 
+- 最后把报文发送给服务端
+- 这次报文可以==携带客户到服务器的数据==，之后客户端处于 `ESTABLISHED` 状态。
+
+【4】服务端接收到了应答报文(ACK)之后 进入`ESTABLISHED` 状态——TCP连接建立成功
+
+> ==面试常问==：
+>
+> **第三次握手是可以携带数据的~而前两次不可以！**
+
+一旦完成三次握手，双方都处于 `ESTABLISHED` 状态，此致连接就已建立完成，客户端和服务端就可以相互发送数据了。
+
+##### 2.如何在Linux系统中查看TCP状态
+
+==答：==
+
+在 Linux 可以通过 `netstat -napt` 命令查看TCP的连接状态。
+
+![图片](https://mmbiz.qpic.cn/mmbiz_png/J0g14CUwaZeo9xBVAyPJ8iaWCC6sYS843TdYaGI3f27nYYR47ibmH0iaV6zODCZhwpVoX7t7iasTTplcibpXXMib2DJA/640?wx_fmt=png&tp=webp&wxfrom=5&wx_lazy=1&wx_co=1)
+
+##### 3.为啥TCP连接是三次握手？
+
+> 下面还有一个我之前总结的内容[【经典面试题】为啥TCP是三次握手（three-way handshake） 而不是两次/四次呢？](https://blog.csdn.net/qq_45704942/article/details/120414548)，结合了很多资料
+>
+> 这里是小林的总结：
+
+
+
+##### 4.为啥TCP连接不能是两次握手呢？
+
+
+
+##### 5.为啥TCP连接不能是四次握手呢？
+
+
+
+##### 【之前做的总结】为啥TCP连接是三次握手？不是两次/四次握手呢？
+
+图解网络3.1【1】 
+
+写了一篇文章来总结下
+
+[【经典面试题】为啥TCP是三次握手（three-way handshake） 而不是两次/四次呢？](https://blog.csdn.net/qq_45704942/article/details/120414548)
+
+面试官问你 为啥TCP连接是三次握手 不是两次/四次呢？
+
+> 这个经典问题吧~
+>
+> - 之前看过图解网络中的内容
+>
+> - 谢希仁的计算机网络 对应这部分的内容
+>
+> - 也搜过知乎 看过大佬解读的RFC中的内容
+>
+> 分两个点简单说下吧
+>
+> - 避免重复连接造成的**资源浪费**
+>   - 防止**已经失效的连接请求报文段**一段时间后又传到了服务端
+> - 避免历史连接造成的**网络混乱**
+>
+>   - 三次握手可以防止历史连接的发生（通过发送RST报文）
+>   - TCP是可靠传输的 需要三次握手来约定、确定双方的初始序列号（seq——sequence numbers））
+>
+> 先说下三次握手建立起连接的过程吧 画个简图 
+>
+> ![请添加图片描述](https://img-blog.csdnimg.cn/84d8f71694c14e1189a1a61f4a3decb5.png?x-oss-process=image/watermark,type_ZHJvaWRzYW5zZmFsbGJhY2s,shadow_50,text_Q1NETiBA5pWy5Luj56CB55qE5bCP5o-Q55C05omL,size_19,color_FFFFFF,t_70,g_se,x_16)
+>
+> 第一次握手的SYN报文
+>
+> ![图片](https://mmbiz.qpic.cn/mmbiz_png/J0g14CUwaZeo9xBVAyPJ8iaWCC6sYS843V0vbLBibXMvJbdiaqbfw4CictHX1Uc3OpOFWvZwxeI8B5Pv7y3beeAN9A/640?wx_fmt=png&tp=webp&wxfrom=5&wx_lazy=1&wx_co=1)
+>
+> 第二次握手服务端发送的SYN+ACK报文
+>
+> ![图片](https://mmbiz.qpic.cn/mmbiz_png/J0g14CUwaZeo9xBVAyPJ8iaWCC6sYS84320oABn0E6jjsYHLicn6L5mlunbCDWGImCCHs41AWjZMnV8P1qdM99fQ/640?wx_fmt=png&tp=webp&wxfrom=5&wx_lazy=1&wx_co=1)
+>
+> 第三次握手客户端发送的ACK报文
+>
+> ![图片](https://mmbiz.qpic.cn/mmbiz_png/J0g14CUwaZeo9xBVAyPJ8iaWCC6sYS843OM01fA1X8oZ3wpr2AV8ngpjSJcyhoTQEAFKo8UdYMr456Fb5dv0alQ/640?wx_fmt=png&tp=webp&wxfrom=5&wx_lazy=1&wx_co=1)
+
+###### 【1】避免重复连接造成的==资源浪费==
+
+> 然后说下三次握手相较于两次握手 的性能提升 以及一些关键作用！
+>
+> 第一点：（参考谢希仁的计算机网络-避免失效的连接造成影响 小林的图解网路-避免资源浪费）
+>
+> - 客户端发出的第一个连接请求报文段没有丢失 但是在某个网络结点被长时间阻塞了。
+>
+>   - 所以这个包就成为了一个不被需要的存在 然而 如果使用两次握手 服务端将不会知道这是一个重复的网络包！（两次握手）
+>   - 在延误了一段时间后 这个旧的连接请求抵达服务端 服务端会误以为这是客户端发送的一个新的连接请求（两次握手）
+>   - 然后服务端就会给客户端发出确认报文 之后建立新的连接（两次握手） 
+>   - 所以使用两次握手会导致资源的大量浪费！
+>
+> - 同样遇到类似的这种情况 三次握手要机智得多！
+>
+>   - 其实看上图也可以清楚了 三次握手必须得在客户端向服务端发送那个最后的确认报文（ACK 确认应答号：server_sin + 1) 才能建立连接
+>
+>   ![图片](https://mmbiz.qpic.cn/mmbiz_png/J0g14CUwaZeo9xBVAyPJ8iaWCC6sYS843OM01fA1X8oZ3wpr2AV8ngpjSJcyhoTQEAFKo8UdYMr456Fb5dv0alQ/640?wx_fmt=png&tp=webp&wxfrom=5&wx_lazy=1&wx_co=1)
+
+###### 【2】避免历史连接造成==网络混乱==
+
+听起来雀氏是网络混乱更可怕啊哈哈
+
+> 第二点：【首要原因】三次握手来确定双方的初始序列号 （知乎-依靠seq序列号来做可靠重传/接收 图解网路哦-三次握手同步客户端、服务端的初始序列号；避免历史连接）
+>
+> - 由于网络拥堵等乱七八糟的原因，会使得**旧的数据包**，先到达目标主机 
+>
+>   - 三次握手可以防止旧的重复连接初始化造成的混乱
+>
+>   > 参考**RFC 793**指出的 ==TCP连接使用三次握手的首要原因==
+>   >
+>   > The principle reason for the three-way handshake is to prevent old duplicate connections from causing confusion.
+>
+>   也就是防止旧的重复连接初始化 造成困难
+>
+>   用小林的图解网络中的一幅图来解释这个问题——
+>
+>   ![图片](https://mmbiz.qpic.cn/mmbiz_png/J0g14CUwaZeo9xBVAyPJ8iaWCC6sYS8436nKau10lAsztRqbyhjC1C1GRcsEz04icZmomMjwcxgeGn97BnKUoxibw/640?wx_fmt=png&tp=webp&wxfrom=5&wx_lazy=1&wx_co=1)
+>
+>   - 当旧的数据包比新数据包先抵达服务端时 客户端会发送RST报文 告诉服务端“这个是我的历史连接 不用连接、分配资源了！”
+>
+> - 而知乎上的一位阿里的工程师持这样（与图解网路中还是不太一样的！）的观点——三次握手可以确定客户端、服务端的初始seq序列号（也就是ISN）所以可以防止历史连接造成的混乱
+>
+>   - TCP需要**通过seq序列号来做可靠重传或者接收** 而避免连接复用时无法分辨出seq是延迟/旧连接的seq
+>   - 两次握手只能保证一方的初始序列号（也就是SQN报文中的序列号）被对方成功接收
+>     - 注意！只有一来一回（一方发送SYN 一方发送ACK应答报文确定SYN报文已经被成功接收了！）才算是“成功”
+>   - 而三次握手（其实是四次 中间的SYN+ACK 可以算作一步）可以保证双方的初始序列号都能被对方接收 这样就==不会出现历史连接捣乱的情况==！
+
+
+
+来看看其他角度的答案
+
+> 极客时间中的一个评论
+>
+> > 应用层的包 ->（通过socket编程实现包的传递->） 传输层 支付这种场景 往往使用传输层中的TCP协议 TCP会保证这个包能够到达目的地 如果不能到达就会重新发送 直至到达
+> >
+> > 这个过程就像是一份信你写好了，装进信封，根据收信人的名字（网址）从地址簿（DNS）里面查到了目的地的地址邮编（IP），然后交给邮局（传输层）传输，当然这个过程可能还有些波折。 
+> >
+> > 1.你在信里面说： 亲爱的某某，我们以后写信联系吧（SYN=1发起一个新的连接），我有不能说的秘密跟你讲，但是我不确定收到信的是不是你，如果是你自己就请给我回信，我就跟你分享我的秘密（seq=x）。 
+> >
+> > 2.收信人收到你的信后给你回信： 亲爱的某某某我也想跟你写信（SYN=1发起一个新的连接），我是我自己你可以接着给我写信了（ACK=1确认序列号有效）你可以从不能说的秘密开始接着往下讲（ack=x+1），另外我也有话对你讲（seq=y） 
+> >
+> > 3.你收到信后很高兴，立刻回信： 我们终于联系上了（ACK=1确认序列号有效），我们接着说我的秘密......（seq=x+1），你有什么话跟我说下次写信告诉我（seq=y+1） 这就是TCP三次握手的过程
+>
+> 知乎中的解答
+>
+> > 要注意 TCP的可靠连接是靠**seq（sequence numbers 序列号）**来达成的！——来自知乎
+> >
+> > - 因为没有网络全局时钟，两台机器分别为了确认序列号，证明这个包是新的，而**不是在链路中delay的**（也是小林中内容的第二天点）——来自知乎
+>
+> 谢希仁 版 计算机网络——
+>
+> > “已失效的连接请求报文段” 的产生在这样一种情况下：client 发出的第一个连接请求报文段并没有丢失，而是在某个网络结点长时间的滞留了，以致延误到连接释放以后的某个时间才到达 server。本来这是一个早已失效的报文段。但 server 收到此失效的连接请求报文段后，就误认为是 client 再次发出的一个新的连接请求。于是就向 client 发出确认报文段，同意建立连接。假设不采用 “三次握手”，那么只要 server 发出确认，新的连接就建立了。由于现在 client 并没有发出建立连接的请求，因此不会理睬 server 的确认，也不会向 server 发送数据。但 server 却以为新的运输连接已经建立，并一直等待 client 发来数据。这样，server 的很多资源就白白浪费掉了。采用 “三次握手” 的办法可以防止上述现象发生。例如刚才那种情况，client 不会向 server 的确认发出确认。server 由于收不到确认，就知道 client 并没有要求建立连接。”
+>
+> 具体意思就是——为了防止**已经失效的连接请求报文**段突然又传到了服务端 因而产生错误
+>
+> 而知乎博主 一名阿里工程师认为这个“只能算是表因，并不涉及本质。“ 所以提出了——
+>
+> > 如果你细读[RFC793](https://link.zhihu.com/?target=https%3A//www.ietf.org/rfc/rfc793.txt)，也就是 TCP 的协议 RFC，你就会发现里面就讲到了为什么三次握手是必须的——
+> >
+> > TCP **需要 seq 序列号来做可靠重传或接收**，而避免连接复用时无法分辨出 seq 是延迟或者是旧链接的 seq，因此需要三次握手来约定确定双方的 ISN（初始 seq 序列号）。
+> >
+> > 作者：一位阿里工程师 链接：https://www.zhihu.com/question/24853633/answer/573627478
+
+
+
+###  操作系统
+
+
+
+## 3.面试题
+
+### 算法题
+
+
+
+## 4.前端开发框架
+
+### react学习
 
