@@ -9,8 +9,25 @@
 	</head>
 	
 	<body>
+		<div class="login">
+			<!-- 登录标题 -->
+			<p class="login-title"></p>
+			<!-- 输入用户名 -->
+			<div class="content userName">
+				<span>UserName</span>
+				<input id="userName" value="" />
+			</div>
+			<!-- 输入密码 -->
+			<div id="">
+				<span>PassWord</span>
+				<input id="password" value="" />
+			</div>
+			<!-- 登录按钮 -->
+			<button type="button" class="login-button">登录</button>
+		</div>
+		
 		<div class="chatroom">
-			<!-- 工具栏 -->
+			<!-- 1-工具栏 -->
 			<div class="contact">
 				<div class="contact-name">
 					联系人列表
@@ -22,7 +39,7 @@
 					<li class="contact-item">联系人4号</li>
 				</ul>
 			</div>
-			<!-- 单个聊天室的内容 -->
+			<!-- 2-单个聊天室的内容 -->
 			<div class="main">
 				<div class="header">
 					当前联系人
@@ -37,18 +54,19 @@
 						<div class="message">I am billllllllllllllll</div>
 						<img class="avatar" src="./favicon.ico" alt="">
 					</div>
-					<!-- 你的联系人 -->
+					<!-- 你的联系人的说话内容 -->
 					<div class="list-item list-item-left">
 						<img class="avatar" src="./favicon.ico" alt="">
-						<div class="message">I am bill too.</div>
+						<div class="message">I am bill,too.</div>
 					</div>
 					
 				</div>
 				<div class="footer">
-					<textarea></textarea>
-					<button>发送</button>
+					<textarea id="sendInput"></textarea>
+					<button id="send">发送</button>
 				</div>
 			</div>
 		</div>
+		<script src="index.js"></script>
 	</body>
 </html>
