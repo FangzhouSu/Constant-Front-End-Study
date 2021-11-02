@@ -5476,3 +5476,102 @@ Totally 360min
 #### [155. 最小栈](https://leetcode-cn.com/problems/min-stack/)
 
 #### [575. 分糖果](https://leetcode-cn.com/problems/distribute-candies/)
+
+# 11.2
+
+对项目的熟悉程度++，但是还是要加速呐！还要完成三个练手项目才能真正入门Vue2.0技术栈呐！
+
+开发的任务已经迫在眉睫了！明天争取多肝一些进度，不去管那些诡异的报错，只去关注重要知识点！学完重要知识点后搞几个成型的后台项目学习一下人家的组件&状态管理是怎么做得！
+
+```js
+// DDL
+	写出第一版简历  11.7
+		1.重点掌握HTTP协议，详细了解网络包从客户端到服务端的流程
+        2.HTML CSS JS基础良好 
+    	3.JS30项目完结并进行重点项目的复习，对特定的项目很有见解。
+        4.掌握Vue
+```
+
+
+
+```js
+// 今日主要收获 & 学习时间
+Totally 520min
+1.前端基础知识
+// 从早上-中午 拿出一整块时间学习前端基础 晚上跑完步回来继续看~
+    1.1 前端基础学习 min 
+    // 红宝书、刷题
+		/* 
+        */
+    1.2 JS 30demos min
+    	/*  */
+
+2.核心基础知识 下午开始学计网 + 刷题
+	2.1 计网 40min
+		/* 看了半个多小时快速刷了2章（内容也不多）
+		请求报文、响应报文的结构以及二者之间发送报文提升效率的途径
+        复习HTTP状态码，状态码是服务端的响应报文中状态行的内容*/
+	2.2 操作系统 min
+		/*  */
+
+3.面试刷题
+	3.1 刷算法 刷力扣 20min	
+    	/* 掘金小册 11/28
+        	删除链表中的节点，其实很好想的！思维要活一些！！*/   
+    	// 每个阶段结束后 简单总结下应对某种数据结构/对应类型的题目 应该怎么去想
+        1.数组 + 字符串 + 链表 + 二叉树 + 栈/队列 熟练掌握这些数据结构
+        2.双指针 + 遍历专题DFS BFS + 递归
+        3.回溯算法 + 贪心算法 + 动态规划
+        4.了解下前缀和方法 熟练使用哈希表（解决数组问题） 
+    
+4.前端开发框架 
+	4.1 react&Vue学习 330min
+		/* 继续搞综合项目，猜了个node版本与版本依赖的坑，（想npm install服务器，发现咋弄都不行，然后发现是要用node8.0左右的版本）先是尝试了nvm管理工具，然后出现一个鸡儿错误，最后换了node.js8.9.0，完事了！ */
+    4.2 项目开发 130min
+    	/* 开了个会，探讨下项目怎么搞，回头拉个仓库要准备开工了！ */
+5.其他 
+```
+
+> 学习顺序预告
+
+- [x] 狂刷Vue！
+- [x] 今日刷题，规划下之后的刷题日程
+- [x] 图解HTTP看一点，复习一些图解网络
+- [x] 继续肝Vue
+
+## 1.前端基础
+
+
+
+## 2.计网
+
+#### 学习 请求报文 响应报文的结构
+
+- ![image-20211102205050368](https://gitee.com/su-fangzhou/blog-image/raw/master/202111022050508.png)
+- 举了个例子
+
+![image-20211102205731208](https://gitee.com/su-fangzhou/blog-image/raw/master/202111022057376.png)
+
+#### 客户端、服务端通信是如何提升效率的
+
+- 【1】内容编码![image-20211102205233283](https://gitee.com/su-fangzhou/blog-image/raw/master/202111022052410.png)
+- 【2】分块传输编码![image-20211102205211504](https://gitee.com/su-fangzhou/blog-image/raw/master/202111022052647.png)
+- 【3】发送多种数据的多部份对象集合![image-20211102205248908](https://gitee.com/su-fangzhou/blog-image/raw/master/202111022052024.png)
+- 【4】执行范围请求![image-20211102205302871](https://gitee.com/su-fangzhou/blog-image/raw/master/202111022053021.png)
+
+#### 复习了HTTP状态码
+
+状态码是服务端发出的响应报文中状态行的内容
+
+![img](https://mmbiz.qpic.cn/mmbiz_png/J0g14CUwaZfXG1113Sjm0iaOXfoOv0tlUfV6qkzg4yHtOibAfTv6hTicOx73F55WWl4nW2FWlXnDJ7Igd9kvrrRnA/640?wx_fmt=png)
+
+大概是这样，具体情况看计网笔记咯~
+
+## 3.React & Vue
+
+- 学习路由，熟悉大项目
+- 项目实战看到p178 继续冲！
+
+## 4.LeetCode
+
+#### [237. 删除链表中的节点](https://leetcode-cn.com/problems/delete-node-in-a-linked-list/)
