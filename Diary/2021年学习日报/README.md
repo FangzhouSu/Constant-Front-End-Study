@@ -5671,7 +5671,7 @@ Totally 460min
 
 ```js
 // 今日主要收获 & 学习时间
-Totally min
+Totally 4min
 1.前端基础知识
 // 从早上-中午 拿出一整块时间学习前端基础 晚上跑完步回来继续看~
     1.1 前端基础学习 30min 
@@ -5698,7 +5698,7 @@ Totally min
     
 4.前端开发框架 
 	4.1 react&Vue学习 20min
-		/*  */
+		/* 简单复习下之前的项目，与大项目对比下代码结构 */
     4.2 项目开发 260min
     	/* 梳理一下项目的大框架 */
 5.其他 
@@ -5725,7 +5725,7 @@ Totally min
 >
 > 
 >
-> 源码位于710行处
+> 源码位于下方链接710行处
 >
 > https://github.com/v8/v8/blob/ad82a40509c5b5b4680d4299c8f08d6c6d31af3c/src/js/array.js
 
@@ -5753,7 +5753,10 @@ Totally min
 
 ## 4.LeetCode
 
-
+#### [367. 有效的完全平方数](https://leetcode-cn.com/problems/valid-perfect-square/)
 
 - 思考问题要全面（尤其是二分法这种需要精细操作的），多列几个例子！
 
+#### [278. 第一个错误的版本](https://leetcode-cn.com/problems/first-bad-version/)
+
+- 同样的简单二分法
