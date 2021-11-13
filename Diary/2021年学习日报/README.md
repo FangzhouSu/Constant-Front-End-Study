@@ -401,7 +401,7 @@ Totally 400min
 
 ## 2.计网
 
-- 图解HTTP真是本入门用的好书！！
+- 图解HTTP真是本入门用的好书！
 
 ## 3.Vue
 
@@ -410,8 +410,6 @@ Totally 400min
 ## 4.LeetCode
 
 - 629. K个逆序对数组 每日一题hard+动归。。
-
-
 
 # 11.12 
 
@@ -442,7 +440,7 @@ Totally 260min
 3.面试刷题
 	3.1 刷算法 刷力扣 80min	
     	/* 掘金小册 14/28
-        	复习勒DFS-栈思想 回顾了下BFS-队列思想 复习一下经典BFS题 二叉树的c*/   
+        	复习勒DFS-栈思想 回顾了下BFS-队列思想 复习一下经典BFS题 二叉树的层序遍历*/   
     	// 每个阶段结束后 简单总结下应对某种数据结构/对应类型的题目 应该怎么去想
         1.数组 + 字符串 + 链表 + 二叉树 + 栈/队列 熟练掌握这些数据结构
         2.双指针 + 遍历专题DFS BFS + 递归
@@ -466,11 +464,11 @@ Totally 260min
 
 ## 1.前端基础
 
-- 简单系统学习下flex布局，之前只是“用过”~
+
 
 ## 2.计网
 
-- 图解HTTP真是本入门用的好书！！
+- 一刷图解HTTP完结
 
 ## 3.Vue
 
@@ -478,7 +476,118 @@ Totally 260min
 
 ## 4.LeetCode
 
-- 629. K个逆序对数组 每日一题hard+动归。。
+- 抄 375. 猜数字大小 II dp中等题我也做不来啊！（且看不懂）
+
+- DFS BFS专题 [102. 二叉树的层序遍历](https://leetcode-cn.com/problems/binary-tree-level-order-traversal/)
 
 
+
+# 11.13
+
+早起去沙河校区探亲~
+
+今天恢复状态！把昨天没学的学回来！！
+
+状态起伏大了些，晚上注意力集中得不错，看来还是专心做项目更能让人精力集中呐！
+
+明天项目大体上要搞定了！
+
+```js
+// 今日主要收获 & 学习时间
+Totally 490min
+1.前端基础知识
+    1.1 前端基础学习 110min 
+		/* 看了一下web API的内容
+        复习下HTML CSS基础*/
+    1.2 JS 30demos min
+    	/*  */
+
+2.核心基础知识 下午开始学计网 + 刷题
+	2.1 计网 30min
+		/* 复习下HTTP协议相关的基础知识~ */
+	2.2 操作系统 & 数据库 min
+		/*  */
+
+3.面试刷题
+	3.1 刷算法 刷力扣 150min	
+    	/* 掘金小册 16/28
+        	递归+DFS思想复习一遍
+        	周赛-被虐 “暴力法是解决不了问题的，请选择更高级的思想-dp√”*/   
+    	// 每个阶段结束后 简单总结下应对某种数据结构/对应类型的题目 应该怎么去想
+        1.数组 + 字符串 + 链表 + 二叉树 + 栈/队列 熟练掌握这些数据结构
+        2.双指针 + 遍历专题DFS BFS + 递归
+        3.回溯算法 + 贪心算法 + 动态规划
+        4.了解下前缀和方法 熟练使用哈希表（解决数组问题） 
+
+4.做项目
+	4.1 Vue学习 min
+		/*  */
+    4.2 项目开发 200min
+    	/*  */
+5.其他 
+```
+
+> 学习顺序预告
+
+- [x] JS基础知识-校车上看
+- [x] 每日刷题
+- [x] 计网小知识
+- [x] 前端三件套基础知识复习
+- [x] 项目进度推进，读代码，更新功能
+- [x] 力扣周赛
+- [ ] 前端基础睡前复习+录个起床铃
+
+## 1.前端基础
+
+
+
+## 2.计网
+
+
+
+## 3.Vue
+
+
+
+## 4.LeetCode
+
+- [520. 检测大写字母](https://leetcode-cn.com/problems/detect-capital/) easy~
+- 复习一下“有效的括号” 主要是因为上力扣发现有人在评论区跟我讨论这个 那时候我还用着Java刷题！嗨呀！
+- 周赛又跪在一道medium上了。。超时！用的暴力解，小规模用例都没毛病。这题，得想个方法优化——不要每个数都从头比对！明天看看题解
+
+![image-20211114001037876](https://gitee.com/su-fangzhou/blog-image/raw/master/202111140010116.png)
+
+```js
+var maximumBeauty = function(items, queries) {
+    // 用了个冒泡把二维数组按照第一个值排了个序
+    for(let i = 0; i < items.length - 1; i++){
+        for(let j = 0; j < items.length - i - 1; j++){
+            if(items[j][0] > items[j + 1][0]){
+                [items[j], items[j + 1]] = [items[j + 1], items[j]]
+            }
+        }
+    }
+
+    let ans = [];
+    for(let i = 0; i < queries.length; i++){
+        let tempMax = 0;
+        let temp = 0;
+        while(true){
+            // 就是这里时间复杂度太高了！
+            let price = items[temp][0];
+            let beauty = items[temp][1];
+            if(price <= queries[i]){
+                tempMax = tempMax > beauty ? tempMax : beauty;
+                temp++;
+            }
+            // 遍历完一遍才将答案入数组。。工作量巨大！
+            if(queries[i] < price || temp >= items.length){
+                ans.push(tempMax);
+                break;
+            }
+        }
+    }
+    return ans;
+};
+```
 
