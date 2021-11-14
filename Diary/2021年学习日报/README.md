@@ -603,10 +603,11 @@ var maximumBeauty = function(items, queries) {
 
 ```js
 // 今日主要收获 & 学习时间
-Totally 570min
+Totally 580min
 1.前端基础知识
-    1.1 前端基础学习 20min 
-		/* 继续抽空复习前端三件套基础 */
+    1.1 前端基础学习 30min 
+		/* 继续抽空复习前端三件套基础
+        着重又看了下Map数据结构（力扣每日一题碰到了）总结了一些内容到知识库认识更深一些了！*/
     1.2 JS 30demos min
     	/*  */
 
