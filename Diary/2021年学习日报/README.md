@@ -984,3 +984,182 @@ const postorderTraversal = function(root) {
 
 
 
+# 11.18
+
+又是十点才下床，而且真的是十点才醒。额…感觉还是晚睡的锅吧。我慢慢调整咯！
+
+
+
+```js
+// 今日主要收获 & 学习时间
+Totally min
+1.前端基础知识
+    1.1 前端基础学习 320min 
+		/* HTML CSS基础
+        原型链复习
+        对象的隐式类型转换复习
+        CSS复习*/
+    1.2 JS 30demos min
+    	/*  */
+
+2.核心基础知识 下午开始学计网 + 刷题
+	2.1 计网 min
+		/*  */
+	2.2 操作系统 & 数据库 min
+		/*  */
+
+3.面试刷题
+	3.1 刷算法 刷力扣 70min	
+    	/* 掘金小册 16/28
+        	 回顾一下合并有序的数组 看看二叉树问题的迭代实现，复习DFS深搜解题*/   
+    	// 每个阶段结束后 简单总结下应对某种数据结构/对应类型的题目 应该怎么去想
+        1.数组 + 字符串 + 链表 + 二叉树 + 栈/队列 熟练掌握这些数据结构
+        2.双指针 + 遍历专题DFS BFS + 递归
+        3.回溯算法 + 贪心算法 + 动态规划
+        4.了解下前缀和方法 熟练使用哈希表（解决数组问题） 
+
+4.做项目
+	4.1 Vue学习 min
+		/*  */
+    4.2 项目开发 180min
+    	/* 修改之前bug 完成地图切换过程中图层的隐藏 左侧状态栏的显示完成 */
+5.其他 
+	改进一下面试自我介绍~ min
+```
+
+> 学习顺序预告
+
+- [x] 前端三件套继续复习~
+- [ ] 计网复习
+- [x] 树的题大致刷完+每日一题
+- [x] 搞项目
+
+## 1.前端基础
+
+- [原型链复习](https://juejin.cn/post/7011719899634630692)
+
+- [对象的隐式类型转换复习](https://juejin.cn/post/7022837573059870727)
+- 隐藏元素的方法有哪些
+- display:none 与 visibility:hidden 的区别
+- Sass、Less 是什么？为什么要使用他们？
+  - 预处理器，其实就是 CSS 世界的“轮子” 预处理器支持我们写一种类似 CSS、但实际并不是 CSS 的语言，然后把它编译成 CSS 代码：
+  - 主要是因为写起来好看懂一些（工程师说得~）
+- 媒体查询
+  - link元素中 使用 media属性
+  - 在style标签中 @media
+- z-index 属性在什么情况下会失效
+- em 和 rem的区别
+- **vw/vh** 和百分比很类似，两者的区别
+- 一般两栏布局指的是**左边一栏宽度固定，右边一栏宽度自适应**，两栏布局的具体实现
+-  对 BFC 的理解，如何创建 BFC  盒模型块级上下文格式化
+  - Box: **Box** 是 CSS 布局的对象和基本单位，⼀个页面是由很多个 Box 组成的，这个 Box 就是我们所说的盒模型。
+  - **Formatting context**：块级上下⽂格式化，它是⻚⾯中的⼀块渲染区域，并且有⼀套渲染规则，它决定了其⼦元素将如何定位，以及和其他元素的关系和相互作⽤。
+
+实现自适应两栏布局可以给左边设置浮动 右边设置`overflow: hidden`。这样右边就触发了 BFC，BFC 的区域不会与浮动元素发生重叠，所以两侧就**不会发生重叠**。
+
+- 元素的层叠顺序
+
+![img](https://imgconvert.csdnimg.cn/aHR0cHM6Ly91cGxvYWQtaW1hZ2VzLmppYW5zaHUuaW8vdXBsb2FkX2ltYWdlcy8xODcyMDM1OC0xMjlhMmMzMWIyN2Y3YzU1LnBuZw)
+
+- 层叠上下文是个啥欸！
+- sticky 粘性定位
+
+粘性定位的元素是依赖于用户的滚动，在 **position:relative** 与 **position:fixed** 定位之间切换。
+
+- 它的行为就像 **position:relative;** 
+- 而当页面滚动超出目标区域时，它的表现就像 **position:fixed;**，它会固定在目标位置。
+
+元素定位表现为在跨越特定阈值前为相对定位，之后为固定定位。这个特定阈值指的是 top, right, bottom 或 left 之一，换言之，指定 top, right, bottom 或 left 四个阈值其中之一，才可使粘性定位生效。**否则其行为与相对定位相同**。
+
+- [JavaScript toString() 方法](https://www.w3school.com.cn/jsref/jsref_tostring_number.asp)
+
+toString方法在Object的显示原型上，其他对象对toString方法进行了重写~
+
+![image-20211118191137192](https://gitee.com/su-fangzhou/blog-image/raw/master/202111181911262.png)
+
+
+
+toString() 方法可把一个 Number 对象转换为一个字符串，并返回结果。
+
+语法
+
+```js
+NumberObject.toString(radix)// radix就是指进制数
+```
+
+比较有趣的一个点
+
+![image-20211118184251915](https://gitee.com/su-fangzhou/blog-image/raw/master/202111181842996.png)
+
+小数居然算是`NumberObject`…？ ==存疑！==
+
+看了下MDN [Number.prototype.toString()](https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Number/toString) 依旧困惑。暂且记住好了 
+
+- (10) 是 numObj  10不是
+- (0.6) 是 numObj 0.6也是numObj
+
+![image-20211118191027604](https://gitee.com/su-fangzhou/blog-image/raw/master/202111181910721.png)
+
+> ```js
+> var count = 10;
+> 
+> console.log(count.toString());    // 输出 '10'
+> console.log((17).toString());     // 输出 '17'
+> console.log(17.toString());     // Uncaught SyntaxError: Invalid or unexpected token
+> console.log((17.2).toString());   // 输出 '17.2'
+> console.log(17.2.toString());   // 输出 '17.2'
+> 
+> var x = 6;
+> 
+> console.log(x.toString(2));       // 输出 '110'
+> console.log((254).toString(16));  // 输出 'fe'
+> 
+> console.log((-10).toString(2));   // 输出 '-1010'
+> console.log((-0xff).toString(2)); // 输出 '-11111111'
+> ```
+>
+> 
+
+- 利用这个方法 配合 [`substr()`方法](https://www.runoob.com/jsref/jsref-substr.html) 可以实现**随机验证码生成**
+
+```js
+Math.random().toString(36).substr(2, 10);// 以36进制将随机数转换为随机字符串，从得到的随机字符串的第二位开始拿10个字符~根本重复不了！
+```
+
+以36进制将随机数转换为随机字符串，从得到的随机字符串的第二位开始拿10个字符~根本重复不了！
+
+![image-20211118184717386](https://gitee.com/su-fangzhou/blog-image/raw/master/202111181847459.png)
+
+
+
+## 2.计网
+
+
+
+## 3.Vue
+
+继续肝项目 学到了v-if在实际开发中常用~（用于组件的切换啥的） v-show一般就是切换一个单独元素的状态，用的较少
+
+## 4.LeetCode
+
+#### [563. 二叉树的坡度](https://leetcode-cn.com/problems/binary-tree-tilt/)
+
+```js
+var findTilt = function(root) {
+    let ans = 0;
+    const dfs = (node) => {
+        if (!node) {
+            return 0;
+        }
+        const sumLeft = dfs(node.left);
+        const sumRight = dfs(node.right);
+        ans += Math.abs(sumLeft - sumRight);
+        return sumLeft + sumRight + node.val;
+    }
+    dfs(root);
+    return ans;
+};
+```
+
+
+
