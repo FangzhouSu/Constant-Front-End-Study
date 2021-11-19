@@ -988,11 +988,11 @@ const postorderTraversal = function(root) {
 
 又是十点才下床，而且真的是十点才醒。额…感觉还是晚睡的锅吧。我慢慢调整咯！
 
-
+晚上搞完项目那会儿得玩儿了俩小时！所以睡眠时间被压缩了，蓝瘦！
 
 ```js
 // 今日主要收获 & 学习时间
-Totally min
+Totally 570min
 1.前端基础知识
     1.1 前端基础学习 320min 
 		/* HTML CSS基础
@@ -1021,10 +1021,10 @@ Totally min
 4.做项目
 	4.1 Vue学习 min
 		/*  */
-    4.2 项目开发 180min
+    4.2 项目开发 170min
     	/* 修改之前bug 完成地图切换过程中图层的隐藏 左侧状态栏的显示完成 */
 5.其他 
-	改进一下面试自我介绍~ min
+	改进一下面试自我介绍~ 10min
 ```
 
 > 学习顺序预告
@@ -1075,9 +1075,7 @@ Totally min
 
 toString方法在Object的显示原型上，其他对象对toString方法进行了重写~
 
-![image-20211118191137192](https://gitee.com/su-fangzhou/blog-image/raw/master/202111181911262.png)
-
-
+![image-20211119083904566](https://gitee.com/su-fangzhou/blog-image/raw/master/202111190839663.png)
 
 toString() 方法可把一个 Number 对象转换为一个字符串，并返回结果。
 
@@ -1163,3 +1161,143 @@ var findTilt = function(root) {
 
 
 
+# 11.19 *【人生第一面】ByteDance一面
+
+今日份大事件-人生第一次面试！！
+
+对问答题的表现还算自我满意吧，大概都能聊两句，但是算法题做得太糟糕了！
+
+```js
+// 今日主要收获 & 学习时间
+Totally 5min
+1.前端基础知识
+    1.1 前端基础学习 300min 
+		/* JS基础复习一下~
+        人生第一面~基础知识都能答上来，算法题GG
+        面试总结！*/
+    1.2 JS 30demos min
+    	/*  */
+
+2.核心基础知识 下午开始学计网 + 刷题
+	2.1 计网 min
+		/*  */
+	2.2 操作系统 & 数据库 min
+		/*  */
+
+3.面试刷题
+	3.1 刷算法 刷力扣 190min	
+    	/* 掘金小册 16/28
+        	面试前多刷了一些题~*/   
+    	// 每个阶段结束后 简单总结下应对某种数据结构/对应类型的题目 应该怎么去想
+        1.数组 + 字符串 + 链表 + 二叉树 + 栈/队列 熟练掌握这些数据结构
+        2.双指针 + 遍历专题DFS BFS + 递归
+        3.回溯算法 + 贪心算法 + 动态规划
+        4.了解下前缀和方法 熟练使用哈希表（解决数组问题） 
+
+4.做项目
+	4.1 Vue学习 min
+		/*  */
+    4.2 项目开发 30min
+    	/*  */
+5.其他 
+```
+
+> 学习顺序预告
+
+- [ ] 前端三件套继续复习~
+- [ ] 计网复习
+- [ ] 树的题大致刷完+每日一题
+- [ ] 搞项目
+
+## 1.前端基础
+
+- **存在性判定**：在过去，当判断一个字符/字符串是否在某字符串中时，只能用 indexOf > -1 来做。现在 ES6 提供了三个方法：includes、startsWith、endsWith，它们都会返回一个布尔值来告诉你是否存在。
+
+- - **includes**：判断字符串与子串的包含关系：
+
+```js
+const son = 'haha' 
+const father = 'xixi haha hehe'
+father.includes(son) // true
+```
+
+- - **startsWith**：判断字符串是否以某个/某串字符开头：
+
+```js
+const father = 'xixi haha hehe'
+father.startsWith('haha') // false
+father.startsWith('xixi') // true
+```
+
+- - **endsWith**：判断字符串是否以某个/某串字符结尾：
+
+```js
+const father = 'xixi haha hehe'
+  father.endsWith('hehe') // true
+```
+
+- **自动重复**：可以使用 repeat 方法来使同一个字符串输出多次（被连续复制多次）：
+
+```js
+const sourceCode = 'repeat for 3 times;'
+const repeated = sourceCode.repeat(3) 
+console.log(repeated) // repeat for 3 times;repeat for 3 times;repeat for 3 times;
+```
+
+- 对象深拷贝
+
+- 对象深拷贝常用方法
+  - `JSON.stringify()` 方法将一个 JavaScript 对象或值转换为 JSON 字符串
+  - `JSON.parse()` 方法用来解析JSON字符串，构造由字符串描述的JavaScript值或对象
+
+```js
+let outObj = {
+  inObj: {a: 1, b: 2}
+}
+let newObj = JSON.parse(JSON.stringify(outObj))
+newObj.inObj.a = 2
+console.log(outObj) // {inObj: {a: 1, b: 2}}
+```
+
+- 深拷贝与浅拷贝的区别
+
+![img](https://camo.githubusercontent.com/667a0c19bb77ec41c552350d2c8b4c4d1be9662acdd2f931504f214d00b9876f/68747470733a2f2f75706c6f61642d696d616765732e6a69616e7368752e696f2f75706c6f61645f696d616765732f31353835363136392d323665326534613066633861333962342e706e673f696d6167654d6f6772322f6175746f2d6f7269656e742f7374726970253743696d61676556696577322f322f772f3331302f666f726d61742f77656270)
+
+![img](https://camo.githubusercontent.com/89821ea9eb62e96d8699acc8f24676a542d0ee2d3d8b71816b0f2e96f402c23a/68747470733a2f2f75706c6f61642d696d616765732e6a69616e7368752e696f2f75706c6f61645f696d616765732f31353835363136392d383862643539373565616661613438382e706e673f696d6167654d6f6772322f6175746f2d6f7269656e742f7374726970253743696d61676556696577322f322f772f3630302f666f726d61742f77656270)
+
+- `**Object.assign()**` 方法用于将所有可枚举属性的值从一个或多个源对象分配到目标对象。它将返回目标对象。
+
+```js
+const target = { a: 1, b: 2 };
+const source = { b: 4, c: 5 };
+
+const returnedTarget = Object.assign(target, source);
+
+console.log(target);
+// expected output: Object { a: 1, b: 4, c: 5 }
+
+console.log(returnedTarget);
+// expected output: Object { a: 1, b: 4, c: 5 }
+```
+
+- 遍历map
+
+```js
+map.forEach( (value,key,map) => {
+     console.log(key,value); // foo 1    bar 2
+})
+```
+
+- [面试总结](https://blog.csdn.net/qq_45704942/article/details/121432692?spm=1001.2014.3001.5502)
+
+## 2.计网
+
+- HTTPS相关复习了一下
+
+## 3.Vue
+
+
+
+## 4.LeetCode
+
+一堆题。。懒得记录了
