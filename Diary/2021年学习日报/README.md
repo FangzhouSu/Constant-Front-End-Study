@@ -1,4 +1,4 @@
-- 不断摸索前进方向的开始 [9.6-10.10的学习日报](./9.6-10.10学习日报)
+-  不断摸索前进方向的开始 [9.6-10.10的学习日报](./9.6-10.10学习日报)
 
 - 渐入佳境的10月份，明确方向与重要面试时间节点，接触企业级项目的前端开发 [10.11-11.7的学习日报](10.11-11.7学习日报)
 
@@ -1308,7 +1308,7 @@ map.forEach( (value,key,map) => {
 
 ```js
 // 今日主要收获 & 学习时间
-Totally min
+Totally 340min
 1.前端基础知识
     1.1 前端基础学习 80min 
 		/* 复习了下作用域中的内容
@@ -1321,9 +1321,9 @@ Totally min
 		/*  */
 
 3.现在不刷题 面试懵个逼
-	3.1 刷算法 刷力扣 min	
+	3.1 刷算法 刷力扣 40min	
     	/* 掘金小册 16/28
-        	*/   
+        	594. 最长和谐子序列*/   
     	// 每个阶段结束后 简单总结下应对某种数据结构/对应类型的题目 应该怎么去想
         1.数组 + 字符串 + 链表 + 二叉树 + 栈/队列 熟练掌握这些数据结构
         2.双指针 + 遍历专题DFS BFS（递归/迭代）
@@ -1334,7 +1334,7 @@ Totally min
 	4.1 Vue学习 min
 		/*  */
     4.2 项目开发 150min
-    	/* j */
+    	/* 解决各种需求，查验成果 */
 5.其他 
 	接下来的学习路线总结+之前的周报小结 70min
 ```
@@ -1362,6 +1362,237 @@ Totally min
 ## 2.计网
 
 
+
+## 3.Vue
+
+
+
+## 4.LeetCode
+
+# 11.21 
+
+七点半被闹铃摇起来，然后意志力不坚定地倒头睡到十点半。。
+
+明天要开始早起打开勒。。可一定要起来鸭！
+
+下午晚上不太在状态，早睡调整咯！
+
+```js
+// 今日主要收获 & 学习时间
+Totally 3min
+1.前端基础知识
+    1.1 前端基础学习 50min 
+		/* jS数据类型 ES6复习~ */
+
+2.核心基础知识 下午开始学计网 + 刷题
+	2.1 计网 70min
+		/* 网络包遨游的前三步-生成网络包、DNS域名解析、协议栈的概念（委托给OS干发消息的活儿） */
+	2.2 操作系统 & 数据库 & 网络安全 70+80min
+		/* 数据库-简单看了下mooc 总结了下之后要学习的方法-根据作业中涉及的知识点学习知识点——会做题~ 
+		网安：复习下各个章节的内容*/
+
+3.现在不刷题 面试懵个逼
+	3.1 刷算法 刷力扣 80min	
+    	/* 掘金小册 16/28
+        	BFS进行层序遍历、DFS进行二叉树翻转、DFS进行二叉搜索树的插入
+           	*/   
+    	// 每个阶段结束后 简单总结下应对某种数据结构/对应类型的题目 应该怎么去想
+        1.数组 + 字符串 + 链表 + 二叉树 + 栈/队列 熟练掌握这些数据结构
+        2.双指针 + 遍历专题DFS BFS（递归/迭代）
+        3.回溯算法 + 贪心算法 + 动态规划
+        4.了解下前缀和方法 熟练使用哈希表（解决数组问题） 
+
+4.做项目
+	4.1 Vue学习 min
+		/*  */
+    4.2 项目开发 min
+    	/*  */
+5.其他 
+```
+
+> 学习顺序预告
+
+- [x] 计网学习
+- [x] 数据库ppt整理+梳理一下要学习的点（根据每次的作业）
+- [x] 网安重点梳理+作业题简单整理（这在书上就没办法了）
+- [x] JS基础复习
+- [x] 力扣树专题推进+每日一题
+
+## 1.前端基础
+
+#### 判断数组的方式
+
+- 通过`Object.prototype.toString.call()`做判断
+
+```js
+Object.prototype.toString.call(obj).slice(8,-1) === 'Array';
+```
+
+- 通过原型链做判断
+
+```js
+obj.__proto__ === Array.prototype;
+```
+
+- 通过ES6的Array.isArray()做判断
+
+```js
+Array.isArrray(obj);
+```
+
+- 通过instanceof做判断
+
+```js
+obj instanceof Array
+```
+
+- 通过Array.prototype.isPrototypeOf
+
+```js
+Array.prototype.isPrototypeOf(obj)
+```
+
+#### 箭头函数的this指向
+
+- 从自己作用域的上一级继承this
+
+- 注意继承得来的this是永远不会改变的！
+
+可以⽤Babel理解⼀下箭头函数: 
+
+```js
+// ES6 
+const obj = { 
+  getArrow() { 
+    return () => { 
+      console.log(this === obj); 
+    }; 
+  } 
+}
+```
+
+转化后：
+
+```js
+// ES5，由 Babel 转译
+var obj = { 
+   getArrow: function getArrow() { 
+     var _this = this; 
+     return function () { 
+        console.log(_this === obj); 
+     }; 
+   } 
+};
+```
+
+#### 扩展运算符可以用来修改对象的部分属性
+
+如果用户自定义的属性，放在扩展运算符后面，则扩展运算符内部的同名属性会被覆盖掉。
+
+```js
+let bar = {a: 1, b: 2};
+let baz = {...bar, ...{a:2, b: 4}};  // {a: 2, b: 4}
+```
+
+利用上述特性就可以很方便的修改对象的部分属性。
+
+实际应用：在`redux`中的`reducer`函数规定必须是**一个纯函数**，`reducer`中的`state`对象要求不能直接修改，可以通过扩展运算符把修改路径的对象都复制一遍，然后产生一个新的对象返回。
+
+#### 嵌套解构
+
+有时会遇到一些嵌套程度非常深的对象：
+
+```js
+const school = {
+   classes: {
+      stu: {
+         name: 'Bob',
+         age: 24,
+      }
+   }
+}
+```
+
+像此处的 name 这个变量，嵌套了四层，此时如果仍然尝试老方法来提取它：
+
+```js
+const { name } = school
+```
+
+显然是不奏效的，因为 school 这个对象本身是没有 name 这个属性的，name 位于 school 对象的“儿子的儿子”对象里面。要想把 name 提取出来，一种比较笨的方法是逐层解构：
+
+```js
+const { classes } = school
+const { stu } = classes
+const { name } = stu
+name // 'Bob'
+```
+
+但是还有一种更标准的做法，可以用一行代码来解决这个问题：
+
+```js
+const { classes: { stu: { name } }} = school
+       
+console.log(name)  // 'Bob'
+```
+
+可以在解构出来的变量名右侧，通过冒号+{目标属性名}这种形式，进一步解构它，一直解构到拿到目标数据为止。
+
+#### `Array.prototype.includes()`
+
+##### [语法](https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Array/includes#语法)
+
+```
+arr.includes(valueToFind[, fromIndex])
+```
+
+##### [参数](https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Array/includes#参数)
+
+- `valueToFind`
+
+  需要查找的元素值。**Note:** 使用 `includes()`比较字符串和字符时是区分大小写的。
+
+- `fromIndex` 可选
+
+  从`fromIndex` 索引处开始查找 `valueToFind`。如果为负值，则按升序从 `array.length + fromIndex` 的索引开始搜 （即**从末尾开始往前跳 `fromIndex` 的绝对值个索引**，然后往后搜寻）。默认为 0。
+
+## 2.计网
+
+- 学习了——
+
+网络包遨游的前三步-
+
+【1】客户端生成这个网络包准备发到服务端
+
+【2】DNS寻址，获得IP地址 整个过程就和我们日常生活中找人问路的过程类似，**只指路不带路**。
+
+【3】通过 DNS 获取到 IP 后，就可以把 HTTP 的传输工作交给**操作系统**中的**协议栈**。
+
+上面的部分会向下面的部分委托工作 上层的应用程序（浏览器）通过**调用 Socket 库**，来委托协议栈工作。
+
+![图片](https://mmbiz.qpic.cn/mmbiz_png/J0g14CUwaZdCwxNydn5YuT0s7aLuqWCvbLic0XNMIJgJ0pDm6K4s39vgGO4enAIT1jzDXfQPYrdiaQe8TMy11Wicw/640?wx_fmt=png&tp=webp&wxfrom=5&wx_lazy=1&wx_co=1)
+
+下一步网络包要去找TCP大佬！
+
+- 【1】浏览器与Web服务器交互的过程（宏观）
+
+![image-20211121131214925](https://gitee.com/su-fangzhou/blog-image/raw/master/202111211312041.png)
+
+![image-20211121131237757](https://gitee.com/su-fangzhou/blog-image/raw/master/202111211312856.png)
+
+![image-20211121131246700](https://gitee.com/su-fangzhou/blog-image/raw/master/202111211312795.png)
+
+- 【2】寻找响应的DNS服务器并获取IP地址
+
+![image-20211121133602271](https://gitee.com/su-fangzhou/blog-image/raw/master/202111211336383.png)
+
+具体步骤如下：
+
+![image-20211121133644267](https://gitee.com/su-fangzhou/blog-image/raw/master/202111211336367.png)
+
+图解网络中的解析 
+
+![图片](https://mmbiz.qpic.cn/mmbiz_png/J0g14CUwaZdCwxNydn5YuT0s7aLuqWCv5bBPibRf9nk4wIb6J3jP62L6NEmPk3HicMUgf8VatcBicynP6BKLeT6GQ/640?wx_fmt=png&tp=webp&wxfrom=5&wx_lazy=1&wx_co=1)
 
 ## 3.Vue
 
