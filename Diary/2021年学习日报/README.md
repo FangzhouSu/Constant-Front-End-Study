@@ -1379,7 +1379,7 @@ Totally 340min
 
 ```js
 // 今日主要收获 & 学习时间
-Totally 3min
+Totally 360min
 1.前端基础知识
     1.1 前端基础学习 50min 
 		/* jS数据类型 ES6复习~ */
@@ -1392,9 +1392,9 @@ Totally 3min
 		网安：复习下各个章节的内容*/
 
 3.现在不刷题 面试懵个逼
-	3.1 刷算法 刷力扣 80min	
+	3.1 刷算法 刷力扣 90min	
     	/* 掘金小册 16/28
-        	BFS进行层序遍历、DFS进行二叉树翻转、DFS进行二叉搜索树的插入
+        	BFS进行层序遍历、DFS进行二叉树翻转、DFS进行二叉搜索树的插入、二叉树/N叉树的深度
            	*/   
     	// 每个阶段结束后 简单总结下应对某种数据结构/对应类型的题目 应该怎么去想
         1.数组 + 字符串 + 链表 + 二叉树 + 栈/队列 熟练掌握这些数据结构
@@ -1599,3 +1599,446 @@ arr.includes(valueToFind[, fromIndex])
 
 
 ## 4.LeetCode
+
+# 11.22 *二面来勒，与考试并行准备~
+
+六点五十成功起床 哦耶~
+
+今天把书签啥的全搬到edge里了 受不了chrome不保存我的cookie！
+
+虽然起得早 但是整体状态不佳！明天通过多喝点水+午睡来调节下试试！
+
+晚间状态也较差，身体状态欠佳啊！碎觉！
+
+```js
+// 今日主要收获 & 学习时间
+Totally 570min
+1.前端基础知识
+    1.1 前端基础学习 160min 
+		/* JS基础的内容学习了一下！
+        看了一下面经，完善下自我介绍~*/
+
+2.核心基础知识 下午开始学计网 + 刷题
+	2.1 计网 min
+		/*  */
+	2.2 操作系统 & 数据库 & 网络安全 60min
+		/* 折腾一下操作系统实验二-linux虚拟机上的操作
+        */
+
+3.现在不刷题 面试懵个逼
+	3.1 刷算法 刷力扣 150min	
+    	/* 掘金小册 18/28
+        	数组打乱&设计题结构理解 主要时间用在数组乱序算法的研究上 那个洗牌法真的很惊艳！
+           	*/   
+    	// 每个阶段结束后 简单总结下应对某种数据结构/对应类型的题目 应该怎么去想
+        1.数组 + 字符串 + 链表 + 二叉树 + 栈/队列 熟练掌握这些数据结构
+        2.双指针 + 遍历专题DFS BFS（递归/迭代）
+        3.回溯算法 + 贪心算法 + 动态规划
+        4.了解下前缀和方法 熟练使用哈希表（解决数组问题） 
+
+4.做项目
+	4.1 Vue学习 min
+		/*  */
+    4.2 项目开发 150min
+    	/* 更新一些细节，明天任务还是有点重的-完成地图聚焦功能 */
+5.其他 
+	折腾了一下浏览器的配置问题 换到edge了 20min
+    和学长还有前辈讨论下未来发展的问题，打一针鸡血继续努力！30min
+```
+
+> 学习顺序预告
+
+- [x] JS基础复习
+- [x] 看看面经，自我介绍完善一下~
+- [x] 项目肝进度 发布新版本
+- [x] 刷题
+- [x] 项目版本汇总
+- [ ] 睡前复习
+
+## 1.前端基础
+
+#### 利用splice(start, deleteCount)与额外空间进行暴力遍历打乱数组
+
+【1】
+
+splice方法中的start会做一步向下取整！！
+
+**做力扣时发现的点**
+
+```js
+let index = Math.random()*list.length// 小数
+shuffled[i] = list.splice(index, 1);// 返回对应元素并进行对应索引删除！
+```
+
+【2】暴力打乱数组法
+
+```js
+let arr = [1,2,3,4,5,6]
+function getRandomArrElement(arr, count) {
+    let res = []
+    while (res.length < count) {
+        // 生成随机 index
+        let randomIdx = (Math.random() * arr.length) >> 0;// 涨知识 小数右移0位直接向下取整勒
+        // 位运算符的特性：后面的操作数是 0 的时候，该语句的结果就和 Math.floor() 一样，是向下取整
+        // splice 返回的是一个数组
+        res.push(arr.splice(randomIdx, 1)[0]);
+    }
+    return res
+}
+getRandomArrElement(arr, 3)
+```
+
+#### [前端面试(算法篇) - 数组乱序](https://www.cnblogs.com/wisewrong/p/10517532.html)
+
+> 写得挺好的 搭配 [384. 打乱数组](https://leetcode-cn.com/problems/shuffle-an-array/) 食用更佳
+>
+> 首先是伪随机的两种方法
+
+- **随机取数**
+
+从原数组中随机抽取一个数，然后使用 splice 删掉该元素
+
+```js
+function getRandomArrElement(arr, count) {
+    let res = []
+    while (res.length < count) {
+        // 生成随机 index
+        let randomIdx = (Math.random() * arr.length) >> 0;
+        // splice 返回的是一个数组
+        res.push(arr.splice(randomIdx, 1)[0]);
+    }
+    return res
+}
+```
+
+上面生成随机 index 用到了按位右移操作符 >> 
+
+当后面的操作数是 0 的时候，该语句的结果就和 Math.floor() 一样，是向下取整
+
+但位操作符是在数值表示的最底层执行操作，因此速度更快
+
+```js
+// 按位右移
+(Math.random() * 100) >> 0
+
+// Math.floor
+Math.floor(Math.random() * 100)
+/* 这两种写法的结果是一样的，但位操作的效率更高 */
+```
+
+
+
+- **通过 sort 乱序**
+
+首先认识一下 [`Array.prototype.sort()`](https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Array/sort) 不了解的查看下 这个必须滚瓜烂熟
+
+```js
+let arr = ['0', '1', '2', '3', '4', '5', '6', '7', '8', '9'];
+arr.sort((a, b) => 0.5 - Math.random());
+```
+
+**但这并不是真正的乱序**，计算机的 random 函数因为循环周期的存在，无法生成真正的随机数（力扣那题用这个方法也跑不通XD）
+
+- **Fisher–Yates shuffle 洗牌算法**
+
+洗牌算法的思路是：
+
+【1】**先从数组末尾开始，选取最后一个元素，与数组中随机一个位置的元素交换位置**
+
+【2】**然后在已经排好的最后一个元素以外的位置中，随机产生一个位置，让该位置元素与倒数第二个元素进行交换**
+
+以此类推，打乱整个数组的顺序
+
+```js
+function shuffle(arr) {
+  let len = arr.length;
+
+  while (len) {
+    let i = (Math.random() * len--) >> 0;// 获得随机数
+    // 交换位置
+    let temp = arr[len];
+    arr[len] = arr[i];
+    arr[i] = temp;
+  }
+  return arr;
+}
+```
+
+再结合 ES6 的解构赋值，使用洗牌算法就更方便了：
+
+```js
+Array.prototype.shuffle = function() {
+    let m = this.length, i;
+    while (m) {
+        i = (Math.random() * m--) >>> 0;
+        [this[m], this[i]] = [this[i], this[m]]
+    }
+    return this;
+}
+```
+
+
+
+
+
+#### [Document.createTextNode()](https://developer.mozilla.org/zh-CN/docs/Web/API/Document/createTextNode)
+
+创建一个新的[`文本`](https://developer.mozilla.org/zh-CN/docs/Web/API/Text)节点。这个方法可以用来转义 HTML 字符。
+
+##### [语法](https://developer.mozilla.org/zh-CN/docs/Web/API/Document/createTextNode#语法)
+
+```
+var text = document.createTextNode(data);
+```
+
+- *`text`* 是一个文本节点。
+- *`data`* 是一个字符串，包含了要放入文本节点的内容。
+
+![img](https://gitee.com/su-fangzhou/blog-image/raw/master/202111221537689.png)
+
+
+
+#### 判断数组的方式
+
+- 通过`Object.prototype.toString.call()`做判断
+
+```js
+Object.prototype.toString.call(obj).slice(8,-1) === 'Array';
+```
+
+![image-20211122085928813](https://gitee.com/su-fangzhou/blog-image/raw/master/202111220859922.png)
+
+- 通过原型链做判断
+
+```js
+obj.__proto__ === Array.prototype;
+```
+
+- 通过ES6的Array.isArray()做判断
+
+```js
+Array.isArray(obj);
+```
+
+- 通过instanceof做判断
+
+```js
+obj instanceof Array
+```
+
+- 通过Array.prototype.isPrototypeOf
+
+```js
+Array.prototype.isPrototypeOf(obj)
+```
+
+#### instanceof的使用
+
+**`instanceof`** **运算符**用于检测构造函数的 `prototype` 属性是否出现在某个实例对象的原型链上。
+
+`instanceof` 运算符用来检测 `constructor.prototype `是否存在于参数 `object` 的原型链上。
+
+> `a instanceof A`
+>
+> 如果 `a.__proto__ = A.prototype` 则返回true
+
+```js
+// 定义构造函数
+function C(){}
+function D(){}
+
+var o = new C();
+
+o instanceof C; // true，因为 Object.getPrototypeOf(o) === C.prototype
+
+o instanceof D; // false，因为 D.prototype 不在 o 的原型链上
+
+o instanceof Object; // true，因为 Object.prototype.isPrototypeOf(o) 返回 true
+C.prototype instanceof Object // true，同上
+
+C.prototype = {};
+var o2 = new C();
+
+o2 instanceof C; // true
+
+o instanceof C; // false，C.prototype 指向了一个空对象,这个空对象不在 o 的原型链上.
+
+D.prototype = new C(); // 继承
+var o3 = new D();
+o3 instanceof D; // true
+o3 instanceof C; // true 因为 C.prototype 现在在 o3 的原型链上
+```
+
+
+
+#### isPrototypeOf的使用
+
+`isPrototypeOf()` 方法用于测试**一个对象**是否存在于**另一个对象的原型链**上。
+
+`isPrototypeOf()` 与 [`instanceof`](https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Operators/instanceof) 运算符不同。在表达式 "`object instanceof AFunction`"中，`object` 的原型链是针对 `AFunction.prototype` 进行检查的，而不是针对 `AFunction` 本身。
+
+##### [语法](https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Object/isPrototypeOf#语法)
+
+```
+prototypeObj.isPrototypeOf(object)
+```
+
+##### [参数](https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Object/isPrototypeOf#参数)
+
+- `object`
+
+  在该对象的原型链上搜寻
+
+##### [返回值](https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Object/isPrototypeOf#返回值)
+
+[`Boolean`](https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Boolean)，表示调用对象是否在另一个对象的原型链上。
+
+本示例展示了 `Baz.prototype`, `Bar.prototype`, `Foo.prototype` 和 `Object.prototype` 在 `baz` 对象的原型链上：
+
+```js
+function Foo() {}
+function Bar() {}
+function Baz() {}
+
+Bar.prototype = Object.create(Foo.prototype);
+Baz.prototype = Object.create(Bar.prototype);
+
+var baz = new Baz();
+
+console.log(Baz.prototype.isPrototypeOf(baz)); // true
+console.log(Bar.prototype.isPrototypeOf(baz)); // true
+console.log(Foo.prototype.isPrototypeOf(baz)); // true
+console.log(Object.prototype.isPrototypeOf(baz)); // true
+```
+
+如果你有段代码只在需要操作继承自一个特定的原型链的对象的情况下执行，同 [`instanceof`](https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Operators/instanceof) 操作符一样 `isPrototypeOf()` 方法就会派上用场，例如，为了确保某些方法或属性将位于对象上。
+
+例如，检查 `baz` 对象是否继承自 `Foo.prototype`：
+
+```js
+if (Foo.prototype.isPrototypeOf(baz)) {
+  // do something safe
+}
+```
+
+#### JS数据结构与JSON格式的转换
+
+- `JSON.stringify(obj)` 数据对象->JSON格式的字符串
+- `JSON.parse()` JSON格式的字符串->数据对象
+
+常见的对象深拷贝的方式就是
+
+```js
+obj = {a: 6, child: {b: 66}}
+let copy = JSON.parse(JSON.stringify(obj))
+copy.child.b = 888
+console.log(obj)// {a: 6 child:{b: 66}}
+```
+
+#### 类数组对象转化为数组
+
+> 一个拥有 length 属性和若干索引属性的对象就可以被称为类数组对象，类数组对象和数组类似，但是不能调用数组的方法。常见的类数组对象有 arguments 和 DOM 方法的返回结果，函数参数也可以被看作是类数组对象
+
+常见的类数组转换为数组的方法有这样几种：
+
+- 通过 call 调用数组的 slice 方法来实现转换
+
+```js
+Array.prototype.slice.call(arrayLike);
+```
+
+- 通过 call 调用数组的 splice 方法来实现转换
+
+```js
+Array.prototype.splice.call(arrayLike, 0);
+```
+
+- 通过 apply 调用数组的 concat 方法来实现转换
+
+```js
+Array.prototype.concat.apply([], arrayLike);
+```
+
+- 通过 Array.from 方法来实现转换
+
+```js
+Array.from(arrayLike);
+```
+
+##### 遍历类数组的方法
+
+有三个方法：
+
+（1）将数组的方法应用到类数组上，这时候就可以使用`call`和`apply`方法，如：
+
+```js
+function foo(){ 
+  Array.prototype.forEach.call(arguments, a => console.log(a))
+}
+```
+
+（2）使用Array.from方法将类数组转化成数组：‌
+
+```js
+function foo(){ 
+  const arrArgs = Array.from(arguments) 
+  arrArgs.forEach(a => console.log(a))
+}
+```
+
+（3）使用展开运算符将类数组转化成数组
+
+```js
+function foo(){ 
+    const arrArgs = [...arguments] 
+    arrArgs.forEach(a => console.log(a)) 
+}
+```
+
+#### JavaScript进行变量提升的本质原因
+
+ js 引擎在代码执行前有一个解析的过程，**创建了执行上下文**，初始化了一些代码执行时需要用到的对象
+
+当访问一个变量时，会到当前执行上下文中的作用域链中去查找，而作用域链的首端指向的是当前执行上下文的变量对象 这个对象的是在**代码解析的时候创建的**。
+
+#### `Object.prototype.toString.call()` 方法来打印对象的[[Class]] 属性
+
+```js
+Object.prototype.toString.call(null);//”[object Null]”
+Object.prototype.toString.call(undefined);//”[object Undefined]”
+Object.prototype.toString.call(“abc”);//”[object String]”
+Object.prototype.toString.call(123);//”[object Number]”
+Object.prototype.toString.call(true);//”[object Boolean]”
+```
+
+#### 判断对象属于某个类
+
+```js
+function Fn(){}
+let func = new Fn()
+console.log(Fn.prototype.constructor === Fn)// true
+console.log(func.constructor === Fn)// true
+```
+
+#### 强类型语言和弱类型语言的区别
+
+- **强类型语言**：要求变量的使用要严格符合定义，所有变量都必须先定义后使用。Java和C++等语言都是强制类型定义的
+  - 一旦一个变量被指定了某个数据类型，如果**不经过强制转换**，那么它就**永远是这个数据类型了**。例如你有一个整数，如果不显式地进行转换，你不能将其视为一个字符串。
+- **弱类型语言**：与强类型定义相反。JavaScript语言就属于弱类型语言。简单理解就是一种变量类型可以被忽略的语言。
+  - 在JavaScript中就可以将字符串'12'和整数3进行连接得到字符串'123'，在**相加的时候会进行强制类型转换**。
+
+两者对比：强类型语言在速度上可能略逊色于弱类型语言，但是强类型语言带来的**严谨性可以有效地帮助避免许多错误**。
+
+## 2.计网
+
+
+
+## 3.Vue
+
+
+
+## 4.LeetCode
+
+####  [384. 打乱数组](https://leetcode-cn.com/problems/shuffle-an-array/) 
+
+好题！
