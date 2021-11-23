@@ -2042,3 +2042,700 @@ console.log(func.constructor === Fn)// true
 ####  [384. 打乱数组](https://leetcode-cn.com/problems/shuffle-an-array/) 
 
 好题！
+
+# 11.23 
+
+七点成功起床 哦耶~
+
+白天效率还可以的说~午睡再早一些 换下午的高效率就更好了！
+
+```js
+// 今日主要收获 & 学习时间
+Totally 630min
+1.前端基础知识
+    1.1 前端基础学习 140min 
+		/* 复习下原型的概念~又了解了很多API 
+        复习下闭包的概念 学习下作用域 执行上下文的概念要贯彻JS学习！ 
+        事件循环 执行上下文 作用域的概念 */
+
+2.核心基础知识 下午开始学计网 + 刷题
+	2.1 计网 min
+		/*  */
+	2.2 操作系统 & 数据库 & 网络安全 140min
+		/* 操作系统作业 内存管理作业写一写~
+        网安复习 复习！！ */
+
+3.现在不刷题 面试懵个逼
+	3.1 刷算法 刷力扣 80+150min	
+    	/* 掘金小册 18/28
+    	听了下字节前端工程师讲的算法课~了解下面试难度以及面试官想听到的内容，最重要的是 被大佬们吊打一下！XD
+        见识一下A*算法解决8数码问题，搞了个简单的可视化，虽说是借鉴的 但是也学习了大佬的思路~
+           	*/   
+    	// 每个阶段结束后 简单总结下应对某种数据结构/对应类型的题目 应该怎么去想
+        1.数组 + 字符串 + 链表 + 二叉树 + 栈/队列 熟练掌握这些数据结构
+        2.双指针 + 遍历专题DFS BFS（递归/迭代）
+        3.回溯算法 + 贪心算法 + 动态规划
+        4.了解下前缀和方法 熟练使用哈希表（解决数组问题） 
+
+4.做项目
+	4.1 Vue学习 min
+		/*  */
+    4.2 项目开发 120min
+    	/* 了解下跨域 诱导屏详情的页面效果搞出来了 读一下代码！完成登陆验证的内容 地图聚焦算法的研究 */
+5.其他 
+```
+
+> 学习顺序预告
+
+- [x] JS基础、进阶内容复习
+- [x] 操作系统作业
+- [x] 力扣每日一题
+- [x] 力扣数组、字符串、排序算法专题学习
+- [x] 网安复习
+- [x] 项目功能实现
+- [ ] 睡前JS进阶内容大致刷完
+
+## 1.前端基础
+
+#### 今日最佳-JS引擎的执行机制——事件循环 Event Loop
+
+> 看了下这篇文章 简单入门[10分钟理解JS引擎的执行机制](https://segmentfault.com/a/1190000012806637)
+>
+> 注意本文中所有执行流程是基于浏览器环境，而不是node环境
+>
+> > node轮询有phase（阶段）的概念
+> > [浏览器和NodeJS中不同的Event Loop ](https://link.segmentfault.com/?enc=6x5T1cZ7jDAzqHVEmBhr0g%3D%3D.9kALuwmRprTk9xaL8P54pEg9Lt6E59fqqaQHd1Q%2Bi40a3%2FUE9nwFb8wOUfv%2FgmQu)
+
+> 事件循环的核心机制是：**宏任务、微任务及其相关队列的执行流程图**
+
+单线程的JS通过事件循环 Event Loop 实现异步
+
+JS的执行机制是
+
+- 首先判断JS是同步还是异步,同步就进入主线程,异步就进入**event table**
+- 异步任务在event table中注册函数,当满足触发条件后,被推入**event queue**
+- 同步任务进入主线程后一直执行,直到**主线程空闲**时,才会去event queue中查看是否有可执行的异步任务,如果有就推入主线程中
+
+以上三步循环执行,这就是event loop
+
+> 举个例子
+>
+> ```js
+> console.log(1)
+> 
+> setTimeout(function(){
+>     console.log(2)
+> },0)
+> 
+> console.log(3)
+> ```
+>
+> ```js
+> 1.console.log(1) 是同步任务,放入主线程里
+> 2.setTimeout() 是异步任务,被放入event table, 0秒之后被推入event queue里
+> 3.console.log(3) 是同步任务,放到主线程里
+> 
+> // 当 1、 3在控制条被打印后,主线程去event queue(事件队列)里查看是否有可执行的函数,执行setTimeout里的函数
+> ```
+
+但这还不够！
+
+##### 微任务、宏任务的概念
+
+如果有多个任务在event queue里呆着呢？谁先？谁后？上新概念！
+
+上道题
+
+```js
+setTimeout(function(){
+    console.log('定时器开始啦')
+});
+
+new Promise(function(resolve){
+    console.log('马上执行for循环啦');
+    for(var i = 0; i < 10000; i++){
+        i == 99 && resolve();
+    }
+}).then(function(){
+    console.log('执行then函数啦')
+});
+
+console.log('代码执行结束');
+```
+
+
+
+尝试按照,上文我们刚学到的JS执行机制去分析
+
+```javascript
+【1】setTimeout 是异步任务,被放到event table
+
+【2】new Promise 是同步任务,被放到主线程里,直接执行打印 console.log('马上执行for循环啦')
+
+【3】.then里的函数是 异步任务,被放到event table
+
+【4】 console.log('代码执行结束')是同步代码,被放到主线程里,直接执行
+```
+
+所以,结果是 【马上执行for循环啦 --- 代码执行结束 --- 定时器开始啦 --- 执行then函数啦】吗?
+
+亲自执行后,结果居然不是这样,而是【马上执行for循环啦 --- 代码执行结束 --- **执行then函数啦 --- 定时器开始啦**】
+
+> 欸？不是setTimeout这个任务先进的event table麽？
+>
+> 并不是！上述根据异步同步一股脑划分的方法不对！
+
+而准确的划分方式是:
+
+- macro-task(**宏任务**)：包括`整体代码script`，`setTimeout`，`setInterval`
+- micro-task(**微任务)**：`Promise`，`process.nextTick`（Node独有）
+
+![clipboard.png](https://segmentfault.com/img/bV1TKz?w=879&h=723)
+
+按照这种分类方式:JS的执行机制是
+
+- 【1】执行一个**宏任务**(JS脚本中的内容都是宏任务~),过程中如果【2】遇到微任务,就将其【3】放到微任务的【事件队列】里
+- 当前【4】宏任务执行完成后,会查看微任务的【事件队列】,并【5】将里面全部的微任务依次执行完
+
+重复以上2步骤,结合event loop(1) event loop(2) ,就是更为准确的JS执行机制了。
+
+尝试按照刚学的执行机制,去分析例2:
+
+```js
+1.首先执行script下的宏任务,遇到setTimeout,将其放到宏任务的【队列】里
+
+2.遇到 new Promise直接执行,打印"马上执行for循环啦"
+
+3.遇到then方法,是微任务,将其放到微任务的【队列里】
+
+4.打印 "代码执行结束"
+
+5.本轮宏任务执行完毕,查看本轮的微任务,发现有一个then方法里的函数, 打印"执行then函数啦"
+
+6.到此,本轮的event loop 全部完成。
+
+
+7.下一轮的循环里,先执行一个宏任务,发现宏任务的【队列】里有一个 setTimeout里的函数,执行打印"定时器开始啦"
+```
+
+所以最后的执行顺序是【马上执行for循环啦 --- 代码执行结束 --- 执行then函数啦 --- 定时器开始啦】
+
+##### 谈谈setTimeout
+
+这段setTimeout代码什么意思? 我们一般说: 3秒后,会执行setTimeout里的那个函数
+
+```javascript
+ setTimeout(function(){
+    console.log('执行了')
+ },3000)    
+```
+
+但是这种说并不严谨,准确的解释是: 3秒后,setTimeout里的函数会**被推入event queue**,而event queue(事件队列)里的任务,只有在**主线程空闲时才会执行**。
+
+**所以只有满足 (1)3秒后 (2)主线程空闲,同时满足时,才会3秒后执行该函数**
+
+如果主线程执行内容很多,执行时间超过3秒,比如执行了10秒,那么这个函数只能10秒后执行了
+
+##### 图解Event Loop
+
+[![eventloop](https://raw.githubusercontent.com/aooy/aooy.github.io/master/blog/issues5/img/eventLoop.jpg)](https://raw.githubusercontent.com/aooy/aooy.github.io/master/blog/issues5/img/eventLoop.jpg)
+
+- 同步任务直接进入主执行栈（call stack）中执行
+- 等待主执行栈中任务执行完毕，由EL将异步任务推入主执行栈中执行
+
+#### CORS 跨域资源共享
+
+> 阮大的[CORS详解](http://www.ruanyifeng.com/blog/2016/04/cors.html)
+>
+> [MDN官方文档](https://developer.mozilla.org/zh-CN/docs/Web/HTTP/CORS#%E8%B0%81%E5%BA%94%E8%AF%A5%E8%AF%BB%E8%BF%99%E7%AF%87%E6%96%87%E7%AB%A0%EF%BC%9F)
+
+CORS是一个W3C标准，全称是"跨域资源共享"（Cross-origin resource sharing）。
+
+它允许浏览器向跨源服务器，发出[`XMLHttpRequest`](https://www.ruanyifeng.com/blog/2012/09/xmlhttprequest_level_2.html)请求，从而克服了AJAX只能[同源](https://www.ruanyifeng.com/blog/2016/04/same-origin-policy.html)使用的限制。
+
+#### [for…in](https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Statements/for...in) [for…of](https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Statements/for...of)的用法
+
+- for in 遍历对象 而不是数组
+
+![](https://gitee.com/su-fangzhou/blog-image/raw/master/202111230949518.png)
+
+- for of 遍历可迭代对象 Array Map Set
+
+![image-20211123095042012](https://gitee.com/su-fangzhou/blog-image/raw/master/202111230950252.png)
+
+这个好用欸！
+
+![image-20211123095138548](https://gitee.com/su-fangzhou/blog-image/raw/master/202111230951802.png)
+
+#### 获取对象原型的方法
+
+每一个构造函数的内部都有一个 prototype 属性，它的属性值是一个对象，这个对象包含了可以由该构造函数的所有实例共享的属性和方法。
+
+当使用构造函数新建一个对象后，在这个对象的内部将包含一个指针，这个**指针**<u>指向构造函数的 prototype 属性对应的值</u>，在 ES5 中这个指针被称为对象的原型。
+
+浏览器中实现了 `__proto__` 属性来访问这个属性，但是最好不要使用这个属性，因为它不是规范中规定的。
+
+ES5 中**新增了一个 `Object.getPrototypeOf()` 方法，可以通过这个方法来获取对象的原型**。
+
+#### 判断属性是否属于原型链的属性
+
+使用[`hasOwnProperty()`](https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Object/hasOwnProperty)方法来判断属性是否属于原型链的属性：
+
+> `hasOwnProperty()` 方法会返回一个布尔值，指示对象自身属性中是否具有指定的属性（也就是，是否有指定的**键**）。
+
+```js
+function iterate(obj){
+   var res=[];
+   for(var key in obj){
+        if(obj.hasOwnProperty(key))
+           res.push(key+': '+obj[key]);
+   }
+   return res;
+} 
+```
+
+这不比判断原型链啥的省脑子hh（当然方法还是得顺着原型链找咯）
+
+#### 对闭包[Scope](https://developer.mozilla.org/zh-CN/docs/Glossary/Scope)的理解
+
+闭包是指**有权访问另一个函数作用域中变量**的函数，创建闭包的最常见的方式就是在一个函数内创建另一个函数，创建的函数可以访问到当前函数的局部变量。
+
+- 比如，函数 A 内部有一个函数 B，函数 B 可以访问到函数 A 中的变量，那么函数 B 就是闭包。
+
+```js
+function A() {
+  let a = 1
+  window.B = function () {
+      console.log(a)
+  }
+}
+A()
+B() // 1
+```
+
+在 JS 中，闭包存在的意义就是让我们可以间接访问函数内部的变量。
+
+![image-20211123091543037](https://gitee.com/su-fangzhou/blog-image/raw/master/202111230915179.png)
+
+- 经典面试题：循环中使用闭包解决 var 定义函数的问题
+
+```js
+for (var i = 1; i <= 5; i++) {
+  setTimeout(function timer() {
+    console.log(i)
+  }, i * 1000)
+}
+```
+
+首先因为 `setTimeout` 是个异步函数，所以会先把循环全部执行完毕，这时候 `i` 就是 6 了，所以会输出一堆 6。解决办法有三种：
+
+- 第一种是使用闭包的方式
+
+```js
+for (var i = 1; i <= 5; i++) {
+  (function(j) {
+    setTimeout(function timer() {
+      console.log(j)
+    }, j * 1000)
+  })(i)
+}
+```
+
+在上述代码中，首先使用了立即执行函数将 `i` 传入函数内部，这个时候值就被固定在了参数 `j` 上面不会改变，当下次执行 `timer` 这个闭包的时候，就可以使用外部函数的变量 `j`，从而达到目的。
+
+- 第二种就是使用 `setTimeout` 的第三个参数，这个参数会被当成 `timer` 函数的参数传入。
+
+```js
+for (var i = 1; i <= 5; i++) {
+  setTimeout(
+    function timer(j) {
+      console.log(j)
+    },
+    i * 1000,
+    i
+  )
+}
+```
+
+- 第三种就是使用 `let` 定义 `i` 了来解决问题了，这个也是最为推荐的方式
+
+```js
+for (let i = 1; i <= 5; i++) {
+  setTimeout(function timer() {
+    console.log(i)
+  }, i * 1000)
+}
+```
+
+#### 对作用域、作用域链的理解
+
+##### 1）全局作用域和函数作用域
+
+（1）全局作用域
+
+- 最外层函数和最外层函数外面定义的变量拥有全局作用域
+- 所有未定义直接赋值的变量自动声明为全局作用域
+- 所有window对象的属性拥有全局作用域
+- 全局作用域有**很大的弊端**，过多的全局作用域变量会污染全局命名空间，容易引起命名冲突。
+
+（2）函数作用域
+
+- 函数作用域声明在函数内部的变量，一般只有固定的代码片段可以访问到
+- 作用域是分层的，内层作用域可以访问外层作用域，反之不行
+
+##### 2）块级作用域
+
+- 使用ES6中新增的let和const指令可以声明块级作用域，块级作用域可以在函数中创建也可以在一个代码块中创建（由`{ }`包裹的代码片段）
+- let和const声明的变量不会有变量提升，也不可以重复声明
+- 在循环中比较适合绑定块级作用域，这样就可以把声明的计数器变量限制在循环内部。
+
+
+
+##### 3）**作用域链：**
+
+在当前作用域中查找所需变量，但是该作用域没有这个变量，那这个变量就是自由变量。如果在自己作用域找不到该变量就去父级作用域查找，依次向上级作用域查找，直到访问到window对象就被终止，这一层层的关系就是作用域链。
+
+
+
+作用域链的作用是**保证对执行环境有权访问的所有变量和函数的有序访问，通过作用域链，可以访问到外层环境的变量和函数。**
+
+
+
+作用域链的本质上是一个指向变量对象的指针列表。变量对象是一个包含了执行环境中所有变量和函数的对象。作用域链的前端始终都是当前执行上下文的变量对象。全局执行上下文的变量对象（也就是全局对象）始终是作用域链的最后一个对象。
+
+
+
+当查找一个变量时，如果当前执行环境中没有找到，可以沿着作用域链向后查找。
+
+####  对执行上下文的理解
+
+##### 1. 执行上下文类型
+
+**（1）全局执行上下文**
+
+任何**不在函数内部的**都是全局执行上下文，它首先会**创建一个全局的window对象**，并且**设置this的值等于这个全局对象**，一个程序中只有一个全局执行上下文。
+
+**（2）函数执行上下文**
+
+当一个函数被调用时，就会为该函数创建一个新的执行上下文，函数的上下文可以有任意多个。
+
+##### 2. 执行上下文栈
+
+- **JavaScript引擎**使用执行上下文栈来管理执行上下文
+- 当JavaScript执行代码时，首先遇到全局代码，会【1】创建一个全局执行上下文并且压入执行栈中，每当遇到一个函数调用，就会【2】为该函数创建一个新的执行上下文并压入栈顶，**引擎会执行位于执行上下文栈顶的函数**，当函数执行完成之后，【3】执行上下文从栈中弹出，【4】继续执行下一个上下文。当所有的代码都执行完毕之后，从【5】栈中弹出全局执行上下文。
+
+```js
+let a = 'Hello World!';
+function first() {
+  console.log('Inside first function');// 1
+  second();// 2
+  console.log('Again inside first function');// 3
+}
+function second() {
+  console.log('Inside second function');
+}
+first();
+//执行顺序
+//先执行second(),再执行first()-这里存疑 虽说second函数确实是在栈顶吧！
+```
+
+##### 3. 创建执行上下文
+
+创建执行上下文有两个阶段：**创建阶段**和**执行阶段**
+
+**1）创建阶段**
+
+（1）**this绑定**
+
+- 在全局执行上下文中，this指向全局对象（window对象）
+- 在函数执行上下文中，**this指向取决于函数如何调用**。如果它**被一个引用对象调用，那么 this 会被设置成那个对象**（`let func = new Fn()`这里构造函数中的this就被设置为这个实例对象了！），否则 this 的值被设置为全局对象或者 undefined
+
+> 下面这俩没听说过的说
+>
+> （2）**创建词法环境组件**
+>
+> - 词法环境是一种有**标识符——变量映射**的数据结构，标识符是指变量/函数名，变量是对实际对象或原始数据的引用。
+> - 词法环境的内部有两个组件：**加粗样式**：环境记录器:用来储存变量个函数声明的实际位置**外部环境的引用**：可以访问父级作用域
+>
+> （3）**创建变量环境组件**
+>
+> - 变量环境也是一个词法环境，其环境记录器持有变量声明语句在执行上下文中创建的绑定关系。
+>
+
+**2）执行阶段**
+
+此阶段会**完成对变量的分配**，最后执行完代码。
+
+
+
+**简单来说执行上下文就是指：**
+
+在执行一点JS代码之前，需要先**解析代码**。解析的时候会【1】先创建一个全局执行上下文环境，先【2】把代码中即将执行的变量、函数声明都拿出来，【3】变量先赋值为undefined，【4】函数先声明好可使用。这一步执行完了，才【5】开始正式的执行程序。
+
+
+
+在一个函数执行之前，也会创建一个函数执行上下文环境，跟全局执行上下文类似，不过函数执行上下文会多出this、arguments和函数的参数。
+
+- 全局上下文：变量定义，函数声明
+- 函数上下文：变量定义，函数声明，`this`，`arguments`
+
+
+
+#### 判断数组的方式
+
+- 通过`Object.prototype.toString.call()`做判断
+
+```js
+Object.prototype.toString.call(obj).slice(8,-1) === 'Array';
+```
+
+![image-20211122085928813](https://gitee.com/su-fangzhou/blog-image/raw/master/202111220859922.png)
+
+- 通过原型链做判断
+
+```js
+obj.__proto__ === Array.prototype;
+```
+
+- 通过ES6的Array.isArray()做判断
+
+```js
+Array.isArray(obj);
+```
+
+- 通过instanceof做判断
+
+```js
+obj instanceof Array
+```
+
+- 通过Array.prototype.isPrototypeOf
+
+```js
+Array.prototype.isPrototypeOf(obj)
+```
+
+#### instanceof的使用
+
+**`instanceof`** **运算符**用于检测构造函数的 `prototype` 属性是否出现在某个实例对象的原型链上。
+
+`instanceof` 运算符用来检测 `constructor.prototype `是否存在于参数 `object` 的原型链上。
+
+> `a instanceof A`
+>
+> 如果 `a.__proto__ = A.prototype` 则返回true
+
+```js
+// 定义构造函数
+function C(){}
+function D(){}
+
+var o = new C();
+
+o instanceof C; // true，因为 Object.getPrototypeOf(o) === C.prototype
+
+o instanceof D; // false，因为 D.prototype 不在 o 的原型链上
+
+o instanceof Object; // true，因为 Object.prototype.isPrototypeOf(o) 返回 true
+C.prototype instanceof Object // true，同上
+
+C.prototype = {};
+var o2 = new C();
+
+o2 instanceof C; // true
+
+o instanceof C; // false，C.prototype 指向了一个空对象,这个空对象不在 o 的原型链上.
+
+D.prototype = new C(); // 继承
+var o3 = new D();
+o3 instanceof D; // true
+o3 instanceof C; // true 因为 C.prototype 现在在 o3 的原型链上
+```
+
+
+
+#### isPrototypeOf的使用
+
+`isPrototypeOf()` 方法用于测试**一个对象**是否存在于**另一个对象的原型链**上。
+
+`isPrototypeOf()` 与 [`instanceof`](https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Operators/instanceof) 运算符不同。在表达式 "`object instanceof AFunction`"中，`object` 的原型链是针对 `AFunction.prototype` 进行检查的，而不是针对 `AFunction` 本身。
+
+##### [语法](https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Object/isPrototypeOf#语法)
+
+```
+prototypeObj.isPrototypeOf(object)
+```
+
+##### [参数](https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Object/isPrototypeOf#参数)
+
+- `object`
+
+  在该对象的原型链上搜寻
+
+##### [返回值](https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Object/isPrototypeOf#返回值)
+
+[`Boolean`](https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Boolean)，表示调用对象是否在另一个对象的原型链上。
+
+本示例展示了 `Baz.prototype`, `Bar.prototype`, `Foo.prototype` 和 `Object.prototype` 在 `baz` 对象的原型链上：
+
+```js
+function Foo() {}
+function Bar() {}
+function Baz() {}
+
+Bar.prototype = Object.create(Foo.prototype);
+Baz.prototype = Object.create(Bar.prototype);
+
+var baz = new Baz();
+
+console.log(Baz.prototype.isPrototypeOf(baz)); // true
+console.log(Bar.prototype.isPrototypeOf(baz)); // true
+console.log(Foo.prototype.isPrototypeOf(baz)); // true
+console.log(Object.prototype.isPrototypeOf(baz)); // true
+```
+
+如果你有段代码只在需要操作继承自一个特定的原型链的对象的情况下执行，同 [`instanceof`](https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Operators/instanceof) 操作符一样 `isPrototypeOf()` 方法就会派上用场，例如，为了确保某些方法或属性将位于对象上。
+
+例如，检查 `baz` 对象是否继承自 `Foo.prototype`：
+
+```js
+if (Foo.prototype.isPrototypeOf(baz)) {
+  // do something safe
+}
+```
+
+#### JS数据结构与JSON格式的转换
+
+- `JSON.stringify(obj)` 数据对象->JSON格式的字符串
+- `JSON.parse()` JSON格式的字符串->数据对象
+
+常见的对象深拷贝的方式就是
+
+```js
+obj = {a: 6, child: {b: 66}}
+let copy = JSON.parse(JSON.stringify(obj))
+copy.child.b = 888
+console.log(obj)// {a: 6 child:{b: 66}}
+```
+
+#### 类数组对象转化为数组
+
+> 一个拥有 length 属性和若干索引属性的对象就可以被称为类数组对象，类数组对象和数组类似，但是不能调用数组的方法。常见的类数组对象有 arguments 和 DOM 方法的返回结果，函数参数也可以被看作是类数组对象
+
+常见的类数组转换为数组的方法有这样几种：
+
+- 通过 call 调用数组的 slice 方法来实现转换
+
+```js
+Array.prototype.slice.call(arrayLike);
+```
+
+- 通过 call 调用数组的 splice 方法来实现转换
+
+```js
+Array.prototype.splice.call(arrayLike, 0);
+```
+
+- 通过 apply 调用数组的 concat 方法来实现转换
+
+```js
+Array.prototype.concat.apply([], arrayLike);
+```
+
+- 通过 Array.from 方法来实现转换
+
+```js
+Array.from(arrayLike);
+```
+
+##### 遍历类数组的方法
+
+有三个方法：
+
+（1）将数组的方法应用到类数组上，这时候就可以使用`call`和`apply`方法，如：
+
+```js
+function foo(){ 
+  Array.prototype.forEach.call(arguments, a => console.log(a))
+}
+```
+
+（2）使用Array.from方法将类数组转化成数组：‌
+
+```js
+function foo(){ 
+  const arrArgs = Array.from(arguments) 
+  arrArgs.forEach(a => console.log(a))
+}
+```
+
+（3）使用展开运算符将类数组转化成数组
+
+```js
+function foo(){ 
+    const arrArgs = [...arguments] 
+    arrArgs.forEach(a => console.log(a)) 
+}
+```
+
+#### JavaScript进行变量提升的本质原因
+
+ js 引擎在代码执行前有一个解析的过程，**创建了执行上下文**，初始化了一些代码执行时需要用到的对象
+
+当访问一个变量时，会到当前执行上下文中的作用域链中去查找，而作用域链的首端指向的是当前执行上下文的变量对象 这个对象的是在**代码解析的时候创建的**。
+
+#### `Object.prototype.toString.call()` 方法来打印对象的[[Class]] 属性
+
+```js
+Object.prototype.toString.call(null);//”[object Null]”
+Object.prototype.toString.call(undefined);//”[object Undefined]”
+Object.prototype.toString.call(“abc”);//”[object String]”
+Object.prototype.toString.call(123);//”[object Number]”
+Object.prototype.toString.call(true);//”[object Boolean]”
+```
+
+#### 判断对象属于某个类（判断其构造函数是谁）
+
+```js
+function Fn(){}
+let func = new Fn()
+console.log(Fn.prototype.constructor === Fn)// true
+console.log(func.constructor === Fn)// true
+```
+
+
+
+## 2.计网
+
+
+
+## 3.项目开发-Vue
+
+更改vue.config.js中使用代理proxy解决跨域问题
+
+/api表示需要去匹配请求时的url，然后替换成target的值
+
+比如你页面里是写的
+
+```js
+axios.post('/api/list/gd')
+```
+
+最终node去请求后台的地址是：http://183.221.84.110:9090/api/list/gd
+
+> 但是你在浏览器里看到的还是：http://localhost:8888/api/list/gd，这时候就不存在跨越的问题的，node服务已经代理拿到数据了
+>
+> 其实真正引起跨越问题是浏览器的安全机制
+
+![image-20211123134530839](https://gitee.com/su-fangzhou/blog-image/raw/master/202111231345086.png)
+
+
+
+## 4.LeetCode
+
+#### [859. 亲密字符串](https://leetcode-cn.com/problems/buddy-strings/)
+
+考察我们思考问题的全面性！
+
+写了篇[题解 反思一下为啥面试/解题时会陷入因考虑不全而无法解决所有用例的怪圈](https://leetcode-cn.com/problems/buddy-strings/solution/javascriptsan-chong-qing-kuang-pan-duan-ozo1z/)
+
