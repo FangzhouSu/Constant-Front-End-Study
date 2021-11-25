@@ -2093,7 +2093,6 @@ Totally 630min
 - [x] 力扣数组、字符串、排序算法专题学习
 - [x] 网安复习
 - [x] 项目功能实现
-- [ ] 睡前JS进阶内容大致刷完
 
 ## 1.前端基础
 
@@ -2106,7 +2105,7 @@ Totally 630min
 > > node轮询有phase（阶段）的概念
 > > [浏览器和NodeJS中不同的Event Loop ](https://link.segmentfault.com/?enc=6x5T1cZ7jDAzqHVEmBhr0g%3D%3D.9kALuwmRprTk9xaL8P54pEg9Lt6E59fqqaQHd1Q%2Bi40a3%2FUE9nwFb8wOUfv%2FgmQu)
 
-> 事件循环的核心机制是：**宏任务、微任务及其相关队列的执行流程图**
+> 事件循环的核心机制是：**宏任务、微任务及其相关队列的执行流程**
 
 单线程的JS通过事件循环 Event Loop 实现异步
 
@@ -2738,4 +2737,444 @@ axios.post('/api/list/gd')
 考察我们思考问题的全面性！
 
 写了篇[题解 反思一下为啥面试/解题时会陷入因考虑不全而无法解决所有用例的怪圈](https://leetcode-cn.com/problems/buddy-strings/solution/javascriptsan-chong-qing-kuang-pan-duan-ozo1z/)
+
+# 11.24
+
+继续早起打卡！🧑‍💻
+
+疯狂复习阿巴阿巴
+
+```js
+// 今日主要收获 & 学习时间
+Totally 740min
+1.前端基础知识
+    1.1 前端基础学习 100+140min 
+		/* JS进阶看了下 另外做了个很有趣的需求 见 今日最佳 */
+
+2.核心基础知识 下午开始学计网 + 刷题
+	2.1 计网 min
+		/*  */
+	2.2 操作系统 & 数据库 & 网络安全 490min
+		/* 网安复习继续~ */
+
+3.现在不刷题 面试懵个逼
+	3.1 刷算法 刷力扣 10min	
+    	/* 掘金小册 18/28
+           	复习下最小栈*/   
+    	// 简单总结下应对某种数据结构/对应类型的题目 应该怎么去想 遇到题脑海里要快速地涌现出解决方案
+        1.数组 + 字符串 + 链表 + 二叉树 + 栈/队列 熟练掌握这些数据结构
+        2.双指针 + 遍历专题DFS BFS（递归/迭代）
+        3.回溯算法 + 贪心算法 + 动态规划
+        4.了解下前缀和方法 熟练使用哈希表（解决数组问题） 
+
+4.做项目
+	4.1 Vue学习 min
+		/*  */
+    4.2 项目开发 min
+    	/*  */
+5.其他 
+```
+
+> 学习顺序预告
+
+- [x] JS进阶内容简单复习
+- [x] 网安复习
+
+## 1.前端基础
+
+#### 今日最佳-使用`JSON.stringify()`实现对象->JSON格式
+
+> `JSON.stringify()` 方法将一个 JavaScript 对象或值转换为 JSON 字符串
+>
+> `JSON.parse()` 方法用来解析JSON字符串，构造由字符串描述的JavaScript值或对象
+
+有这么个需求
+
+![image-20211124112202937](https://gitee.com/su-fangzhou/blog-image/raw/master/202111241122110.png)
+
+要求 cities数组中的py属性的首字母 根据 letter中的内容一一映射
+
+【1】方法1
+
+![image-20211124131512343](https://gitee.com/su-fangzhou/blog-image/raw/master/202111241315540.png)
+
+【2】方法二
+
+![image-20211124131542580](https://gitee.com/su-fangzhou/blog-image/raw/master/202111241315840.png)
+
+#### Promise的基本用法
+
+使用resolve方法和reject方法：
+
+```js
+function testPromise(ready) {
+  return new Promise(function(resolve,reject){
+    if(ready) {
+      resolve("hello world");
+    }else {
+      reject("No thanks");
+    }
+  });
+};
+// 01 
+testPromise(true).then(function(msg){
+  alert(msg);// 调用这句 hello world
+},function(error){
+  console.log(error);
+});
+// 02
+testPromise(false).then(function(msg){
+  alert(msg);
+},function(error){
+  console.log(error);// 调用这句 输出No thanks
+});
+```
+
+上面的代码的含义是给`testPromise`方法传递一个参数，返回一个promise对象，如果为`true`的话，那么调用promise对象中的`resolve()`方法，并且把其中的参数传递给后面的`then`第一个函数内，因此打印出 “`hello world`”, 如果为`false`的话，会调用promise对象中的`reject()`方法，则会进入`then`的第二个函数内，会打印`No thanks`；
+
+##### Promise方法
+
+Promise有五个常用的方法
+
+- **then()**
+
+`then`方法可以接受两个回调函数作为参数。第一个回调函数是Promise对象的状态变为`resolved`时调用，第二个回调函数是Promise对象的状态变为`rejected`时调用。其中第二个参数可以省略。
+
+`then`方法返回的是一个新的Promise实例（不是原来那个Promise实例）。因此可以采用链式写法，即`then`方法后面再调用另一个then方法。
+
+- catch()
+
+该方法相当于`then`方法的第二个参数，指向`reject`的回调函数。不过`catch`方法还有一个作用，就是在执行`resolve`回调函数时，如果出现错误，抛出异常，不会停止运行，而是进入`catch`方法中。
+
+```js
+p.then((data) => {
+     console.log('resolved',data);
+},(err) => {
+     console.log('rejected',err);
+     }
+); 
+p.then((data) => {
+    console.log('resolved',data);
+}).catch((err) => {// 出现错误则进入这里
+    console.log('rejected',err);
+});
+```
+
+
+
+- all()
+- race()
+- finally()
+
+#### Promise解决了什么问题
+
+在工作中经常会碰到这样一个需求，比如我使用ajax发一个A请求后，成功后拿到数据，需要把数据传给B请求；那么需要如下编写代码：
+
+```js
+let fs = require('fs')
+fs.readFile('./a.txt','utf8',function(err,data){// 发送A请求
+  fs.readFile(data,'utf8',function(err,data){
+    fs.readFile(data,'utf8',function(err,data){
+      console.log(data)
+    })
+  })
+})
+```
+
+上面的代码有如下缺点：
+
+- 后一个请求需要依赖于前一个请求成功后，将数据往下传递，会导致多个ajax请求嵌套的情况，代码不够直观。
+- 如果**前后两个请求不需要传递参数的情况下，那么后一个请求也需要前一个请求成功后再执行下一步操作**，这种情况下，那么也需要如上编写代码，导致代码不够直观。
+
+
+
+用`Promise`封装一下这个请求~，代码变成这样：
+
+```js
+let fs = require('fs')
+function read(url){
+  return new Promise((resolve,reject)=>{
+    fs.readFile(url,'utf8',function(error,data){
+      error && reject(error)
+      resolve(data)
+    })
+  })
+}
+read('./a.txt').then(data=>{// 发送A请求
+  return read(data) 
+}).then(data=>{// 这两个操作可以根据所需进行执行~
+  return read(data)  
+}).then(data=>{
+  console.log(data)
+})
+```
+
+这样代码看起了就简洁了很多，解决了地狱回调的问题。
+
+#### async 函数返回的是一个 Promise 对象
+
+所以在最外层不能用 await 获取其返回值的情况下，当然应该用原来的方式：`then()` 链来处理这个 Promise 对象，就像这样：
+
+```js
+async function testAsy(){
+   return 'hello world'
+}
+let result = testAsy() 
+console.log(result)
+// then()链处理Promise对象~
+result.then(v=>{
+    console.log(v)   // hello world
+})
+```
+
+那如果 async 函数没有返回值，又该如何？很容易想到，它会返回 `Promise.resolve(undefined)`。
+
+**注意：**`Promise.resolve(x)` 可以看作是 `new Promise(resolve => resolve(x))` 的简写，可以用于快速封装字面量对象或其他对象，将其封装成 Promise 实例。
+
+#### 构造函数模式相对于工厂模式的优点
+
+所创建的对象和构造函数建立起了联系，因此可以通过原型来识别对象的类型
+
+构造函数存在一个缺点就是，造成了不必要的函数对象的创建，因为在 js 中函数也是一个对象，因此如果对象属性中如果包含**函数**的话，那么每次都会新建一个函数对象，浪费了不必要的内存空间，因为函数是所有的实例都可以通用的。（所以如果这个**函数**在对象中用得较多 建议定义在原型上！）
+
+#### 微任务、宏任务的概念
+
+如果有多个任务在event queue里呆着呢？谁先？谁后？上新概念！
+
+上道题
+
+```js
+setTimeout(function(){
+    console.log('定时器开始啦')
+});
+
+new Promise(function(resolve){
+    console.log('马上执行for循环啦');
+    for(var i = 0; i < 10000; i++){
+        i == 99 && resolve();
+    }
+}).then(function(){
+    console.log('执行then函数啦')
+});
+
+console.log('代码执行结束');
+```
+
+
+
+尝试按照,上文我们刚学到的JS执行机制去分析
+
+```javascript
+【1】setTimeout 是异步任务,被放到event table
+
+【2】new Promise 是同步任务,被放到主线程里,直接执行打印 console.log('马上执行for循环啦')
+
+【3】.then里的函数是 异步任务,被放到event table
+
+【4】 console.log('代码执行结束')是同步代码,被放到主线程里,直接执行
+```
+
+所以,结果是 【马上执行for循环啦 --- 代码执行结束 --- 定时器开始啦 --- 执行then函数啦】吗?
+
+亲自执行后,结果居然不是这样,而是【马上执行for循环啦 --- 代码执行结束 --- **执行then函数啦 --- 定时器开始啦**】
+
+> 欸？不是setTimeout这个任务先进的event table麽？
+>
+> 并不是！上述根据异步同步一股脑划分的方法不对！
+
+而准确的划分方式是:
+
+- macro-task(**宏任务**)：包括`整体代码script`，`setTimeout`，`setInterval`
+- micro-task(**微任务)**：`Promise`，`process.nextTick`（Node独有）
+
+![clipboard.png](https://segmentfault.com/img/bV1TKz?w=879&h=723)
+
+按照这种分类方式:JS的执行机制是
+
+- 【1】执行一个**宏任务**(JS脚本中的内容都是宏任务~),过程中如果【2】遇到微任务,就将其【3】放到微任务的【事件队列】里
+- 当前【4】宏任务执行完成后,会查看微任务的【事件队列】,并【5】将里面全部的微任务依次执行完
+
+重复以上2步骤,结合event loop(1) event loop(2) ,就是更为准确的JS执行机制了。
+
+尝试按照刚学的执行机制,去分析例2:
+
+```js
+1.首先执行script下的宏任务,遇到setTimeout,将其放到宏任务的【队列】里
+
+2.遇到 new Promise直接执行,打印"马上执行for循环啦"
+
+3.遇到then方法,是微任务,将其放到微任务的【队列里】
+
+4.打印 "代码执行结束"
+
+5.本轮宏任务执行完毕,查看本轮的微任务,发现有一个then方法里的函数, 打印"执行then函数啦"
+
+6.到此,本轮的event loop 全部完成。
+
+
+7.下一轮的循环里,先执行一个宏任务,发现宏任务的【队列】里有一个 setTimeout里的函数,执行打印"定时器开始啦"
+```
+
+所以最后的执行顺序是【马上执行for循环啦 --- 代码执行结束 --- 执行then函数啦 --- 定时器开始啦】
+
+
+
+##### 图解Event Loop
+
+[![eventloop](https://raw.githubusercontent.com/aooy/aooy.github.io/master/blog/issues5/img/eventLoop.jpg)](https://raw.githubusercontent.com/aooy/aooy.github.io/master/blog/issues5/img/eventLoop.jpg)
+
+- 同步任务直接进入主执行栈（call stack）中执行
+- 等待主执行栈中任务执行完毕，由EL将异步任务推入主执行栈中执行
+
+
+
+## 2.计网
+
+### 什么是TCP连接？
+
+我们来看看 RFC 793 是如何定义「连接」的：
+
+> *Connections:* 
+>
+> *The reliability and flow control mechanisms described above require that TCPs initialize and maintain certain status information for each data stream.*  
+>
+> *The combination of this information, including sockets, sequence numbers, and window sizes, is called a connection.*
+
+简单来说就是，**用于保证可靠性和流量控制维护的某些状态信息**，这些信息**的组合**（<u>包括Socket、序列号和窗口大小</u>） **称为连接**。
+
+![图片](https://mmbiz.qpic.cn/mmbiz_png/J0g14CUwaZeo9xBVAyPJ8iaWCC6sYS843wVoVXxKKTibcN9sLAuSgibkDfV2X8LH8eicpV1yAJ1uffibGqAuWShXibYg/640?wx_fmt=png&tp=webp&wxfrom=5&wx_lazy=1&wx_co=1)
+
+所以我们可以知道 **建立一个TCP连接**是需要 客户端&服务端 **达成上述三个信息的共识**（sockets套接字、sequence numbers序列号、window sizes窗口大小）
+
+- **Socket**：由 IP 地址和端口号组成
+- **序列号**：用来解决乱序问题等
+- **窗口大小**：用来做流量控制
+
+后面我们还会详细了解这里的细则 啥滑动窗口啥的 
+
+因为本题就是问“什么是TCP连接” 答出==建立TCP连接就是需要客户端&服务端达成socket 序列号 窗口大小这三个信息的共识==即可
+
+## 3.项目开发-Vue
+
+
+
+## 4.LeetCode
+
+# 11.25
+
+继续早起打卡！🧑‍💻
+
+继续疯狂复习
+
+```js
+// 今日主要收获 & 学习时间
+Totally min
+1.前端基础知识
+    1.1 前端基础学习 min 
+		/*  */
+
+2.核心基础知识 下午开始学计网 + 刷题
+	2.1 计网 min
+		/*  */
+	2.2 操作系统 & 数据库 & 网络安全 710min
+		/* 肝掉网络安全的内容QAQ 太难了 老师这个重点画的太有问题了啊。。。晚上还要写作业~ */
+
+3.现在不刷题 面试懵个逼
+	3.1 刷算法 刷力扣 10min	
+    	/* 掘金小册 18/28
+           	听了下字节的算法课 又去了解了下ACM模式*/   
+    	// 简单总结下应对某种数据结构/对应类型的题目 应该怎么去想 遇到题脑海里要快速地涌现出解决方案
+        1.数组 + 字符串 + 链表 + 二叉树 + 栈/队列 熟练掌握这些数据结构
+        2.双指针 + 遍历专题DFS BFS（递归/迭代）
+        3.回溯算法 + 贪心算法 + 动态规划
+        4.了解下前缀和方法 熟练使用哈希表（解决数组问题） 
+
+4.做项目
+	4.1 Vue学习 min
+		/*  */
+    4.2 项目开发 20min
+    	/* 整合代码 */
+5.其他 
+```
+
+> 学习顺序预告
+
+- [x] 网安复习+完成网安作业
+
+## 1.前端基础
+
+
+
+## 2.计网
+
+
+
+## 3.项目开发-Vue
+
+
+
+## 4.LeetCode
+
+
+
+# 11.26
+
+继续早起打卡！🧑‍💻
+
+继续疯狂复习
+
+```js
+// 今日主要收获 & 学习时间
+Totally min
+1.前端基础知识
+    1.1 前端基础学习 min 
+		/*  */
+
+2.核心基础知识 下午开始学计网 + 刷题
+	2.1 计网 min
+		/*  */
+	2.2 操作系统 & 数据库 min
+		/*  */
+
+3.现在不刷题 面试懵个逼
+	3.1 刷算法 刷力扣 min	
+    	/* 掘金小册 18/28
+        */   
+    	// 简单总结下应对某种数据结构/对应类型的题目 应该怎么去想 遇到题脑海里要快速地涌现出解决方案
+        1.数组 + 字符串 + 链表 + 二叉树 + 栈/队列 熟练掌握这些数据结构
+        2.双指针 + 遍历专题DFS BFS（递归/迭代）
+        3.回溯算法 + 贪心算法 + 动态规划
+        4.了解下前缀和方法 熟练使用哈希表（解决数组问题） 
+
+4.做项目
+	4.1 Vue学习 min
+		/*  */
+    4.2 项目开发 min
+    	/*  */
+5.其他 
+```
+
+> 学习顺序预告
+
+- [ ] 
+
+## 1.前端基础
+
+
+
+## 2.计网
+
+
+
+## 3.项目开发-Vue
+
+
+
+## 4.LeetCode
+
+
+
+
+
+
 
