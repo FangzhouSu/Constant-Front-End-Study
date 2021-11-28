@@ -3269,9 +3269,9 @@ oa = null; // a属性的那个对象现在也是零引用了
 
 继续早起打卡！🧑‍💻
 
-蚂蚁前端校园行的Node课程，先听个上午场，下周继续来蹭课哈哈
+蚂蚁前端校园行的Node课程，工程师大大费半天劲跑到校园里发现没法投屏😂线材的问题 只能原路返回，带着不能让老师白来的想法，我找老师聊了聊，聊了聊技术体验部对新人的培养和技术的强大性，对阿里的好感又++了，想去实习啊！！！
 
-下午晚上
+做了一天的实验，人傻了
 
 ```js
 // 今日主要收获 & 学习时间
@@ -3327,6 +3327,8 @@ Totally 540min
 
 记住这张图：
 
+![image](https://img-blog.csdnimg.cn/img_convert/6709fb5182ff25591ae5d88ed70771df.png)
+
 ## 2.计网
 
 
@@ -3377,9 +3379,362 @@ print(isValid)
 
 
 
+# 11.28 
+
+早起打卡！🧑‍💻
+
+久违的沙河校区半日游~快乐😄
+
+今天开始12点前早睡了！头发！
+
+```js
+// 今日主要收获 & 学习时间
+Totally 420min
+1.前端基础知识
+    1.1 前端基础学习 40min 
+		/* 简单总结下阶段学习内容，明早起来继续做个小结 今天早睡了！ */
+
+2.核心基础知识
+	2.1 计网 min
+		/*  */
+	2.2 操作系统 & 数据库 & 人工智能 30min
+		/* 实验报告 */
+
+3.现在不刷题 面试懵个逼
+	3.1 刷算法 刷力扣 170min	
+    	/* 掘金小册 18/28
+       	题都很简单的周赛 中等题花了五十分钟，，，各种考虑问题不全面！下次做题前记得把情况想全了！！
+       	下周开始看JS数据结构与算法第三版+继续刷专题！*/   
+    	// 简单总结下应对某种数据结构/对应类型的题目 应该怎么去想 遇到题脑海里要快速地涌现出解决方案
+        1.数组 + 字符串 + 链表 + 二叉树 + 栈/队列 熟练掌握这些数据结构
+        2.双指针 + 遍历专题DFS BFS（递归/迭代）
+        3.回溯算法 + 贪心算法 + 动态规划
+        4.了解下前缀和方法 熟练使用哈希表（解决数组问题） 
+
+4.做项目
+    4. 项目开发-Vue 180min
+    	/* 推进度咯！连接口！
+        重构了一下项目 回头还要调整一些细节 */
+5.其他 
+```
+
+> 学习顺序预告
+
+- [x] 人工智能实验一报告写完
+- [x] 力扣周赛+每日一题尝试
+- [x] 项目进度推进
+- [x] 每日一题完成+周赛小结+算法小册进度小结（明天开始新篇章！）
+
+## 1.前端基础
+
+#### `str.charCodeAt(index)`与`str.charAt(index)`
+
+```js
+const sentence = 'The quick brown fox jumps over the lazy dog.';
+
+const index = 4;
+
+console.log(`The character code ${sentence.charCodeAt(index)} is equal to ${sentence.charAt(index)}`);
+// expected output: "The character code 113 is equal to q"
+```
+
+- `str.charCodeAt(index)`返回值
+
+指定 `index` 处字符的 UTF-16 代码单元值的一个数字（就是ASCII码值~）；如果 `index` 超出范围，`charCodeAt()` 返回 [`NaN`](https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/NaN)。
+
+**如果没有提供索引，`charCodeAt()` 将使用0**
+
+- `str.charAt(index)`
+
+从一个字符串中返回指定的字符。
+
+index是一个介于0 和字符串长度减1之间的整数。 (0~length-1)
+
+**如果没有提供索引，`charAt()` 将使用0**，也就是返回字符串中第一个字符~
+
+> 值得注意的是 算法题中经常使用`str.charCodeAt()-‘a’.charCodeAt()`即为字符str与‘a’的ASCII码值之差来获取当前字符所处的独一无二的位置（即为哈希表中的“键”）
+>
+> 例如 ‘b’就位于索引1处 ‘z’位于索引25处
+
+#### [JS毒瘤](https://github.com/hstarorg/HstarDoc/blob/master/JS%E6%9C%AD%E8%AE%B0/JavaScript%E4%B9%8B%E6%AF%92%E7%98%A4.md)——列举一些在JavaScript中难以避免的问题特性
+
+#### [JS糟粕](https://github.com/hstarorg/HstarDoc/blob/master/JS%E6%9C%AD%E8%AE%B0/JavaScript%E4%B9%8B%E7%B3%9F%E7%B2%95.md)——解决前面所说得JavaScript中有问题的特性
+
+两篇放一起看 很不错！
+
+## 2.计网
 
 
 
+## 3.LeetCode
+
+周赛两题，每日一题
+
+第一题过于简单 一分多钟出来了
+
+跳过第二题直接写得第三题（看起来比较好欺负一些？） 超级暴力解法 回头再试试怎么精简一下/尝试更优解法
+
+#### 每日一题 [438. 找到字符串中所有字母异位词](https://leetcode-cn.com/problems/find-all-anagrams-in-a-string/)
+
+好题！真的很好！
+
+![image-20211128220400103](https://gitee.com/su-fangzhou/blog-image/raw/master/202111282204196.png)
+
+> 非常棒的一题
+>
+> - 很明显的（第一次做完全没看出来，惭愧！）滑动窗口的思想
+> - 利用一维数组模拟哈希表（之前我一看见哈希表二话不说直接new Map()…）
+
+来看个图 很清晰了就 [来源](https://leetcode-cn.com/problems/find-all-anagrams-in-a-string/solution/tong-ge-lai-shua-ti-la-hua-dong-chuang-k-xgkv/)
+
+![image-20211128090548278](https://pic.leetcode-cn.com/1638063958-WzvElV-file_1638063958629)
+
+注释齐全，这个方法是最最基础的固定窗口大小的滑动窗口，再困难一些的有窗口大小变动的[76. 最小覆盖子串](https://leetcode-cn.com/problems/minimum-window-substring/)，嗯是个hard🥺
+
+```js
+var findAnagrams = function(s, p) {
+    // 在滑动窗口中维护每种字母的数量（通过哈希表，注意哈希表不一定用Map数据结构哈，一维数组也ok 如本题经典的26个坑的哈希表——数组索引即为“键”，对应数组值即为“值”）
+    const sLen = s.length, pLen = p.length;
+    if(sLen < pLen) {
+        return [];// 这个判空一下子没想到XD
+    }
+    const ans = [];
+    // 一维哈希表初始化下,初始化值为0
+    const hashS = new Array(26).fill(0);
+    const hashP = new Array(26).fill(0);
+    // 01 先建立起第一个窗口，顺便将hashP这个哈希表建立好
+    for(let i = 0; i < pLen; i++) {
+        hashS[s[i].charCodeAt() - 'a'.charCodeAt()]++;
+        hashP[p[i].charCodeAt() - 'a'.charCodeAt()]++;
+    }
+    if(hashS.toString() === hashP.toString()) {
+        ans.push(0)
+    }
+    // 02 将滑窗往后推，每轮推动将滑窗第一个位置的元素值-1，将滑窗末端下一个位置的元素值+1
+    for(let i = 0; i < sLen - pLen; i++) {
+        // 滑动窗口的推动
+        hashS[s[i].charCodeAt() - 'a'.charCodeAt()]--;
+        hashS[s[i + pLen].charCodeAt() - 'a'.charCodeAt()]++;
+        if(hashS.toString() === hashP.toString()) {
+            ans.push(i + 1)
+        }
+    }
+    return ans;
+};
+```
 
 
+
+#### 5940.从数组中移出最大值和最小值
+
+![image-20211128113133788](https://gitee.com/su-fangzhou/blog-image/raw/master/202111281131914.png)
+
+##### 暴力解&经验教训
+
+> 看了看大家得方法 就是一道模拟题~
+>
+> 可以用贪心得算法去想 
+
+> 使用暴力解且分情况较多时可以在每种情况那里举1-2个例子看看逻辑是否通顺，并且代码处可以console.log一下标记，方便根据错误提示debug（其实就是找全所有情况）
+
+
+
+这题我最初得方法就是一个超级无敌复杂的模拟 一大一小两个值有贼多种情况 根据那些情况来计算对应得值（要删除哪些节点） 但是其实并不需要这样列啊！一共有三种计算值得情况 列出来然最小值就行了。。。
+
+```js
+/**
+ * @param {number[]} nums
+ * @return {number}
+ */
+var minimumDeletions = function(nums) {
+    if(nums.length === 1) {
+        return 1
+    }
+    let middle = nums.length >> 1
+    let max = nums[0], min = nums[0]
+    let maxIndex=0, minIndex = 0
+    for(let i = 0; i < nums.length; i++) {
+        if(nums[i] > max) {
+            maxIndex = i;
+            max = nums[i]
+        }
+        if(nums[i] < min){
+            minIndex = i;
+            min = nums[i]
+        }
+    }
+    let bigger = Math.max(maxIndex, minIndex)
+    let smaller = Math.min(maxIndex, minIndex)
+    if(min === max) {
+         return 2;
+    }
+    if(countPosition(minIndex, middle) === countPosition(maxIndex, middle)){
+//         在同侧
+        console.log("tongce")
+        // console.log(minIndex,maxIndex,middle)
+        // console.log(countPosition(minIndex, middle),countPosition(maxIndex, middle))
+        if(smaller > middle) {
+            return nums.length - smaller
+        }
+        else {
+            return bigger + 1
+        }
+    }
+    else if(countPosition(minIndex, middle) === "middle" || countPosition(maxIndex, middle) === "middle") {
+//         在中心
+        // console.log(bigger)
+        console.log("zhongxin")
+        if(bigger > middle) {
+            return nums.length - smaller
+        }
+        else{
+            return bigger + 1
+        }
+        
+    }
+    else{
+//         在异侧
+        console.log(minIndex,maxIndex)
+        console.log(bigger,smaller)
+        let sumYice = smaller + 1 + nums.length - bigger
+        let sumTongce = bigger + 1
+        let sumTongceS = nums.length - smaller
+        // console.log(start,end)
+        console.log("yice")
+        let s = sumYice > sumTongce ? sumTongce : sumYice
+        return s > sumTongceS ? sumTongceS : s
+    }
+};
+function countPosition(index, middle){
+    if(index === middle) {
+        return "middle"
+    }
+    if(index < middle){
+        return "left"
+    }
+   
+    else {
+        return "right"
+    }
+}
+```
+
+#### 简单一些的模拟解法
+
+一共有三种计算值得情况 列出来然最小值就行了。。。算是个贪心的方法吧！
+
+```js
+const minimumDeletions = nums => {
+    const len = nums.length;
+    // 特殊情况
+    if (len === 1) return 1;
+    // 找到最大值，最小值，以及索引
+    let [max, min] = [-Infinity, Infinity];
+    let [maxIndex, minIndex] = [-1, -1];
+    for (let i = 0; i < len; i++) {
+        if (nums[i] > max) {
+            max = nums[i];
+            maxIndex = i;
+        }
+        if (nums[i] < min) {
+            min = nums[i];
+            minIndex = i;
+        }
+    }
+    // 有3种操作方式
+    let count1, count2, count3;
+    // 判断两个索引的大小
+    if (maxIndex < minIndex) {
+        count1 = maxIndex + 1 + len - minIndex;
+        count2 = minIndex + 1;
+        count3 = len - maxIndex;
+    } else {
+        count1 = minIndex + 1 + len - maxIndex;
+        count2 = maxIndex + 1;
+        count3 = len - minIndex;
+    }
+    // 返回3种方式的最小值
+    return Math.min(count1, count2, count3);
+};
+```
+
+# 11.29
+
+早起打卡！🧑‍💻
+
+```js
+// 今日主要收获 & 学习时间
+Totally min
+1.前端基础知识
+    1.1 前端基础学习 min 
+		/*  */
+
+2.核心基础知识
+	2.1 计网 min
+		/*  */
+	2.2 操作系统 & 数据库 & 人工智能 30min
+		/*  */
+
+3.现在不刷题 面试懵个逼
+	3.1 刷算法 刷力扣 170min	
+    	/* 掘金小册 18/28
+        */   
+    	// 简单总结下应对某种数据结构/对应类型的题目 应该怎么去想 遇到题脑海里要快速地涌现出解决方案
+        1.数组 + 字符串 + 链表 + 二叉树 + 栈/队列 熟练掌握这些数据结构
+        2.双指针 + 遍历专题DFS BFS（递归/迭代）
+        3.回溯算法 + 贪心算法 + 动态规划
+        4.了解下前缀和方法 熟练使用哈希表（解决数组问题） 
+
+4.做项目
+    4. 项目开发-Vue 18min
+    	/*  */
+5.其他 
+```
+
+> 学习顺序预告
+
+- [ ] 
+
+## 1.前端基础
+
+#### `str.charCodeAt(index)`与`str.charAt(index)`
+
+```js
+const sentence = 'The quick brown fox jumps over the lazy dog.';
+
+const index = 4;
+
+console.log(`The character code ${sentence.charCodeAt(index)} is equal to ${sentence.charAt(index)}`);
+// expected output: "The character code 113 is equal to q"
+```
+
+- `str.charCodeAt(index)`返回值
+
+指定 `index` 处字符的 UTF-16 代码单元值的一个数字（就是ASCII码值~）；如果 `index` 超出范围，`charCodeAt()` 返回 [`NaN`](https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/NaN)。
+
+**如果没有提供索引，`charCodeAt()` 将使用0**
+
+- `str.charAt(index)`
+
+从一个字符串中返回指定的字符。
+
+index是一个介于0 和字符串长度减1之间的整数。 (0~length-1)
+
+**如果没有提供索引，`charAt()` 将使用0**，也就是返回字符串中第一个字符~
+
+> 值得注意的是 算法题中经常使用`str.charCodeAt()-‘a’.charCodeAt()`即为字符str与‘a’的ASCII码值之差来获取当前字符所处的独一无二的位置（即为哈希表中的“键”）
+>
+> 例如 ‘b’就位于索引1处 ‘z’位于索引25处
+
+#### [JS毒瘤](https://github.com/hstarorg/HstarDoc/blob/master/JS%E6%9C%AD%E8%AE%B0/JavaScript%E4%B9%8B%E6%AF%92%E7%98%A4.md)——列举一些在JavaScript中难以避免的问题特性
+
+#### [JS糟粕](https://github.com/hstarorg/HstarDoc/blob/master/JS%E6%9C%AD%E8%AE%B0/JavaScript%E4%B9%8B%E7%B3%9F%E7%B2%95.md)——解决前面所说得JavaScript中有问题的特性
+
+两篇放一起看 很不错！
+
+## 2.计网
+
+
+
+## 3.LeetCode
 
