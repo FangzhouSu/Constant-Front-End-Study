@@ -3665,18 +3665,18 @@ const minimumDeletions = nums => {
 ```js
 // 今日主要收获 & 学习时间
 Totally min
-1.前端基础知识
-    1.1 前端基础学习 min 
-		/*  */
+1.前端开发学习
+    1.1 前端基础学习 80min 
+		/* 80min过了一下JS基础 感觉不错！ */
 
 2.核心基础知识
 	2.1 计网 min
 		/*  */
-	2.2 操作系统 & 数据库 & 人工智能 30min
-		/*  */
+	2.2 操作系统 & 数据库 & 人工智能 420min
+		/* sql作业+期中考试 */
 
 3.现在不刷题 面试懵个逼
-	3.1 刷算法 刷力扣 170min	
+	3.1 刷算法 刷力扣 min	
     	/* 掘金小册 18/28
         */   
     	// 简单总结下应对某种数据结构/对应类型的题目 应该怎么去想 遇到题脑海里要快速地涌现出解决方案
@@ -3686,51 +3686,35 @@ Totally min
         4.了解下前缀和方法 熟练使用哈希表（解决数组问题） 
 
 4.做项目
-    4. 项目开发-Vue 18min
+    4. 项目开发-Vue min
     	/*  */
 5.其他 
 ```
 
 > 学习顺序预告
 
+- [ ] JS数据结构与算法看书
+- [ ] 课内知识学习-数据库
+- [ ] 计网学习-快速读书~
+- [ ] JS红宝书
+- [ ] 项目进度推进
 - [ ] 
 
 ## 1.前端基础
 
-#### `str.charCodeAt(index)`与`str.charAt(index)`
+#### 模板字符串两个好处
 
-```js
-const sentence = 'The quick brown fox jumps over the lazy dog.';
+![image-20211129085641433](https://gitee.com/su-fangzhou/blog-image/raw/master/202111290856603.png)
 
-const index = 4;
+#### 数组中的[arguments对象](https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Functions/arguments)用法之一
 
-console.log(`The character code ${sentence.charCodeAt(index)} is equal to ${sentence.charAt(index)}`);
-// expected output: "The character code 113 is equal to q"
-```
+**`arguments`** 是一个对应于传递给函数的参数的**类数组对象**。
 
-- `str.charCodeAt(index)`返回值
+![image-20211129090711315](https://gitee.com/su-fangzhou/blog-image/raw/master/202111290907451.png)
 
-指定 `index` 处字符的 UTF-16 代码单元值的一个数字（就是ASCII码值~）；如果 `index` 超出范围，`charCodeAt()` 返回 [`NaN`](https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/NaN)。
+#### 学习了下导出export导入import的内容
 
-**如果没有提供索引，`charCodeAt()` 将使用0**
 
-- `str.charAt(index)`
-
-从一个字符串中返回指定的字符。
-
-index是一个介于0 和字符串长度减1之间的整数。 (0~length-1)
-
-**如果没有提供索引，`charAt()` 将使用0**，也就是返回字符串中第一个字符~
-
-> 值得注意的是 算法题中经常使用`str.charCodeAt()-‘a’.charCodeAt()`即为字符str与‘a’的ASCII码值之差来获取当前字符所处的独一无二的位置（即为哈希表中的“键”）
->
-> 例如 ‘b’就位于索引1处 ‘z’位于索引25处
-
-#### [JS毒瘤](https://github.com/hstarorg/HstarDoc/blob/master/JS%E6%9C%AD%E8%AE%B0/JavaScript%E4%B9%8B%E6%AF%92%E7%98%A4.md)——列举一些在JavaScript中难以避免的问题特性
-
-#### [JS糟粕](https://github.com/hstarorg/HstarDoc/blob/master/JS%E6%9C%AD%E8%AE%B0/JavaScript%E4%B9%8B%E7%B3%9F%E7%B2%95.md)——解决前面所说得JavaScript中有问题的特性
-
-两篇放一起看 很不错！
 
 ## 2.计网
 
