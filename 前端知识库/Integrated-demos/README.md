@@ -2,7 +2,7 @@
 
 即为更贴近业务场景的综合案例。
 
-不再局限于在本地利用HTML CSS JavaScript编写代码并呈现效果，而是利用Node.js 与 React等框架实现更加复杂与实用的效果。
+不再局限于在本地利用HTML CSS JavaScript编写代码并呈现效果，而是利用Node.js Vue React等框架实现更加复杂与实用的效果。
 
 
 

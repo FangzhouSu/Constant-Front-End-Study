@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<title>🎉chatRoom🧑‍💻🎉 | by billSu</title>
+		<link rel="shortcut icon" href="./favicon.ico">
+		<link rel="stylesheet" type="text/css" href="./index.css"/>
+		<script src="https://gw.alipayobjects.com/os/lib/socket.io-client/4.3.2/dist/socket.io.js"></script>
+	</head>
+	
+	<body id="root">
+		<div id="login">
+			<!-- 登录标题 -->
+			<p class="login-title">👩‍💻chatRoom | by billSu👨‍💻</p>
+			<!-- 输入用户名 -->
+			<div class="content userNameBox">
+				<span>UserName</span>
+				<input id="userName"  placeholder="请输入用户名" />
+			</div>
+			<!-- 输入密码 -->
+			<div id="passwordBox">
+				<span>PassWord</span>
+				<input id="password" placeholder="请输入密码" />
+			</div>
+			<!-- 登录按钮 -->
+			<button type="button" class="login-button">登录</button>
+		</div>
+		
+		<div id="chatroom">
+			<!-- 1-侧标栏 -->
+			<div class="contact">
+				<div class="contact-name">
+					联系人列表
+				</div>
+				<ul class="contact-list">
+					<li class="contact-item">联系人1号</li>
+					<li class="contact-item">联系人2号</li>
+					<li class="contact-item">联系人3号</li>
+					<li class="contact-item">联系人4号</li>
+				</ul>
+			</div>
+			<!-- 2-单个聊天室的内容 -->
+			<div class="main">
+				<div class="header">
+					当前联系人
+				</div>
+				<div class="list">
+					<!-- 你的说话内容 -->
+					<div class="list-item">
+						<div class="message">I am bill</div>
+						<img class="avatar" src="./favicon.ico" alt="">
+					</div>
+					<div class="list-item">
+						<div class="message">I am billllllllllllllll</div>
+						<img class="avatar" src="./favicon.ico" alt="">
+					</div>
+					<!-- 你的联系人的说话内容 -->
+					<div class="list-item list-item-left">
+						<img class="avatar" src="./favicon.ico" alt="">
+						<div class="message">I am bill,too.</div>
+					</div>
+					
+				</div>
+				<div class="footer">
+					<textarea id="sendInput" name="text"></textarea>
+					<button id="send">发送</button>
+				</div>
+			</div>
+		</div>
+		<script src="index.js"></script>
+	</body>
+</html>
