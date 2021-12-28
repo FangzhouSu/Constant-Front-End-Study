@@ -1753,7 +1753,7 @@ Totally 3min
 
 - [x] 外包项目 调试路口相关的接口 完成绿波带查询
 - [x] 规划下操作系统要复习的知识点并快速推一下进度
-- [ ] 每日力扣 今天做字符串
+- [x] 每日力扣 今天做链表
 
 ## 1.前端基础
 
@@ -1769,23 +1769,23 @@ Totally 3min
 
 # 12.28
 
-
+比前两天起得早一些 进入状态时间也早一些9：20 冲冲冲！ 但是昨天还是凌晨一点才睡！这不好！建议十二点半之前关手机睡觉！
 
 ```js
-Totally min
+Totally 6min
 1.前端开发学习
-    1.1 前端基础学习 min 
-		/*  */
+    1.1 前端基础学习 40min 
+		/* this指针的内容 a标签的默认颜色可以通过内联样式更改 也可以通过a:link在css中更改 */
 
 2.核心基础知识
 	2.1 计网 min
 		/*  */
-	2.2 操作系统 & 数据库 & 人工智能 min
+	2.2 操作系统 & 数据库 & 人工智能 460min
 		/*  */
 
 3.现在不刷题 面试懵个逼
-	3.1 刷算法 刷力扣 min	
-    	/*  */
+	3.1 刷算法 刷力扣 10min	
+    	/* 求二叉树的直径 DFS深搜 easy~ */
     	// 简单总结下应对某种数据结构/对应类型的题目 应该怎么去想 遇到题脑海里要快速地涌现出解决方案
     	// 21/12/15更：总结啥的可以少一些 但是要多写题、多敲代码！代码敲太少了啊！
         1.数组 + 字符串 + 链表 + 二叉树 + 栈/队列 熟练掌握这些数据结构
@@ -1794,8 +1794,8 @@ Totally min
         4.了解下前缀和方法 熟练使用哈希表（解决数组问题） 
 
 4.做项目
-    4.1 项目开发-Vue min
-    	/*  */
+    4.1 项目开发-Vue 140min
+    	/* 项目进度不太符合甲方要求 折磨ing */
 ```
 
 > 学习顺序预告——日积月累，稳步提升！——等项目完事儿之后再分配下比例！
@@ -1806,15 +1806,88 @@ Totally min
 > - 外包项目 收尾！
 > - bonus time - React学习 简单瞅瞅文档然后撸项目！前辈建议直接看文档~
 
-- [ ] 外包项目 调试路口相关的接口 完成绿波带查询
-- [ ] 复习操作系统
-- [ ] 每日力扣 今天做链表
+- [x] this的复习
+- [x] 外包项目 调试路口 表格相关
+- [x] 复习操作系统
+- [x] 每日力扣 今天做树
 
 ## 1.前端基础
 
+#### [JavaScript中arguments[0]()表示的是什么？ - 知乎 (zhihu.com)](https://www.zhihu.com/question/21466212)
+
+```js
+var length = 10;
+function fn(){
+    alert(this.length)
+}
+var obj = {
+    length: 5,
+    method: function(fn) {
+        arguments[0]()
+    }
+}
+obj.method(fn)// 输出1
+obj.method(fn,1,1)// 输出3
+```
+
+为啥这里的this指向了arguments呢？因为在Javascript里，数组只不过使用数字做属性名的方法，也就是说：`arguments[0]()`的意思，和`arguments.0()`的意思差不多（**当然这么写是不允许的**），你更可以这么理解：
+
+```js
+arguments = {
+    0: fn, //也就是 functon() {alert(this.length)} 
+    1: 第二个参数, //没有 
+    2: 第三个参数, //没有
+    ..., 
+    length: 1 //只有一个参数
+}
+```
+
+- 变式 输出10
+
+```js
+var length = 10;
+function fn(){
+    alert(this.length)
+}
+var obj = {
+    length: 5,
+    method: function(fn) {
+        fn()
+    }
+}
+obj.method(fn)// 输出10——全局的length
+```
+
+- 变式 输出5
+
+```js
+var length = 10;
+function fn(){
+    console.log(this.length)
+}
+var obj = {
+    length: 5,
+    method: fn
+}
+obj.method()// 输出5 fn中的this绑定的是obj
+```
+
+```js
+var length = 10;
+function fn(){
+    console.log(this.length)
+}
+var obj = {
+    length: 5,
+    method: function(fn) {
+        fn.call(obj)
+        // fn.call(this)
+    }
+}
+obj.method(fn)
+```
 
 
-## 2.计网&计算机基础知识
 
 
 
