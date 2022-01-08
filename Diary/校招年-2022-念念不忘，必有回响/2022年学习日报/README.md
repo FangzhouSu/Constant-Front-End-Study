@@ -328,9 +328,149 @@ Totally 460min
 
 ## 1.前端基础
 
+#### 隐式类型转换复习
+
+[由一道面试题引入的对JavaScript隐式转换的学习 - 掘金 (juejin.cn)](https://juejin.cn/post/7022837573059870727)
+
+# 1.8 *加入cxr的崔学社~
+
+早睡早起第一天~十二点多到八点半的睡眠 舒服了~
+
+希望今天可以更早嘞
 
 
 
+```js
+Totally min
+1.前端开发相关知识学习
+    1.1 前端基础学习 min 
+		/*  */
+    1.2 React框架复习 140min
+    	/* 复习react生命周期 
+    	今天把react基础看完 看看redux 再过一遍尚硅谷笔记吧 */
+
+2.学习核心基础知识
+	2.1 计网 min
+    	/*  */
+
+3.通过写代码强化逻辑思维、对语言更加熟练
+	3.1 leetcode min	
+    	/*  */
+    	// 21/12/27更：假期去实习的同时，别忘了每天刷每日一题+HOT100/剑指Offer+小册/算法小抄/代码随想录（学习新技巧！）+坚持打周赛
+    	// 21/1/2更：一道easy/medium如果在15/30min内没AC，马上把卡住的思路放在一边然后去看题解的正确思路，不要走偏！
+
+4.工作生活
+    4.1 外包项目开发-Vue 160min
+    	/* 继续debug 好多bug啊 orz */
+```
+
+- [x] 每日一题 
+- [x] 继续学习React Redux
+- [x] 外包项目继续肝进度
+
+## 1.前端基础
+
+#### class类组件的绑定this
+
+[事件处理 – React (docschina.org)](https://react.docschina.org/docs/handling-events.html)
+
+如果**回调函数作为 prop 传入子组件时，这些组件可能会进行额外的重新渲染**。我们通常建议在构造器中绑定或使用 class fields 语法来避免这类性能问题。
+
+![image-20220108174355407](https://gitee.com/su-fangzhou/blog-image/raw/master/202201081743478.png)
+
+#### 不推荐使用index来作为索引！
+
+[列表 & Key – React (docschina.org)](https://react.docschina.org/docs/lists-and-keys.html#keys)
+
+一个元素的 key 最好是这个元素在列表中拥有的一个独一无二的字符串。通常，我们使用数据中的 id 来作为元素的 key：
+
+```jsx
+const todoItems = todos.map((todo) =>
+  <li key={todo.id}>    
+	{todo.text}
+  </li>
+);
+```
+
+当元素没有确定 id 的时候，万不得已你可以使用元素索引 index 作为 key：
+
+```jsx
+const todoItems = todos.map((todo, index) =>
+  // Only do this if items have no stable IDs 
+  <li key={index}>    
+	{todo.text}
+  </li>
+);
+```
+
+如果列表项目的顺序可能会变化，我们不建议使用索引来用作 key 值，因为这样做会**导致性能变差**，还可能引起**组件状态的问题**。可以看看 Robin Pokorny 的[深度解析使用索引作为 key 的负面影响](https://medium.com/@robinpokorny/index-as-a-key-is-an-anti-pattern-e0349aece318)这一篇文章。如果你选择不指定显式的 key 值，那么 React 将默认使用索引用作为列表项目的 key 值。
+
+要是你有兴趣了解更多的话，这里有一篇文章[深入解析为什么 key 是必须的](https://react.docschina.org/docs/reconciliation.html#recursing-on-children)可以参考。
+
+> 在子元素列表末尾新增元素时，更新开销比较小。比如：
+>
+> ```jsx
+> <ul>
+>   <li>first</li>
+>   <li>second</li>
+> </ul>
+> 
+> <ul>
+>   <li>first</li>
+>   <li>second</li>
+>   <li>third</li>
+> </ul>
+> ```
+>
+> React 会先匹配两个 `<li>first</li>` 对应的树，然后匹配第二个元素 `<li>second</li>` 对应的树，最后插入第三个元素的 `<li>third</li>` 树。
+>
+> 如果只是简单的将新增元素插入到表头，那么更新开销会比较大。比如：
+>
+> ```jsx
+> <ul>
+>   <li>Duke</li>
+>   <li>Villanova</li>
+> </ul>
+> 
+> <ul>
+>   <li>Connecticut</li>
+>   <li>Duke</li>
+>   <li>Villanova</li>
+> </ul>
+> ```
+>
+> React 并不会意识到应该保留 `<li>Duke</li>` 和 `<li>Villanova</li>`，而是会重建每一个子元素。这种情况会带来性能问题。
+
+为了解决上述问题，React 引入了 `key` 属性。当子元素拥有 key 时，React 使用 key 来匹配原有树上的子元素以及最新树上的子元素。以下示例在新增 `key` 之后，使得树的转换效率得以提高：
+
+```jsx
+<ul>
+  <li key="2015">Duke</li>
+  <li key="2016">Villanova</li>
+</ul>
+
+<ul>
+  <li key="2014">Connecticut</li>
+  <li key="2015">Duke</li>
+  <li key="2016">Villanova</li>
+</ul>
+```
+
+现在 React 知道只有带着 `'2014'` key 的元素是新元素，带着 `'2015'` 以及 `'2016'` key 的元素仅仅移动了。
+
+实际开发中，编写一个 key 并不困难。你要展现的元素可能已经有了一个唯一 ID，于是 key 可以直接从你的数据中提取：
+
+```jsx
+<li key={item.id}>{item.name}</li>
+```
+
+当以上情况不成立时，你可以新增一个 ID 字段到你的模型中，或者利用一部分内容作为哈希值来生成一个 key。这个 key 不需要全局唯一，但在列表中需要保持唯一。
+
+
+
+最后，你也可以使用元素在数组中的下标**index**作为 key。这个策略在元素不进行重新排序时比较合适，如果有**顺序修改**，diff 就会变慢。
+
+当基于下标的组件进行重新排序时，组件 state 可能会遇到一些问题。由于组件实例是基于它们的 key 来决定是否更新以及复用，如果 key 是一个下标，那么**修改顺序时会修改当前的 key**，导致非受控组件的 state（比如输入框）可能相互篡改，会出现无法预期的变动。
 
 # 1.10 *开始实习—集中精力，全力学习！
 
