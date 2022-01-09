@@ -474,23 +474,31 @@ const todoItems = todos.map((todo, index) =>
 
 当基于下标的组件进行重新排序时，组件 state 可能会遇到一些问题。由于组件实例是基于它们的 key 来决定是否更新以及复用，如果 key 是一个下标，那么**修改顺序时会修改当前的 key**，导致非受控组件的 state（比如输入框）可能相互篡改，会出现无法预期的变动。
 
-# 1.9
+# 1.9 *折腾指数拉满的一天 呼哧呼哧
+
+经历了人生最漫长的一次塞车，疫情是真的太折磨了啊！
+
+八点出门，十点在京沪高速上堵住，下午两点半还堵在距离检查口1KM的地方，，一直到七点半才过了安全检查
+
+然后！因为疫情原因 天津滴同学不让进公司~
+
+明天看看能不能办个远程入职了~
 
 ```js
-Totally min
+Totally 170min
 1.前端开发相关知识学习
-    1.1 前端基础学习 min 
-		/*  */
-    1.2 React框架复习 min
-    	/*  */
+    1.1 前端基础学习 10min 
+		/* 复习了下闭包的概念 闭包是在预编译阶段就生成的对象（感觉也可以理解成函数哈） */
+    1.2 React框架复习 150min
+    	/* 看看掘金博文 */
 
 2.学习核心基础知识
 	2.1 计网 min
     	/*  */
 
 3.通过写代码强化逻辑思维、对语言更加熟练
-	3.1 leetcode min	
-    	/*  */
+	3.1 leetcode 10min	
+    	/* 每日一题 */
     	// 21/12/27更：假期去实习的同时，别忘了每天刷每日一题+HOT100/剑指Offer+小册/算法小抄/代码随想录（学习新技巧！）+坚持打周赛
     	// 21/1/2更：一道easy/medium如果在15/30min内没AC，马上把卡住的思路放在一边然后去看题解的正确思路，不要走偏！
 
@@ -500,10 +508,17 @@ Totally min
 ```
 
 - [ ] 每日一题 
-- [ ] 继续学习React Redux
+- [x] 学习react HOOKS
+- [ ] 拉一个项目下来 对照着看看redux react-router的内容
 - [ ] 外包项目继续肝进度
 
 ## 1.前端基础
+
+### React
+
+[大神绘图 React 生命周期](https://projects.wojtekmaj.pl/react-lifecycle-methods-diagram/)点击生命周期即可跳转官网解读
+
+![image.png](https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/9c7b704f45fd435cb4ec579e8f0038ee~tplv-k3u1fbpfcp-watermark.awebp)
 
 # 1.10 *开始实习—集中精力，全力学习！
 
