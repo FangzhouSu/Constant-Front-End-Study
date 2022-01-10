@@ -520,11 +520,103 @@ Totally 170min
 
 ![image.png](https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/9c7b704f45fd435cb4ec579e8f0038ee~tplv-k3u1fbpfcp-watermark.awebp)
 
-# 1.10 *开始实习—集中精力，全力学习！
+# 1.10 *开始（远程）实习—集中精力，全力学习！
+
+天津人很难过地不能进公司😢
+
+但还好！12号进行一波远程入职！leader大大也已经给了学习资料 那么——
+
+准备开工！！
+
+```js
+Totally min
+1.前端开发相关知识学习
+    1.1 前端基础学习 2min 
+		/* 明确下远程入职的问题，接到leader给出的学习任务，开工！
+        */
+    1.2 React框架复习 min
+    	/*  */
+
+2.学习核心基础知识
+	2.1 计网 min
+    	/*  */
+
+3.通过写代码强化逻辑思维、对语言更加熟练
+	3.1 leetcode min	
+    	/*  */
+    	// 21/12/27更：假期去实习的同时，别忘了每天刷每日一题+HOT100/剑指Offer+小册/算法小抄/代码随想录（学习新技巧！）+坚持打周赛
+    	// 21/1/2更：一道easy/medium如果在15/30min内没AC，马上把卡住的思路放在一边然后去看题解的正确思路，不要走偏！
+
+4.工作生活
+    4.1 外包项目开发-Vue 150min
+    	/* 解决一些细节问题 修改子区区域重合验证中涉及得bug */
+```
+
+- [ ] 每日一题 
+- [x] 学习react HOOKS
+- [ ] 加入团队前的学习——
+  - [x] 代码规范 看六小节
+  - [x] 分支管理规范 第一章 & 2.1小节
+  - [ ] `TodoMVC demo` by React —— 这里今天木有看呐~
+- [x] 外包项目继续肝进度
+- [ ] 每日睡前总结
 
 ## 1.实习日常
 
+### 今日工作内容
 
+#### 学习了集中式工作流；
+
+> `Git`很赞的一点是，任何人可以解决他自己的冲突。在这个例子中，小红可以简单的运行[`git status`](https://www.atlassian.com/git/tutorial/git-basics#!status)命令来查看哪里有问题。 冲突文件列在`Unmerged paths`（未合并路径）一节中：
+>
+> ```
+> # Unmerged paths:
+> # (use "git reset HEAD <some-file>..." to unstage)
+> # (use "git add/rm <some-file>..." as appropriate to mark resolution)
+> #
+> # both modified: <some-file>
+> ```
+>
+> 接着小红编辑这些文件。修改完成后，用老套路暂存这些文件，并让[`git rebase`](https://www.atlassian.com/git/tutorial/rewriting-git-history#!rebase)完成剩下的事：
+>
+> ```
+> git add <some-file> 
+> git rebase --continue
+> ```
+>
+> 要做的就这些了。`Git`会继续一个一个地合并后面的提交，如其它的提交有冲突就重复这个过程。
+>
+> 如果你碰到了冲突，但发现搞不定，不要惊慌。只要执行下面这条命令，就可以回到你执行[`git pull --rebase`](https://www.atlassian.com/git/tutorial/remote-repositories#!pull)命令前的样子：
+>
+> ```
+> git rebase --abort
+> ```
+
+个人感觉我这两天和同学一起进行的团队开发就是使用的集中式工作流（两个人分别开发 在push之前pull一下，有问题改一下冲突再pull，最后push，完成当日工作），但是没有用到rebase这个高级一些的操作——
+
+> 小红用[`git pull`](https://www.atlassian.com/git/tutorial/remote-repositories#!pull)合并上游的修改到自己的仓库中。 这条命令类似`svn update`——拉取所有上游提交命令到小红的本地仓库，并尝试和她的本地修改合并：
+>
+> ```
+> git pull --rebase origin master
+> ```
+>
+> `--rebase`选项告诉`Git`把小红的提交移到同步了中央仓库修改后的`master`分支的顶部，如下图所示：
+>
+> [![img](https://github.com/xirong/my-git/raw/master/images/git-workflow-svn-6.png)](https://github.com/xirong/my-git/blob/master/images/git-workflow-svn-6.png)
+>
+> 如果你忘加了这个选项，`pull`操作仍然可以完成，但每次`pull`操作要同步中央仓库中别人修改时，提交历史会以一个多余的『合并提交』结尾。 对于集中式工作流，最好是使用`rebase`而不是生成一个合并提交。
+
+### 学习了一些团队JS规范
+
+ 
+
+
+
+### 明日工作计划
+
+
+
+## 2.前端基础
 
 
 
