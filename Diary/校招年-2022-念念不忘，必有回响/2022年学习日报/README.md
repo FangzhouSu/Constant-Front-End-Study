@@ -762,13 +762,19 @@ const { a, ...noA } = copy; // noA => { b: 2, c: 3 }
 
 凌晨三点才躺下睡觉，，早上九点爬起来还是挺懵的，从今天开始立个早睡flag吧！
 
+下午人力资源部门的姐姐给打来电话落实了电脑邮寄的问题~
+
+今天虽然学习状态没提升起来 但是对于学习日程的规划逐渐清晰了！
+
 ```js
-Totally min
+Totally 380min
 1.前端开发相关知识学习
-    1.1 前端基础学习 min 
-		/* 
+	// 每天9:00之前在催学社、校招收割群issue区打卡
+    1.1 前端基础学习 270min 
+		/* 继续学习代码规范问题 学习功能分支工作流
+		更新学习总结方式
         */
-    1.2 React框架复习 min
+    1.2 React复习 min
     	/*  */
 
 2.学习核心基础知识
@@ -776,26 +782,36 @@ Totally min
     	/*  */
 
 3.通过写代码强化逻辑思维、对语言更加熟练
-	3.1 leetcode min	
-    	/*  */
+	3.1 leetcode 20min	
+    	/* 复习了异或算法 复习了一下排序算法 */
     	// 21/12/27更：假期去实习的同时，别忘了每天刷每日一题+HOT100/剑指Offer+小册/算法小抄/代码随想录（学习新技巧！）+坚持打周赛
-    	// 21/1/2更：一道easy/medium如果在15/30min内没AC，马上把卡住的思路放在一边然后去看题解的正确思路，不要走偏！
+    	// 22/1/2更：一道easy/medium如果在15/30min内没AC，马上把卡住的思路放在一边然后去看题解的正确思路，不要走偏！
+        // 22/1/2
 
 4.工作生活
-    4.1 外包项目开发-Vue min
-    	/*  */
+    4.1 外包项目开发-Vue 90min
+    	/* 继续改bug 改了一下提交表单时的数据暂存格式 */
 ```
 
 > 学习时的状态：关闭所有社交软件+手机打开番茄钟
 
-- [ ] 每日一题 (困难直接抄了 换一题) + HOT100重新开刷 + 小册复习
+- [x] 每日一题 (困难直接抄了 换一题) + HOT100重新开刷 + 小册复习
+
 - [ ] 加入团队前的学习——
+
   - [x] 复盘昨日学习内容
-  - [ ] 代码规范 复习昨日内容+再看六小节
-  - [ ] 分支管理规范 看2.2 2.3小节
-  - [ ] `TodoMVC demo` by React ——阅读react源码，查询不懂的地方，模仿代码风格，尝试仿写
-- [ ] 外包项目继续肝进度
-- [ ] 每日睡前（23点之前）总结——刷题+工作内容+基础知识
+
+  - [x] 代码规范 复习昨日内容+再看六小节
+
+  - [x] 分支管理规范 看2.2小节 
+
+  - [ ] `TodoMVC demo` by React ——阅读react源码，查询不懂的地方，模仿代码风格，尝试仿写（啊 今日工作又没完成）
+
+      回头使用**`gitflow`工作流**模拟多协作者开发流程
+
+- [x] 外包项目继续肝进度
+
+- [x] 每日睡前（尽量在23点30之前）总结——刷题+工作内容+基础知识
 
 ## 1.实习日常
 
@@ -807,7 +823,7 @@ Totally min
 
   - 对象相关
 
-    - 有一个存疑点 对象中属性什么时候加单引号？
+    - 有一个==存疑==点 对象中属性什么时候加单引号？
 
   - 数组相关
 
@@ -843,13 +859,423 @@ Totally min
       }
       ```
 
-      
-
-
-
 ### 今日工作内容
 
+#### 学习了[功能分支工作流](https://github.com/xirong/my-git/blob/master/git-workflow-tutorial.md#22-%E5%8A%9F%E8%83%BD%E5%88%86%E6%94%AF%E5%B7%A5%E4%BD%9C%E6%B5%81)
 
+> 功能分支工作流以集中式工作流为基础，不同的是为各个新功能分配一个专门的分支来开发。这样可以在把新功能集成到正式项目前，用`Pull Requests`的方式**讨论**变更。
+>
+> [![img](https://github.com/xirong/my-git/raw/master/images/git-workflow-feature-branch-1.png)](https://github.com/xirong/my-git/blob/master/images/git-workflow-feature-branch-1.png)
+>
+> - PR操作
+>
+> 功能分支除了可以隔离功能的开发，也使得通过[`Pull Requests`](https://github.com/xirong/my-git/blob/master/pull-request.md)讨论变更成为可能。 一旦某个开发者完成一个功能，不是立即合并到`master`，而是`push`到中央仓库的功能分支上并发起一个`Pull Request`请求，将修改合并到`master`。 在修改成为主干代码前，这让其它的开发者有机会先去`Review`变更。
+>
+> **`Code Review`**是`Pull Requests`的一个重要的收益，而`Pull Requests`则是讨论代码的一个通用方式。 你可以把`Pull Requests`作为专门给某个分支的讨论。这意味着可以在更早的开发过程中就可以进行`Code Review`。 比如，一个开发者开发功能需要帮助时，要做的就是发起一个`Pull Request`，相关的人就会自动收到通知，在相关的提交旁边能看到需要帮助解决的问题。
+>
+> **一旦`Pull Request`被接受了，发布功能要做的就和集中式工作流就很像了**。
+>
+> 首先，确定本地的`master`分支和上游的`master`分支是同步的。然后合并功能分支到本地`master`分支并`push`已经更新的本地`master`分支到中央仓库。
+
+我们之前做的外包项目就是这样一个流程 但是很尴尬的是，小组成员都不太会进行pr，大家的版本乱作一团，于是换成了集中式工作流😂
+
+下面看个例子学习下功能分支工作流的操作流程
+
+> [my-git/git-workflow-tutorial.md at master · xirong/my-git (github.com)](https://github.com/xirong/my-git/blob/master/git-workflow-tutorial.md#223-示例)
+>
+> > 下面这里是个关键，检查完功能分支的代码无误之后，进行**PR操作**——
+>
+> 一旦小黑可以的接受`Pull Request`，就可以合并功能到稳定项目代码中（可以由小黑或是小红来做这个操作）：
+>
+> ```
+> git checkout master
+> git pull
+> git pull origin marys-feature
+> git push
+> ```
+>
+> 无论谁来做合并，首先要检出`master`分支并确认是它是最新的。然后执行`git pull origin marys-feature`**合并`marys-feature`分支到和已经和远程一致的本地`master`分支**。 你可以使用简单`git merge marys-feature`命令，但前面的命令可以保证总是最新的新功能分支。 最后更新的`master`分支要重新`push`回到`origin`。
+>
+> 这个过程常常会生成一个合并提交。有些开发者喜欢有合并提交，因为它像一个新功能和原来代码基线的连通符。 但==如果你偏爱线性的提交历史，可以在执行合并时`rebase`新功能到`master`分支的顶部，这样生成一个快进（`fast-forward`）的合并==（这里每台搞懂啥意思 rebase的概念有必要的话还得再看看）。
+>
+> 一些`GUI`客户端可以只要点一下『接受』按钮执行好上面的命令来自动化`Pull Request`接受过程。 如果你的不能这样，至少在功能合并到`master`分支后能自动关闭`Pull Request`。
+
+> 当小红和小黑在`marys-feature`上工作并讨论她的`Pull Request`的时候，小明在自己的功能分支上做完全一样的事。
+>
+> 通过隔离功能到独立的分支上，每个人都可以自主的工作，当然必要的时候在开发者之间分享变更还是比较繁琐的。
+>
+> 到了这里，但愿你发现了功能分支可以很直接地在 `集中式工作流` 的仅有的`master`分支上完成多功能的开发。 另外，功能分支还使用了`Pull Request`，使得可以在你的版本控制`GUI`客户端中讨论某个提交。
+>
+> 功能分支工作流是开发项目异常灵活的方式。**问题是，有时候太灵活了**。对于大型团队，常常需要给不同分支分配一个更具体的角色。接下来要学习的 `Gitflow`工作流是管理功能开发、发布准备和维护的常用模式。
+
+#### 学习了一些JS规范
+
+#### [7.函数](https://github.com/lin-123/javascript#函数)
+
+- [7.1](https://github.com/lin-123/javascript#functions--declarations) 使用命名函数表达式而不是函数声明。eslint: [`func-style`](http://eslint.org/docs/rules/func-style)
+
+  > 函数表达式： `const func = function () {}` √
+
+  > 函数声明： `function func () {}` ×
+
+  > 为什么？函数声明会发生提升，这意味着在一个文件里函数很容易在其被定义之前就被引用了。这样伤害了代码可读性和可维护性。如果你发现一个函数又大又复杂，且这个函数妨碍了这个文件其他部分的理解性，你应当单独把这个函数提取成一个单独的模块。不管这个名字是不是由一个确定的变量推断出来的，别忘了**给表达式清晰的命名**（好==追踪错误==（这里不太理解来着）一些）（这在现代浏览器和类似 babel 编译器中很常见）。这消除了由匿名函数在错误调用栈产生的所有假设。 ([讨论](https://github.com/airbnb/javascript/issues/794))
+
+  > 译者注：这一段可能不是很好理解，简单来说就是**使用函数声明会发生提升**（即在函数被声明之前就可以使用），**使用匿名函数会导致难以追踪错误**。[这一段英文原文在这](https://github.com/airbnb/javascript#functions)。
+
+  ```js
+  // bad
+  function foo() {
+    // ...
+  }
+  
+  // bad
+  const foo = function () {
+    // ...
+  };
+  
+  // good
+  // lexical name distinguished from the variable-referenced invocation(s)
+  // 函数表达式名和声明的函数名是不一样的
+  const short = function longUniqueMoreDescriptiveLexicalFoo() {
+    // ...
+  };
+  ```
+
+- [7.2](https://github.com/lin-123/javascript#functions--iife) 把立即执行函数包裹在圆括号里。eslint: [`wrap-iife`](http://eslint.org/docs/rules/wrap-iife.html)
+
+  > 复习下立即执行函数 Immediately Invoked Function expression 的概念——让函数立即被调用
+
+  > 立即执行函数：Immediately Invoked Function expression = IIFE。 为什么？一个立即调用的函数表达式是一个单元 - 把它和它的调用者（圆括号）包裹起来，使代码读起来更清晰。 另外，在模块化世界里，你几乎用不着 IIFE。
+
+  ```js
+  // immediately-invoked function expression (IIFE)
+  (function () {
+    console.log('Welcome to the Internet. Please follow me.');
+  }());
+  ```
+
+- [7.6](https://github.com/lin-123/javascript#es6-rest) 不要使用 `arguments`，用收集参数语法 `...` 代替。eslint: [`prefer-rest-params`](http://eslint.org/docs/rules/prefer-rest-params)
+
+  > 为什么？`...` 明确你想用哪个参数。而且==收集参数args是真数组==，而不是类似数组的 `arguments`。
+  >
+  > > ## [类数组（Array-like）对象](https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Array/slice#array-like)
+  > >
+  > > `slice` 方法可以用来将一个类数组（Array-like）对象/集合转换成一个新数组。你只需将该方法绑定到这个对象上。 一个函数中的 [`arguments`](https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Functions/arguments) 就是一个类数组对象的例子。
+  > >
+  > > ```js
+  > > function list() {
+  > > return Array.prototype.slice.call(arguments);
+  > > }
+  > > 
+  > > var list1 = list(1, 2, 3); // [1, 2, 3]
+  > > ```
+  > >
+  > > 除了使用 `Array.prototype.slice.call(``arguments``)`，你也可以简单的使用 `[].slice.call(arguments)` 来代替。
+
+  ```js
+  // bad
+  function concatenateAll() {
+    const args = Array.prototype.slice.call(arguments);
+    return args.join('');
+  }
+  
+  // good
+  function concatenateAll(...args) {
+    return args.join('');
+  }
+  ```
+
+- [7.7](https://github.com/lin-123/javascript#es6-default-parameters) 用默认参数语法而不是在函数里对参数重新赋值。
+
+  > 如果需要给某个参数赋一个默认值的话 建议使用默认参数语法 `function handleThings(opts = {}) {}`
+  >
+  > 参数重新赋值会导致意外行为，尤其是对 `arguments`。这也会导致优化问题，特别是在 V8 引擎里。
+
+  ```js
+  // really bad
+  function handleThings(opts) {
+    // 不！我们不该修改 arguments
+    // 第二：如果 opts 的值为 false, 它会被赋值为 {}
+    // 虽然你想这么写，但是这个会带来一些微妙的 bug。
+    opts = opts || {};
+    // ...
+  }
+  
+  // still bad
+  function handleThings(opts) {
+    if (opts === void 0) {
+      opts = {};
+    }
+    // ...
+  }
+  
+  // good
+  function handleThings(opts = {}) {
+    // ...
+  }
+  ```
+
+- [7.9](https://github.com/lin-123/javascript#functions--defaults-last) 另外建议**把默认参数赋值放在最后**。eslint: [`default-param-last`](https://eslint.org/docs/rules/default-param-last)
+
+  ```js
+  // bad
+  function handleThings(opts = {}, name) {
+    // ...
+  }
+  
+  // good
+  function handleThings(name, opts = {}) {
+    // ...
+  }
+  ```
+
+- [7.11](https://github.com/lin-123/javascript#functions--signature-spacing) 函数定义部分要有空格。eslint: [`space-before-function-paren`](http://eslint.org/docs/rules/space-before-function-paren) [`space-before-blocks`](http://eslint.org/docs/rules/space-before-blocks)
+
+  > 为什么？**统一性好**，而且在你**添加/删除一个名字**（下面例子中的a）的时候**不需要添加/删除空格**，很方便啦~。
+
+  ```js
+  // bad
+  const f = function(){};
+  const g = function (){};
+  const h = function() {};
+  
+  // good
+  const x = function () {};
+  const y = function a() {};
+  ```
+
+#### [8.箭头函数](https://github.com/lin-123/javascript#箭头函数)
+
+- [8.3](https://github.com/lin-123/javascript#arrows--paren-wrap) 如果表达式涉及多行，把他包裹在圆括号里以**提高可读性**。
+
+  > 这里确实经常被我忽略！加上了括号确实好读很多！
+
+  > 为什么？这样能清晰地**显示函数的开始位置和结束位置**。
+
+  ```js
+  // bad
+  ['get', 'post', 'put'].map(httpMethod => Object.prototype.hasOwnProperty.call(
+      httpMagicObjectWithAVeryLongName,
+      httpMethod
+    )
+  );
+  
+  // good
+  ['get', 'post', 'put'].map(httpMethod => (
+    Object.prototype.hasOwnProperty.call(
+      httpMagicObjectWithAVeryLongName,
+      httpMethod
+    )
+  ));
+  ```
+
+- [8.4](https://github.com/lin-123/javascript#arrows--one-arg-parens) 在箭头函数参数两头，总是使用小括号包裹住参数，这样做使代码更清晰且一致. eslint: [`arrow-parens`](https://eslint.org/docs/rules/arrow-parens.html)
+
+  > 我写箭头函数是有多不规范，，，下次参数只有一个的时候也不要忘记加括号啊！
+
+  > 为什么？当你想要添加或删除参数时能比较省事。
+
+  ```js
+  // bad
+  [1, 2, 3].map(x => x * x);
+  
+  // good
+  [1, 2, 3].map((x) => x * x);
+  
+  // bad
+  [1, 2, 3].map(number => (
+    `A long string with the ${number}. It’s so long that we don’t want it to take up space on the .map line!`
+  ));
+  
+  // good
+  [1, 2, 3].map((number) => (
+    `A long string with the ${number}. It’s so long that we don’t want it to take up space on the .map line!`
+  ));
+  ```
+
+- [8.5](https://github.com/lin-123/javascript#arrows--confusing) 避免箭头函数（`=>`）和比较操作符（`<=`, `>=`）混淆. eslint: [`no-confusing-arrow`](http://eslint.org/docs/rules/no-confusing-arrow)
+
+  > 这里之前也没主要到（也没碰到过）
+  >
+  > 之后在箭头函数中使用大于等于号和小于等于号时要加上**括号/大括号**来避免混淆
+
+  ```js
+  // bad
+  const itemHeight = (item) => item.height <= 256 ? item.largeSize : item.smallSize;
+  
+  // bad
+  const itemHeight = (item) => item.height >= 256 ? item.largeSize : item.smallSize;
+  
+  // good
+  const itemHeight = (item) => (item.height <= 256 ? item.largeSize : item.smallSize);
+  
+  // good
+  const itemHeight = (item) => {
+    const { height, largeSize, smallSize } = item;
+    return height <= 256 ? largeSize : smallSize;
+  };
+  ```
+
+#### [9.类与构造函数](https://github.com/lin-123/javascript#类与构造函数)
+
+- [9.1](https://github.com/lin-123/javascript#constructors--use-class) 使用 `class` 语法。避免直接操作 `prototype`。
+
+  > 为什么？`class` 语法更简洁更易理解。
+
+  ```js
+  // bad
+  function Queue(contents = []) {
+    this.queue = [...contents];
+  }
+  Queue.prototype.pop = function () {
+    const value = this.queue[0];
+    this.queue.splice(0, 1);
+    return value;
+  };
+  
+  // good
+  class Queue {
+    constructor(contents = []) {
+      this.queue = [...contents];
+    }
+    pop() {
+      const value = this.queue[0];
+      this.queue.splice(0, 1);
+      return value;
+    }
+  }
+  ```
+
+- 如果未声明构造函数，则类会有一个默认的构造函数，没必要用空的构造函数或者将其委托给父类，eslint: [no-useless-constructor](http://eslint.org/docs/rules/no-useless-constructor)
+
+```js
+// bad
+class Jedi {
+  constructor () {}
+
+  getName() {
+    return this.name
+  }
+}
+
+// bad
+class Rey extends Jedi {
+  constructor (...args) {
+    // 这种构造函数是不需要写的
+    super(...args)
+  }
+}
+
+// good
+class Rey extends Jedi {
+  constructor (...args) {
+    super(...args)
+    // 如果构造函数中有需要初始化的内容 那么可以写一下~
+    this.name = 'Rey'
+  }
+}
+```
+
+#### [10.模块](https://github.com/lin-123/javascript#模块)
+
+- [10.1](https://github.com/lin-123/javascript#modules--use-them) 使用（`import`/`export`）模块而不是非标准的模块系统。你可以随时转到你喜欢的模块系统。
+
+  > 为什么？**模块化是未来，让我们现在就开启未来吧**。
+
+  ```js
+  // bad
+  const AirbnbStyleGuide = require('./AirbnbStyleGuide');
+  module.exports = AirbnbStyleGuide.es6;
+  
+  // ok
+  import AirbnbStyleGuide from './AirbnbStyleGuide';
+  export default AirbnbStyleGuide.es6;
+  
+  // best
+  import { es6 } from './AirbnbStyleGuide';
+  export default es6;
+  ```
+
+- [10.8](https://github.com/lin-123/javascript#modules--multiline-imports-over-newlines) 多行 `import` 应该缩进，就像多行数组和对象字面量一样。
+
+  > 好尴尬 之前项目的引入就是使用的bad的方法，，，
+
+  > 为什么？花括号与样式指南中每个其他花括号块遵循相同的缩进规则，逗号也是。
+
+  ```js
+  // bad
+  import {longNameA, longNameB, longNameC, longNameD, longNameE} from 'path';
+  
+  // good
+  import {
+    longNameA,
+    longNameB,
+    longNameC,
+    longNameD,
+    longNameE,
+  } from 'path';
+  ```
+
+- [10.9](https://github.com/lin-123/javascript#modules--no-webpack-loader-syntax) 在 `import` 语句里不允许 Webpack loader 语法。eslint: [`import/no-webpack-loader-syntax`](https://github.com/benmosher/eslint-plugin-import/blob/master/docs/rules/no-webpack-loader-syntax.md)
+
+  > 为什么？一旦用 Webpack 语法在 import 里会把代码耦合到模块绑定器。最好是在 `webpack.config.js` 里写 webpack loader 语法
+
+  ```js
+  // bad
+  import fooSass from 'css!sass!foo.scss';
+  import barCss from 'style!css!bar.css';
+  
+  // good
+  import fooSass from 'foo.scss';
+  import barCss from 'bar.css';
+  ```
+
+#### [11.迭代器与生成器](https://github.com/lin-123/javascript#迭代器与生成器)
+
+- [11.1](https://github.com/lin-123/javascript#iterators--nope) 不要用迭代器。使用 JavaScript 高级函数代替 `for-in`、 `for-of`。eslint: [`no-iterator`](http://eslint.org/docs/rules/no-iterator.html) [`no-restricted-syntax`](http://eslint.org/docs/rules/no-restricted-syntax)
+
+  > 为什么？这强调了我们不可变的规则。 处理返回值的纯函数比处理副作用更容易。
+
+  > 用数组的这些迭代方法： `map()` / `every()` / `filter()` / `find()` / `findIndex()` / `reduce()` / `some()` / ... , 用对象的这些方法 `Object.keys()` / `Object.values()` / `Object.entries()` 去产生一个数组，这样你就能去遍历对象了。
+
+  ```js
+  const numbers = [1, 2, 3, 4, 5];
+  
+  // bad
+  let sum = 0;
+  for (let num of numbers) {
+    sum += num;
+  }
+  sum === 15;
+  
+  // good
+  let sum = 0;
+  numbers.forEach(num => sum += num);
+  sum === 15;
+  
+  // best (use the functional force)
+  const sum = numbers.reduce((total, num) => total + num, 0);
+  sum === 15;
+  
+  // bad
+  const increasedByOne = [];
+  for (let i = 0; i < numbers.length; i++) {
+    increasedByOne.push(numbers[i] + 1);
+  }
+  
+  // good
+  const increasedByOne = [];
+  numbers.forEach(num => increasedByOne.push(num + 1));
+  
+  // best (keeping it functional) 最好是使用纯函数！
+  const increasedByOne = numbers.map(num => num + 1);
+  ```
+
+- 生成器的概念~
+
+- [11.2](https://github.com/lin-123/javascript#generators--nope) 现在暂时不要使用生成器。
+
+  > 为什么？生成器目前不能很好地转换为 ES5 语法。
 
 ## 2.前端基础
 
