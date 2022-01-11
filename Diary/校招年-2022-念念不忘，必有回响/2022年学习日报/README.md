@@ -529,9 +529,9 @@ Totally 170min
 准备开工！！
 
 ```js
-Totally min
+Totally 430min
 1.前端开发相关知识学习
-    1.1 前端基础学习 2min 
+    1.1 前端基础学习 280min 
 		/* 明确下远程入职的问题，接到leader给出的学习任务，开工！
         */
     1.2 React框架复习 min
@@ -552,14 +552,14 @@ Totally min
     	/* 解决一些细节问题 修改子区区域重合验证中涉及得bug */
 ```
 
-- [ ] 每日一题 
+- [ ] 每日一题 没搞完 直接抄了 反省下！
 - [x] 学习react HOOKS
 - [ ] 加入团队前的学习——
   - [x] 代码规范 看六小节
   - [x] 分支管理规范 第一章 & 2.1小节
-  - [ ] `TodoMVC demo` by React —— 这里今天木有看呐~
+  - [ ] `TodoMVC demo` by React —— 这里今天木有看呐~时间管理有问题欸！反省下！
 - [x] 外包项目继续肝进度
-- [ ] 每日睡前总结
+- [ ] 每日睡前总结——睡前状态稀碎！反省下！
 
 ## 1.实习日常
 
@@ -606,17 +606,254 @@ Totally min
 >
 > 如果你忘加了这个选项，`pull`操作仍然可以完成，但每次`pull`操作要同步中央仓库中别人修改时，提交历史会以一个多余的『合并提交』结尾。 对于集中式工作流，最好是使用`rebase`而不是生成一个合并提交。
 
-### 学习了一些团队JS规范
+#### 学习了一些团队JS规范
 
- 
+#####  [3.对象](https://github.com/lin-123/javascript#对象)
+
+- [3.2](https://github.com/lin-123/javascript#es6-computed-properties) 使用计算属性名创建一个带有动态属性名的对象。
+
+  > 这里我一直都是用的bad的方法创建动态属性呐，，，
+  >
+  > 之后要把动态属性写到对象里头来~
+
+  > 为什么？因为这可以使你在同一个地方定义所有对象属性。
+
+  ```js
+  function getKey(k) {
+    return `a key named ${k}`;
+  }
+  
+  // bad
+  const obj = {
+    id: 5,
+    name: 'San Francisco',
+  };
+  obj[getKey('enabled')] = true;
+  
+  // good
+  const obj = {
+    id: 5,
+    name: 'San Francisco',
+    [getKey('enabled')]: true,
+  };
+  ```
+
+- [3.7](https://github.com/lin-123/javascript#objects--prototype-builtins) 不要直接调用 `Object.prototype`上的方法，如 `hasOwnProperty`、`propertyIsEnumerable`、`isPrototypeOf`。
+
+  > 这个best操作太高级了orz 想不到啊这个！
+
+  > 为什么？在一些有问题的对象上，这些方法可能会被屏蔽掉，如：`{ hasOwnProperty: false }` 或空对象 `Object.create(null)`
+
+  ```js
+  // bad
+  console.log(object.hasOwnProperty(key));
+  
+  // good
+  console.log(Object.prototype.hasOwnProperty.call(object, key));
+  
+  // best
+  const has = Object.prototype.hasOwnProperty; // 在模块作用域内做一次缓存。
+  console.log(has.call(object, key));
+  /* or */
+  import has from 'has'; // https://www.npmjs.com/package/has
+  console.log(has(object, key));
+  ```
+
+- 3.8 对象浅拷贝时，更推荐使用扩展运算符（即`...`运算符），而不是`Object.assign`。获取对象指定的几个属性时，用对象的 rest 解构运算符（即`...`运算符）更好。eslint:`prefer-object-spread`
+  - 这一段不太好翻译出来， 大家看下面的例子就懂了。`^.^`
+
+```js
+// very bad 
+const original = { a: 1, b: 2 };
+const copy = Object.assign(original, { c: 3 }); // this mutates `original` ಠ_ಠ
+// 这样子写会导致基本的浅拷贝都无法完成——删除a之后会把a也删掉，所以还是不要用assign做浅拷贝的好~
+delete copy.a; // so does this
+
+// bad
+const original = { a: 1, b: 2 };
+const copy = Object.assign({}, original, { c: 3 }); // copy => { a: 1, b: 2, c: 3 }
+
+// good es6 扩展运算符 ...
+const original = { a: 1, b: 2 };
+// 浅拷贝
+const copy = { ...original, c: 3 }; // copy => { a: 1, b: 2, c: 3 }
+
+// rest 解构运算符——获取对象指定的几个属性——           简单的解构，极致滴享受~
+const { a, ...noA } = copy; // noA => { b: 2, c: 3 }
+```
+
+##### [4.数组](https://github.com/lin-123/javascript#数组)
+
+- [4.6](https://github.com/lin-123/javascript#arrays--mapping) 用 [`Array.from`](https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Global_Objects/Array/from) 而不是 `...` 运算符==去做 map 遍历==。 因为这样可以==避免创建一个临时数组==。
+
+  > 涨知识了！原来[`Array.from`](https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Array/from)方法里还可以放一个回调函数！
+  >
+  > 这个方法可以很高效地做数组遍历呐！
+  >
+  > ```js
+  > Array.from(arrayLike[, mapFn[, thisArg]])
+  > ```
+  >
+  > ### [参数](https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Array/from#参数)
+  >
+  > - `arrayLike`
+  >
+  >   想要转换成数组的伪数组对象或可迭代对象。
+  >
+  > - `mapFn` 可选
+  >
+  >   如果指定了该参数，新数组中的每个元素会执行该回调函数。
+  >
+  > - `thisArg` 可选
+  >
+  >   可选参数，执行回调函数 `mapFn` 时 `this` 对象。
+  >
+  > ### [返回值](https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Array/from#返回值)
+  >
+  > 一个新的[`数组`](https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Array)实例。
+
+  ```js
+  // bar为回调函数（遍历的规则）
+  // bad
+  const baz = [...foo].map(bar);
+  
+  // good
+  const baz = Array.from(foo, bar);
+  ```
+
+##### [5.解构](https://github.com/lin-123/javascript#解构)
+
+- [5.1](https://github.com/lin-123/javascript#destructuring--object) 用对象的解构赋值来获取和使用对象某个或多个属性值。eslint: [`prefer-destructuring`](https://eslint.org/docs/rules/prefer-destructuring)
+
+  > 解构赋值的好处——
+  >
+  > 为什么？解构使您**不必**为这些属性**创建临时引用**，并且**避免重复引用对象**。重复引用对象将造成代码重复、增加阅读次数、提高犯错概率。
+  >
+  > Destructuring objects also provides a single site of definition of the object structure that is used in the block, rather than requiring reading the entire block to determine what is used.
+
+  ```js
+  // bad
+  function getFullName(user) {
+    const firstName = user.firstName;
+    const lastName = user.lastName;
+  
+    return `${firstName} ${lastName}`;
+  }
+  
+  // good
+  function getFullName(user) {
+    const { firstName, lastName } = user;
+    return `${firstName} ${lastName}`;
+  }
+  
+  // best 这个方法有点秀啊，，没见到过这么用的 学习了嘿嘿
+  function getFullName({ firstName, lastName }) {
+    return `${firstName} ${lastName}`;
+  }
+  ```
 
 
-
-### 明日工作计划
 
 
 
 ## 2.前端基础
+
+# 1.11
+
+凌晨三点才躺下睡觉，，早上九点爬起来还是挺懵的，从今天开始立个早睡flag吧！
+
+```js
+Totally min
+1.前端开发相关知识学习
+    1.1 前端基础学习 min 
+		/* 
+        */
+    1.2 React框架复习 min
+    	/*  */
+
+2.学习核心基础知识
+	2.1 计网 min
+    	/*  */
+
+3.通过写代码强化逻辑思维、对语言更加熟练
+	3.1 leetcode min	
+    	/*  */
+    	// 21/12/27更：假期去实习的同时，别忘了每天刷每日一题+HOT100/剑指Offer+小册/算法小抄/代码随想录（学习新技巧！）+坚持打周赛
+    	// 21/1/2更：一道easy/medium如果在15/30min内没AC，马上把卡住的思路放在一边然后去看题解的正确思路，不要走偏！
+
+4.工作生活
+    4.1 外包项目开发-Vue min
+    	/*  */
+```
+
+> 学习时的状态：关闭所有社交软件+手机打开番茄钟
+
+- [ ] 每日一题 (困难直接抄了 换一题) + HOT100重新开刷 + 小册复习
+- [ ] 加入团队前的学习——
+  - [x] 复盘昨日学习内容
+  - [ ] 代码规范 复习昨日内容+再看六小节
+  - [ ] 分支管理规范 看2.2 2.3小节
+  - [ ] `TodoMVC demo` by React ——阅读react源码，查询不懂的地方，模仿代码风格，尝试仿写
+- [ ] 外包项目继续肝进度
+- [ ] 每日睡前（23点之前）总结——刷题+工作内容+基础知识
+
+## 1.实习日常
+
+### 昨日工作复盘
+
+- 学习了集中式工作流 其实就是很常规的一种分支管理方法，没有啥复杂的操作 我之前协作开发项目都是使用的这种模式（当然回头还得细化下这个概念！）
+
+- 学习了JS代码规范
+
+  - 对象相关
+
+    - 有一个存疑点 对象中属性什么时候加单引号？
+
+  - 数组相关
+
+    - 要熟练使用扩展运算符`...`
+    - map遍历的最佳实践—— `Array.from(arr, mapFn)`
+
+  - 解构的优点
+
+    - 不必为属性创建临时引用
+
+    - 避免重复引用对象
+
+      - 所以——直接解构对象即可~
+
+      ```js
+      // bad
+      function getFullName(user) {
+        const firstName = user.firstName;
+        const lastName = user.lastName;
+      
+        return `${firstName} ${lastName}`;
+      }
+      
+      // good
+      function getFullName(user) {
+        const { firstName, lastName } = user;
+        return `${firstName} ${lastName}`;
+      }
+      
+      // best 这个方法有点秀啊，，没见到过这么用的 学习了嘿嘿
+      function getFullName({ firstName, lastName }) {
+        return `${firstName} ${lastName}`;
+      }
+      ```
+
+      
+
+
+
+### 今日工作内容
+
+
+
+## 2.前端基础
+
+
 
 
 
