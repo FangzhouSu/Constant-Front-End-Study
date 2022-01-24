@@ -1,0 +1,33 @@
+.topHead {
+  position: relative;
+  top: 50px;
+  width: 100%;
+  font-size: 100px;
+  font-weight: 500;
+  text-align: center;
+  color: rgba(175, 47, 47, 0.15);
+}
+.todoApp {
+  /* position: absolute; */
+  background: #fff;
+  position: relative;
+  margin: 100px 0 40px 0;
+  box-shadow: 6px 6px 9px 0 rgb(0 0 0 / 20%), 0 25px 50px 0 rgb(0 0 0 / 10%);
+}
+.info {
+  margin: 20px auto 0;
+  color: #bfbfbf;
+  font-size: 10px;
+  text-shadow: 0 1px 0 rgb(255 255 255 / 50%);
+  text-align: center;
+}
+.info p {
+  line-height: 1;
+}
+.info a {
+  text-decoration: none;
+  color: inherit;
+}
+.info a:hover {
+  text-decoration: underline;
+}
