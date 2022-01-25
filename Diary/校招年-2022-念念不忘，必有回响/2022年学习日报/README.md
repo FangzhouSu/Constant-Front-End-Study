@@ -2811,26 +2811,27 @@ Totally 540min
 
 - **Hook 是什么？** Hook 是一个特殊的函数，它可以让你“钩入” React 的特性。例如，`useState` 是允许你在 React 函数组件中添加 state 的 Hook。
   - **什么时候我会用 Hook？** 如果你在编写函数组件并意识到需要向其添加一些 state，以前的做法是必须将其转化为 class。现在你可以在现有的函数组件中使用 Hook。
-- 学习思考了一下——“可复用组件”在具体场景下的最佳实践 不要写死 勇哥遍历哈~
+- 学习思考了一下——“可复用组件”在具体场景下的最佳实践 不要写死 用个遍历哈~
   - ![image-20220125005603830](https://gitee.com/su-fangzhou/blog-image/raw/master/202201250056986.png)
 
-# 1.24
+# 1.25
 
+晚上一点四十睡 八点五十多洗漱完毕坐在电脑前 状态尚可吧~今天再早睡一些，再早起一些！
 
+下午没锁手机 悲剧了 疯狂摸鱼。。。，明天表这样了！
 
 ```js
  Totally min
  1.前端必备知识学习
      // 减少在开源社区折腾的时间 聚焦于学习知识本身
      /** 每天开始学习之前在仓库issue区打卡
-      * 每天中午在每日一题仓库issue区打卡
       * 每天下班之后总结今日工作内容，总结每日一题答案
       * 每天睡觉之前总结今日 学习/工作 收获
       */
-     1.1 日常工作 & 学习 180+120+140min 
+     1.1 日常工作 & 学习 190+100+140+min 
          /** 复盘昨日收获+展望今日学习/工作内容
-          * 上午工作——
-          * 下午工作——
+          * 上午工作——迭代产品版本 改bug 阅读部门一些面试题
+          * 下午工作——比较摸鱼！简单学习了一些新知识，准备改产品的其他问题，发现项目因为数据库崩溃跑不起来了，，
           * 晚间工作——
           * 每日一题总结 & 今日总结
           * 前端基础知识学习
@@ -2847,55 +2848,171 @@ Totally 540min
          // 22/1/2更：一道easy/medium如果在15/30min内没AC，马上把卡住的思路放在一边然后去看题解的正确思路，不要走偏！
 ```
 
--  力扣每日一题copy了 
--  复盘实习期间这两周！
-- 实习日常
-  -  复盘昨日学习内容
-  -  结合项目代码学习状态管理库`mobx`、`React Hooks`、`antd` 的内容
--  总结每日一题——中午开issue区 晚上总结一下
--  `21:00` 健身+洗漱——写项目写上头了！
--  学习一下记忆化搜素 动态规划
--  前端基础知识学习——快速过一下~——没来得及学，，
--  `23:30` 每日睡前总结——刷题+工作内容+基础知识+明日展望
+- [ ] 力扣每日一题
+- [x] 浏览器**重绘**与**回流**的概念，如何避免？
+- [ ] 实习日常
+  - [x] 结合项目代码学习状态管理库`mobx`、`React Hooks`、`antd` 的内容
+  - [x] 根据需求 规范地改bug 提pr
+- [x] `21:00` 健身+洗漱——
+- [ ] 总结每日一题——中午开issue区 晚上总结一下
+- [ ]  前端基础知识学习——快速过一下~
+- [ ]  `23:30` 每日睡前总结——刷题+工作内容+基础知识+明日展望
 
 > 待学习
 >
-> -  总结捕获&冒泡部分的知识
-> -  算法小册等时间充裕（前端基础过完一遍）再去重新读-动态规划，贪心等内容
-> -  网络是怎样连接的，图解网络做的笔记
+> - [ ] 总结捕获&冒泡部分的知识
+> - [ ] 算法小册等时间充裕（前端基础过完一遍）再去重新读-动态规划，贪心等内容
+> - [ ] 网络是怎样连接的，图解网络做的笔记
 
 ## 1.实习日常
 
 ### 昨日工作复盘
 
+- `todoMCV`中销毁组件后调用回调函数将最新的`todoList`更新到缓存中
+  - ![image-20220124114459708](C:/Users/sfz1130/AppData/Roaming/Typora/typora-user-images/image-20220124114459708.png?lastModify=1642902365)
 - 项目继续debug 努力读懂代码~
+  - 学习React Hooks `useState`钩子还是很方便der！
+  - 重写了一下日期选择组件 `DateQuickRange` ， 提升可复用性
 
 ### 今日工作内容
 
-- `todoMCV`中销毁组件后调用回调函数将最新的`todoList`更新到缓存中
-  - ![image-20220124114459708](C:/Users/sfz1130/AppData/Roaming/Typora/typora-user-images/image-20220124114459708.png?lastModify=1642902365)
-- 增强日期选择组件 `DateQuickRange` 的可复用性
+- review了**重写组件**解决对应关系的代码 继续看一些很简单基础的bug
+  - 提了入职期间第一个pr，简单了解了下企业代码托管平台合代码的流程
+- 原来开发环境测试库崩了可能会报这个错么
+  - ![image-20220125180454583](https://gitee.com/su-fangzhou/blog-image/raw/master/202201251804669.png)
+  - ![image-20220125181306622](https://gitee.com/su-fangzhou/blog-image/raw/master/202201251813684.png)
+- 结合项目学习mobx 明天等项目能跑起来了再进一步学习
 
 ## 2.日有所进
 
 ### 昨日学习收获
-
-- 对项目熟练度增加了一些
-
-- 爬楼梯——跟斐波那契很像嘛~——这个收获大大滴 虽然是最简单的动归题 但是用来入门简直不要太合适！！
-  - 常规动归解题
-  - 滚动数组优化常规动归
-  - **记忆化递归**——学习到了~
-
-### 今日学习收获
 
 - 巩固了React中**组件自定义的方法**中作用域的问题
   - 组件**自定义的方法中this为undefined**
     - ![image-20220124114720112](https://gitee.com/su-fangzhou/blog-image/raw/master/202201241147217.png)
   - 通过强制绑定/箭头函数 都可以解决这个问题
     - ![img](https://gitee.com/su-fangzhou/blog-image/raw/master/202201241150967.png)
-
-- 常用的三种布局——浮动布局 定位布局 弹性布局![image-20220124151100655](https://gitee.com/su-fangzhou/blog-image/raw/master/202201241511795.png)
-
 - **Hook 是什么？** Hook 是一个特殊的函数，它可以让你“钩入” React 的特性。例如，`useState` 是允许你在 React 函数组件中添加 state 的 Hook。
   - **什么时候我会用 Hook？** 如果你在编写函数组件并意识到需要向其添加一些 state，以前的做法是必须将其转化为 class。现在你可以在现有的函数组件中使用 Hook。
+- 了解了记忆化搜索与动态规划的思想是近似的，都是将每一步的状态存储起来
+
+### 今日学习收获
+
+- 引起内存泄漏的操作有哪些
+  - 全局变量引起的内存泄漏
+  - 闭包引起的内存泄漏
+  - 被遗忘的定时器
+  - 未清理的 dom 元素引用
+  - dom 清空或删除时，事件未清除导致的内存泄漏
+  
+- svg 和 canvas 的区别？优缺点？
+  - 前者是矢量图，不失真，后者为位图（标量图）；
+  - 前者为好多标签组成，后者只有一个标签；
+  - 前者适合大规模数据展示，后者适合小规模，东西太多耗内存；
+  
+- 什么是 BFC
+  - Block formatting contexts（块级格式化上下文）：首先 BFC 是一个**独立的布局环境**，BFC 中**元素的布局**是**不受外界影响**的。
+    - 本质上是指 **盒子内部的元素不会影响外部元素**的一个布局
+  - 如何创建一个 BFC
+    - **float** 的值不为 none
+    - **position** 的值不为 static 或者 relative
+    - **display** 的值为 table-cell、table-caption、inline-block、flex、inline-flex 中的一个
+    - **overflow** 的值不为 visible
+  - BFC 的使用场景
+    - 使用 BFC 来**防止外边距折叠**
+    - 使用 BFC 来包含浮动，**解决容器高度塌陷**的问题
+    - 使用 BFC 来**防止文字环绕**
+    - 在多列布局中使用 BFC，解决最后一列被挤到下一行的问题
+  
+- react VS vue； 区别，优劣势； 讲的合理就好
+
+  - react **更加自由，贴近 JavaScript 写法，更加灵活**；但是代码看着脱离 html 原本的书写方式，jsx 看着比较丑；对于使用者刚开始适应起来较恶心，同时**要求使用者能够很好的组织代码逻辑，划分代码块**
+  - vue 作者做的很贴心，帮助开发者做了很多友好的东西，包括模块划分、书写方式、devtool、社区；开发者只要根据作者提供的这些东西就能快速上手开发
+
+- ## 回流（重排）与重绘
+
+  ![image](https://cdn.nlark.com/yuque/0/2020/png/1500604/1603797939165-3bf54e28-5469-4093-a0e1-e0569cec1305.png)
+
+  - **回流**（上图中 绘制那一步）：当渲染树中的一部分（或全部）因为元素的尺寸、布局、显隐发生改变而需要**重新构建**，就是回流。<u>回流后会进行重绘</u>👇。
+    - 添加或者删除可见的 DOM 元素
+    - 元素的位置发生改变
+    - 元素的尺寸发生改变--边距、填充、边框、宽高
+    - 内容改变--比如文本改变或者图片大小改变而引起的计算值宽高的改变
+    - **页面初始化渲染**
+    - **浏览器窗口尺寸改变**
+  - **重绘**：当只是元素的外观、风格变化，不影响布局的，重新渲染的过程就叫重绘。
+
+  - <u>回流必将引起重绘，而重绘不一定会引起回流</u>。每个页面至少回流一次，就是在页面第一次加载的时候。
+  - 如何**减少回流和重绘**
+    - 使用 cssText 或者 className 一次性改变属性
+    - 使用 document fragment
+    - 对于多次重排的元素，如动画，使用绝对定位
+  
+- [十分钟入门 MobX & React](https://zh.mobx.js.org/getting-started.html)
+
+  - ![img](https://zh.mobx.js.org/assets/getting-started-assets/overview.png)
+
+  - ```
+    observer(component)
+    ```
+
+    一个高阶组件，可用来在 observable 发生改变时将一个 React 函数组件或类组件重新渲染。
+
+- ##### [理解 JavaScript 的 async/await](https://segmentfault.com/a/1190000007535316)
+
+  简单来说
+
+  > ```
+  > 如果await等到的不是一个 Promise 对象，那 await 表达式的运算结果就是它等到的东西。
+  > 
+  > 如果await等到的是一个 Promise 对象，await 就忙起来了，它会阻塞后面的代码，等着 Promise 对象 resolve，然后得到 resolve 的值，作为 await 表达式的运算结果。
+  > ```
+
+  举例，用 `setTimeout` 模拟耗时的异步操作，先来看看不用 async/await 会怎么写
+
+  ```javascript
+  function takeLongTime() {
+      return new Promise(resolve => {
+          setTimeout(() => resolve("long_time_value"), 1000);
+      });
+  }
+  // 
+  takeLongTime().then(v => {
+      console.log("got", v);
+  });
+  ```
+
+  如果改用 async/await 呢，会是这样
+
+  ```javascript
+  function takeLongTime() {
+      return new Promise(resolve => {
+          setTimeout(() => resolve("long_time_value"), 1000);
+      });
+  }
+  // 
+  async function test() {
+      const v = await takeLongTime();
+      console.log(v);
+  }
+  
+  test();
+  ```
+
+
+- 纯函数的概念
+
+  > [轻松学会 React 钩子：以 useEffect() 为例 - 阮一峰的网络日志 (ruanyifeng.com)](https://www.ruanyifeng.com/blog/2020/09/react-hooks-useeffect-tutorial.html)
+
+  - 函数式编程将那些跟数据计算无关的操作，都称为 "副效应" **（side effect）** 。如果函数内部直接包含产生副效应的操作，就不再是纯函数了，我们称之为不纯的函数。
+
+    ![img](https://www.wangbase.com/blogimg/asset/202009/bg2020091410.jpg)
+
+    纯函数内部只有通过间接的手段（即通过其他函数调用），才能包含副效应。
+
+    ​	**钩子（hook）就是 React 函数组件的副效应解决方案，用来为函数组件引入副效应**
+
+- > 每次副效应函数 （`useEffect`钩子） 重新运行之前，会清理上一次的副效应。
+  > Dan的博文中是这么说的：
+  >
+  > React only runs the effects after letting the browser paint. This makes your app faster as most effects don’t need to block screen updates. Effect cleanup is also delayed. The previous effect is cleaned up after the re-render with new props
