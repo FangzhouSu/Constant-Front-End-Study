@@ -1049,7 +1049,14 @@ function fb(n) {
 ‘a.b.c’ -> {a: {b: {c: null }}}
 ```
 
-用了个笨办法 面试官也没让优化 直接就到反问环节了
+> 下面的两个方法都是“拼接字符串”的思路 不可！
+>
+> > - `JSON.parse()` 方法用来解析JSON字符串，构造由字符串描述的JavaScript值或对象
+> >   - JSON字符串(String) （仅限JSON字符串哦）-> Object
+> > - `JSON.stringify()` 方法将一个 JavaScript 对象或值**转换为 JSON 字符串**
+
+- 【1】用了个笨办法 面试官也没让优化 直接就到反问环节了
+  - 22/1/27更 其实这里写的有问题 应该是**输出对象**才行 不是这样拼接！
 
 ```js
 function main(str) {
@@ -1057,10 +1064,40 @@ function main(str) {
     let data = str.split(".").reverse()
     temp = JSON.parse(JSON.stringify(`{ ${data[0]} : null }`))
     for(let i = 1; i < data.length; i++) {
+        // 这个思路是不对的！
         obj = JSON.parse(JSON.stringify(`{ ${data[i]} : ${temp} }`))
     }
     return o
 }
 console.log(main('a.b.c.d'));
+```
+
+- 【2】`递归`
+
+```js
+// ['a', 'b', 'c'] -> {a: {b: {c: {} }}}
+let arr = ['a', 'b', 'c'];
+const temp = {}
+let index = 0;
+const iteration = function longIterationFunction(temp) {
+    if (index === arr.length) {
+        return '{}';
+    }
+    temp = `{${arr[index++]}: ${iteration(arr[index])} }`;
+    return temp;
+}
+console.log(iteration(arr));
+```
+
+- 【3】`reduce`
+
+```js
+let arr = ['a', 'b', 'c'].reverse();
+const transform = function transformArrToObj() {
+    return arr.reduce((pre, cur) => {
+        return { [cur]: pre }
+    }, {})
+}
+console.log(transform(arr));/{"a":{"b":{"c":{}}}}
 ```
 
