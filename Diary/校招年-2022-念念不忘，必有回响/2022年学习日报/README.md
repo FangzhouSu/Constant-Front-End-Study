@@ -161,7 +161,9 @@ Totally 500min
 
 #### 复习了下给图片加边框的两种方法
 
- 一种给img加 一种给div加background-img并且设置background-size与盒子的width height
+- 一种直接给img加 
+
+- 一种给div加background-img并且设置background-size与盒子的width height
 
 ![image-20220103161708924](https://gitee.com/su-fangzhou/blog-image/raw/master/202201031617087.png)
 
@@ -3408,7 +3410,7 @@ Totally 540min
 
 ### 今日工作内容
 
-
+- 摸鱼~
 
 ## 2.日有所进
 
@@ -3463,7 +3465,149 @@ Totally 540min
 
 # 1.30
 
+快过年了 学习的状态略差啊！主要做规划内容吧
 
+然后就是得知了小区对面有一例确诊，，这就有点裂开了啊！
+
+```js
+ Totally 450min
+ 1.前端必备知识学习
+     // 减少在开源社区折腾的时间 
+     /** 每天开始学习之前在仓库issue区打卡
+      * 每天下班之后总结今日工作内容，总结每日一题答案
+      * 每天睡觉之前总结今日 学习/工作 收获
+      */
+     1.1 日常工作 & 学习 80+40min 
+         /** 复盘昨日收获+展望今日学习/工作内容
+          * 晚间工作——总结下接下来的学习内容
+          * 前端基础知识学习
+          * 每日一题总结 & 今日总结
+          */
+     1.2 计网 min
+         // 
+ 
+ 2.通过写算法题强化逻辑思维、对语言更加熟练
+     2.1 leetcode 140+140+30+20min  
+         /** 每日一题 哈希表的操作
+          * 周赛坐牢局，，就A出来个easy 学习了一下前两题 第三题不纠结勒！是一个反向的滑窗思想
+          */
+         // 21/12/27更：假期去实习的同时，别忘了每天刷每日一题+HOT100/剑指Offer+小册/算法小抄/代码随想录（学习新技巧！）+坚持打周赛
+         // 22/1/2更：一道easy/medium如果在15/30min内没AC，马上把卡住的思路放在一边然后去看题解的正确思路，不要走偏！
+```
+
+- [x] 力扣每日一题 
+- [x] 周赛
+- [x] 总结前端学习路径
+- [x] 算法小册推进度 看下前六章的基础知识
+- [x] `21:00` 健身+洗漱
+- [x] 总结每日一题
+- [x] 前端基础知识学习——春节期间疯狂推进度！春节过了马上开始准备开面！——13号开面！
+- [x] `23:30` 每日睡前总结——刷题+工作内容+基础知识+明日展望
+
+> 待学习
+>
+> - [ ] 催学社任务-月底前输出一篇文章
+>   - [ ] `1.31` 浏览器渲染+回流重绘的概念+diff算法 可以尝试搞一篇文章
+> - [ ] `1.31` 知识库内容填充 规划初二之后的学习状态
+> - [ ] `1.31` 疑问点——是否需要花费时间练习CSS布局 ——看下买的那本小册 
+> - [ ] 总结捕获&冒泡部分的知识
+> - [ ] 学习flex布局 结合小青蛙那个网站
+> - [ ] 网络是怎样连接的，图解网络做的笔记
+> - [ ] 阅读并总结组内知识库一面中的优质知识点
+
+## 1.实习日常
+
+> 过年休假状态——初二重新开始工作，把这两天摸得🐟补回来+更加熟悉项目！
+
+## 2.日有所进
+
+### 昨日学习收获
+
+- **组件**并不是真实的 DOM 节点，而**是存在于内存之中的一种数据结构，叫做虚拟 DOM** （virtual DOM）。只有当它插入文档以后，才会变成真实的 DOM 。根据 React 的设计，**所有的 DOM 变动，都先在虚拟 DOM 上发生，然后再将实际发生变动的部分，反映在真实 DOM上**，这种算法叫做 [DOM diff](http://calendar.perfplanet.com/2013/diff/) ，它可以极大提高网页的性能表现。
+
+  ![](https://gitee.com/su-fangzhou/blog-image/raw/master/202201291522937.png)
+
+- Redux 的作者 Dan Abramov [总结](https://medium.com/@dan_abramov/making-sense-of-react-hooks-fdbde8803889)了组件类的几个缺点。
+
+  > - 大型组件很难拆分和重构，也很难测试。
+  > - 业务逻辑分散在组件的各个方法之中，导致重复逻辑或关联逻辑。
+  > - 组件类引入了复杂的编程模式，比如 render props 和高阶组件。
+
+- diff算法[15张图，20分钟吃透Diff算法核心原理，我说的！！！ - 掘金 (juejin.cn)](https://juejin.cn/post/6994959998283907102)
+
+
+### 今日学习收获
+
+- 由于在 [`Number`](https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Number) 与 `BigInt` 之间进行转换会损失精度，因而建议仅在值可能大于253 时使用 `BigInt` 类型，并且不在两种类型之间进行相互转换。
+
+- 遍历map给忘了咋弄了！这事儿闹的！
+
+  ```js
+  for (let arr of map) {
+      // arr 键值对
+  }
+  for (let [key, value] of map) {
+      // key value 分别为键值
+  }
+  ```
+
+- `Map`可以通过`forEach()`方法迭代：
+
+  ```js
+  myMap.forEach(function(value, key) {
+    console.log(key + " = " + value);
+  })
+  // 将会显示两个logs。 一个是 "0 = zero" 另一个是 "1 = one"
+  ```
+
+- Map对象也能与数组合并：
+
+  ```js
+  let first = new Map([
+    [1, 'one'],
+    [2, 'two'],
+    [3, 'three'],
+  ]);
+  
+  let second = new Map([
+    [1, 'uno'],
+    [2, 'dos']
+  ]);
+  
+  // Map对象同数组进行合并时，如果有重复的键值，则后面的会覆盖前面的。
+  let merged = new Map([...first, ...second, [1, 'eins']]);
+  
+  console.log(merged.get(1)); // 这里就被合并进来的数组覆盖了！eins
+  console.log(merged.get(2)); // dos
+  console.log(merged.get(3)); // three
+  ```
+
+- flex的几个属性
+  - flex-direction![image.png](https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/eff0ef478af04a1eb67089aef22cade5~tplv-k3u1fbpfcp-watermark.awebp?)
+  - justify-content![image.png](https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/7df9b1a840b243708cbf7b3777dd20bf~tplv-k3u1fbpfcp-watermark.awebp?)
+  - align-items![image.png](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/75e8ab1b5cb14bccb4e0e54b66413cb2~tplv-k3u1fbpfcp-watermark.awebp?)
+
+- 【1】a b转换为二进制【2】进行按位运算 “且”的规则
+
+  ```js
+  0&0=0; 
+  0&1=0;
+  1&0=0;  
+  1&1=1;
+  ```
+
+  利用这个特性可以快速判断一个数字是否为奇数（最后一个二进制是否为1）
+
+  ```js
+  (5 & 1) === 1;// true
+  (4 & 1) === 1;// false
+  ```
+
+  
+
+# 1.31
+
+除夕咯！除了日常刷题，主要做的就是一些总结上的工作+写文章
 
 ```js
  Totally min
@@ -3486,28 +3630,37 @@ Totally 540min
  
  2.通过写算法题强化逻辑思维、对语言更加熟练
      2.1 leetcode min  
-         /** 每日一题 
+         /** 每日一题 凌晨就写掉了~一月勋章到手~
           * 
           */
          // 21/12/27更：假期去实习的同时，别忘了每天刷每日一题+HOT100/剑指Offer+小册/算法小抄/代码随想录（学习新技巧！）+坚持打周赛
          // 22/1/2更：一道easy/medium如果在15/30min内没AC，马上把卡住的思路放在一边然后去看题解的正确思路，不要走偏！
 ```
 
-- [ ] 力扣每日一题 
-- [ ] 实习日常
-  - [ ] 结合项目代码学习新知识并进行debug、产品迭代
-- [ ] 算法小册推进度 看下前六章的基础知识
-- [ ] `21:00` 健身+洗漱
+- [x] 力扣每日一题 
+
+- [ ] 算法小册推进度 看下第七章 数组的内容，总结下要复习的题
+
+- [ ] 知识库内容填充+部署
+
+- [ ] 写文章——渲染、重绘重排的内容
+
+- [ ] 二月学习规划+本周（&月）学习内容小结
+
 - [ ] 总结每日一题
+
+- [ ] > `21:00` 健身+洗漱 除夕夜 这就做不到了~
+
 - [ ] 前端基础知识学习——春节期间疯狂推进度！春节过了马上开始准备开面！
+
 - [ ] `23:30` 每日睡前总结——刷题+工作内容+基础知识+明日展望
 
 > 待学习
 >
 > - [ ] 催学社任务-月底前输出一篇文章
 >   - [ ] `1.31` 浏览器渲染+回流重绘的概念+diff算法 可以尝试搞一篇文章
-> - [ ] `1.31` 知识库内容填充
-> - [ ] `1.31` 疑问点——是否需要花费时间练习CSS布局 ——看下买的那本小册 
+> - [ ] `1.31` 知识库内容填充 规划初二之后的学习状态
+> - [ ] `1.31` 疑问点——是否需要花费时间练习CSS布局 ——看下买的那本小册 （可以问下鲨鱼哥侧重点吧！）
 > - [ ] 总结捕获&冒泡部分的知识
 > - [ ] 学习flex布局 结合小青蛙那个网站
 > - [ ] 网络是怎样连接的，图解网络做的笔记
@@ -3515,63 +3668,17 @@ Totally 540min
 
 ## 1.实习日常
 
+> 过年休假状态——初二重新开始工作，把这两天摸得🐟补回来+更加熟悉项目！
+
 ### 昨日工作复盘
 
-- 看了一个只有测试环境下才有的bug
-
 ### 今日工作内容
-
-
 
 ## 2.日有所进
 
 ### 昨日学习收获
 
-- 巧用排序搞定了一道有趣的“记录 弱角色 数量”的力扣~
+
 
 
 ### 今日学习收获
-
-- **组件**并不是真实的 DOM 节点，而**是存在于内存之中的一种数据结构，叫做虚拟 DOM** （virtual DOM）。只有当它插入文档以后，才会变成真实的 DOM 。根据 React 的设计，**所有的 DOM 变动，都先在虚拟 DOM 上发生，然后再将实际发生变动的部分，反映在真实 DOM上**，这种算法叫做 [DOM diff](http://calendar.perfplanet.com/2013/diff/) ，它可以极大提高网页的性能表现。
-
-  ![](https://gitee.com/su-fangzhou/blog-image/raw/master/202201291522937.png)
-
-  但是，有时需要从组件获取真实 DOM 的节点，这时就要用到 `ref` 属性（查看 [demo07](https://github.com/ruanyf/react-demos/blob/master/demo07/index.html) ）。
-
-  - eg:文本输入框，用于获取用户的输入。这时就必须获取真实的 DOM 节点，虚拟 DOM 是拿不到用户输入的。为了做到这一点，文本输入框必须有一个 `ref` 属性
-
-    ```js
-    constructor(props) {
-        super(props);
-        this.myTextInput = React.createRef();
-        // Refs 是使用 React.createRef() 创建的，并通过 ref 属性附加到 React 元素。在构造组件时，通常将 Refs 分配给实例属性，以便可以在整个组件中引用它们
-    }
-    ```
-
-    ```html
-    <div>
-        <input type="text" ref={this.myTextInput} />
-        <input type="button" value="Focus the text input" onClick={this.handleClick} />
-    </div>
-    ```
-
-  - 点击按钮对input框进行聚焦
-
-    ```js
-    handleClick = () => {
-        this.myTextInput.current.focus();
-    }
-    ```
-
-- 能不用Refs就不要用咯~尽量用state属性把数据存在更高级的组件中！![image-20220129135921049](https://gitee.com/su-fangzhou/blog-image/raw/master/202201291359160.png)
-
-- Redux 的作者 Dan Abramov [总结](https://medium.com/@dan_abramov/making-sense-of-react-hooks-fdbde8803889)了组件类的几个缺点。
-
-  > - 大型组件很难拆分和重构，也很难测试。
-  > - 业务逻辑分散在组件的各个方法之中，导致重复逻辑或关联逻辑。
-  > - 组件类引入了复杂的编程模式，比如 render props 和高阶组件。
-
-- 读了一篇diff算法的文章 [15张图，20分钟吃透Diff算法核心原理，我说的！！！ - 掘金 (juejin.cn)](https://juejin.cn/post/6994959998283907102)
-
-  - 对虚拟DOM 在更新、增删页面内容时的表现更加了解了 使用diff算法来对新旧DOM树进行比对——从而了解到下一步应如何渲染
-
