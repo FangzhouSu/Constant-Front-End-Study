@@ -1,3 +1,9 @@
+> 本部分更新至单独的前端知识库~
+>
+> 在线浏览地址👉[前端知识库@敲代码的小提琴手 (fangzhousu.github.io)](https://fangzhousu.github.io/frontend-knowledge-base/)
+>
+> 文档仓库👉[FangzhouSu/frontend-knowledge-base: 前端知识库——前端er必会的数据结构与算法知识 & 校招er的面试题每日一练！ ](https://github.com/FangzhouSu/frontend-knowledge-base)
+
 # 🎨前端知识库🎨
 
 ## 基础知识汇总🤔
