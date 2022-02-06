@@ -547,6 +547,87 @@ for (var i = 0; i < clickBoxs.length; i++){
 
 # 2.6
 
+又是两点多才睡的一天，，八点多起床之后状态依旧不是最佳
+
+总之 明天上班了！赶紧调整过来吧！
+
+
+
+```js
+Totally 320min
+1.前端开发
+	1.1 日常工作 min
+    /** 
+     * 保证180+240+的工作时间，不够的话于晚间补齐
+     * 上午——
+     * 下午——
+     * 晚间——
+     */
+	1.2 学习知识 90+50+40+120min 
+    /** 
+     * 学习到的基础知识记录进“今日收获”，晚上复习总结。
+     * 一刷收割机-过知识点：求广度、有个印象
+     * 今日学习内容：浏览器渲染+手写继承问题+和前辈聊了一下职业规划，前辈的实习建议-多阅读组内代码充实自身（未来面试好吹水~优化项目&封装hook的方法之类的）+手写instanceof+数据处理问题
+     * 每日一题总结 & 今日总结
+     */
+
+2.刷leetcode强化逻辑思维、对语言更加熟练 20min
+/** 
+ * 每日一题 
+ * 链表相关题目 
+ */
+// 22/1/2更：一道easy/medium如果在15/30min内没AC，马上把卡住的思路放在一边然后去看题解的正确思路，不要走偏！
+```
+
+- [x] 补上昨天的手写代码
+- [x] CSS小册学习——看完浏览器，复习下回流重绘，学习下属性排序问题
+- [x] 力扣每日一题
+- [ ] 每日基础知识学习
+  - [ ] JS 1
+  - [ ] 计网 0.5
+  - [ ] 浏览器 0.5
+  - [ ] 手写代码三个专题 一天一题+
+    - [x] JS基础
+    - [x] 数据处理
+    - [ ] 场景应用
+  - [ ] React 0.5
+- [x] `21:00` 健身+洗漱
+
+> 待学习
+>
+> - [ ] 二月底之前输出一篇文章
+>   - [ ] 写文章——《一个实习生的git学习笔记-常用git命令 & git flow工作流》
+> - [ ] 练习CSS布局 ——看下买的那本小册 
+>   - [ ] 学习flex布局 结合小青蛙那个网站
+>   - [ ] 浏览器渲染+回流重绘的概念——从CSS那本小册学习
+> - [ ] 将知识库同步至`gitee` & 利用`github action`自动部署
+> - [ ] 网络是怎样连接的，图解网络做的笔记-过完收割机再去学习
+> - [ ] 阅读并总结组内知识库中的优质知识点
+
+## 1.实习日常
+
+> 过年休假状态——立春重新开始工作，把这两天摸得🐟补回来+更加熟悉项目！
+
+### 昨日工作复盘
+
+### 今日工作内容
+
+## 2.日有所进
+
+### 昨日学习收获
+
+### 今日学习收获
+
+- [Function.prototype.call() - JavaScript | MDN (mozilla.org)](https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Function/call)
+
+![image-20220206110440236](https://gitee.com/su-fangzhou/blog-image/raw/master/202202061104339.png)
+
+- [Function.prototype.apply() - JavaScript | MDN (mozilla.org)](https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Function/apply)
+
+![image-20220206110310147](https://gitee.com/su-fangzhou/blog-image/raw/master/202202061103269.png)
+
+# 2.7 *完善前端基础知识复习方案
+
 
 
 ```js
@@ -563,7 +644,7 @@ Totally min
     /** 
      * 学习到的基础知识记录进“今日收获”，晚上复习总结。
      * 一刷收割机-过知识点：求广度、有个印象
-     * 今日学习内容：面试相关
+     * 今日学习内容：浏览器渲染+手写继承问题+和前辈聊了一下职业规划，前辈的实习建议-多阅读组内代码充实自身（未来面试好吹水~优化项目&封装hook的方法之类的）+手写instanceof+数据处理问题
      * 每日一题总结 & 今日总结
      */
 
@@ -575,20 +656,19 @@ Totally min
 // 22/1/2更：一道easy/medium如果在15/30min内没AC，马上把卡住的思路放在一边然后去看题解的正确思路，不要走偏！
 ```
 
+- [x] 补上昨天的手写代码
+- [x] CSS小册学习——看完浏览器，复习下回流重绘，学习下属性排序问题
+- [ ] 力扣每日一题
 - [ ] 每日基础知识学习
-  - [ ] HTML CSS 0.5
   - [ ] JS 1
   - [ ] 计网 0.5
   - [ ] 浏览器 0.5
   - [ ] 手写代码三个专题 一天一题+
-    - [ ] JS基础
-    - [ ] 数据处理
+    - [x] JS基础
+    - [x] 数据处理
     - [ ] 场景应用
   - [ ] React 0.5
-- [ ] 补上昨天的手写代码
-- [ ] CSS小册学习——看完浏览器
-- [ ] 力扣每日一题
-- [ ] 算法小册推进度 第九章 链表 又好好理解了下递归
+- [ ] 算法小册推进度 第九章 链表 双指针应用部分
 - [ ] 学习`mobx+react` & 结合项目+bug理解代码
 - [ ] `21:00` 健身+洗漱
 - [ ] `23:00` 每日睡前总结——刷题+工作内容+基础知识+明日展望
@@ -617,4 +697,12 @@ Totally min
 ### 昨日学习收获
 
 ### 今日学习收获
+
+- [Function.prototype.call() - JavaScript | MDN (mozilla.org)](https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Function/call)
+
+![image-20220206110440236](https://gitee.com/su-fangzhou/blog-image/raw/master/202202061104339.png)
+
+- [Function.prototype.apply() - JavaScript | MDN (mozilla.org)](https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Function/apply)
+
+![image-20220206110310147](https://gitee.com/su-fangzhou/blog-image/raw/master/202202061103269.png)
 
