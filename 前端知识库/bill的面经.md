@@ -1049,7 +1049,9 @@ function fb(n) {
 ‘a.b.c’ -> {a: {b: {c: null }}}
 ```
 
-> 下面的两个方法都是“拼接字符串”的思路 不可！
+> 下面的两个【1】【2】方法都是“拼接字符串”的思路 不可！
+>
+> 【3】是正解！
 >
 > > - `JSON.parse()` 方法用来解析JSON字符串，构造由字符串描述的JavaScript值或对象
 > >   - JSON字符串(String) （仅限JSON字符串哦）-> Object
@@ -1098,6 +1100,6 @@ const transform = function transformArrToObj() {
         return { [cur]: pre }
     }, {})
 }
-console.log(transform(arr));/{"a":{"b":{"c":{}}}}
+console.log(JSON.stringify(transform()));/{"a":{"b":{"c":{}}}}
 ```
 
