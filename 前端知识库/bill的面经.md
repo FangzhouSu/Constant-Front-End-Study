@@ -1080,7 +1080,7 @@ function fb(n) {
 
 
 
-# 北京京东科技 日常实习二面 21/12/23
+## 北京京东科技 日常实习二面 21/12/23
 
 > 激动的心 颤抖的手 终于拿到offer了！
 >
@@ -1088,7 +1088,7 @@ function fb(n) {
 
 > 总而言之这次面试还是更注重“我在学校做了什么”
 
-## 大学生活闲聊
+### 大学生活闲聊
 
 这部分面试官大大问了我几个有趣的问题——
 
@@ -1102,7 +1102,7 @@ function fb(n) {
 - 大学期间做过（计算机相关）最有成就感的一件事是什么？
   - 答的大二下的软基课设，基本上是自己一人独自完成了一个物流管理小项目
 
-## 一道简单的手写题
+### 一道简单的手写题
 
 ```js
 ‘a.b.c’ -> {a: {b: {c: null }}}
@@ -1162,4 +1162,315 @@ const transform = function transformArrToObj() {
 console.log(JSON.stringify(transform()));/{"a":{"b":{"c":{}}}}
 ```
 
-## 理想哥
+## 理想哥模拟一面
+
+### 对原型链、prototype、`__proto__`、constructor的理解
+
+![image](https://cdn.nlark.com/yuque/0/2021/png/1500604/1615475711487-c474af95-b5e0-4778-a90b-9484208d724d.png)
+
+- 原型链
+
+在JavaScript中是使用构造函数来新建一个对象的，**每一个构造函数的内部都有一个 prototype 属性**，它的属性值是一个对象，这个对象包含了可以由该构造函数的所有实例共享的属性和方法。当使用构造函数新建一个对象后，在这个对象的内部将包含一个指针，这个指针（也就是 `__proto__` ）指向构造函数的 prototype 属性对应的值。
+
+一般来说不应该能够获取到这个值（ `__proto__` ）的，虽然现在浏览器中都实现了属性来访问这个属性，但是最好不要使用这个属性，因为它不是规范中规定的。ES5 中新增了一个 `Object.getPrototypeOf()` 方法，可以通过这个方法来获取对象的原型。
+
+![image-20220215152949959](https://gitee.com/su-fangzhou/blog-image/raw/master/202202151530225.png)
+
+当访问一个对象的属性时，如果这个对象内部不存在这个属性，那么它就会去它的原型对象里找这个属性，这个原型对象又会有自己的原型对象，于是就这样一直找下去（直到尽头），也就是原型链的概念。原型链的尽头一般来说都是 `Object.prototype` 所以这就是新建的对象为什么能够使用 `toString()` 等方法的原因。
+
+
+
+**特点：**JavaScript 对象是**通过引用来传递的**，创建的每个新对象实体中并没有一份属于自己的原型副本。当修改原型时，与之相关的对象也会继承这一改变。
+
+- prototype
+
+给一个原型挂载方法
+
+- `__proto__`
+
+向上查找原型链中的方法
+
+- constructor
+
+查找显式原型对应的**构造函数**
+
+### `Object instanceof Function` `Function instanceof Object`
+
+> 重点：`instanceof` 的原理重要~
+
+- true
+
+`Function.prototype` 在 Object的原型链上！——这一点容易被忽略
+
+- true
+
+`Object.prototype` 在 Function的原型链上
+
+### new操作符具体做了什么 ==手写new==
+
+- 创建空对象obj
+- 将构造对象的prototype属性 赋给 实例对象——`obj.__proto__`
+- 将obj的this指向构造函数
+- 执行构造函数，将属性值付给新对象obj
+- 如果构造函数返回值不是对象的话 返回新对象obj 否则返回构造函数的返回值
+
+```js
+```
+
+### var let区别
+
+- let有暂时性死区 var没有
+- var有变量提升 let没有
+
+### 什么是闭包
+
+**闭包是指有权访问另一个函数作用域中变量的函数**，创建闭包的最常见的方式就是**在一个函数内创建另一个函数**，创建的函数可以访问到当前函数的局部变量。
+
+
+
+闭包有两个常用的用途；
+
+- 闭包的第一个用途是使我们**在函数外部能够访问到函数内部的变量**。通过使用闭包，可以通过在外部调用闭包函数，从而在外部访问到函数内部的变量，可以使用这种方法来创建私有变量。
+- 闭包的另一个用途是**使已经运行结束的函数上下文中的变量对象继续留在内存中**，因为闭包函数保留了这个变量对象的引用，所以这个变量对象不会被回收。
+
+
+
+比如，函数 A 内部有一个函数 B，**函数 B 可以访问到函数 A 中的变量，那么函数 B 就是闭包**。
+
+```javascript
+function A() {
+  let a = 1
+  window.B = function () {
+      console.log(a)
+  }
+}
+A()
+B() // 1
+```
+
+在 JS 中，闭包存在的意义就是让我们可以间接访问函数内部的变量。经典面试题：循环中使用闭包解决 var 定义函数的问题
+
+```javascript
+for (var i = 1; i <= 5; i++) {
+  setTimeout(function timer() {
+    console.log(i)
+  }, i * 1000)
+}
+```
+
+首先因为 `setTimeout` 是个异步函数，所以会先把循环全部执行完毕，这时候 `i` 就是 6 了，所以会输出一堆 6。解决办法有三种：
+
+- 第一种是使用闭包的方式
+
+```javascript
+for (var i = 1; i <= 5; i++) {
+  (function(j) {
+    setTimeout(function timer() {
+      console.log(j)
+    }, j * 1000)
+  })(i)
+}
+```
+
+在上述代码中，首先使用了立即执行函数将 `i` 传入函数内部，这个时候值就被固定在了参数 `j` 上面不会改变，当下次执行 `timer` 这个闭包的时候，就可以使用外部函数的变量 `j`，从而达到目的。
+
+- 第二种就是使用 `setTimeout` 的第三个参数，这个参数会被当成 `timer` 函数的参数传入。
+
+```javascript
+for (var i = 1; i <= 5; i++) {
+  setTimeout(
+    function timer(j) {
+      console.log(j)
+    },
+    i * 1000,
+    i
+  )
+}
+```
+
+- 第三种就是使用 `let` 定义 `i` 来解决问题了，这个也是最为推荐的方式
+
+```javascript
+for (let i = 1; i <= 5; i++) {
+  setTimeout(function timer() {
+    console.log(i)
+  }, i * 1000)
+}
+```
+
+#### 根据实际应用理解
+
+`setInterval`的周期性操作中使用`Usestate`钩子 会造成传递到`setInterval`闭包的回调只访问第一次呈现中的变量 在随后的周期性刷新中它无权访问新的变量
+
+```jsx
+function Clock() {
+      const [time, setTime] = React.useState(0);
+      React.useEffect(() => {
+        const timer = window.setInterval(() => {
+          setTime(prevTime => prevTime + 1);    <----this line was edited which makes the counter work according to the answer provided.
+        }, 1000);
+        return () => {
+          window.clearInterval(timer);
+        };
+      }, []);
+    
+      return (
+        <div>Seconds: {time}</div>
+      );
+    }
+    
+    ReactDOM.render(<Clock />, document.querySelector('#app'));
+```
+
+### 垃圾回收机制
+
+JavaScript代码运行时，需要分配内存空间来储存变量和值。当变量不再参与运行时，就需要系统收回被占用的内存空间，这就是垃圾回收。
+
+- （变量）标记清除机制
+  - 进入环境
+  - 离开环境
+- 引用计数（用的相对较少）
+  - 跟踪记录每个值被引用的次数
+
+### ES6新特性
+
+- let const
+- 
+
+### 尽量不用`setInterval`，去使用`setTimeout`
+
+线程不一定是空闲的
+
+[对于“不用setInterval，用setTimeout”的理解_weixin_34004750的博客-CSDN博客](https://blog.csdn.net/weixin_34004750/article/details/88960819)
+
+确保它被正常清除
+
+
+
+### 脚本加载问题
+
+如果没有 defer 或 async 属性，浏览器会立即加载并执行相应的脚本。它不会等待后续加载的文档元素，读取到就会开始加载和执行，这样就阻塞了后续文档的加载。
+
+下图可以直观的看出三者之间的区别:
+
+![image.png](https://cdn.nlark.com/yuque/0/2020/png/1500604/1603547262709-5029c4e4-42f5-4fd4-bcbb-c0e0e3a40f5a.png)
+
+其中蓝色代表 JS 脚本网络加载时间，红色代表 JS 脚本执行时间，绿色代表 html 解析。
+
+**defer 和 async 属性都是去异步加载外部的 JS 脚本文件，它们都不会阻塞页面的解析**，其区别如下：
+
+- **执行顺序**: 多个带 async 属性的标签，不能保证加载的顺序；多个带 defer 属性的标签，按照加载顺序执行；
+- **脚本是否并行执行：**async 属性，表示**后续文档的加载和执行与 js 脚本的加载和执行是并行进行的**，即异步执行；defer 属性，加载后续文档的过程和 JS 脚本的加载(此时仅加载不执行)是并行进行的(异步——新开了个线程去加载脚本)，JS 脚本需要等到文档所有元素解析完成之后才执行，`DOMContentLoaded` 事件触发执行之前。
+
+### `for in` `for of` 的区别
+
+
+
+### `defineProperty`属性-很有用
+
+
+
+### 解释 `requestAnimationFrame`/`requestIdleCallback`
+
+做动画的终极方案
+
+### `mouseOver` `mouseEnter`
+
+- `mouseOver`
+- `mouseEnter`
+
+
+
+### 浏览器的缓存策略
+
+- 强缓存
+
+
+
+- 协商缓存
+
+
+
+### `localStorage` `session`
+
+
+
+### 跨域
+
+
+
+### XSS CSRF
+
+- XSS 全称是 `Cross Site Scripting`(即**`跨站脚本`攻击**)，为了和 CSS 区分，故叫它`XSS`。XSS 攻击是指浏览器中执行恶意脚本(无论是跨域还是同域)，从而拿到用户的信息并进行操作。
+- CSRF(`Cross Site request forgery`), 即**跨站请求伪造**，指的是黑客诱导用户点击链接，打开黑客的网站，然后黑客利用用户**目前的登录状态**发起跨站请求。
+
+### 事件循环
+
+
+
+```js
+console.log(1); 1
+
+// 宏任务队列1
+setTimeout(() => {
+  console.log(2);
+  setTimeout(() => {
+  console.log(14);
+  new Promise((resolve, reject) => {
+    console.log(15);// 
+    resolve()
+  }).then(res => {
+   console.log(16);//
+   })
+}) 
+  new Promise((resolve, reject) => {
+  console.log(3);
+  resolve()
+  }).then(res => {
+  	console.log(4); 
+  })
+})
+
+new Promise((resolve, reject) => {
+  resolve()
+}).then(res => {
+  // 微任务
+  console.log(5);
+}).then(res => {
+  console.log(6);
+})
+
+new Promise((resolve, reject) => {
+  console.log(7); 2
+  resolve()
+}).then(res => {
+  // 微任务
+  console.log(8);
+}).then(res => {
+  console.log(9);
+})
+
+// 宏任务队列2
+setTimeout(() => {
+  console.log(10);
+  new Promise((resolve, reject) => {
+    console.log(11);
+    resolve()
+  }).then(res => {
+    console.log(12);
+  })
+})
+
+console.log(13); 3
+```
+
+
+
+```
+1 7 13
+5 8 6 9
+2 3 4
+10 11 12
+14 15 16
+```
+
