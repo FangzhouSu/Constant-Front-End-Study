@@ -1340,9 +1340,172 @@ Totally 480min
 - fiber对于流式更新的react虚拟DOM节点的意义 —— 更加高效地分片式更新 —— 不阻塞其他线程
   - 还需要再研究下 
 
-# 3.23 `00:00-:` 
+# 3.23 `00:30-8:40` 今天要早点回家早点睡~
 
 
+
+```js
+Totally 430min
+1.前端开发
+	1.1 日常工作 90+260min
+    /** 
+     * 多喝水多起来走走-身体第一；不犯重复的错误；平衡个人成长&工作产出（不机械地工作&不摸鱼）；提升工作效率；
+     */
+	1.2 自我成长 60min
+    /** 
+     * 1.计网 CSS JS 手写题学习 备战金三银四
+     * 2. 总结对应知识库 - 精读，建立知识体系
+     * 待完成👇
+     * 复习HTTP、浏览器、JS灵魂之问，总结对应知识库；学习node.js基础（后续学习实践使用那本node+react的小册）；看TS课程；阅读CSS小册；阅读react+redux相关书籍、文档；
+     */
+
+2.刷leetcode强化逻辑思维、对语言更加熟练 20min
+  /** 
+   * 每日一题
+   */
+```
+
+- [x] 准备美团&字节面试-focus前端基础&计算机网络&数据结构与算法
+  - [x] http知识复习
+  - [x] https知识复习
+- [x] lc每日一题 hard cv！
+- [x] 思考react中state中存储的内容、应用场景&导致页面重新render的几种场景
+- [x] 每日工作 工作提效！
+
+  - [x] 上午 review昨天的代码-封装的内容 探讨监听变量变化的那个生命周期 修复推荐引擎处的bug 修改细节
+  - [x] 下午 调2.2.2版本支持信息的接口 接新任务-独立开发页面
+
+## 1.实习日常
+
+### 今日工作内容
+
+- 封装组件 代码优化
+  - 表单相关数据获取
+
+- 推荐引擎样式优化、推荐引擎参数列表的渲染
+- React知识总结
+  - React中会导致页面重新**render**的几种场景
+    - state发生变化
+    - props发生变化
+
+## 2.日有所进
+
+### 今日学习收获
+
+- ![image-20220323183722691](https://gitee.com/su-fangzhou/blog-image/raw/master/202203231837843.png)
+
+# 3.24 `2:30-9:00` 令人焦虑的晚睡
+
+上班摸鱼面试得一天~
+
+```js
+Totally 540min
+1.前端开发
+	1.1 日常工作 80+60min
+    /** 
+     * 多喝水多起来走走-身体第一；不犯重复的错误；平衡个人成长&工作产出（不机械地工作&不摸鱼）；提升工作效率；
+     */
+	1.2 自我成长 20+180+50+30+120min
+    /** 
+     * 1.计网 CSS JS 手写题学习 备战金三银四
+     * 2. 总结对应知识库 - 精读，建立知识体系
+     * 待完成👇
+     * 复习HTTP、浏览器、JS灵魂之问，总结对应知识库；学习node.js基础（后续学习实践使用那本node+react的小册）；看TS课程；阅读CSS小册；阅读react+redux相关书籍、文档；
+     */
+
+2.刷leetcode强化逻辑思维、对语言更加熟练 min
+  /** 
+   * 每日一题
+   */
+```
+
+- [x] 准备美团&字节面试-focus前端基础&计算机网络&数据结构与算法
+  - [x] http、https知识复习
+  - [x] 从输入URL开始建立前端知识体系
+- [x] 字节一面 灵魂拷问计算机基础知识
+- [x] 每日工作 工作提效！
+
+  - [x] 改bug 简单写页面
+
+## 1.实习日常
+
+### 今日工作内容
+
+- 新页面的完成 封装组件 走起
+
+## 2.日有所进
+
+### 今日学习收获
+
+- 问题：跨域**需要我们处理 / 了解的内容**？webpack和一些基建的能力要求如何呢？低代码需要编译原理知识么？发请求的工具是啥 基于axios的封装？登录校验？
+
+- 作者：求给个offer然后980
+  链接：https://www.nowcoder.com/discuss/858107?source_id=profile_create_nctrack&channel=-1
+  来源：牛客网
+
+  
+
+  手写：解析 URL 参数为对象 
+
+  -  只有 key 的话设置为 key: true 
+  -  相同 key 的话用数组保存 
+  -  中文要解码 
+  -  能用数字表示的话就转成数字 
+
+  ```js
+  /**
+  let url = 'https://www.aaa.com?hhhqzh=ppptyp&id=1&id=2&city=%a%a%s&enable';
+  obj = {
+  	hhhqzh: ppptyp,
+  	id: [1, 2];
+  	city: '广州',
+  	enable: true
+  }
+  */
+  
+  function parseParam(url) {
+      const paramsStr = url.split('?')[1]; // 将 ？后面的字符串取出来
+      const paramsArr = paramsStr.split('&'); // 将字符串以 & 分割后存到数组
+      let paramsObj = {};
+      paramsArr.forEach((param) => {
+          // 处理有 value 的参数
+          if (param.indexOf('=') !== -1) {
+              let [key, val] = param.split('=');
+              val = decodeURIComponent(val); // 解码
+              val = /^\d+$/.test(val) ? parseFloat(val) : val; // 判断是否转为数字
+              if (paramsObj.hasOwnProperty(key)) {
+                  paramsObj[key] = [].concat(paramsObj[key], val);
+              } else {
+                  paramsObj[key] = val;
+              }
+          } else {
+              // 处理没有 value 的参数
+              paramsObj[param] = true;
+          }
+      })
+      return paramsObj;
+  }
+  ```
+
+- ```js
+  作者：求给个offer然后980
+  链接：https://www.nowcoder.com/discuss/854898?source_id=profile_create_nctrack&channel=-1
+  来源：牛客网
+  
+   new Promise((resolve, reject) => {
+       resolve(123);
+   }).then(data => {
+       console.log(data);
+   }).then(data => {   
+       console.log(data);
+   })
+  ```
+
+  ![image-20220324170825124](https://gitee.com/su-fangzhou/blog-image/raw/master/202203241708217.png)
+
+# 3.25 `2:30-9:00` 令人焦虑的晚睡。
+
+今天也是作息混乱得一天嘞~
 
 ```js
 Totally min
@@ -1367,17 +1530,15 @@ Totally min
 
 - [ ] 准备美团&字节面试-focus前端基础&计算机网络&数据结构与算法
   - [ ] JS经典问题（JS灵魂之问）
-  - [ ] this绑定的复习
-  - [ ] http知识复习
-  - [ ] https知识复习
+  - [ ] promise相关
+  - [ ] http、https知识复习
   - [ ] 从输入URL开始建立前端知识体系
   - [ ] 刷算法-数组、字符串、链表、二叉树、栈与队列；双指针、哈希表、DFS BFS、排序问题、简单dp、二分查找
 - [ ] lc每日一题
-- [ ] 思考react中state中存储的内容、应用场景&导致页面重新render的几种场景
 - [ ] 每日工作 工作提效！
 
-  - [ ] 上午 review昨天的代码-封装的内容 探讨监听变量变化的那个生命周期 修复推荐引擎处的bug 修改细节
-  - [ ] 下午
+  - [ ] 上午 用新架子把路由配好 文件夹建好 开始封装组件 进行开发
+  - [ ] 下午 调2.2.2版本支持信息的接口 接新任务-独立开发页面
 - [ ] `22:30` **睡前总结——工作内容+个人成长+明日展望**
   - [ ] 总结重要知识点进入知识库并进行更新
   - [ ] 提交日报的commit-可以带上今日主要收获
@@ -1387,14 +1548,13 @@ Totally min
 
 ### 今日工作内容
 
-- 推荐引擎样式优化、推荐引擎参数列表的渲染
+- 新页面的完成 封装组件 走起
+
 - React知识总结
   - **state**的使用场景、作用；什么状态放在state里 什么状态放在`useRef`里（不进行重新渲染）
-  - React中会导致页面重新**render**的几种场景
 
 ## 2.日有所进
 
 ### 今日学习收获
 
-- 跨域**需要我们处理 / 了解的内容**？webpack和一些基建的能力要求如何呢？低代码需要编译原理知识么？发请求的工具是啥 基于axios的封装？
-
+- 问题：跨域**需要我们处理 / 了解的内容**？webpack和一些基建的能力要求如何呢？低代码需要编译原理知识么？发请求的工具是啥 基于axios的封装？登录校验？mage-20220324170825124](https://gitee.com/su-fangzhou/blog-image/raw/master/202203241708217.png)
