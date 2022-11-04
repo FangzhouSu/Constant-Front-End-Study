@@ -1,6 +1,5 @@
-# 已经全体迁移至[语雀](https://www.yuque.com/u21204340/bmdfoe)
-
-在这里记录日报太重了。。换个地儿 降本增效～[doge]
+# 前端知识库已迁移至更好维护的[语雀](https://www.yuque.com/u21204340/preroy/ckicfg)
+# 日报使用滴答清单来记录 更加轻~
 
 # 🌞BillSu的学习日报与前端知识库🌞
 
