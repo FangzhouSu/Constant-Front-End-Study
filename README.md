@@ -1,5 +1,11 @@
 # 前端知识库已迁移至更好维护的[语雀](https://www.yuque.com/u21204340/preroy/ckicfg)
-# 日报使用滴答清单来记录 更加轻~
+
+
+# 日报使用Obisidian本地记录(配合icloud进行同步) 持续努力中!
+
+像这样👇🏻
+<img width="1316" alt="image" src="https://user-images.githubusercontent.com/75036021/224623889-539b28d0-15bb-409f-b676-180f8c7276f5.png">
+
 
 # 🌞BillSu的学习日报与前端知识库🌞
 
